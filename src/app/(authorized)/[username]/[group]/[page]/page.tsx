@@ -1,5 +1,5 @@
-function Page() {
-    return <div>Page</div>;
+function Page({ params }: { params: { page: string } }) {
+    return <div>{params.page}</div>;
 }
 
 export default Page;

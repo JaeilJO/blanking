@@ -1,5 +1,3 @@
-function Page() {
-    return <div>UserName</div>;
+export default function Page({ params }: { params: { username: string } }) {
+    return <div>{params.username}</div>;
 }
-
-export default Page;

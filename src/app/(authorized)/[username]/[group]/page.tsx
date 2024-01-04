@@ -1,5 +1,5 @@
-function Page() {
-    return <div>Group</div>;
+function Page({ params }: { params: { group: string } }) {
+    return <div>{params.group}</div>;
 }
 
 export default Page;
