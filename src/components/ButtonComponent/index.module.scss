@@ -1,0 +1,18 @@
+.button_example {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &.red {
+        background-color: red;
+    }
+
+    &.blue {
+        background-color: blue;
+    }
+}
