@@ -16,8 +16,13 @@ interface InputProps {
 function Input({ type }: InputProps) {
     const cn = classNames.bind(style);
     const [isValue, setIsValue] = useState(false);
+    const [isHide, setIsHide] = useState(false);
 
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const passwordHideHandler = useCallback(() => {
+        setIsHide(!isHide);
+    }, [isHide]);
 
     const onBlur = useCallback(() => {
         if (inputRef.current?.value) {
@@ -71,7 +76,8 @@ function Input({ type }: InputProps) {
                         has_value: isValue,
                     })}
                 >
-                    <input id="password" type="password" onBlur={onBlur} ref={inputRef} />
+                    <input id="password" type={isHide ? 'text' : 'password'} onBlur={onBlur} ref={inputRef} />
+                    <button onClick={passwordHideHandler}>{isHide ? <BsEyeSlash /> : <BsEye />}</button>
                 </div>
             </div>
         );
