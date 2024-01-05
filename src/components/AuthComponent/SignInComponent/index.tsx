@@ -9,7 +9,7 @@ function SignInComponent() {
             <AuthComponent.Form.FormWrapper>
                 <AuthComponent.Form.Input type="email" />
                 <AuthComponent.Form.Input type="password" />
-                <AuthComponent.Form.SubmitButton />
+                <AuthComponent.Form.SubmitButton value="Sign In" />
             </AuthComponent.Form.FormWrapper>
 
             <Link href={'#'}>비밀번호를 잊어버리셨나요?</Link>
