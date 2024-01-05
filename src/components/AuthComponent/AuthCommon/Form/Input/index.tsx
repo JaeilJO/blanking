@@ -11,10 +11,12 @@ import classNames from 'classnames/bind';
 
 interface InputProps {
     type: string;
+    register: (name: string) => { onChange: (e: React.ChangeEvent<HTMLInputElement>) => void };
 }
 
-function Input({ type }: InputProps) {
+function Input({ type, register }: InputProps) {
     const cn = classNames.bind(style);
+
     const [isValue, setIsValue] = useState(false);
     const [isHide, setIsHide] = useState(false);
 
@@ -37,7 +39,6 @@ function Input({ type }: InputProps) {
         return (
             <div className={style.input_wrapper}>
                 <label
-                    htmlFor="email"
                     className={cn({
                         input_title: true,
                         has_value: isValue,
@@ -52,7 +53,7 @@ function Input({ type }: InputProps) {
                         has_value: isValue,
                     })}
                 >
-                    <input id="email" type="email" onBlur={onBlur} ref={inputRef} />
+                    <input type="email" onBlur={onBlur} ref={inputRef} {...register('email')} />
                 </div>
             </div>
         );
@@ -78,7 +79,13 @@ function Input({ type }: InputProps) {
                         has_value: isValue,
                     })}
                 >
-                    <input id="password" type={isHide ? 'text' : 'password'} onBlur={onBlur} ref={inputRef} />
+                    <input
+                        id="password"
+                        type={isHide ? 'text' : 'password'}
+                        onBlur={onBlur}
+                        ref={inputRef}
+                        {...register('password')}
+                    />
                     <button className={style.hide_button} onClick={passwordHideHandler}>
                         {isHide ? <BsEyeSlash /> : <BsEye />}
                     </button>

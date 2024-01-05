@@ -8,15 +8,13 @@ import { register } from 'module';
 function SignInComponent() {
     const { defaultValues, register } = useForm();
 
+    console.log(defaultValues);
+
     return (
         <>
             <AuthComponent.Title title="Sign In" welcome_message="다시 찾아와 주셔서 감사합니다." />
 
-            <AuthComponent.Form.FormWrapper>
-                <AuthComponent.Form.Input type="email" />
-                <AuthComponent.Form.Input type="password" />
-                <AuthComponent.Form.SubmitButton value="Sign In" />
-            </AuthComponent.Form.FormWrapper>
+            <AuthComponent.Form />
 
             <Link href={'#'}>비밀번호를 잊어버리셨나요?</Link>
 
