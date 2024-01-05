@@ -49,12 +49,51 @@ function Input({ type }: InputProps) {
 
     if (type === 'password') {
         return (
-            <div>
-                <label htmlFor=""></label>
-                <input type="text" />
+            <div className={style.input_wrapper}>
+                <label
+                    htmlFor="password"
+                    className={cn({
+                        input_title: true,
+                        has_value: isValue,
+                    })}
+                >
+                    Password
+                </label>
+
+                <div
+                    className={cn({
+                        input_box: true,
+                        has_value: isValue,
+                    })}
+                >
+                    <input id="password" type="password" onBlur={onBlur} ref={inputRef} />
+                </div>
             </div>
         );
     }
+
+    return (
+        <div className={style.input_wrapper}>
+            <label
+                htmlFor={type}
+                className={cn({
+                    input_title: true,
+                    has_value: isValue,
+                })}
+            >
+                Password
+            </label>
+
+            <div
+                className={cn({
+                    input_box: true,
+                    has_value: isValue,
+                })}
+            >
+                <input id={type} type="text" onBlur={onBlur} ref={inputRef} />
+            </div>
+        </div>
+    );
 }
 
 export default Input;
