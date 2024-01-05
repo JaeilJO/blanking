@@ -1,0 +1,13 @@
+$background-top-bottom-padding: 50px;
+$background-height: calc(100dvh - ($background-top-bottom-padding * 2));
+
+.slide_wrapper {
+    width: 100%;
+    height: $background-height;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

@@ -1,0 +1,18 @@
+@use '@style/abstracts' as a;
+
+$navigation-padding-side: 20px;
+$navigation-width: 360px - $navigation-padding-side * 2;
+
+.main_wrapper {
+    display: flex;
+    width: 100dvw;
+    height: 100dvh;
+    justify-content: space-between;
+}
+
+.navigation_wrapper {
+    width: $navigation-width;
+    padding: 46px $navigation-padding-side;
+    background-color: a.$white-color;
+    box-shadow: a.$basic-shadow;
+}
