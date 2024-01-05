@@ -3,6 +3,8 @@
 .link_text {
     @include a.typhography('body-01-b');
 
+    text-align: center;
+
     color: a.$primary-color;
 
     &:hover {
