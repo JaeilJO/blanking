@@ -1,0 +1,6 @@
+@use '@style/abstracts' as a;
+
+.social_text {
+    @include a.typhography('body-01');
+    color: a.$gray-color;
+}
