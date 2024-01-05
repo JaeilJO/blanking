@@ -1,7 +1,10 @@
+@use 'abstracts' as a;
+
 html {
     font-size: 62.6%;
 }
 body {
+    background-color: a.$back-ground;
 }
 
 div,
