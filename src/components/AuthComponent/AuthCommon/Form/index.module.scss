@@ -1,0 +1,12 @@
+@use '@style/abstracts' as a;
+
+$form_wrapper_gap: 36px;
+
+.form_wrapper {
+    display: flex;
+    flex-direction: column;
+
+    gap: $form_wrapper_gap;
+
+    @include a.typhography('body-01');
+}

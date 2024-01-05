@@ -1,5 +1,39 @@
-html,
-body,
+@use '@style/abstracts' as a;
+
+html {
+    font-size: 62.6%;
+    box-sizing: border-box;
+}
+body {
+    background-color: a.$background-color;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: a.$text-color;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    &:focus {
+        outline: none;
+    }
+}
+a {
+    text-decoration: none;
+    color: black;
+}
 div,
 span,
 applet,
@@ -82,10 +116,9 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,

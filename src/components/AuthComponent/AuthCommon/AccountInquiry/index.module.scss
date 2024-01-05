@@ -1,0 +1,19 @@
+@use '@style/abstracts' as a;
+
+.account_inquiry_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    @include a.typhography('body-01');
+}
+
+.link_text {
+    @include a.typhography('body-01-b');
+
+    color: a.$primary-color;
+
+    &:hover {
+        color: a.$primary-hover-color;
+    }
+}

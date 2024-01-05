@@ -1,0 +1,21 @@
+@use '@style/abstracts' as a;
+
+.link_text {
+    @include a.typhography('body-01-b');
+
+    text-align: center;
+
+    color: a.$primary-color;
+
+    &:hover {
+        color: a.$primary-hover-color;
+    }
+}
+
+.auth_wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
