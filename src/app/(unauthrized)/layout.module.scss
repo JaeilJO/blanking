@@ -64,6 +64,9 @@ $auth_wrapper_min_width: 300px;
     max-width: $auth_wrapper_max_width;
     min-width: $auth_wrapper_min_width;
 
+    background-color: a.$white-color;
+    border-radius: 4px;
+
     @include a.media-query('small') {
         width: 100%;
         padding: $auth_wrapper_padding;
