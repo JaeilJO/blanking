@@ -10,8 +10,8 @@ import style from './index.module.scss';
 import classNames from 'classnames/bind';
 
 interface InputProps {
-    type: string;
-    register: (name: string) => { onChange: (e: React.ChangeEvent<HTMLInputElement>) => void };
+    type: 'E-mail' | 'Password' | 'Name';
+    register: (name: string) => (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 function Input({ type, register }: InputProps) {
@@ -34,77 +34,15 @@ function Input({ type, register }: InputProps) {
         }
     }, [isValue]);
 
-    //Eamil
-    if (type === 'email') {
-        return (
-            <div className={style.input_wrapper}>
-                <label
-                    className={cn({
-                        input_title: true,
-                        has_value: isValue,
-                    })}
-                >
-                    E-mail
-                </label>
-
-                <div
-                    className={cn({
-                        input_box: true,
-                        has_value: isValue,
-                    })}
-                >
-                    <input type="email" onBlur={onBlur} ref={inputRef} {...register('email')} />
-                </div>
-            </div>
-        );
-    }
-
-    //Password
-    if (type === 'password') {
-        return (
-            <div className={style.input_wrapper}>
-                <label
-                    htmlFor="password"
-                    className={cn({
-                        input_title: true,
-                        has_value: isValue,
-                    })}
-                >
-                    Password
-                </label>
-
-                <div
-                    className={cn({
-                        input_box: true,
-                        has_value: isValue,
-                    })}
-                >
-                    <input
-                        id="password"
-                        type={isHide ? 'text' : 'password'}
-                        onBlur={onBlur}
-                        ref={inputRef}
-                        {...register('password')}
-                    />
-                    <button className={style.hide_button} onClick={passwordHideHandler}>
-                        {isHide ? <BsEyeSlash /> : <BsEye />}
-                    </button>
-                </div>
-            </div>
-        );
-    }
-
-    //그 외
     return (
         <div className={style.input_wrapper}>
             <label
-                htmlFor={type}
                 className={cn({
                     input_title: true,
                     has_value: isValue,
                 })}
             >
-                Password
+                {type}
             </label>
 
             <div
@@ -113,7 +51,25 @@ function Input({ type, register }: InputProps) {
                     has_value: isValue,
                 })}
             >
-                <input id={type} type="text" onBlur={onBlur} ref={inputRef} />
+                {type === 'Password' && (
+                    <>
+                        <input
+                            id="password"
+                            type={isHide ? 'text' : 'password'}
+                            onBlur={onBlur}
+                            ref={inputRef}
+                            required
+                            {...register('password')}
+                        />
+                        <button className={style.hide_button} onClick={passwordHideHandler}>
+                            {isHide ? <BsEyeSlash /> : <BsEye />}
+                        </button>
+                    </>
+                )}
+                {type === 'E-mail' && (
+                    <input type="email" onBlur={onBlur} required ref={inputRef} {...register('email')} />
+                )}
+                {type === 'Name' && <input type="text" onBlur={onBlur} required ref={inputRef} />}
             </div>
         </div>
     );
