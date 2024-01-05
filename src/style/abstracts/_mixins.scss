@@ -3,7 +3,7 @@ $break-points: (
     'small': 320px,
     'middle': 768px,
     'large': 1100px,
-    'very-large': 1500px,
+    'very-large': 1600px,
 );
 
 @mixin media-query($name) {
