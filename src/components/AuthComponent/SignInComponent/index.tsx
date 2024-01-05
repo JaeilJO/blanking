@@ -6,7 +6,7 @@ const socials = ['google'];
 
 function SignInComponent() {
     return (
-        <>
+        <div className={style.auth_wrapper}>
             <AuthComponent.Title title="Sign In" welcome_message="다시 찾아와 주셔서 감사합니다." />
 
             <AuthComponent.Form formType="signin" />
@@ -18,7 +18,7 @@ function SignInComponent() {
             <AuthComponent.Social socials={socials} />
 
             <AuthComponent.AccountInquery authType={'sign in'} />
-        </>
+        </div>
     );
 }
 
