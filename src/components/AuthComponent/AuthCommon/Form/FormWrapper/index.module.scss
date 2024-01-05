@@ -4,7 +4,8 @@ $form_wrapper_gap: 36px;
 .form_wrapper {
     display: flex;
     flex-direction: column;
-    background-color: red;
+
     gap: $form_wrapper_gap;
+
     @include a.typhography('body-01');
 }

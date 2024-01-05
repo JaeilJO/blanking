@@ -1,0 +1,43 @@
+@use '@style/abstracts' as a;
+
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input_title {
+    color: a.$text-color;
+    &.has_value {
+        color: a.$primary-color;
+        @include a.typhography('body-01-b');
+    }
+}
+
+.input_box {
+    display: flex;
+    justify-content: space-between;
+
+    width: calc(100% - 1px);
+    height: calc(64px - 1px);
+    padding: 1px;
+
+    border: 1px solid a.$light-gray-color;
+    border-radius: 4px;
+
+    &.has_value {
+        border: 1px solid a.$primary-color;
+    }
+
+    input {
+        width: calc(100% - 24px);
+        height: calc(100% - 40px);
+        padding: 20px 12px;
+
+        @include a.typhography('body-01');
+    }
+    &:focus-within {
+        border: 1px solid a.$primary-color;
+        box-shadow: a.$basic-shadow;
+    }
+}

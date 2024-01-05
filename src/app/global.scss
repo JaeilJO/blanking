@@ -2,6 +2,7 @@
 
 html {
     font-size: 62.6%;
+    box-sizing: border-box;
 }
 body {
     background-color: a.$back-ground-color;
@@ -9,6 +10,15 @@ body {
     padding: 0;
     border: 0;
     color: a.$text-color;
+}
+
+input {
+    margin: 0;
+    padding: 0;
+    border: none;
+    &:focus {
+        outline: none;
+    }
 }
 
 div,
