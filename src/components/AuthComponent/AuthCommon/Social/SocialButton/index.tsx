@@ -6,7 +6,7 @@ import { BsGoogle } from 'react-icons/bs';
 import classNames from 'classnames/bind';
 
 interface SocialButtonProps {
-    socialType: 'google';
+    socialType: string;
 }
 
 const cn = classNames.bind(style);

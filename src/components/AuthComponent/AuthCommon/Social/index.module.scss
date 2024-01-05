@@ -4,3 +4,10 @@
     @include a.typhography('body-01');
     color: a.$gray-color;
 }
+
+.social_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+}

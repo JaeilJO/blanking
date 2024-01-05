@@ -3,6 +3,8 @@ import style from './index.module.scss';
 import { AuthComponent } from '../AuthCommon';
 import Social from '../AuthCommon/Social';
 
+const socials = ['google'];
+
 function SignInComponent() {
     return (
         <>
@@ -14,7 +16,7 @@ function SignInComponent() {
                 비밀번호를 잊어버리셨나요?
             </Link>
 
-            <Social />
+            <Social socials={socials} />
 
             <div>
                 <span>계정이 없으신가요?</span>
