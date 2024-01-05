@@ -11,7 +11,7 @@ import classNames from 'classnames/bind';
 
 interface InputProps {
     type: 'E-mail' | 'Password' | 'Name';
-    register: (name: string) => (e: React.ChangeEvent<HTMLInputElement>) => void;
+    register: (name: string) => { onChange: (e: React.ChangeEvent<HTMLInputElement>) => void };
 }
 
 function Input({ type, register }: InputProps) {
