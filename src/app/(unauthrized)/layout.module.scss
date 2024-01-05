@@ -11,7 +11,7 @@ $slide_intro_wrapper_max_width: 1100px;
 $slide_intro_wrapper_min_width: 400px;
 
 $auth_wrapper_width: 100%;
-$auth_wrapper_padding: 10px;
+$auth_wrapper_padding: 40px 44px;
 $auth_wrapper_max_width: 500px;
 $auth_wrapper_min_width: 300px;
 
@@ -64,11 +64,14 @@ $auth_wrapper_min_width: 300px;
     max-width: $auth_wrapper_max_width;
     min-width: $auth_wrapper_min_width;
 
+    padding: $auth_wrapper_padding;
+
     background-color: a.$white-color;
     border-radius: 4px;
 
+    box-shadow: a.$basic-shadow;
+
     @include a.media-query('small') {
         width: 100%;
-        padding: $auth_wrapper_padding;
     }
 }
