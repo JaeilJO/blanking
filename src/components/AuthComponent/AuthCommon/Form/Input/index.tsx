@@ -32,6 +32,7 @@ function Input({ type }: InputProps) {
         }
     }, [isValue]);
 
+    //Eamil
     if (type === 'email') {
         return (
             <div className={style.input_wrapper}>
@@ -57,6 +58,7 @@ function Input({ type }: InputProps) {
         );
     }
 
+    //Password
     if (type === 'password') {
         return (
             <div className={style.input_wrapper}>
@@ -85,6 +87,7 @@ function Input({ type }: InputProps) {
         );
     }
 
+    //그 외
     return (
         <div className={style.input_wrapper}>
             <label
