@@ -1,7 +1,12 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
+
+import { BsEye } from 'react-icons/bs';
+import { BsEyeSlash } from 'react-icons/bs';
+
 import style from './index.module.scss';
+
 import classNames from 'classnames/bind';
 
 interface InputProps {
