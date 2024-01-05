@@ -1,8 +1,7 @@
 import Link from 'next/link';
 import style from './index.module.scss';
 import { AuthComponent } from '../AuthCommon';
-
-const socials = ['google'];
+import social_login_list from '@/utils/socialLoginList';
 
 function SignInComponent() {
     return (
@@ -15,7 +14,7 @@ function SignInComponent() {
                 비밀번호를 잊어버리셨나요?
             </Link>
 
-            <AuthComponent.Social socials={socials} />
+            <AuthComponent.Social socials={social_login_list} />
 
             <AuthComponent.AccountInquery authType={'signin'} />
         </div>
