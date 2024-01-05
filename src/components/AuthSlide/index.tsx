@@ -1,10 +1,11 @@
+import { SlideItems } from './SlideItems';
 import style from './index.module.scss';
 function AuthSlide() {
     return (
-        <ul className={style.ul}>
-            <li className={style.li}>Hello</li>
-            <li className={style.li}>Hello</li>
-            <li className={style.li}>Hello</li>
+        <ul className={style.slide_wrapper}>
+            <SlideItems.Logo />
+            <SlideItems.Example />
+            <SlideItems.Contect />
         </ul>
     );
 }

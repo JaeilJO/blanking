@@ -1,7 +1,7 @@
 $background-top-bottom-padding: 50px;
 $background-height: calc(100dvh - ($background-top-bottom-padding * 2));
 
-.ul {
+.slide_wrapper {
     width: 100%;
     height: $background-height;
     scroll-snap-type: y mandatory;
@@ -10,11 +10,4 @@ $background-height: calc(100dvh - ($background-top-bottom-padding * 2));
     &::-webkit-scrollbar {
         display: none;
     }
-}
-
-.li {
-    background-color: burlywood;
-    height: $background-height;
-    border: 1px solid black;
-    scroll-snap-align: start;
 }
