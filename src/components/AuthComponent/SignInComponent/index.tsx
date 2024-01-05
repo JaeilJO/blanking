@@ -1,7 +1,13 @@
+'use client';
+
 import Link from 'next/link';
 import { AuthComponent } from '../AuthCommon';
+import useForm from '@/hooks/useForm';
+import { register } from 'module';
 
 function SignInComponent() {
+    const { defaultValues, register } = useForm();
+
     return (
         <>
             <AuthComponent.Title title="Sign In" welcome_message="다시 찾아와 주셔서 감사합니다." />
