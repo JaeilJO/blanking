@@ -17,7 +17,7 @@ function SignInComponent() {
 
             <AuthComponent.Social socials={socials} />
 
-            <AuthComponent.AccountInquery authType={'sign in'} />
+            <AuthComponent.AccountInquery authType={'signin'} />
         </div>
     );
 }

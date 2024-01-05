@@ -12,7 +12,7 @@ function SignUpComponent() {
 
             <AuthComponent.Social socials={socials} />
 
-            <AuthComponent.AccountInquery authType={'sign up'} />
+            <AuthComponent.AccountInquery authType={'signup'} />
         </div>
     );
 }

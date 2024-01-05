@@ -19,8 +19,10 @@ function Form({ formType }: FormProps) {
 
     return (
         <form className={style.form_wrapper} onSubmit={onSubmit}>
+            {formType === 'signup' && <Input type="Name" register={register} />}
             <Input type="E-mail" register={register} />
             <Input type="Password" register={register} />
+
             <SubmitButton value={formType === 'signin' ? 'Sign In' : 'Sign Up'} />
         </form>
     );

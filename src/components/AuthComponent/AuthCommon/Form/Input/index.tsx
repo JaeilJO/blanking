@@ -69,7 +69,7 @@ function Input({ type, register }: InputProps) {
                 {type === 'E-mail' && (
                     <input type="email" onBlur={onBlur} required ref={inputRef} {...register('email')} />
                 )}
-                {type === 'Name' && <input type="text" onBlur={onBlur} required ref={inputRef} />}
+                {type === 'Name' && <input type="text" onBlur={onBlur} required ref={inputRef} {...register('name')} />}
             </div>
         </div>
     );
