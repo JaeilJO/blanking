@@ -77,7 +77,9 @@ function Input({ type }: InputProps) {
                     })}
                 >
                     <input id="password" type={isHide ? 'text' : 'password'} onBlur={onBlur} ref={inputRef} />
-                    <button onClick={passwordHideHandler}>{isHide ? <BsEyeSlash /> : <BsEye />}</button>
+                    <button className={style.hide_button} onClick={passwordHideHandler}>
+                        {isHide ? <BsEyeSlash /> : <BsEye />}
+                    </button>
                 </div>
             </div>
         );
