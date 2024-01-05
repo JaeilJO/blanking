@@ -1,0 +1,15 @@
+@use '@style/abstracts' as a;
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid a.$light-gray-color;
+}
+
+.title {
+    @include a.typhography('sub-02');
+}
