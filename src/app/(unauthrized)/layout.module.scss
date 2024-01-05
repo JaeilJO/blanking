@@ -1,10 +1,10 @@
 @use '@style/abstracts' as a;
 
 $background-top-bottom-padding: 50px;
-$back-groupd-side-padding: 100px;
+$backgroupd-side-padding: 100px;
 
 $background-max-width: 1600px;
-$background-width: calc(100dvw - ($back-groupd-side-padding * 2));
+$background-width: calc(100dvw - ($backgroupd-side-padding * 2));
 $background-height: calc(100dvh - ($background-top-bottom-padding * 2));
 
 $slide_intro_wrapper_max_width: 1100px;
@@ -35,7 +35,7 @@ $auth_wrapper_min_width: 300px;
         background-color: orange;
         width: $background-width;
         height: $background-height;
-        padding: $background-top-bottom-padding $back-groupd-side-padding;
+        padding: $background-top-bottom-padding $backgroupd-side-padding;
     }
 
     @include a.media-query('large') {
