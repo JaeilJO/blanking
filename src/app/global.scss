@@ -1,10 +1,13 @@
-@use 'abstracts' as a;
+@use '@style/abstracts' as a;
 
 html {
     font-size: 62.6%;
 }
 body {
-    background-color: a.$back-ground;
+    background-color: a.$back-ground-color;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 div,
@@ -89,10 +92,9 @@ video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
