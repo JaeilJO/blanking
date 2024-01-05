@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import style from './index.module.scss';
 import { AuthComponent } from '../AuthCommon';
 
 function SignInComponent() {
@@ -8,7 +9,9 @@ function SignInComponent() {
 
             <AuthComponent.Form formType="signin" />
 
-            <Link href={'#'}>비밀번호를 잊어버리셨나요?</Link>
+            <Link className={style.link_text} href={'#'}>
+                비밀번호를 잊어버리셨나요?
+            </Link>
 
             <div>
                 <div>소셜 계정으로 시작하기</div>
@@ -17,7 +20,9 @@ function SignInComponent() {
 
             <div>
                 <span>계정이 없으신가요?</span>
-                <Link href={'/sign up'}>Sign up!</Link>
+                <Link className={style.link_text} href={'/signup'}>
+                    Sign up!
+                </Link>
             </div>
         </>
     );
