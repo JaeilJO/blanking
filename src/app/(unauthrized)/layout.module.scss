@@ -27,26 +27,19 @@ $auth_wrapper_min_width: 300px;
     display: flex;
     justify-content: center;
 
-    @include a.media-query('small') {
-        background-color: green;
-    }
-
     @include a.media-query('middle') {
-        background-color: orange;
         width: $background-width;
         height: $background-height;
         padding: $background-top-bottom-padding $backgroupd-side-padding;
     }
 
     @include a.media-query('large') {
-        background-color: blue;
         height: $background-height;
         padding: $background-top-bottom-padding 0px;
     }
 }
 
 .slide_intro_wrapper {
-    background-color: aliceblue;
     max-width: 1100px;
     min-width: 400px;
     width: 100%;
