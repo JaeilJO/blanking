@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import { basic_mock } from '@/mock/basic';
 import style from './page.module.scss';
 import NoGroup from '@/components/NoGroup';
-import GroupTable from '@/components/GroupTable';
+import GroupTable from '@/components/PageTable';
 
 export default async function Page({ params }: { params: { username: string } }) {
     const user = basic_mock;
