@@ -4,7 +4,7 @@ export const basic_mock = {
     email: 'mock@mock.com',
     groups: [
         {
-            groupName: 'mockGroup1',
+            groupname: 'mockGroup1',
             pages: [
                 {
                     pagename: 'mockPage1',
@@ -67,6 +67,6 @@ export const basic_mock = {
                 },
             ],
         },
-        { groupName: 'NoPageMock' },
+        { groupname: 'NoPageMock' },
     ],
 };
