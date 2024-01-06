@@ -17,6 +17,8 @@ const cn = classNames.bind(style);
 function GroupCategory({ groups, username }: GroupCategoryProps) {
     const params = useParams();
 
+    const current_group_name = decodeURIComponent(params.group as string);
+
     return (
         <ul className={style.group_category_wrapper}>
             {groups.map((group: any) => (
@@ -26,7 +28,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                             href={`/${username}/${group.groupname}`}
                             className={cn({
                                 group_title: true,
-                                current: params.group === group.groupname,
+                                current: current_group_name === group.groupname,
                             })}
                         >
                             {group.groupname}
@@ -34,7 +36,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                         <span
                             className={cn({
                                 group_title_icon: true,
-                                current: params.group === group.groupname,
+                                current: current_group_name === group.groupname,
                             })}
                         >
                             <BsFillCaretLeftFill />

@@ -3,6 +3,7 @@ export const basic_mock = {
     name: 'mock',
     email: 'mock@mock.com',
     groups: [
+        { groupname: '띄어 쓰기 테스트' },
         {
             groupname: 'mockGroup1',
             pages: [
