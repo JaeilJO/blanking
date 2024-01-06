@@ -1,7 +1,7 @@
 @use '@style/abstracts' as a;
 
 .page_table_wrapper {
-    height: calc(100dvh - 58px);
+    height: calc(100dvh - (58px * 2));
     padding: 58px 80px 58px 80px;
 
     &::-webkit-scrollbar {
