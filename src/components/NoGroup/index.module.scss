@@ -16,3 +16,10 @@
 .title {
     @include a.typhography('tit-01');
 }
+
+.subscribe {
+    @include a.typhography('body-02-b');
+    b {
+        color: a.$primary-color;
+    }
+}
