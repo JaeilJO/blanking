@@ -1,0 +1,15 @@
+@use '@style/abstracts' as a;
+
+.page_table_wrapper {
+    height: calc(100dvh - (58px * 2));
+    padding: 58px 80px 58px 80px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.title {
+    @include a.typhography('tit-01');
+    margin-bottom: 34px;
+}

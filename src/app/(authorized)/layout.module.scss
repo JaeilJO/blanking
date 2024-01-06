@@ -3,21 +3,25 @@
 $navigation-padding-side: 20px;
 $navigation-width: 360px - $navigation-padding-side * 2;
 
-.main_wrapper {
-    display: flex;
-    width: 100dvw;
-    height: 100dvh;
-    justify-content: space-between;
-}
-
 .navigation_wrapper {
+    position: fixed;
+    z-index: 9999;
     width: $navigation-width;
+    height: calc(100dvh - 60px - 20px);
     padding: 46px $navigation-padding-side;
+
     background-color: a.$white-color;
     box-shadow: a.$basic-shadow;
 }
 
 .content_wrapper {
-    width: 100%;
-    height: 100dvh;
+    position: relative;
+    height: 100%;
+
+    @include a.media-query('small') {
+        margin-left: 0;
+    }
+    @include a.media-query('middle') {
+        margin-left: 360px;
+    }
 }
