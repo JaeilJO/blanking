@@ -11,6 +11,7 @@
     @include a.typhography('sub-02');
     border-radius: 4px;
     display: block;
+    padding: 4px;
 
     &.current {
         color: a.$primary-color;
