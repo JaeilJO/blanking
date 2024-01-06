@@ -6,7 +6,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     const user = basic_mock;
 
     return (
-        <div className={style.main_wrapper}>
+        <div>
             <nav className={style.navigation_wrapper}>
                 <Navigation username={user.name} groups={user.groups} />
             </nav>

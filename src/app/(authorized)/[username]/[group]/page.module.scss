@@ -2,10 +2,8 @@
 
 .page_table_wrapper {
     height: calc(100dvh - 58px);
-    padding-top: 58px;
-    padding-left: 80px;
-    padding-right: 80px;
-    overflow-y: scroll;
+    padding: 58px 80px 58px 80px;
+
     &::-webkit-scrollbar {
         display: none;
     }
