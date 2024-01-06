@@ -7,11 +7,31 @@
     @include a.typhography('body-01');
 }
 
+.group_title_wrapper {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.group_title_icon {
+    justify-content: center;
+    color: a.$primary-color;
+    display: none;
+    @include a.typhography('body-02');
+
+    &.current {
+        display: flex;
+    }
+}
+
 .group_title {
     @include a.typhography('sub-02');
+    position: relative;
     border-radius: 4px;
     display: block;
     padding: 4px;
+    left: 0;
+    transition: left 0.25s;
 
     &.current {
         color: a.$primary-color;
@@ -19,6 +39,6 @@
     }
 
     &:hover {
-        background-color: a.$light-gray-color;
+        left: 5px;
     }
 }
