@@ -10,7 +10,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             <nav className={style.navigation_wrapper}>
                 <Navigation username={user.name} groups={user.groups} />
             </nav>
-            <main>{children}</main>
+            <main className={style.content_wrapper}>{children}</main>
         </div>
     );
 }
