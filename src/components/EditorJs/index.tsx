@@ -8,7 +8,7 @@ import style from './index.module.scss';
 import { EDITOR_JS_TOOLS } from '@/utils/editorjstools';
 
 function EditorJs({ data }: { data?: any }) {
-    const ref = useRef(null);
+    const ref = useRef<any>(null);
 
     useEffect(() => {
         if (!ref.current) {

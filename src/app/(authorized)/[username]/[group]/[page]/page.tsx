@@ -2,7 +2,14 @@ import EditorJs from '@/components/EditorJs';
 import { basic_mock } from '@/mock/basic';
 import style from './page.module.scss';
 
-function Page({ params }: { params: { page: string } }) {
+interface PageProps {
+    params: {
+        page: string;
+        group: string;
+    };
+}
+
+function Page({ params }: PageProps) {
     const user = basic_mock;
 
     const page_name = decodeURIComponent(params.page as string);
