@@ -1,0 +1,14 @@
+@use '@style/abstracts' as a;
+
+.page_wrapper {
+    height: calc(100dvh - (58px * 2));
+    padding: 58px 80px 58px 80px;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.page_title {
+    @include a.typhography('tit-01');
+}
