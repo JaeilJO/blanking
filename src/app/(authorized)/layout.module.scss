@@ -12,12 +12,20 @@ $navigation-width: 360px - $navigation-padding-side * 2;
 
 .navigation_wrapper {
     width: $navigation-width;
+    height: 100dvh;
     padding: 46px $navigation-padding-side;
+
     background-color: a.$white-color;
     box-shadow: a.$basic-shadow;
+    position: fixed;
 }
 
 .content_wrapper {
     width: 100%;
+    position: relative;
+    max-width: calc(100dvw - 360px);
+
+    margin-left: 360px + $navigation-padding-side;
+
     height: 100dvh;
 }

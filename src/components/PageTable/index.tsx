@@ -8,7 +8,9 @@ import { useParams } from 'next/navigation';
 
 function PageTable({ pages }: { pages: any }) {
     const param = useParams();
+
     console.log(param);
+
     return (
         <ul className={style.page_contatiner}>
             {pages?.map((page: any) => (
