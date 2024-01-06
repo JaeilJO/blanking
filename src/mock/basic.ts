@@ -35,18 +35,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -100,18 +89,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -159,18 +137,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -218,18 +185,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -277,18 +233,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -336,18 +281,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -395,18 +329,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -454,18 +377,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -513,18 +425,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',
@@ -572,18 +473,7 @@ export const basic_mock = {
                                     level: 3,
                                 },
                             },
-                            {
-                                id: 'XV87kJS_H1',
-                                type: 'list',
-                                data: {
-                                    style: 'unordered',
-                                    items: [
-                                        'It is a block-styled editor',
-                                        'It returns clean data output in JSON',
-                                        'Designed to be extendable and pluggable with a simple API',
-                                    ],
-                                },
-                            },
+
                             {
                                 id: 'AOulAjL8XM',
                                 type: 'header',

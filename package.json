@@ -11,6 +11,9 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.28.2",
+    "@editorjs/header": "^2.8.1",
+    "@types/editorjs__header": "^2.6.3",
     "classnames": "^2.5.1",
     "next": "14.0.4",
     "react": "^18",

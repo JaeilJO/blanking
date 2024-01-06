@@ -1,0 +1,11 @@
+@use '@style/abstracts' as a;
+
+.editor {
+    width: 100dvw;
+    height: 100%;
+    @include a.typhography('body-01');
+    max-width: 100%;
+}
+.cdx-block {
+    max-width: 100% !important;
+}
