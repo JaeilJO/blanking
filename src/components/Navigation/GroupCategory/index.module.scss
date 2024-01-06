@@ -8,5 +8,16 @@
 }
 
 .group_title {
-    @include a.typhography('body-01-b');
+    @include a.typhography('sub-02');
+    border-radius: 4px;
+    display: block;
+
+    &.current {
+        color: a.$primary-color;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: a.$light-gray-color;
+    }
 }

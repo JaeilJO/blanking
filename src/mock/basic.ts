@@ -7,7 +7,7 @@ export const basic_mock = {
             groupName: 'mockGroup1',
             pages: [
                 {
-                    pageName: 'mockPage1',
+                    pagename: 'mockPage1',
                     content: {
                         time: 1550476186479,
                         blocks: [
