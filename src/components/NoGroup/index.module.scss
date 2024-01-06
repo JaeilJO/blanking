@@ -1,0 +1,25 @@
+@use '@style/abstracts' as a;
+
+.nogroup_content_wrapper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.title {
+    @include a.typhography('tit-01');
+}
+
+.subscribe {
+    @include a.typhography('body-02-b');
+    b {
+        color: a.$primary-color;
+    }
+}
