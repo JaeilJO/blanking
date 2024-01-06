@@ -7,6 +7,45 @@
     @include a.typhography('body-01');
 }
 
+.no_page {
+    @include a.typhography('body-02');
+    color: a.$gray-color;
+    margin-left: 12px;
+    padding: 4px;
+}
+
+.group_title_wrapper {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.group_title_icon {
+    justify-content: center;
+    color: a.$primary-color;
+    display: none;
+    @include a.typhography('body-02');
+
+    &.current {
+        display: flex;
+    }
+}
+
 .group_title {
-    @include a.typhography('body-01-b');
+    @include a.typhography('sub-02');
+    position: relative;
+    border-radius: 4px;
+    display: block;
+    padding: 4px;
+    left: 0;
+    transition: left 0.25s;
+
+    &.current {
+        color: a.$primary-color;
+        pointer-events: none;
+    }
+
+    &:hover {
+        left: 5px;
+    }
 }
