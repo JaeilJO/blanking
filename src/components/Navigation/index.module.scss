@@ -1,13 +1,5 @@
 @use '@style/abstracts' as a;
 
-.category_wrapper {
-    height: 100%;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-}
-
 .navigation {
     position: relative;
     display: flex;
@@ -15,6 +7,14 @@
     justify-content: space-between;
     gap: 24px;
     height: 100%;
+}
+
+.category_wrapper {
+    height: 100%;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .line {
@@ -53,4 +53,18 @@
     @include a.typhography('tit-03');
     justify-content: center;
     align-items: center;
+}
+
+.close_button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    border-radius: 4px;
+
+    top: -30px;
+    border: 1px solid;
+    right: 0;
+    @include a.typhography('sub-02');
 }
