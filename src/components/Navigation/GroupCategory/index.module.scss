@@ -7,6 +7,13 @@
     @include a.typhography('body-01');
 }
 
+.no_page {
+    @include a.typhography('body-02');
+    color: a.$gray-color;
+    margin-left: 12px;
+    padding: 4px;
+}
+
 .group_title_wrapper {
     display: flex;
     gap: 4px;
