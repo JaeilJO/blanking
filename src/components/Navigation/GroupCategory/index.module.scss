@@ -7,7 +7,7 @@
     @include a.typhography('body-01');
 }
 
-.a .no_page {
+.no_page {
     @include a.typhography('body-02');
     color: a.$gray-color;
     margin-left: 12px;
