@@ -14,11 +14,18 @@
     border: 1px solid a.$gray-color;
     background-color: a.$white-color;
     font-size: 100px;
-    color: a.$gray-color;
+    color: a.$light-gray-color;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    transition: (box-shadow, color) 0.25s ease-in-out;
+
+    &:hover {
+        box-shadow: a.$hover_shadow;
+        color: a.$gray-color;
+    }
 }
 
 .group_maker_submit {

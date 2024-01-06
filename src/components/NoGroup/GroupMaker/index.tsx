@@ -9,7 +9,12 @@ function GroupMaker() {
             </label>
 
             <input id="group_maker_submit" className={style.group_maker_submit} type="submit" />
-            <input type="text" className={style.group_maker_text_input} placeholder="Group 이름을 입력해주세요" />
+            <input
+                required
+                type="text"
+                className={style.group_maker_text_input}
+                placeholder="Group 이름을 입력해주세요"
+            />
         </form>
     );
 }
