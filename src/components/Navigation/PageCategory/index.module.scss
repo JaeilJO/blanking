@@ -3,17 +3,20 @@
 .page_category_wrapper {
     display: flex;
     flex-direction: column;
+    gap: 4px;
 
     overflow: hidden;
-    gap: 4px;
 }
 
 .page_title {
     display: block;
-    padding: 4px;
-    margin-left: 12px;
+
+    padding: a.$pageName-padding;
+
+    margin-left: a.$pageName-margin-left;
 
     border-radius: 4px;
+
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

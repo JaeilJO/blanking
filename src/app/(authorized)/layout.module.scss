@@ -1,14 +1,12 @@
 @use '@style/abstracts' as a;
 
-$navigation-padding-side: 20px;
-$navigation-width: 360px - $navigation-padding-side * 2;
-
 .navigation_wrapper {
     position: fixed;
     z-index: 9999;
-    width: $navigation-width;
-    height: calc(100dvh - 60px - 20px);
-    padding: 46px $navigation-padding-side;
+    width: calc(#{a.$sidebar-width} - 2 * #{a.$sidebar-padding-side});
+
+    height: 100dvh;
+    padding: a.$sidebar-padding-vertical a.$sidebar-padding-side;
 
     background-color: a.$white-color;
     box-shadow: a.$basic-shadow;
@@ -22,6 +20,6 @@ $navigation-width: 360px - $navigation-padding-side * 2;
         margin-left: 0;
     }
     @include a.media-query('middle') {
-        margin-left: 360px;
+        margin-left: a.$sidebar-width;
     }
 }

@@ -3,15 +3,18 @@
 .group_category_wrapper {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: a.$group-gap;
+
     @include a.typhography('body-01');
 }
 
 .no_page {
     @include a.typhography('body-02');
     color: a.$gray-color;
-    margin-left: 12px;
-    padding: 4px;
+
+    margin-left: a.$pageName-margin-left;
+
+    padding: a.$pageName-padding;
 }
 
 .group_title_wrapper {
@@ -21,9 +24,10 @@
 }
 
 .group_title_icon {
-    justify-content: center;
-    color: a.$primary-color;
     display: none;
+    justify-content: center;
+
+    color: a.$primary-color;
     @include a.typhography('body-02');
 
     &.current {
@@ -32,19 +36,24 @@
 }
 
 .group_title {
-    @include a.typhography('sub-02');
     position: relative;
-    border-radius: 4px;
-    display: block;
-    padding: 4px;
     left: 0;
+
+    padding: 4px;
+
+    display: block;
+
+    border-radius: 4px;
+
     transition: left 0.25s;
 
-    &.current {
-        color: a.$primary-color;
-    }
+    @include a.typhography('sub-02');
 
     &:hover {
         left: 5px;
+    }
+
+    &.current {
+        color: a.$primary-color;
     }
 }

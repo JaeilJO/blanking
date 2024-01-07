@@ -1,70 +1,57 @@
-@use "@style/abstracts" as a;
-
-$background-top-bottom-padding: 50px;
-$backgroupd-side-padding: 100px;
-
-$background-max-width: 1600px;
-$background-width: calc(100dvw - ($backgroupd-side-padding * 2));
-$background-height: calc(100dvh - ($background-top-bottom-padding * 2));
-
-$slide_intro_wrapper_max_width: 1100px;
-$slide_intro_wrapper_min_width: 400px;
-
-$auth_wrapper_width: 100%;
-$auth_wrapper_padding: 4.44% 4.89%;
-$auth_wrapper_max_width: 500px;
-$auth_wrapper_min_width: 300px;
+@use '@style/abstracts' as a;
 
 .background_wrapper {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
 
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 
-  @include a.media-query("middle") {
-    width: $background-width;
-    height: $background-height;
-    padding: $background-top-bottom-padding $backgroupd-side-padding;
-  }
+    transform: translate(-50%, -50%);
 
-  @include a.media-query("large") {
-    height: $background-height;
-    padding: $background-top-bottom-padding 0px;
-  }
+    @include a.media-query('middle') {
+        width: calc(100dvw - 2 * #{a.$background-padding-side});
+        height: calc(100dvh - 2 * #{a.$background-padding-vertical});
+        padding: a.$background-padding-side a.$background-padding-vertical;
+    }
+
+    @include a.media-query('large') {
+        height: calc(100dvh - 2 * #{a.$background-padding-vertical});
+        padding: a.$background-padding-vertical 0px;
+    }
 }
 
 .slide_intro_wrapper {
-  max-width: 1100px;
-  min-width: 400px;
-  width: 100%;
-
-  @include a.media-query("small") {
-    display: none;
-  }
-  @include a.media-query("middle") {
-    display: block;
+    max-width: 1100px;
+    min-width: 400px;
     width: 100%;
-  }
+
+    @include a.media-query('small') {
+        display: none;
+    }
+    @include a.media-query('middle') {
+        display: block;
+        width: 100%;
+    }
 }
 
 .auth_wrapper {
-  max-width: $auth_wrapper_max_width;
-  min-width: $auth_wrapper_min_width;
+    max-width: a.$auth-wrapper_max_width;
+    min-width: a.$auth-wrapper_min_width;
 
-  padding: $auth_wrapper_padding;
+    padding: a.$auth-wrapper-paading-vertical a.$auth-wrapper-paading-side;
 
-  background-color: a.$white-color;
-  border-radius: 4px;
+    background-color: a.$white-color;
 
-  box-shadow: a.$basic-shadow;
+    border-radius: 4px;
 
-  @include a.media-query("small") {
-    width: 100%;
-  }
+    box-shadow: a.$basic-shadow;
+
+    @include a.media-query('small') {
+        width: 100%;
+    }
 }
