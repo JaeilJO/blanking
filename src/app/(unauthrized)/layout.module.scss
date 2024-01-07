@@ -42,16 +42,15 @@
 .auth_wrapper {
     max-width: a.$auth-wrapper_max_width;
     min-width: a.$auth-wrapper_min_width;
+    height: fit-content;
 
-    padding: a.$auth-wrapper-paading-vertical a.$auth-wrapper-paading-side;
-
-    background-color: a.$white-color;
+    padding: a.$auth-wrapper-padding-vertical a.$auth-wrapper-padding-side;
 
     border-radius: 4px;
 
     box-shadow: a.$basic-shadow;
 
     @include a.media-query('small') {
-        width: 100%;
+        width: calc(100dvw - 2 * #{a.$auth-wrapper-padding-side});
     }
 }

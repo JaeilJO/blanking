@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     gap: 8px;
     @include a.typhography('body-01');
 }
