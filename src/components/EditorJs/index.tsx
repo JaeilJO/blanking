@@ -1,34 +1,34 @@
-'use client';
+"use client";
 
-import EditorJS from '@editorjs/editorjs';
+import EditorJS from "@editorjs/editorjs";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef } from "react";
 
-import style from './index.module.scss';
-import { EDITOR_JS_TOOLS } from '@/utils/editorjstools';
+import style from "./index.module.scss";
+import { EDITOR_JS_TOOLS } from "@/utils/editorjstools";
 
 function EditorJs({ data }: { data?: any }) {
-    const ref = useRef<any>(null);
+  const ref = useRef<any>(null);
 
-    useEffect(() => {
-        if (!ref.current) {
-            const editor = new EditorJS({
-                holder: 'editor',
-                data,
-                tools: EDITOR_JS_TOOLS,
-            });
+  useEffect(() => {
+    if (!ref.current) {
+      const editor = new EditorJS({
+        holder: "editor",
+        data,
+        tools: EDITOR_JS_TOOLS,
+      });
 
-            ref.current = editor;
-        }
+      ref.current = editor;
+    }
 
-        return () => {
-            if (ref.current && ref.current.destroy) {
-                ref.current.destroy();
-            }
-        };
-    }, []);
+    return () => {
+      if (ref.current && ref.current.destroy) {
+        ref.current.destroy();
+      }
+    };
+  }, []);
 
-    return <div id="editor" className={style.editor} />;
+  return <div id="editor" className={style.editor} />;
 }
 
 export default EditorJs;
