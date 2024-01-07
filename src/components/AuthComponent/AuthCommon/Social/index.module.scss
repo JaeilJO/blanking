@@ -1,13 +1,14 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 
 .social_text {
-    @include a.typhography('body-01');
-    color: a.$gray-color;
+  @include a.typhography("body-01");
+  color: a.$gray-color;
 }
 
 .social_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    align-items: center;
+  display: flex;
+
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
