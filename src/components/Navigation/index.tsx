@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import GroupCategory from './GroupCategory';
 import style from './index.module.scss';
-import { BsDoorOpen } from 'react-icons/bs';
+import LogoutButton from './LogoutButton';
 
 function Navigation({ username, groups }: { username: string; groups: any }) {
     return (
@@ -17,13 +17,7 @@ function Navigation({ username, groups }: { username: string; groups: any }) {
                     <GroupCategory groups={groups} username={username} />
                 )}
             </div>
-            <button className={style.logout_button}>
-                <span className={style.logout_icon}>
-                    <BsDoorOpen />
-                </span>
-
-                <span>Logout</span>
-            </button>
+            <LogoutButton />
         </div>
     );
 }
