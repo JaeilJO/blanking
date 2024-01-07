@@ -1,17 +1,21 @@
 @use '@style/abstracts' as a;
 
 .social_button {
-    background-color: a.$white-color;
     width: 64px;
     height: 64px;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     border-radius: 4px;
+
+    background-color: a.$white-color;
 
     box-shadow: a.$basic-shadow;
 
     transition: 0.25s;
+
     cursor: pointer;
 
     &:hover {
