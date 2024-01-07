@@ -2,14 +2,6 @@
 
 .editor {
     width: 100dvw;
-    height: 100%;
     @include a.typhography('body-01');
     max-width: 100%;
-    .codex-editor {
-        width: 1000px;
-        background-color: red;
-    }
-}
-.cdx-block {
-    max-width: 100% !important;
 }
