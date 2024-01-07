@@ -2,11 +2,12 @@
 
 .navigation {
     position: relative;
+
+    height: calc(100% - 2 * #{a.$sidebar-padding-vertical});
+
     display: flex;
-    height: calc(100% - (46px * 2));
     flex-direction: column;
     justify-content: space-between;
-
     gap: 24px;
 }
 
@@ -26,19 +27,5 @@
 }
 
 .title {
-    @include a.typhography('sub-02');
-}
-
-.close_button {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    border-radius: 4px;
-
-    top: -30px;
-    border: 1px solid;
-    right: 0;
     @include a.typhography('sub-02');
 }
