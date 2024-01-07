@@ -1,21 +1,22 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 
 .link_text {
-    @include a.typhography('body-01-b');
+  @include a.typhography("body-01-b");
 
-    text-align: center;
+  text-align: center;
+  display: block;
 
-    color: a.$primary-color;
+  color: a.$primary-color;
 
-    &:hover {
-        color: a.$primary-hover-color;
-    }
+  &:hover {
+    color: a.$primary-hover-color;
+  }
 }
 
 .auth_wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 64px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }

@@ -1,16 +1,16 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 
 .title_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .title {
-    @include a.typhography('tit-02');
+  @include a.typhography("tit-02");
 }
 
 .welcome_message {
-    @include a.typhography('body-01');
-    color: a.$gray-color;
+  @include a.typhography("body-01");
+  color: a.$gray-color;
 }
