@@ -23,6 +23,6 @@ $navigation-width: 360px - $navigation-padding-side * 2;
         margin-left: 0;
     }
     @include a.media-query('middle') {
-        margin-left: 360px;
+        margin-left: a.$sidebar-width;
     }
 }

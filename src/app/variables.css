@@ -1,0 +1,5 @@
+:root {
+    --sidebar-width: calc(360px - 2 * var(--sidebar-padding-side));
+    --sidebar-padding-side: 20px;
+    --sidebar-padding-vertical: 46px;
+}
