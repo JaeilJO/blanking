@@ -3,15 +3,18 @@
 .navigation {
     position: relative;
     display: flex;
+    height: calc(100% - (46px * 2));
     flex-direction: column;
     justify-content: space-between;
+
     gap: 24px;
-    height: 100%;
 }
 
 .category_wrapper {
-    height: 100%;
     overflow-y: scroll;
+
+    height: 100%;
+
     &::-webkit-scrollbar {
         display: none;
     }

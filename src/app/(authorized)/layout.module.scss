@@ -7,7 +7,8 @@ $navigation-width: 360px - $navigation-padding-side * 2;
     position: fixed;
     z-index: 9999;
     width: $navigation-width;
-    height: calc(100dvh - 60px - 20px);
+
+    height: 100dvh;
     padding: 46px $navigation-padding-side;
 
     background-color: a.$white-color;
