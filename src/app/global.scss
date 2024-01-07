@@ -155,3 +155,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+.ce-block__content,
+.ce-toolbar__content {
+    max-width: unset;
+}
