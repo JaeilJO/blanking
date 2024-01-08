@@ -4,6 +4,7 @@ import useForm from '@/hooks/useForm';
 import Input from './Input';
 import SubmitButton from './SubmitButton';
 import style from './index.module.scss';
+import { signIn } from 'next-auth/react';
 
 interface FormProps {
     formType: 'signin' | 'signup';
@@ -12,9 +13,18 @@ interface FormProps {
 function Form({ formType }: FormProps) {
     const { defaultValues, register } = useForm();
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(defaultValues);
+
+        if (formType === 'signin') {
+            const res = await signIn('credentials', {
+                email: defaultValues.email,
+                password: defaultValues.password,
+                redirect: false,
+            });
+            console.log(res);
+        } else {
+        }
     };
 
     return (
