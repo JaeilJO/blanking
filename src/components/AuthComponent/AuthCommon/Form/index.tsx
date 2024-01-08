@@ -15,7 +15,6 @@ function Form({ formType }: FormProps) {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         resetInputValue();
     };
 
