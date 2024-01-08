@@ -11,20 +11,12 @@ interface FormProps {
 }
 
 function Form({ formType }: FormProps) {
-    const { defaultValues, register } = useForm();
+    const { defaultValues, register, resetInputValue } = useForm();
 
-    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (formType === 'signin') {
-            const res = await signIn('credentials', {
-                email: defaultValues.email,
-                password: defaultValues.password,
-                redirect: false,
-            });
-            console.log(res);
-        } else {
-        }
+        resetInputValue();
     };
 
     return (
