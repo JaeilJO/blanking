@@ -363,6 +363,13 @@ export const basic_mock = {
                                 },
                             },
                             {
+                                id: 'zkjkla_asd',
+                                type: 'blank',
+                                data: {
+                                    text: 'hellomemem',
+                                },
+                            },
+                            {
                                 id: 'zbGZFPM-iI',
                                 type: 'paragraph',
                                 data: {
