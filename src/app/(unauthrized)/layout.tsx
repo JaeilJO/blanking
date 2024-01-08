@@ -1,6 +1,5 @@
 import AuthSlide from '@/components/AuthSlide';
 import style from './layout.module.scss';
-import { getServerSession } from 'next-auth/next';
 
 async function Layout({ children }: { children: React.ReactNode }) {
     return (

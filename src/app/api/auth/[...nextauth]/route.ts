@@ -16,7 +16,6 @@ export const authOptions: NextAuthOptions = {
                 const password = credentials?.password;
 
                 if (email === 'whwodlf97@gmail.com' && password === '1234') {
-                    console.log('맞음');
                     return { email, name: 'jaeil' };
                 } else {
                     return null;
