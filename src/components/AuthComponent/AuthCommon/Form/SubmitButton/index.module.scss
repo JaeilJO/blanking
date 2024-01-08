@@ -1,23 +1,23 @@
-@use "@style/abstracts" as a;
+@use '@style/abstracts' as a;
 
 .input_button {
-  @include a.typhography("body-01-b");
-  color: a.$white-color;
+    @include a.typhography('body-01-b');
+    color: a.$white-color;
 
-  padding: 1em 0;
+    padding: 1em 0;
 
-  border-radius: 4px;
+    border-radius: 4px;
 
-  background-color: a.$primary-color;
+    background-color: a.$primary-color;
 
-  cursor: pointer;
+    cursor: pointer;
 
-  &:hover {
-    background-color: a.$primary-hover-color;
-  }
+    &:hover {
+        background-color: a.$primary-hover-color;
+    }
 
-  &:disabled {
-    background-color: a.$light-gray-color;
-    pointer-events: none;
-  }
+    &:disabled {
+        background-color: a.$light-gray-color;
+        pointer-events: none;
+    }
 }

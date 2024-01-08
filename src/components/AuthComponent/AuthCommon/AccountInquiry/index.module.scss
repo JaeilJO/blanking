@@ -1,11 +1,18 @@
 @use '@style/abstracts' as a;
 
 .account_inquiry_wrapper {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    width: 100%;
     gap: 8px;
+
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+
     @include a.typhography('body-01');
 }
 
