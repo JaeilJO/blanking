@@ -10,7 +10,7 @@ function Layout({ children }: { children: React.ReactNode }) {
     const user = basic_mock;
     const { data } = useSession();
     if (!data) {
-        redirect('/');
+        redirect('/auth/signin');
     }
     console.log(data);
 
