@@ -1,8 +1,7 @@
-import NextAuth from 'next-auth';
+import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
-const handler = NextAuth({
-    // Configure one or more authentication providers
+export const authOptions: NextAuthOptions = {
     pages: {
         signIn: '/',
         newUser: '/signup',
@@ -10,22 +9,23 @@ const handler = NextAuth({
     providers: [
         CredentialsProvider({
             name: 'Credentials',
+            credentials: {},
 
-            async authorize(credentials) {
+            async authorize(credentials, req) {
                 const email = credentials?.email;
                 const password = credentials?.password;
 
                 if (email === 'whwodlf97@gmail.com' && password === '1234') {
                     console.log('맞음');
-                    const user = await { id: 1, email };
-
-                    return user;
+                    return { email, name: 'jaeil' };
                 } else {
                     return null;
                 }
             },
         }),
     ],
-});
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

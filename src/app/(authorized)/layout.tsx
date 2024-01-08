@@ -1,9 +1,13 @@
 import Navigation from '@/components/Navigation';
 import style from './layout.module.scss';
 import { basic_mock } from '@/mock/basic';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
-function Layout({ children }: { children: React.ReactNode }) {
+async function Layout({ children }: { children: React.ReactNode }) {
     const user = basic_mock;
+    const session = await getServerSession(authOptions);
+    console.log(session, 'Hello');
 
     return (
         <div>

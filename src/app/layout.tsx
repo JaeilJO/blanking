@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './global.scss';
 import localFont from 'next/font/local';
+import AuthSession from '@/components/AuthSession';
 
 export const metadata: Metadata = {
     title: 'Blanking',
@@ -20,7 +21,9 @@ const nanum_square = localFont({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-            <body className={nanum_square.className}>{children}</body>
+            <body className={nanum_square.className}>
+                <AuthSession>{children}</AuthSession>
+            </body>
         </html>
     );
 }
