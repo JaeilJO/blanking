@@ -1,7 +1,7 @@
 import AuthSlide from '@/components/AuthSlide';
 import style from './layout.module.scss';
 
-function Layout({ children }: { children: React.ReactNode }) {
+async function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div className={style.background_wrapper}>
             <div className={style.slide_intro_wrapper}>

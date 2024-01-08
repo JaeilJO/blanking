@@ -22,9 +22,13 @@ function Input({ type, register }: InputProps) {
 
     const inputRef = useRef<HTMLInputElement>(null);
 
-    const passwordHideHandler = useCallback(() => {
-        setIsHide(!isHide);
-    }, [isHide]);
+    const passwordHideHandler = useCallback(
+        (e: React.MouseEvent<HTMLButtonElement>) => {
+            e.preventDefault();
+            setIsHide(!isHide);
+        },
+        [isHide]
+    );
 
     const onBlur = useCallback(() => {
         if (inputRef.current?.value) {
@@ -66,9 +70,11 @@ function Input({ type, register }: InputProps) {
                         </button>
                     </>
                 )}
+
                 {type === 'E-mail' && (
                     <input type="email" onBlur={onBlur} required ref={inputRef} {...register('email')} />
                 )}
+
                 {type === 'Name' && <input type="text" onBlur={onBlur} required ref={inputRef} {...register('name')} />}
             </div>
         </div>

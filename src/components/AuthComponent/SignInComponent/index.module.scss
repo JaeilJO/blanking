@@ -8,15 +8,17 @@
     @include a.typhography('body-01-b');
     color: a.$primary-color;
 
+    margin-bottom: 100px;
+
     &:hover {
         color: a.$primary-hover-color;
     }
 }
 
 .auth_wrapper {
-    height: 100%;
+    position: relative;
 
+    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
