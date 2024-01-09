@@ -16,17 +16,27 @@ model User{
   email String @unique
   name String
   password String
+  groups Group[]
   createdAt DateTime
   updatedAt DateTime
 }
 
 model Group{
+  id Int @id @default(autoincrement())
   groupname String @unique
+  user User @relation(fields: [userid], references: [id])
+  userid Int
+  pages Page[]
   createdAt DateTime
   updatedAt DateTime
-  userid Int // foreign key
+  
 }
 
 model Page{
+  id Int @id @default(autoincrement())
   pagename String @unique
+  groupid Int
+  group Group @relation(fields: [groupid], references: [id])
+  content Json[]
+  
 }

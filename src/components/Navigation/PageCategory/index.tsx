@@ -28,7 +28,7 @@ function PageCategory({ username, groupname, pages }: PageCategoryProps) {
                             page_title: true,
                             current: current_page_name === page.pagename && current_group_name === groupname,
                         })}
-                        href={`/${username}/${groupname}/${page.pagename}`}
+                        href={`/user/${username}/${groupname}/${page.pagename}`}
                     >
                         {page.pagename}
                     </Link>
