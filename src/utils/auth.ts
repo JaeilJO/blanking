@@ -1,16 +1,36 @@
-import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from 'next';
 import type { NextAuthOptions } from 'next-auth';
-import { getServerSession } from 'next-auth';
+import NextAuth from 'next-auth';
+import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const config = {
-    providers: [],
-} satisfies NextAuthOptions;
+    providers: [
+        CredentialsProvider({
+            name: 'credentials',
 
-export function auth(
-    ...args:
-        | [GetServerSidePropsContext['req'], GetServerSidePropsContext['res']]
-        | [NextApiRequest, NextApiResponse]
-        | []
-) {
-    return getServerSession(...args, config);
-}
+            credentials: {},
+            async authorize(credentials, req) {
+                console.log('hello');
+                return { id: '1', name: 'test', email: 'test@test.com' };
+            },
+        }),
+    ],
+    callbacks: {
+        async signIn({ user, account, profile, email, credentials }) {
+            console.log('hello Signin', user);
+            return true;
+        },
+        async session({ session, token, user }) {
+            console.log('session', session);
+            return session;
+        },
+
+        async jwt({ token, user, account, profile, isNewUser }) {
+            console.log('toekn', token);
+            return token;
+        },
+    },
+    pages: {
+        signIn: '/auth/signin',
+        newUser: '/auth/signup',
+    },
+} satisfies NextAuthOptions;
