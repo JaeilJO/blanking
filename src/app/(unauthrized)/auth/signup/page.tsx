@@ -1,6 +1,9 @@
 import SignUpComponent from '@/components/AuthComponent/SignUpComponent';
+import { getServerSession } from 'next-auth';
 
-function Page() {
+async function Page() {
+    const session = await getServerSession();
+
     return (
         <>
             <SignUpComponent></SignUpComponent>
