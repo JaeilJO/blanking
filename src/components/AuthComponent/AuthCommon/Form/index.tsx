@@ -4,21 +4,39 @@ import useForm from '@/hooks/useForm';
 import Input from './Input';
 import SubmitButton from './SubmitButton';
 import style from './index.module.scss';
-import { SignInResponse, getProviders, signIn } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 interface FormProps {
     formType: 'signin' | 'signup';
 }
 
-async function Form({ formType }: FormProps) {
+function Form({ formType }: FormProps) {
     const { defaultValues, register, resetInputValue } = useForm();
-
+    const router = useRouter();
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const a = await signIn('credentials', {
-            ...defaultValues,
-            redirect: false,
-        });
+
+        if (formType === 'signup') {
+            await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(defaultValues),
+            })
+                .then((res) => {
+                    router.push('/auth/signin');
+                })
+                .catch((err) => {
+                    console.log(err, 'err');
+                });
+        } else {
+            const a = await signIn('credentials', {
+                ...defaultValues,
+                redirect: false,
+            });
+        }
 
         resetInputValue();
     };
