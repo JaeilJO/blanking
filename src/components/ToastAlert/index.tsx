@@ -2,7 +2,7 @@
 
 import classNames from 'classnames/bind';
 import stlye from './index.module.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 
 interface ToastAlertProps {
@@ -13,8 +13,13 @@ interface ToastAlertProps {
 const cn = classNames.bind(stlye);
 
 function ToastAlert() {
-    const { status, message, loading, success, error, reset } = useAlertStore((state) => state);
-    console.log(status, loading);
+    const { status, message, reset } = useAlertStore((state) => state);
+
+    useEffect(() => {
+        setTimeout(() => {
+            reset();
+        }, 5000);
+    }, [status]);
 
     return (
         <div

@@ -6,6 +6,7 @@ import SubmitButton from './SubmitButton';
 import style from './index.module.scss';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { useAlertStore } from '@/zustand/alertStore';
 
 interface FormProps {
     formType: 'signin' | 'signup';
@@ -14,6 +15,7 @@ interface FormProps {
 function Form({ formType }: FormProps) {
     const { defaultValues, register, resetInputValue } = useForm();
     const router = useRouter();
+    const { loading, error, success } = useAlertStore((state) => state);
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
@@ -41,14 +43,24 @@ function Form({ formType }: FormProps) {
         resetInputValue();
     };
 
-    return (
-        <form className={style.form_wrapper} onSubmit={onSubmit}>
-            {formType === 'signup' && <Input type="Name" register={register} />}
-            <Input type="E-mail" register={register} />
-            <Input type="Password" register={register} />
+    const exampleLoading = (e: React.MouseEvent) => {
+        e.preventDefault();
+        loading('Loading');
+    };
 
-            <SubmitButton value={formType === 'signin' ? 'Sign In' : 'Sign Up'} />
-        </form>
+    return (
+        <>
+            <form className={style.form_wrapper} onSubmit={onSubmit}>
+                {formType === 'signup' && <Input type="Name" register={register} />}
+                <Input type="E-mail" register={register} />
+                <Input type="Password" register={register} />
+
+                <SubmitButton value={formType === 'signin' ? 'Sign In' : 'Sign Up'} />
+            </form>
+            <button onClick={exampleLoading}>Loading</button>
+            <button>Error</button>
+            <button>Success</button>
+        </>
     );
 }
 
