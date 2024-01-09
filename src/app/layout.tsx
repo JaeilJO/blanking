@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './global.scss';
 import localFont from 'next/font/local';
 import AuthSession from '@/components/AuthSession';
+import ToastAlert from '@/components/ToastAlert';
 
 export const metadata: Metadata = {
     title: 'Blanking',

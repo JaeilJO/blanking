@@ -1,0 +1,28 @@
+@use '@style/abstracts' as a;
+.toast_alert {
+    position: absolute;
+    z-index: 999999;
+    width: 60%;
+    height: 60px;
+    top: 5%;
+    left: 50%;
+    border-radius: 4px;
+    transform: translateX(-50%);
+    @include a.typhography('body-01-b');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &.none {
+        top: -50%;
+    }
+    &.success {
+        background-color: a.$success-color;
+    }
+    &.error {
+        background-color: a.$error-color;
+    }
+    &.loading {
+        background-color: a.$loading-color;
+    }
+}

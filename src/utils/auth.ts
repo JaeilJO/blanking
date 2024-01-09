@@ -6,7 +6,6 @@ export const config = {
     providers: [
         CredentialsProvider({
             name: 'credentials',
-
             credentials: {},
             async authorize(credentials, req) {
                 console.log('Signin');
