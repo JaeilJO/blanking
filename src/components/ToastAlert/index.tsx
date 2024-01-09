@@ -1,16 +1,19 @@
 'use client';
 
 import classNames from 'classnames/bind';
-import stlye from './index.module.scss';
+import style from './index.module.scss';
 import { useEffect, useRef, useState } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
+
+import { BsCheckCircle } from 'react-icons/bs';
+import { BsDashCircle } from 'react-icons/bs';
 
 interface ToastAlertProps {
     status?: 'success' | 'error' | 'loading' | 'none';
     message?: string;
 }
 
-const cn = classNames.bind(stlye);
+const cn = classNames.bind(style);
 
 function ToastAlert() {
     const { status, message, reset } = useAlertStore((state) => state);
@@ -30,7 +33,10 @@ function ToastAlert() {
                 loading: status === 'loading',
             })}
         >
-            {message}
+            <span className={style.icon}>
+                {status === 'success' ? <BsCheckCircle /> : status === 'error' ? <BsDashCircle /> : <></>}
+            </span>
+            <span>{message}</span>
         </div>
     );
 }
