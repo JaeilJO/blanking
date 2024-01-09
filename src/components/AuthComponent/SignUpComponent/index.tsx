@@ -6,12 +6,6 @@ import style from './index.module.scss';
 const socials = ['google'];
 
 function SignUpComponent() {
-    const { data } = useSession();
-
-    if (data) {
-        redirect(`/${data?.user?.name}`);
-    }
-
     return (
         <div className={style.auth_wrapper}>
             <AuthComponent.Title title="Sign Up" welcome_message="환영합니다." />
