@@ -10,6 +10,7 @@
 
     display: flex;
     justify-content: center;
+    align-items: center;
 
     @include a.media-query('small') {
         padding: 0;
@@ -18,9 +19,9 @@
     }
 
     @include a.media-query('middle') {
-        width: calc(100dvw - 2 * #{a.$background-padding-side});
+        width: calc(100dvw - 2 * 20px);
         height: calc(100dvh - 2 * #{a.$background-padding-vertical});
-        padding: a.$background-padding-side a.$background-padding-vertical;
+        padding: a.$background-padding-vertical 20px;
         align-items: none;
     }
 
@@ -48,8 +49,9 @@
 .auth_wrapper {
     position: relative;
 
-    max-width: a.$auth-wrapper_max_width;
-    min-width: a.$auth-wrapper_min_width;
+    max-width: a.$auth-wrapper-max_width - 2 * a.$auth-wrapper-padding-side;
+    min-width: a.$auth-wrapper-min_width - 2 * a.$auth-wrapper-padding-side;
+    max-height: a.$auth-wrapper-max-height - 2 * a.$auth-wrapper-padding-vertical;
 
     height: calc(100dvh - 2 * #{a.$background-padding-vertical} - 2 * #{a.$auth-wrapper-padding-vertical});
 
