@@ -6,7 +6,7 @@ import LogoutButton from './LogoutButton';
 function Navigation({ username, groups }: { username: string; groups: any }) {
     return (
         <div className={style.navigation}>
-            <Link href={`/${username}`} className={style.title}>
+            <Link href={`/auth/${username}`} className={style.title}>
                 {username}
             </Link>
             <hr className={style.line} />

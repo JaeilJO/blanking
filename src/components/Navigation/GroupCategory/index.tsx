@@ -25,7 +25,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <Link
-                            href={`/${username}/${group.groupname}`}
+                            href={`/user/${username}/${group.groupname}`}
                             className={cn({
                                 group_title: true,
                                 current: current_group_name === group.groupname,
