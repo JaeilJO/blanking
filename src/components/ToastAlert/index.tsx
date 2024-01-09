@@ -1,38 +1,43 @@
 'use client';
 
 import classNames from 'classnames/bind';
-import stlye from './index.module.scss';
-import { useEffect, useState } from 'react';
+import style from './index.module.scss';
+import { useEffect, useRef, useState } from 'react';
+import { useAlertStore } from '@/zustand/alertStore';
+
+import { BsCheckCircle } from 'react-icons/bs';
+import { BsDashCircle } from 'react-icons/bs';
+
 interface ToastAlertProps {
     status?: 'success' | 'error' | 'loading' | 'none';
     message?: string;
 }
 
-const cn = classNames.bind(stlye);
+const cn = classNames.bind(style);
 
-function ToastAlert({ status = 'none', message }: ToastAlertProps) {
+function ToastAlert() {
+    const { status, message, reset } = useAlertStore((state) => state);
+
     useEffect(() => {
-        if (status !== 'none') {
-            setTimeout(() => {
-                status = 'none';
-            }, 2000);
-        }
+        setTimeout(() => {
+            reset();
+        }, 5000);
     }, [status]);
 
     return (
-        <>
-            <div
-                className={cn({
-                    toast_alert: true,
-                    success: status === 'success',
-                    error: status === 'error',
-                    loading: status === 'loading',
-                })}
-            >
-                {message}
-            </div>
-            <button></button>
-        </>
+        <div
+            className={cn({
+                toast_alert: true,
+                success: status === 'success',
+                error: status === 'error',
+                loading: status === 'loading',
+            })}
+        >
+            <span className={style.icon}>
+                {status === 'success' ? <BsCheckCircle /> : status === 'error' ? <BsDashCircle /> : <></>}
+            </span>
+            <span>{message}</span>
+        </div>
     );
 }
 

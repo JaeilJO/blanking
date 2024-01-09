@@ -23,6 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     return (
         <html lang="en">
             <body className={nanum_square.className}>
+                <ToastAlert />
                 <AuthSession>{children}</AuthSession>
             </body>
         </html>
