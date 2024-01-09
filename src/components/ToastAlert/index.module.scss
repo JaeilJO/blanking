@@ -26,9 +26,11 @@
     animation-name: none;
 
     &.success {
+        animation: show 1s ease-in-out forwards;
         background-color: a.$success-color;
     }
     &.error {
+        animation: show 1s ease-in-out forwards;
         background-color: a.$error-color;
     }
     &.loading {

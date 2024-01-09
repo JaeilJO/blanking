@@ -43,11 +43,6 @@ function Form({ formType }: FormProps) {
         resetInputValue();
     };
 
-    const exampleLoading = (e: React.MouseEvent) => {
-        e.preventDefault();
-        loading('Loading');
-    };
-
     return (
         <>
             <form className={style.form_wrapper} onSubmit={onSubmit}>
@@ -57,9 +52,6 @@ function Form({ formType }: FormProps) {
 
                 <SubmitButton value={formType === 'signin' ? 'Sign In' : 'Sign Up'} />
             </form>
-            <button onClick={exampleLoading}>Loading</button>
-            <button>Error</button>
-            <button>Success</button>
         </>
     );
 }
