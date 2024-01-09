@@ -5,20 +5,11 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 export const config = {
     providers: [
         CredentialsProvider({
-            name: 'signinCredential',
+            name: 'credentials',
 
             credentials: {},
             async authorize(credentials, req) {
                 console.log('Signin');
-                return { id: '1', name: 'test', email: 'test@test.com' };
-            },
-        }),
-        CredentialsProvider({
-            name: 'signupCredential',
-
-            credentials: {},
-            async authorize(credentials, req) {
-                console.log('Signup');
                 return { id: '1', name: 'test', email: 'test@test.com' };
             },
         }),

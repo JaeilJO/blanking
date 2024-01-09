@@ -10,15 +10,27 @@ interface FormProps {
     formType: 'signin' | 'signup';
 }
 
-async function Form({ formType }: FormProps) {
+function Form({ formType }: FormProps) {
     const { defaultValues, register, resetInputValue } = useForm();
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const a = await signIn('credentials', {
-            ...defaultValues,
-            redirect: false,
-        });
+
+        if (formType === 'signup') {
+            const res = await fetch('/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(defaultValues),
+            });
+            console.log(res);
+        } else {
+            const a = await signIn('credentials', {
+                ...defaultValues,
+                redirect: false,
+            });
+        }
 
         resetInputValue();
     };
