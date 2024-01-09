@@ -37,6 +37,6 @@ model Page{
   pagename String @unique
   groupid Int
   group Group @relation(fields: [groupid], references: [id])
-  content Json[] //Json으로 저장
+  content Json[]
   
 }
