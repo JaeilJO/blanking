@@ -1,4 +1,5 @@
-import NextAuth, { NextAuthOptions } from 'next-auth';
+import NextAuth from 'next-auth';
+import type { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions: NextAuthOptions = {
@@ -12,11 +13,12 @@ export const authOptions: NextAuthOptions = {
             credentials: {},
 
             async authorize(credentials, req) {
-                const email = credentials?.email;
+                const id = '1';
+                const email: string = credentials?.email;
                 const password = credentials?.password;
 
                 if (email === 'whwodlf97@gmail.com' && password === '1234') {
-                    return { email, name: 'jaeil' };
+                    return { id, email, name: 'jaeil' };
                 } else {
                     return null;
                 }
@@ -25,6 +27,4 @@ export const authOptions: NextAuthOptions = {
     ],
 };
 
-const handler = NextAuth(authOptions);
-
-export { handler as GET, handler as POST };
+export default NextAuth(authOptions);
