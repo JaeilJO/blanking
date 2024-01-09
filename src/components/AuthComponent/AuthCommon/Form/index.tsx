@@ -15,24 +15,25 @@ interface FormProps {
 function Form({ formType }: FormProps) {
     const { defaultValues, register, resetInputValue } = useForm();
     const router = useRouter();
-    const { loading, error, success } = useAlertStore((state) => state);
+    const { error, success } = useAlertStore((state) => state);
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if (formType === 'signup') {
-            await fetch('/api/signup', {
+            const res = await fetch('/api/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(defaultValues),
-            })
-                .then((res) => {
-                    router.push('/auth/signin');
-                })
-                .catch((err) => {
-                    console.log(err, 'err');
-                });
+            });
+
+            if (res.ok) {
+                success('회원가입이 완료되었습니다.');
+                router.push('/signin');
+            } else {
+                error('이미 사용되고 있는 이메일입니다.');
+            }
         } else {
             const a = await signIn('credentials', {
                 ...defaultValues,
