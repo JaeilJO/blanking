@@ -22,7 +22,7 @@ export default async function Page({ params }: { params: { username: string } })
     const groups = await res.json();
 
     if (groups.length >= 1) {
-        redirect(`${session?.user.name}/${groups[0]?.groupname}`);
+        redirect(`user/${session?.user.name}/${groups[0]?.groupname}`);
     }
 
     if (groups.length === 0) {

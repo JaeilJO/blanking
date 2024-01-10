@@ -29,7 +29,6 @@ model Group{
   pages Page[]
   createdAt DateTime
   updatedAt DateTime
-  
 }
 
 model Page{
