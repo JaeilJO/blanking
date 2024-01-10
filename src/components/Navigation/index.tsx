@@ -2,6 +2,7 @@ import Link from 'next/link';
 import GroupCategory from './GroupCategory';
 import style from './index.module.scss';
 import LogoutButton from './LogoutButton';
+import { useEffect } from 'react';
 
 function Navigation({ username, groups }: { username: string; groups: any }) {
     return (

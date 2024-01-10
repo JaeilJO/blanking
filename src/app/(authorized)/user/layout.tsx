@@ -8,6 +8,7 @@ import { getServerSession } from 'next-auth';
 async function Layout({ children }: { children: React.ReactNode }) {
     const user = basic_mock;
     const session = await getServerSession();
+    const username = session?.user?.name as string;
 
     if (!session) {
         redirect(`/auth/signin`);
@@ -16,7 +17,7 @@ async function Layout({ children }: { children: React.ReactNode }) {
     return (
         <div>
             <nav className={style.navigation_wrapper}>
-                <Navigation username={user.name} groups={user.groups} />
+                <Navigation username={username} groups={user.groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>
