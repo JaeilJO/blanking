@@ -15,6 +15,7 @@
     "@editorjs/header": "^2.8.1",
     "@prisma/client": "^5.7.1",
     "@types/editorjs__header": "^2.6.3",
+    "bcrypt": "^5.1.1",
     "classnames": "^2.5.1",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
