@@ -35,7 +35,6 @@ export const config: NextAuthOptions = {
                         return null;
                     }
                 }
-                console.log(user.id);
 
                 return user;
             },
@@ -46,13 +45,16 @@ export const config: NextAuthOptions = {
         signIn: '/auth/signin',
         newUser: '/auth/signup',
     },
-
+    secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
-        session: ({ session, token }: { session: any; token: any }) => ({
-            ...session,
-            user: {
-                id: token.id,
-            },
-        }),
+        async jwt({ token, account, profile }) {
+            return token;
+        },
+
+        async session({ session, token, user }) {
+            session.user.id = token.sub;
+
+            return session;
+        },
     },
 } satisfies NextAuthOptions;

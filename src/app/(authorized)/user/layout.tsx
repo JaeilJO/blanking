@@ -1,14 +1,16 @@
 import Navigation from '@/components/Navigation';
 import style from './layout.module.scss';
 import { basic_mock } from '@/mock/basic';
-import { useSession } from 'next-auth/react';
+
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
+import { config } from '@/utils/auth';
 
 async function Layout({ children }: { children: React.ReactNode }) {
     const user = basic_mock;
-    const session = await getServerSession();
+    const session = await getServerSession(config);
     const username = session?.user?.name as string;
+    console.log(session);
 
     if (!session) {
         redirect(`/auth/signin`);
