@@ -45,6 +45,7 @@ function Form({ formType }: FormProps) {
             if (res?.ok) {
                 const username = session.data?.user?.name;
                 const useremail = session.data?.user?.email;
+
                 success(`환영합니다 ${username}님`);
                 router.push(`/user/${useremail}`);
             }

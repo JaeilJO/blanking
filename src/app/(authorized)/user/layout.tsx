@@ -1,22 +1,34 @@
 import Navigation from '@/components/Navigation';
 import style from './layout.module.scss';
-import { basic_mock } from '@/mock/basic';
-import { useSession } from 'next-auth/react';
+
 import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
+import { config } from '@/utils/auth';
 
 async function Layout({ children }: { children: React.ReactNode }) {
-    const user = basic_mock;
-    const session = await getServerSession();
+    const session = await getServerSession(config);
+    const username = session?.user?.name as string;
 
     if (!session) {
         redirect(`/auth/signin`);
     }
 
+    //Get Groups
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            cookie: `id=${session?.user?.id}`,
+        },
+        credentials: 'include',
+    });
+
+    const groups = await res.json();
+
     return (
         <div>
             <nav className={style.navigation_wrapper}>
-                <Navigation username={user.name} groups={user.groups} />
+                <Navigation username={username} groups={groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>
