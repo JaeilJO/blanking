@@ -30,7 +30,7 @@ function Form({ formType }: FormProps) {
 
             if (res.ok) {
                 success('회원가입이 완료되었습니다.');
-                router.push('/signin');
+                router.push('/auth/signin');
             } else {
                 error('이미 사용되고 있는 이메일입니다.');
             }
