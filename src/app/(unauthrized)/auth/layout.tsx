@@ -7,7 +7,7 @@ async function Layout({ children }: { children: React.ReactNode }) {
     const session = await getServerSession();
 
     if (session) {
-        redirect(`/user/${session.user?.name}`);
+        redirect(`/user/${session?.user?.name}`);
     }
 
     return (

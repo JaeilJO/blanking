@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 function Navigation({ username, groups }: { username: string; groups: any }) {
     return (
         <div className={style.navigation}>
-            <Link href={`/auth/${username}`} className={style.title}>
+            <Link href={`/user/${username}`} className={style.title}>
                 {username}
             </Link>
             <hr className={style.line} />

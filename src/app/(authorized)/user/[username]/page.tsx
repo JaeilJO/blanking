@@ -21,10 +21,6 @@ export default async function Page({ params }: { params: { username: string } })
 
     const groups = await res.json();
 
-    if (groups.length >= 1) {
-        redirect(`user/${session?.user.name}/${groups[0]?.groupname}`);
-    }
-
     if (groups.length === 0) {
         return (
             <div className={style.userpage_wrapper}>

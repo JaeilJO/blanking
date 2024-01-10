@@ -5,7 +5,7 @@ import style from './index.module.scss';
 import { BsPlusCircle } from 'react-icons/bs';
 import { useRef } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 function GroupMaker() {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +27,7 @@ function GroupMaker() {
         })
             .then(() => {
                 success('그룹 생성이 완료되었습니다.');
-                router.push(`/user/${user?.name}/${groupName}`);
+                router.replace(`/user/${user?.name}/${groupName}`);
             })
             .catch(() => {
                 error('그룹 이름은 중복될 수 없습니다. 다른 이름을 사용해주세요.');
