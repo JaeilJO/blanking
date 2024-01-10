@@ -35,6 +35,7 @@ export const config: NextAuthOptions = {
                         return null;
                     }
                 }
+                console.log(user.id);
 
                 return user;
             },
@@ -44,5 +45,14 @@ export const config: NextAuthOptions = {
     pages: {
         signIn: '/auth/signin',
         newUser: '/auth/signup',
+    },
+
+    callbacks: {
+        session: ({ session, token }: { session: any; token: any }) => ({
+            ...session,
+            user: {
+                id: token.id,
+            },
+        }),
     },
 } satisfies NextAuthOptions;
