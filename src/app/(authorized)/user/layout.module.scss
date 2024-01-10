@@ -14,7 +14,7 @@
 
 .content_wrapper {
     position: relative;
-    height: 100%;
+    height: 100dvh;
 
     @include a.media-query('small') {
         margin-left: 0;

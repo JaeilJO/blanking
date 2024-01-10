@@ -1,9 +1,8 @@
 import { redirect } from 'next/navigation';
 
-import { basic_mock } from '@/mock/basic';
 import style from './page.module.scss';
 import NoGroup from '@/components/NoGroup';
-import GroupTable from '@/components/PageTable';
+
 import { getServerSession } from 'next-auth';
 import { config } from '@/utils/auth';
 
