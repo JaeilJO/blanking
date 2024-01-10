@@ -1,18 +1,17 @@
-'use client';
-
 import Navigation from '@/components/Navigation';
 import style from './layout.module.scss';
 import { basic_mock } from '@/mock/basic';
 import { useSession } from 'next-auth/react';
 import { redirect } from 'next/navigation';
+import { getServerSession } from 'next-auth';
 
-function Layout({ children }: { children: React.ReactNode }) {
+async function Layout({ children }: { children: React.ReactNode }) {
     const user = basic_mock;
-    const { data } = useSession();
-    if (!data) {
-        redirect('/auth/signin');
+    const session = await getServerSession();
+
+    if (!session) {
+        redirect(`/auth/signin`);
     }
-    console.log(data);
 
     return (
         <div>
