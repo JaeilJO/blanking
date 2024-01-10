@@ -1,9 +1,10 @@
-import type { NextAuthOptions } from 'next-auth';
+import type { NextAuthOptions, Session } from 'next-auth';
 
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
+import { JWT } from 'next-auth/jwt';
 
 export const config: NextAuthOptions = {
     providers: [
@@ -51,7 +52,7 @@ export const config: NextAuthOptions = {
             return token;
         },
 
-        async session({ session, token, user }) {
+        async session({ session, token }: { session: Session; token: JWT }) {
             session.user.id = token.sub;
 
             return session;
