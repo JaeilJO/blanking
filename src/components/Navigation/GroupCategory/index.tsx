@@ -58,12 +58,12 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                         </div>
                     </div>
 
-                    {/* Page Category */}
-                    {group.pages === undefined ? (
-                        <div className={style.no_page}>페이지가 없습니다</div>
-                    ) : (
-                        <PageCategory username={username} groupname={group.groupname} pages={group.pages} />
-                    )}
+                    <PageCategory
+                        username={username}
+                        groupname={group.groupname}
+                        pages={group.pages}
+                        iscurrent_group={current_group_name === group.groupname}
+                    />
                 </li>
             ))}
 
