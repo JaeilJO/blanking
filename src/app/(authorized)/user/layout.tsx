@@ -5,7 +5,13 @@ import { redirect } from 'next/navigation';
 import { getServerSession } from 'next-auth';
 import { config } from '@/utils/auth';
 
-async function Layout({ children }: { children: React.ReactNode }) {
+async function Layout({
+    children,
+    createGroupModal,
+}: {
+    children: React.ReactNode;
+    createGroupModal: React.ReactNode;
+}) {
     const session = await getServerSession(config);
     const username = session?.user?.name as string;
 
@@ -27,6 +33,7 @@ async function Layout({ children }: { children: React.ReactNode }) {
 
     return (
         <div>
+            {createGroupModal}
             <nav className={style.navigation_wrapper}>
                 <Navigation username={username} groups={groups} />
             </nav>

@@ -5,29 +5,29 @@ import style from './index.module.scss';
 import { BsPlusCircle } from 'react-icons/bs';
 import { useRef } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
 function GroupMaker() {
     const inputRef = useRef<HTMLInputElement>(null);
     const { error, success } = useAlertStore((state) => state);
-    const router = useRouter();
+
     const session = useSession();
     const user = session.data?.user;
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const groupName = inputRef.current?.value;
+        const groupname = inputRef.current?.value;
 
         await fetch('/api/group', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ ...user, groupName }),
+            body: JSON.stringify({ ...user, groupname }),
         })
             .then(() => {
                 success('그룹 생성이 완료되었습니다.');
-                router.replace(`/user/${user?.name}/${groupName}`);
+                redirect(`/user/${user?.name}/${groupname}`);
             })
             .catch(() => {
                 error('그룹 이름은 중복될 수 없습니다. 다른 이름을 사용해주세요.');

@@ -21,12 +21,14 @@ export async function POST(req: Request, res: Response) {
     const data = await req.json();
 
     const userid = Number(data.id);
+    const groupName = data.groupname;
 
     const prisma = new PrismaClient();
+
     try {
         await prisma.group.create({
             data: {
-                groupname: data.groupName,
+                groupname: groupName,
                 userid,
                 createdAt: new Date(),
                 updatedAt: new Date(),
