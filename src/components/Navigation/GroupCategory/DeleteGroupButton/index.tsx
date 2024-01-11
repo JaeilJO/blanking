@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 function DeleteGroupButton({ groupname }: { groupname: string }) {
-    console.log(groupname);
     return (
         <Link
             href={{
