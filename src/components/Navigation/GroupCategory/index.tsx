@@ -19,6 +19,8 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
 
     const current_group_name = decodeURIComponent(params.group as string);
 
+    const groupAddHandler = () => {};
+
     return (
         <ul className={style.group_category_wrapper}>
             {groups.map((group: any) => (
@@ -51,6 +53,9 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                     )}
                 </li>
             ))}
+            <li>
+                <Link href={`/user/creategroup`}>Group 생성</Link>
+            </li>
         </ul>
     );
 }
