@@ -40,6 +40,10 @@ function CreateGroupModal() {
         }
     };
 
+    const closeHandler = () => {
+        router.back();
+    };
+
     return (
         <ModalBackground>
             <div className={style.modal_wrapper}>
@@ -57,6 +61,9 @@ function CreateGroupModal() {
                     </div>
                     <input className={style.submit_button} type="submit" value={'Group 생성하기'} />
                 </form>
+                <button onClick={closeHandler} className={style.close_button}>
+                    닫기
+                </button>
             </div>
         </ModalBackground>
     );

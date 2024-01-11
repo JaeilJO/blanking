@@ -3,14 +3,14 @@
     background-color: white;
     display: flex;
     flex-direction: column;
-    gap: 24px;
 
-    padding: 12px;
+    padding: 24px 12px;
     border-radius: 8px;
 }
 .title {
     text-align: center;
     @include a.typhography('tit-03');
+    margin-bottom: 24px;
 }
 
 .form {
@@ -19,16 +19,21 @@
 }
 
 .input {
-    @include a.typhography('body-01');
+    @include a.typhography('sub-02');
+
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
+
+    &::placeholder {
+        color: a.$primary-color;
+    }
 }
 
 .guide_text {
     @include a.typhography('body-02');
     color: a.$gray-color;
     b {
-        color: a.$primary-color;
+        color: a.$text-color;
     }
     margin-bottom: 24px;
 }
@@ -37,13 +42,36 @@
     @include a.typhography('body-01');
     padding: 8px;
     cursor: pointer;
+    min-height: 60px;
 
     transition: background-color ease-in-out 0.2s;
     color: a.$white-color;
 
     background-color: a.$primary-color;
 
+    border-radius: 4px;
+
+    margin-bottom: 12px;
     &:hover {
         background-color: a.$primary-hover-color;
+    }
+}
+.close_button {
+    min-height: 60px;
+
+    padding: 8px;
+
+    background-color: a.$light-gray-color;
+
+    @include a.typhography('body-01');
+    cursor: pointer;
+
+    border-radius: 4px;
+    border: 1px solid white;
+
+    transition: border-color ease-in-out 0.2s;
+
+    &:hover {
+        border: 1px solid a.$text-color;
     }
 }
