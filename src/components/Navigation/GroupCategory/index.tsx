@@ -6,7 +6,7 @@ import { useParams } from 'next/navigation';
 import classNames from 'classnames/bind';
 import PageCategory from '../PageCategory';
 import { BsFillCaretLeftFill } from 'react-icons/bs';
-
+import { BsFillPlusSquareFill } from 'react-icons/bs';
 interface GroupCategoryProps {
     groups: any;
     username: string;
@@ -18,8 +18,6 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
     const params = useParams();
 
     const current_group_name = decodeURIComponent(params.group as string);
-
-    const groupAddHandler = () => {};
 
     return (
         <ul className={style.group_category_wrapper}>
@@ -54,7 +52,12 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                 </li>
             ))}
             <li>
-                <Link href={`/user/creategroup`}>Group 생성</Link>
+                <Link className={style.create_group_button} href={`/user/creategroup`}>
+                    <span className={style.create_group_button_icon}>
+                        <BsFillPlusSquareFill />
+                    </span>
+                    <span>Group 생성</span>
+                </Link>
             </li>
         </ul>
     );
