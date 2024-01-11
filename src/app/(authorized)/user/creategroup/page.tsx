@@ -1,5 +1,7 @@
+import { redirect } from 'next/navigation';
+
 function Page() {
-    return <div>CreateGroup</div>;
+    redirect('/user/');
 }
 
 export default Page;
