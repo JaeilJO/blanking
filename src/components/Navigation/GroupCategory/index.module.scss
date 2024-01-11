@@ -18,20 +18,41 @@
 }
 
 .group_title_wrapper {
+    position: relative;
     display: flex;
     gap: 4px;
     align-items: center;
 }
 
-.group_title_icon {
-    display: none;
-    justify-content: center;
+.group_title_button_wrapper {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 8px;
 
-    color: a.$primary-color;
-    @include a.typhography('body-02');
+    button {
+        @include a.typhography('body-01');
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            color: a.$gray-color;
+        }
+    }
+}
+
+.group_title_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: a.$gray-color;
+    @include a.typhography('sub-02');
 
     &.current {
-        display: flex;
+        color: a.$primary-color;
     }
 }
 

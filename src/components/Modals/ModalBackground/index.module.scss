@@ -1,8 +1,7 @@
 @use '@style/abstracts' as a;
 
 .background {
-    position: fixed;
-
+    position: absolute;
     z-index: 99999999999;
 
     display: flex;

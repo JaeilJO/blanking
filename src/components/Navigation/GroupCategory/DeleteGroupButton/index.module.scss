@@ -1,0 +1,12 @@
+@use '@style/abstracts' as a;
+.button {
+    @include a.typhography('body-01');
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        color: a.$gray-color;
+    }
+}

@@ -5,8 +5,15 @@ import style from './index.module.scss';
 import { useParams } from 'next/navigation';
 import classNames from 'classnames/bind';
 import PageCategory from '../PageCategory';
-import { BsFillCaretLeftFill } from 'react-icons/bs';
+
+import { BsFolder2Open } from 'react-icons/bs';
 import { BsFillPlusSquareFill } from 'react-icons/bs';
+import { BsFolder } from 'react-icons/bs';
+import { BsTrash3 } from 'react-icons/bs';
+import { BsFillPencilFill } from 'react-icons/bs';
+import { useState } from 'react';
+import DeleteGroupButton from './DeleteGroupButton';
+
 interface GroupCategoryProps {
     groups: any;
     username: string;
@@ -24,6 +31,14 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
             {groups.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
+                        <span
+                            className={cn({
+                                group_title_icon: true,
+                                current: current_group_name === group.groupname,
+                            })}
+                        >
+                            {current_group_name === group.groupname ? <BsFolder2Open /> : <BsFolder />}
+                        </span>
                         <Link
                             href={`/user/${username}/${group.groupname}`}
                             className={cn({
@@ -33,14 +48,14 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                         >
                             {group.groupname}
                         </Link>
-                        <span
-                            className={cn({
-                                group_title_icon: true,
-                                current: current_group_name === group.groupname,
-                            })}
-                        >
-                            <BsFillCaretLeftFill />
-                        </span>
+
+                        <div className={style.group_title_button_wrapper}>
+                            <button title="change group name">
+                                <BsFillPencilFill />
+                            </button>
+
+                            <DeleteGroupButton groupname={group.groupname} />
+                        </div>
                     </div>
 
                     {/* Page Category */}
@@ -51,6 +66,8 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                     )}
                 </li>
             ))}
+
+            {/* // Group 생성 버튼 */}
             <li>
                 <Link className={style.create_group_button} href={`/user/creategroup`}>
                     <span className={style.create_group_button_icon}>

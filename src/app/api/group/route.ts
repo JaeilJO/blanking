@@ -42,4 +42,23 @@ export async function POST(req: Request, res: Response) {
 
 export async function PATCH(request: Request) {}
 
-export async function DELETE(request: Request) {}
+export async function DELETE(request: Request) {
+    const data = await request.json();
+
+    const userid = Number(data.userid);
+    const groupname = data.groupname;
+
+    const prisma = new PrismaClient();
+
+    try {
+        await prisma.group.delete({
+            where: {
+                userid,
+                groupname,
+            },
+        });
+        return new Response('OK', { status: 200 });
+    } catch (e) {
+        return new Response(e as string, { status: 403 });
+    }
+}
