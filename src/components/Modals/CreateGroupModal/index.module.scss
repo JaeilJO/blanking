@@ -1,0 +1,49 @@
+@use '@style/abstracts' as a;
+.modal_wrapper {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: 12px;
+    border-radius: 8px;
+}
+.title {
+    text-align: center;
+    @include a.typhography('tit-03');
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    @include a.typhography('body-01');
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.guide_text {
+    @include a.typhography('body-02');
+    color: a.$gray-color;
+    b {
+        color: a.$primary-color;
+    }
+    margin-bottom: 24px;
+}
+
+.submit_button {
+    @include a.typhography('body-01');
+    padding: 8px;
+    cursor: pointer;
+
+    transition: background-color ease-in-out 0.2s;
+    color: a.$white-color;
+
+    background-color: a.$primary-color;
+
+    &:hover {
+        background-color: a.$primary-hover-color;
+    }
+}

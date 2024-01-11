@@ -1,5 +1,11 @@
+import CreateGroupModal from '@/components/Modals/CreateGroupModal';
+
 function Page() {
-    return <div>CreateGroupModal</div>;
+    return (
+        <>
+            <CreateGroupModal />
+        </>
+    );
 }
 
 export default Page;

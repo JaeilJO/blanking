@@ -1,0 +1,16 @@
+@use '@style/abstracts' as a;
+
+.background {
+    position: absolute;
+
+    z-index: 999999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100dvw;
+    height: 100dvh;
+
+    background-color: rgba(143, 143, 143, 0.5);
+}
