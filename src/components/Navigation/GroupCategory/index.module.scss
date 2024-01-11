@@ -18,9 +18,29 @@
 }
 
 .group_title_wrapper {
+    position: relative;
     display: flex;
     gap: 4px;
     align-items: center;
+}
+
+.group_title_button_wrapper {
+    position: absolute;
+    right: 0;
+    display: flex;
+    gap: 8px;
+
+    button {
+        @include a.typhography('body-01');
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        &:hover {
+            color: a.$gray-color;
+        }
+    }
 }
 
 .group_title_icon {

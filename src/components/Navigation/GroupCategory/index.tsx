@@ -9,6 +9,10 @@ import PageCategory from '../PageCategory';
 import { BsFolder2Open } from 'react-icons/bs';
 import { BsFillPlusSquareFill } from 'react-icons/bs';
 import { BsFolder } from 'react-icons/bs';
+import { BsTrash3 } from 'react-icons/bs';
+import { BsFillPencilFill } from 'react-icons/bs';
+import { useState } from 'react';
+
 interface GroupCategoryProps {
     groups: any;
     username: string;
@@ -18,8 +22,11 @@ const cn = classNames.bind(style);
 
 function GroupCategory({ groups, username }: GroupCategoryProps) {
     const params = useParams();
+    const [isHover, setIsHover] = useState(false);
 
     const current_group_name = decodeURIComponent(params.group as string);
+
+    const groupItemHoverHandler = () => {};
 
     return (
         <ul className={style.group_category_wrapper}>
@@ -43,6 +50,16 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                         >
                             {group.groupname}
                         </Link>
+
+                        <div className={style.group_title_button_wrapper}>
+                            <button title="change group name">
+                                <BsFillPencilFill />
+                            </button>
+
+                            <button title="delete group">
+                                <BsTrash3 />
+                            </button>
+                        </div>
                     </div>
 
                     {/* Page Category */}
