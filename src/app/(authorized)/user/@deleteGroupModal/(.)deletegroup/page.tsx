@@ -1,6 +1,7 @@
+import DeleteGroupModal from '@/components/Modals/DeleteGroupModal';
+
 function Page() {
-    console.log('here');
-    return <div>DeleteGroup</div>;
+    return <DeleteGroupModal />;
 }
 
 export default Page;

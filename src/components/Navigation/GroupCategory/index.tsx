@@ -23,11 +23,8 @@ const cn = classNames.bind(style);
 
 function GroupCategory({ groups, username }: GroupCategoryProps) {
     const params = useParams();
-    const [isHover, setIsHover] = useState(false);
 
     const current_group_name = decodeURIComponent(params.group as string);
-
-    const groupItemHoverHandler = () => {};
 
     return (
         <ul className={style.group_category_wrapper}>
@@ -57,7 +54,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                                 <BsFillPencilFill />
                             </button>
 
-                            <DeleteGroupButton />
+                            <DeleteGroupButton groupname={group.groupname} />
                         </div>
                     </div>
 
