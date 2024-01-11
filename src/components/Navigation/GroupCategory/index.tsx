@@ -12,6 +12,7 @@ import { BsFolder } from 'react-icons/bs';
 import { BsTrash3 } from 'react-icons/bs';
 import { BsFillPencilFill } from 'react-icons/bs';
 import { useState } from 'react';
+import DeleteGroupButton from './DeleteGroupButton';
 
 interface GroupCategoryProps {
     groups: any;
@@ -56,9 +57,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                                 <BsFillPencilFill />
                             </button>
 
-                            <button title="delete group">
-                                <BsTrash3 />
-                            </button>
+                            <DeleteGroupButton />
                         </div>
                     </div>
 
