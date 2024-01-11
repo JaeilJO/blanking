@@ -24,14 +24,15 @@
 }
 
 .group_title_icon {
-    display: none;
+    display: flex;
     justify-content: center;
+    align-items: center;
 
-    color: a.$primary-color;
-    @include a.typhography('body-02');
+    color: a.$gray-color;
+    @include a.typhography('sub-02');
 
     &.current {
-        display: flex;
+        color: a.$primary-color;
     }
 }
 
