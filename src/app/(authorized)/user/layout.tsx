@@ -8,9 +8,11 @@ import { config } from '@/utils/auth';
 async function Layout({
     children,
     createGroupModal,
+    deleteGroupModal,
 }: {
     children: React.ReactNode;
     createGroupModal: React.ReactNode;
+    deleteGroupModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
     const username = session?.user?.name as string;
@@ -34,6 +36,7 @@ async function Layout({
     return (
         <div>
             {createGroupModal}
+            {deleteGroupModal}
             <nav className={style.navigation_wrapper}>
                 <Navigation username={username} groups={groups} />
             </nav>
