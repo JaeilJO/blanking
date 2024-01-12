@@ -41,7 +41,7 @@ function PageCategory({ username, groupname, pages, iscurrent_group }: PageCateg
             ))}
 
             <li className={style.page_title}>
-                <PageAddButton />
+                <PageAddButton current_group_name={current_group_name} />
             </li>
         </ul>
     );

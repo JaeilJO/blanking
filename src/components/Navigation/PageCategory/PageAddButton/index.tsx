@@ -2,15 +2,16 @@
 
 import { BsFillPlusCircleFill } from 'react-icons/bs';
 import style from './index.module.scss';
+import Link from 'next/link';
 
-function PageAddButton() {
+function PageAddButton({ current_group_name }: { current_group_name: string }) {
     return (
-        <button className={style.button_wrapper}>
+        <Link href={'/user/createpage'} className={style.button_wrapper}>
             <span className={style.icon}>
                 <BsFillPlusCircleFill />
             </span>
             <span>페이지 추가</span>
-        </button>
+        </Link>
     );
 }
 
