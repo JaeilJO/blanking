@@ -35,9 +35,11 @@ async function Layout({
 
     return (
         <div>
+            {/* Modals */}
             {createGroupModal}
             {deleteGroupModal}
             {createPageModal}
+
             <nav className={style.navigation_wrapper}>
                 <Navigation username={userinfo.name} groups={userinfo.groups} />
             </nav>
