@@ -2,11 +2,19 @@ import GroupTable from '@/components/PageTable';
 import { basic_mock } from '@/mock/basic';
 import style from './page.module.scss';
 
-function Page({ params }: { params: { group: string } }) {
-    const user = basic_mock;
-    const pages = user.groups.find((group: any) => group.groupname === params.group)?.pages;
-
+async function Page({ params }: { params: { group: string } }) {
     const current_group_name = decodeURIComponent(params.group as string);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            cookie: `groupname=${current_group_name}`,
+        },
+        credentials: 'include',
+    });
+
+    const pages = await res.json();
 
     return (
         <div className={style.page_table_wrapper}>
