@@ -20,13 +20,11 @@ interface GroupCategoryProps {
     username: string;
 }
 
-const cn = classNames.bind(style);
-
 function GroupCategory({ groups, username }: GroupCategoryProps) {
     const params = useParams();
 
     const current_group_name = decodeURIComponent(params.group as string);
-    console.log(groups);
+
     return (
         <ul className={style.group_category_wrapper}>
             {groups.map((group: any) => (

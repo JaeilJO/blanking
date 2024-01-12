@@ -9,15 +9,24 @@ interface PageProps {
     };
 }
 
-function Page({ params }: PageProps) {
+async function Page({ params }: PageProps) {
     const user = basic_mock;
 
     const page_name = decodeURIComponent(params.page as string);
 
     const group = user.groups.filter((group) => group.groupname === params.group);
 
-    const page = group[0]?.pages?.filter((page) => page.pagename === page_name)[0];
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            cookie: `groupname=${params.group}; pagename=${page_name}`,
+        },
+        credentials: 'include',
+    });
 
+    const page = await res.json();
+    console.log(page);
     return (
         <div className={style.page_wrapper}>
             <div className={style.page_title}>{page_name}</div>

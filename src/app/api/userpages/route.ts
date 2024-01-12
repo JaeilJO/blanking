@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 
 export async function GET(res: Response) {
     const cookieStore = cookies();
+
     const groupname = cookieStore.get('groupname')?.value as string;
 
     const prisma = new PrismaClient();
