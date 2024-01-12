@@ -1,9 +1,16 @@
+// Components
 import Navigation from '@/components/Navigation';
-import style from './layout.module.scss';
 
-import { redirect } from 'next/navigation';
-import { getServerSession } from 'next-auth';
+// Next Auth
 import { config } from '@/utils/auth';
+import { getServerSession } from 'next-auth';
+
+//Utils
+import getUser from '@/utils/getUser';
+import { redirect } from 'next/navigation';
+
+// Style
+import style from './layout.module.scss';
 
 async function Layout({
     children,
@@ -17,17 +24,9 @@ async function Layout({
     createPageModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
+    const userid = session?.user.id as string;
 
-    const user = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/user`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            cookie: `userid=${session?.user?.id}`,
-        },
-        credentials: 'include',
-    });
-
-    const userinfo = await user.json();
+    const user = await getUser(userid);
 
     if (!session) {
         redirect(`/auth/signin`);
@@ -41,7 +40,7 @@ async function Layout({
             {createPageModal}
 
             <nav className={style.navigation_wrapper}>
-                <Navigation username={userinfo.name} groups={userinfo.groups} />
+                <Navigation username={user.name} groups={user.groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>
