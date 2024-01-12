@@ -17,7 +17,6 @@ async function Layout({
     createPageModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
-    const username = session?.user?.name as string;
 
     const user = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/user`, {
         method: 'GET',
@@ -40,7 +39,7 @@ async function Layout({
             {deleteGroupModal}
             {createPageModal}
             <nav className={style.navigation_wrapper}>
-                <Navigation username={username} groups={userinfo.groups} />
+                <Navigation username={userinfo.name} groups={userinfo.groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>

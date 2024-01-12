@@ -28,7 +28,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
 
     return (
         <ul className={style.group_category_wrapper}>
-            {groups?.map((group: any) => (
+            {groups.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <span
@@ -61,7 +61,7 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
                     <PageCategory
                         username={username}
                         groupname={group.groupname}
-                        pages={groups.pages}
+                        pages={group.pages}
                         iscurrent_group={current_group_name === group.groupname}
                     />
                 </li>

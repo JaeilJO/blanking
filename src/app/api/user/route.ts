@@ -11,7 +11,11 @@ export async function GET(res: Response) {
             id: userid,
         },
         include: {
-            groups: true,
+            groups: {
+                include: {
+                    pages: true,
+                },
+            },
         },
     });
 
