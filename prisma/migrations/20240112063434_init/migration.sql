@@ -27,6 +27,8 @@ CREATE TABLE "Page" (
     "pagename" TEXT NOT NULL,
     "groupid" INTEGER NOT NULL,
     "content" JSONB[],
+    "createdAt" TIMESTAMP(3) NOT NULL,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Page_pkey" PRIMARY KEY ("id")
 );

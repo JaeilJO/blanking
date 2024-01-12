@@ -19,21 +19,20 @@ async function Layout({
     const session = await getServerSession(config);
     const username = session?.user?.name as string;
 
-    if (!session) {
-        redirect(`/auth/signin`);
-    }
-
-    //Get Groups
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group`, {
+    const user = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/user`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            cookie: `id=${session?.user?.id}`,
+            cookie: `userid=${session?.user?.id}`,
         },
         credentials: 'include',
     });
 
-    const groups = await res.json();
+    const userinfo = await user.json();
+
+    if (!session) {
+        redirect(`/auth/signin`);
+    }
 
     return (
         <div>
@@ -41,7 +40,7 @@ async function Layout({
             {deleteGroupModal}
             {createPageModal}
             <nav className={style.navigation_wrapper}>
-                <Navigation username={username} groups={groups} />
+                <Navigation username={username} groups={userinfo.groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>
