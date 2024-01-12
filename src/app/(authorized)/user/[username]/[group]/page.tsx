@@ -5,7 +5,7 @@ import style from './page.module.scss';
 async function Page({ params }: { params: { group: string } }) {
     const current_group_name = decodeURIComponent(params.group as string);
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpages`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
