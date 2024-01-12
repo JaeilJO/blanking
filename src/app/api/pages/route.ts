@@ -1,7 +1,26 @@
 import { PrismaClient } from '@prisma/client';
 import { cookies } from 'next/headers';
 
-export async function GET(req: Request, res: Response) {}
+export async function GET(res: Response) {
+    const cookieStore = cookies();
+    const groupname = cookieStore.get('groupname')?.value as string;
+
+    const prisma = new PrismaClient();
+
+    const group = await prisma.group.findUnique({
+        where: {
+            groupname,
+        },
+    });
+
+    const groupid = group?.id;
+
+    const pages = await prisma.page.findMany({
+        where: { groupid },
+    });
+
+    return new Response(JSON.stringify(pages), { status: 200 });
+}
 
 export async function POST(req: Request, res: Response) {
     const request = await req.json();
@@ -16,7 +35,8 @@ export async function POST(req: Request, res: Response) {
     if (!group) {
         return new Response('유효하지 않는 Group입니다.', { status: 403 });
     }
-
+    const userid = group.userid;
+    console.log(userid);
     const groupid = group.id;
     const pagename = request.pagename;
 

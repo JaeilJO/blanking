@@ -17,31 +17,31 @@ async function Layout({
     createPageModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
-    const username = session?.user?.name as string;
+
+    const user = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/user`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            cookie: `userid=${session?.user?.id}`,
+        },
+        credentials: 'include',
+    });
+
+    const userinfo = await user.json();
 
     if (!session) {
         redirect(`/auth/signin`);
     }
 
-    //Get Groups
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            cookie: `id=${session?.user?.id}`,
-        },
-        credentials: 'include',
-    });
-
-    const groups = await res.json();
-
     return (
         <div>
+            {/* Modals */}
             {createGroupModal}
             {deleteGroupModal}
             {createPageModal}
+
             <nav className={style.navigation_wrapper}>
-                <Navigation username={username} groups={groups} />
+                <Navigation username={userinfo.name} groups={userinfo.groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>

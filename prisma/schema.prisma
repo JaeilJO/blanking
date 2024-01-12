@@ -34,8 +34,8 @@ model Group{
 model Page{
   id Int @id @default(autoincrement())
   pagename String @unique
-  groupid Int
   group Group @relation(fields: [groupid], references: [id])
+  groupid Int
   content Json[]
   createdAt DateTime
   updatedAt DateTime
