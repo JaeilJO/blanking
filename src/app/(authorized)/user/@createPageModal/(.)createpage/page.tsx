@@ -1,5 +1,7 @@
+import CreatePageModal from '@/components/Modals/CreatePageModal';
+
 function Page() {
-    return <div>CreatePage</div>;
+    return <CreatePageModal />;
 }
 
 export default Page;

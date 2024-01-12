@@ -6,7 +6,13 @@ import Link from 'next/link';
 
 function PageAddButton({ current_group_name }: { current_group_name: string }) {
     return (
-        <Link href={'/user/createpage'} className={style.button_wrapper}>
+        <Link
+            href={{
+                pathname: '/user/createpage',
+                query: { groupname: current_group_name },
+            }}
+            className={style.button_wrapper}
+        >
             <span className={style.icon}>
                 <BsFillPlusCircleFill />
             </span>
