@@ -1,0 +1,18 @@
+@use '@style/abstracts' as a;
+.button_wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    @include a.typhography('body-01');
+    height: 100%;
+    color: a.$text-color;
+    cursor: pointer;
+    display: flex;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

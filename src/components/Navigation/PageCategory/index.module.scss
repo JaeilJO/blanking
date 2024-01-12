@@ -1,15 +1,24 @@
 @use '@style/abstracts' as a;
 
 .page_category_wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 4px;
 
     overflow: hidden;
+    height: 0px;
+    transform-origin: top;
+
+    transition: height 0.2s ease-in-out;
 }
 
 .page_title {
-    display: block;
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
 
     padding: a.$pageName-padding;
 
