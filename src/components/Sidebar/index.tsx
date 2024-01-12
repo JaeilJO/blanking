@@ -1,7 +1,12 @@
+// Utiles
 import Link from 'next/link';
-import GroupCategory from './GroupCategory';
+
+//Style
 import style from './index.module.scss';
+
+// Components
 import LogoutButton from './LogoutButton';
+import GroupCategory from './GroupCategory';
 
 function Sidebar({ username, groups }: { username: string; groups: any }) {
     return (

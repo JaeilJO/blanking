@@ -1,0 +1,31 @@
+@use '@style/abstracts' as a;
+
+.page_title {
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: a.$pageName-padding;
+
+    margin-left: a.$pageName-margin-left;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    transition: background-color 0.2s ease-in-out;
+
+    &.current {
+        background-color: a.$primary-color;
+        color: a.$white-color;
+        pointer-events: none;
+    }
+
+    &:hover {
+        background-color: a.$light-gray-color;
+    }
+}
