@@ -1,5 +1,9 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, User } from '@prisma/client';
 import { cookies } from 'next/headers';
+
+function exclude({ user, keys }: { user: User; keys: string[] }) {
+    return Object.fromEntries(Object.entries(user).filter(([key]) => !keys.includes(key)));
+}
 
 export async function GET(res: Response) {
     const prisma = new PrismaClient();
@@ -19,5 +23,8 @@ export async function GET(res: Response) {
         },
     });
 
-    return new Response(JSON.stringify(user), { status: 200 });
+    if (user) {
+        const userWithoutPassword = exclude({ user, keys: ['password'] });
+        return new Response(JSON.stringify(userWithoutPassword), { status: 200 });
+    }
 }
