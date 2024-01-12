@@ -25,7 +25,7 @@ function CreatePageModal() {
         e.preventDefault();
         const pagename = inputRef.current?.value;
 
-        const res = await fetch('/api/pages', {
+        const res = await fetch('/api/userpages', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
