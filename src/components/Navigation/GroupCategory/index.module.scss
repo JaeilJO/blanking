@@ -43,42 +43,6 @@
     }
 }
 
-.group_title_icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    color: a.$gray-color;
-    @include a.typhography('sub-02');
-
-    &.current {
-        color: a.$primary-color;
-    }
-}
-
-.group_title {
-    position: relative;
-    left: 0;
-
-    padding: 4px;
-
-    display: block;
-
-    border-radius: 4px;
-
-    transition: left 0.25s;
-
-    @include a.typhography('sub-02');
-
-    &:hover {
-        left: 5px;
-    }
-
-    &.current {
-        color: a.$primary-color;
-    }
-}
-
 .create_group_button {
     padding: 1em;
 

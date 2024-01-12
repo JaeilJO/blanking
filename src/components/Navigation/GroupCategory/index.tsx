@@ -13,6 +13,7 @@ import { BsTrash3 } from 'react-icons/bs';
 import { BsFillPencilFill } from 'react-icons/bs';
 import { useState } from 'react';
 import DeleteGroupButton from './DeleteGroupButton';
+import GroupCategoryTitle from './GroupCategoryTitle';
 
 interface GroupCategoryProps {
     groups: any;
@@ -25,29 +26,13 @@ function GroupCategory({ groups, username }: GroupCategoryProps) {
     const params = useParams();
 
     const current_group_name = decodeURIComponent(params.group as string);
-
+    console.log(groups);
     return (
         <ul className={style.group_category_wrapper}>
             {groups.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
-                        <span
-                            className={cn({
-                                group_title_icon: true,
-                                current: current_group_name === group.groupname,
-                            })}
-                        >
-                            {current_group_name === group.groupname ? <BsFolder2Open /> : <BsFolder />}
-                        </span>
-                        <Link
-                            href={`/user/${username}/${group.groupname}`}
-                            className={cn({
-                                group_title: true,
-                                current: current_group_name === group.groupname,
-                            })}
-                        >
-                            {group.groupname}
-                        </Link>
+                        <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />
 
                         <div className={style.group_title_button_wrapper}>
                             <button title="change group name">
