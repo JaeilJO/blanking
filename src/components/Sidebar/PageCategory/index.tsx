@@ -26,7 +26,7 @@ function PageCategory({ username, groupname, pages, iscurrent_group }: PageCateg
     return (
         <ul
             className={style.page_category_wrapper}
-            style={{ height: `${iscurrent_group ? pageLength * 30 + 30 : 0}px` }}
+            style={{ height: `${iscurrent_group ? pageLength * 40 + 40 : 0}px` }}
         >
             {pages?.map((page: any) => (
                 <PageCategoryItem
