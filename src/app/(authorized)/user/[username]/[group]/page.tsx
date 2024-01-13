@@ -1,5 +1,5 @@
 import GroupTable from '@/components/PageTable';
-import { basic_mock } from '@/mock/basic';
+
 import style from './page.module.scss';
 
 async function Page({ params }: { params: { group: string } }) {
@@ -15,7 +15,7 @@ async function Page({ params }: { params: { group: string } }) {
         credentials: 'include',
     });
 
-    const pages = await res.json();
+    const pages = await res?.json();
 
     return (
         <div className={style.page_table_wrapper}>
