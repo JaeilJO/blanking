@@ -12,13 +12,12 @@ export async function GET(res: Response) {
         where: {
             groupname,
         },
+        include: {
+            pages: true,
+        },
     });
 
-    const groupid = group?.id;
-
-    const pages = await prisma.page.findMany({
-        where: { groupid },
-    });
+    const pages = group?.pages;
 
     return new Response(JSON.stringify(pages), { status: 200 });
 }

@@ -1,6 +1,6 @@
 @use '@style/abstracts' as a;
 
-.navigation {
+.sidebar {
     position: relative;
 
     height: calc(100% - 2 * #{a.$sidebar-padding-vertical});

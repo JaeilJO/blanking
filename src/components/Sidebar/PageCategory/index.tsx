@@ -5,6 +5,8 @@ import style from './index.module.scss';
 import classNames from 'classnames/bind';
 import { useParams, useRouter } from 'next/navigation';
 import PageAddButton from './PageAddButton';
+import PageCategoryItemWrapper from './PageCategoryItemWrapper';
+import PageCategoryItem from './PageCategoryItem';
 
 interface PageCategoryProps {
     username: string;
@@ -12,8 +14,6 @@ interface PageCategoryProps {
     pages: any[];
     iscurrent_group: boolean;
 }
-
-const cn = classNames.bind(style);
 
 function PageCategory({ username, groupname, pages, iscurrent_group }: PageCategoryProps) {
     const param = useParams();
@@ -26,23 +26,20 @@ function PageCategory({ username, groupname, pages, iscurrent_group }: PageCateg
     return (
         <ul
             className={style.page_category_wrapper}
-            style={{ height: `${iscurrent_group ? pageLength * 30 + 30 : 0}px` }}
+            style={{ height: `${iscurrent_group ? pageLength * 40 + 40 : 0}px` }}
         >
             {pages?.map((page: any) => (
-                <li
+                <PageCategoryItem
                     key={page.pagename}
-                    className={cn({
-                        page_title: true,
-                        current: current_page_name === page.pagename && current_group_name === groupname,
-                    })}
-                >
-                    <Link href={`/user/${username}/${groupname}/${page.pagename}`}>{page.pagename}</Link>
-                </li>
+                    current_page_name={current_page_name}
+                    pagename={page.pagename}
+                    current_group_name={current_group_name}
+                    groupname={groupname}
+                    username={username}
+                />
             ))}
 
-            <li className={style.page_title}>
-                <PageAddButton current_group_name={current_group_name} />
-            </li>
+            <PageAddButton current_group_name={current_group_name} />
         </ul>
     );
 }

@@ -1,5 +1,5 @@
 // Components
-import Navigation from '@/components/Navigation';
+import Sidebar from '@/components/Sidebar';
 
 // Next Auth
 import { config } from '@/utils/auth';
@@ -26,11 +26,11 @@ async function Layout({
     const session = await getServerSession(config);
     const userid = session?.user.id as string;
 
-    const user = await getUser(userid);
-
     if (!session) {
         redirect(`/auth/signin`);
     }
+
+    const user = await getUser(userid);
 
     return (
         <div>
@@ -40,7 +40,7 @@ async function Layout({
             {createPageModal}
 
             <nav className={style.navigation_wrapper}>
-                <Navigation username={user.name} groups={user.groups} />
+                <Sidebar username={user.name} groups={user.groups} />
             </nav>
             <main className={style.content_wrapper}>{children}</main>
         </div>
