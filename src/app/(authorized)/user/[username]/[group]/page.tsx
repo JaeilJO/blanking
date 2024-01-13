@@ -16,6 +16,8 @@ async function Page({ params }: { params: { group: string } }) {
 
     const pages = await res.json();
 
+    console.log(pages);
+
     return (
         <div className={style.page_table_wrapper}>
             <div className={style.title}>{current_group_name}</div>
