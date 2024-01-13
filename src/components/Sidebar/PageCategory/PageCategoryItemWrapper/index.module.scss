@@ -21,8 +21,12 @@
 
     &.current {
         background-color: a.$primary-color;
-        color: a.$white-color;
+
         pointer-events: none;
+
+        a {
+            color: a.$white-color;
+        }
     }
 
     &:hover {

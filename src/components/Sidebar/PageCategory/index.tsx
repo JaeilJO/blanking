@@ -6,6 +6,7 @@ import classNames from 'classnames/bind';
 import { useParams, useRouter } from 'next/navigation';
 import PageAddButton from './PageAddButton';
 import PageCategoryItemWrapper from './PageCategoryItemWrapper';
+import PageCategoryItem from './PageCategoryItem';
 
 interface PageCategoryProps {
     username: string;
@@ -28,15 +29,14 @@ function PageCategory({ username, groupname, pages, iscurrent_group }: PageCateg
             style={{ height: `${iscurrent_group ? pageLength * 30 + 30 : 0}px` }}
         >
             {pages?.map((page: any) => (
-                <PageCategoryItemWrapper
+                <PageCategoryItem
                     key={page.pagename}
                     current_page_name={current_page_name}
                     pagename={page.pagename}
                     current_group_name={current_group_name}
                     groupname={groupname}
-                >
-                    <Link href={`/user/${username}/${groupname}/${page.pagename}`}>{page.pagename}</Link>
-                </PageCategoryItemWrapper>
+                    username={username}
+                />
             ))}
 
             <PageAddButton current_group_name={current_group_name} />

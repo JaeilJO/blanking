@@ -20,6 +20,8 @@ function PageCategoryItemWrapper({
     groupname,
     type,
 }: PageCategoryItemWrapperProps) {
+    console.log(current_group_name === groupname && current_page_name === pagename);
+
     if (type === 'pageAddButton') {
         return <li className={style.page_title}>{children}</li>;
     }
