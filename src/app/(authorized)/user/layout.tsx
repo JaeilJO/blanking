@@ -17,11 +17,13 @@ async function Layout({
     createGroupModal,
     deleteGroupModal,
     createPageModal,
+    deletePageModal,
 }: {
     children: React.ReactNode;
     createGroupModal: React.ReactNode;
     deleteGroupModal: React.ReactNode;
     createPageModal: React.ReactNode;
+    deletePageModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
     const userid = session?.user.id as string;
@@ -38,6 +40,7 @@ async function Layout({
             {createGroupModal}
             {deleteGroupModal}
             {createPageModal}
+            {deletePageModal}
 
             <nav className={style.navigation_wrapper}>
                 <Sidebar username={user.name} groups={user.groups} />

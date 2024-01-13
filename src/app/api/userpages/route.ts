@@ -58,4 +58,19 @@ export async function POST(req: Request, res: Response) {
 
 export async function PATCH(request: Request) {}
 
-export async function DELETE(request: Request) {}
+export async function DELETE(req: Request) {
+    const request = await req.json();
+    const pagename = request.pagename;
+    const prisma = new PrismaClient();
+
+    try {
+        await prisma.page.delete({
+            where: {
+                pagename,
+            },
+        });
+        return new Response('페이지가 삭제되었습니다.', { status: 200 });
+    } catch (err) {
+        return new Response('페이지 삭제에 실패하였습니다.', { status: 403 });
+    }
+}

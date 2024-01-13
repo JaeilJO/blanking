@@ -2,11 +2,15 @@
 
 import { BsTrash3 } from 'react-icons/bs';
 import style from './index.module.scss';
-function PageDeleteButton() {
+import Link from 'next/link';
+function PageDeleteButton({ pagename }: { pagename: string }) {
     return (
-        <button className={style.page_info_icon}>
+        <Link
+            href={{ pathname: `/user/deletepage`, query: { pagename: `${pagename}` } }}
+            className={style.page_info_icon}
+        >
             <BsTrash3 />
-        </button>
+        </Link>
     );
 }
 

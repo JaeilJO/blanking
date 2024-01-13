@@ -2,8 +2,7 @@
 
 import Link from 'next/link';
 import style from './index.module.scss';
-import { BsTrash3 } from 'react-icons/bs';
-import { BsPencilSquare } from 'react-icons/bs';
+
 import { useParams } from 'next/navigation';
 import PageDeleteButton from './PageDeleteButton';
 import PageChangeNameButton from './PageChangeNameButton';
@@ -24,7 +23,7 @@ function PageTable({ pages }: { pages: any }) {
 
                         <ul className={style.page_info_icons}>
                             <PageChangeNameButton />
-                            <PageDeleteButton />
+                            <PageDeleteButton pagename={page.pagename} />
                         </ul>
                     </div>
                 </li>
