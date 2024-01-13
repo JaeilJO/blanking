@@ -11,12 +11,11 @@ async function Page({ params }: { params: { group: string } }) {
             'Content-Type': 'application/json',
             cookie: `groupname=${current_group_name}`,
         },
+        cache: 'no-cache',
         credentials: 'include',
     });
 
     const pages = await res.json();
-
-    console.log(pages);
 
     return (
         <div className={style.page_table_wrapper}>

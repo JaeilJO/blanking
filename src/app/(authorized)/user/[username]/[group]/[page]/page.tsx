@@ -10,11 +10,7 @@ interface PageProps {
 }
 
 async function Page({ params }: PageProps) {
-    const user = basic_mock;
-
     const page_name = decodeURIComponent(params.page as string);
-
-    const group = user.groups.filter((group) => group.groupname === params.group);
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage`, {
         method: 'GET',
@@ -24,9 +20,8 @@ async function Page({ params }: PageProps) {
         },
         credentials: 'include',
     });
-
     const page = await res.json();
-    console.log(page);
+
     return (
         <div className={style.page_wrapper}>
             <div className={style.page_title}>{page_name}</div>
