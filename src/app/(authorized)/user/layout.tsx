@@ -26,11 +26,11 @@ async function Layout({
     const session = await getServerSession(config);
     const userid = session?.user.id as string;
 
-    const user = await getUser(userid);
-
     if (!session) {
         redirect(`/auth/signin`);
     }
+
+    const user = await getUser(userid);
 
     return (
         <div>
