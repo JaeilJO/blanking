@@ -3,31 +3,37 @@
 import Link from 'next/link';
 import style from './index.module.scss';
 import { useParams } from 'next/navigation';
-import classNames from 'classnames/bind';
+
 import PageCategory from '../PageCategory';
 
-import { BsFolder2Open } from 'react-icons/bs';
 import { BsFillPlusSquareFill } from 'react-icons/bs';
-import { BsFolder } from 'react-icons/bs';
-import { BsTrash3 } from 'react-icons/bs';
+
 import { BsFillPencilFill } from 'react-icons/bs';
-import { useState } from 'react';
+
 import DeleteGroupButton from './DeleteGroupButton';
 import GroupCategoryTitle from './GroupCategoryTitle';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+import getGroups from '@/lib/getGroups';
 
 interface GroupCategoryProps {
     groups: any;
     username: string;
 }
 
-function GroupCategory({ groups, username }: GroupCategoryProps) {
+function GroupCategory({ username }: GroupCategoryProps) {
     const params = useParams();
+    const session = useSession();
+    const userid = session.data?.user.id as string;
+    console.log(userid);
 
     const current_group_name = decodeURIComponent(params.group as string);
 
+    const query = useQuery({ queryKey: ['groups'], queryFn: () => getGroups({ userid: userid }) });
+
     return (
         <ul className={style.group_category_wrapper}>
-            {groups.map((group: any) => (
+            {[].map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />

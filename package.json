@@ -18,6 +18,7 @@
     "@tanstack/react-query-devtools": "^5.17.12",
     "@types/bcrypt": "^5.0.2",
     "@types/editorjs__header": "^2.6.3",
+    "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
     "classnames": "^2.5.1",
     "next": "14.0.4",

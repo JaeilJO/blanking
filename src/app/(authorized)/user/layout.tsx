@@ -11,6 +11,7 @@ import { redirect } from 'next/navigation';
 
 // Style
 import style from './layout.module.scss';
+import ReactQueryProvider from '@/components/ReactQueryProvider';
 
 async function Layout({
     children,
@@ -35,18 +36,20 @@ async function Layout({
     const user = await getUser(userid);
 
     return (
-        <div>
-            {/* Modals */}
-            {createGroupModal}
-            {deleteGroupModal}
-            {createPageModal}
-            {deletePageModal}
+        <ReactQueryProvider>
+            <div>
+                {/* Modals */}
+                {createGroupModal}
+                {deleteGroupModal}
+                {createPageModal}
+                {deletePageModal}
 
-            <nav className={style.navigation_wrapper}>
-                <Sidebar username={user.name} groups={user.groups} />
-            </nav>
-            <main className={style.content_wrapper}>{children}</main>
-        </div>
+                <nav className={style.navigation_wrapper}>
+                    <Sidebar username={user.name} groups={user.groups} />
+                </nav>
+                <main className={style.content_wrapper}>{children}</main>
+            </div>
+        </ReactQueryProvider>
     );
 }
 

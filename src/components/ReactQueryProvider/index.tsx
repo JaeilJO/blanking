@@ -1,9 +1,12 @@
+'use client';
+
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools/production';
 import { useState } from 'react';
+import style from './index.module.scss';
 
 function ReactQueryProvider({ children }: { children: React.ReactNode }) {
-    const [client] = useState(
+    const [queryClient] = useState(
         new QueryClient({
             defaultOptions: {
                 queries: {
@@ -14,9 +17,11 @@ function ReactQueryProvider({ children }: { children: React.ReactNode }) {
         })
     );
     return (
-        <QueryClientProvider client={client}>
+        <QueryClientProvider client={queryClient}>
             {children}
-            <ReactQueryDevtools initialIsOpen={process.env.NEXT_PUBLIC_MODE === 'local'} />
+            <div className={style.devtool}>
+                <ReactQueryDevtools initialIsOpen={process.env.NEXT_PUBLIC_MODE === 'local'} />
+            </div>
         </QueryClientProvider>
     );
 }
