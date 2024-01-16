@@ -7,6 +7,8 @@ import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
 import { FormEventHandler, useRef } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createPage } from '@/lib/createPage';
 
 const cn = classNames.bind(style);
 
@@ -17,31 +19,26 @@ function CreatePageModal() {
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
 
+    const pagename = inputRef.current?.value as string;
+    const queryClient = useQueryClient();
+
+    const { mutate } = useMutation({
+        mutationFn: () => createPage({ groupname, pagename }),
+        onSuccess: () => {
+            success('페이지 생성에 성공했습니다');
+            queryClient.invalidateQueries({ queryKey: ['pages'] });
+            queryClient.invalidateQueries({ queryKey: ['navigation'] });
+            router.back();
+        },
+    });
+
     const cancelButtonClickHandler = () => {
         router.back();
     };
 
     const submitButtonClickHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const pagename = inputRef.current?.value;
-
-        const res = await fetch('/api/userpages', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                groupname,
-                pagename,
-            }),
-        });
-
-        if (res.ok) {
-            success('페이지가 생성되었습니다');
-            router.back();
-        } else {
-            error('페이지 생성에 실패했습니다');
-        }
+        mutate();
     };
 
     return (
