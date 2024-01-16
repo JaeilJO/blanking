@@ -1,10 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 import { cookies } from 'next/headers';
+import { NextRequest } from 'next/server';
 
-export async function GET(req: Request, res: Response) {
-    const cookie = cookies();
-
-    const userid = Number(cookie.get('id')?.value);
+export async function GET(req: NextRequest, { params }: { params: { userid: string } }, res: Response) {
+    const userid = Number(params.userid);
 
     const prisma = new PrismaClient();
 
@@ -42,10 +41,10 @@ export async function POST(req: Request, res: Response) {
 
 export async function PATCH(request: Request) {}
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: Request, { params }: { params: { userid: string } }) {
     const data = await request.json();
 
-    const userid = Number(data.userid);
+    const userid = Number(params.userid);
     const groupname = data.groupname;
 
     const prisma = new PrismaClient();
