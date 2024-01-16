@@ -6,7 +6,6 @@ import { config } from '@/utils/auth';
 import { getServerSession } from 'next-auth';
 
 //Utils
-import getUser from '@/utils/getUser';
 import { redirect } from 'next/navigation';
 
 // Style
@@ -27,13 +26,10 @@ async function Layout({
     deletePageModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
-    const userid = session?.user.id as string;
 
     if (!session) {
         redirect(`/auth/signin`);
     }
-
-    const user = await getUser(userid);
 
     return (
         <ReactQueryProvider>
@@ -45,7 +41,7 @@ async function Layout({
                 {deletePageModal}
 
                 <nav className={style.navigation_wrapper}>
-                    <Sidebar username={user.name} groups={user.groups} />
+                    <Sidebar />
                 </nav>
                 <main className={style.content_wrapper}>{children}</main>
             </div>
