@@ -1,16 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 import { cookies } from 'next/headers';
 
-export async function GET(res: Response) {
-    const cookieStore = cookies();
-
-    const groupname = cookieStore.get('groupname')?.value as string;
-
+export async function GET(res: Response, { params }: { params: { groupname: string } }) {
     const prisma = new PrismaClient();
 
     const group = await prisma.group.findUnique({
         where: {
-            groupname,
+            groupname: params.groupname,
         },
         include: {
             pages: true,
