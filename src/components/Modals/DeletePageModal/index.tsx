@@ -22,6 +22,7 @@ function DeletePageModal() {
         mutationFn: () => deletePage({ pagename }),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
+            queryClient.invalidateQueries({ queryKey: ['pages'] });
             success('페이지 삭제에 성공하였습니다.');
             router.back();
         },
