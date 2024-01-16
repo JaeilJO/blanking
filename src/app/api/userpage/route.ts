@@ -22,3 +22,20 @@ export async function GET(res: Response) {
 
     return new Response(JSON.stringify(page), { status: 200 });
 }
+
+export async function DELETE(req: Request) {
+    const request = await req.json();
+    const pagename = request.pagename;
+    const prisma = new PrismaClient();
+
+    try {
+        await prisma.page.delete({
+            where: {
+                pagename,
+            },
+        });
+        return new Response('페이지가 삭제되었습니다.', { status: 200 });
+    } catch (err) {
+        return new Response('페이지 삭제에 실패하였습니다.', { status: 403 });
+    }
+}

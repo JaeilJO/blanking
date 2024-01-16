@@ -8,9 +8,10 @@ import { config } from '@/utils/auth';
 
 export default async function Page({ params }: { params: { username: string } }) {
     const session = await getServerSession(config);
+    const userid = session?.user?.id as string;
 
     //Get Groups
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/groups/${userid}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

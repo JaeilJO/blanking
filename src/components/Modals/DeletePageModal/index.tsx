@@ -6,6 +6,8 @@ import style from './index.module.scss';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import { useAlertStore } from '@/zustand/alertStore';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deletePage } from '@/lib/deletePage';
 
 function DeletePageModal() {
     const router = useRouter();
@@ -14,24 +16,23 @@ function DeletePageModal() {
 
     const { error, success } = useAlertStore((state) => state);
 
-    const onClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        const res = await fetch('/api/userpages', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                pagename,
-            }),
-        });
+    const queryClient = useQueryClient();
 
-        if (res.ok) {
+    const { mutate } = useMutation({
+        mutationFn: () => deletePage({ pagename }),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['navigation'] });
             success('페이지 삭제에 성공하였습니다.');
             router.back();
-        } else {
+        },
+        onError: () => {
             error('페이지 삭제에 실패하였습니다.');
-        }
+        },
+    });
+
+    const onClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        mutate();
     };
 
     const cancelButtonHandler = () => {
