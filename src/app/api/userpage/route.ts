@@ -39,7 +39,6 @@ export async function GET(res: Response) {
         * pagename
             - body로 받음
             - string
-
 */
 
 export async function DELETE(req: Request) {
