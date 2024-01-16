@@ -1,6 +1,17 @@
 import { PrismaClient } from '@prisma/client';
 import { cookies } from 'next/headers';
 
+/* 
+    * 필요 데이터
+        * groupname
+            - cookie로 받음
+            - string
+        * pagename
+            - cookie로 받음
+            - string
+
+        cookie = {groupname=groupname; pagename=pagename}
+*/
 export async function GET(res: Response) {
     const cookieStore = cookies();
 
@@ -22,6 +33,14 @@ export async function GET(res: Response) {
 
     return new Response(JSON.stringify(page), { status: 200 });
 }
+
+/* 
+    * 필요 데이터
+        * pagename
+            - body로 받음
+            - string
+
+*/
 
 export async function DELETE(req: Request) {
     const request = await req.json();
