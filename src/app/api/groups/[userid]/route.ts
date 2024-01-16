@@ -11,6 +11,9 @@ export async function GET(req: NextRequest, { params }: { params: { userid: stri
         where: {
             userid: userid,
         },
+        include: {
+            pages: true,
+        },
     });
 
     return new Response(JSON.stringify(groups), { status: 200 });
