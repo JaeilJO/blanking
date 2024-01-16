@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import axios from 'axios';
+import getGroups from '@/lib/getGroups';
 
 //Style
 import style from './index.module.scss';
@@ -33,7 +33,7 @@ function GroupCategory({ userid }: GroupCategoryProps) {
 
     const { data, isLoading } = useQuery({
         queryKey: ['navigation'],
-        queryFn: () => axios.get(`${process.env.NEXT_PUBLIC_SITE_URL}/api/groups/${userid}`).then((res) => res.data),
+        queryFn: () => getGroups(userid),
     });
 
     return (
