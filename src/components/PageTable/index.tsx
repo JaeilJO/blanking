@@ -27,7 +27,7 @@ function PageTable({ current_group_name }: { current_group_name: string }) {
 
                         <ul className={style.page_info_icons}>
                             <PageChangeNameButton />
-                            <PageDeleteButton pagename={page.pagename} />
+                            <PageDeleteButton pagename={page.pagename} groupname={current_group_name} />
                         </ul>
                     </div>
                 </li>

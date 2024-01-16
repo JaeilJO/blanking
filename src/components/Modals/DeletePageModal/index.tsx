@@ -13,13 +13,14 @@ function DeletePageModal() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const pagename = decodeURIComponent(searchParams.get('pagename') as string);
+    const groupname = decodeURIComponent(searchParams.get('groupname') as string);
 
     const { error, success } = useAlertStore((state) => state);
 
     const queryClient = useQueryClient();
 
     const { mutate } = useMutation({
-        mutationFn: () => deletePage({ pagename }),
+        mutationFn: () => deletePage({ pagename, groupname }),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             queryClient.invalidateQueries({ queryKey: ['pages'] });
