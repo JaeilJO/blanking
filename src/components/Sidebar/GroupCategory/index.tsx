@@ -1,39 +1,45 @@
 'use client';
 
+//Utils
 import Link from 'next/link';
-import style from './index.module.scss';
 import { useParams } from 'next/navigation';
+import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+import axios from 'axios';
 
+//Style
+import style from './index.module.scss';
+
+//Components
 import PageCategory from '../PageCategory';
-
-import { BsFillPlusSquareFill } from 'react-icons/bs';
-
-import { BsFillPencilFill } from 'react-icons/bs';
-
 import DeleteGroupButton from './DeleteGroupButton';
 import GroupCategoryTitle from './GroupCategoryTitle';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { useSession } from 'next-auth/react';
-import getGroups from '@/lib/getGroups';
+
+//Icons
+import { BsFillPlusSquareFill } from 'react-icons/bs';
+import { BsFillPencilFill } from 'react-icons/bs';
 
 interface GroupCategoryProps {
-    groups: any;
-    username: string;
+    userid: string;
 }
 
-function GroupCategory({ username }: GroupCategoryProps) {
+function GroupCategory({ userid }: GroupCategoryProps) {
     const params = useParams();
     const session = useSession();
-    const userid = session.data?.user.id as string;
-    console.log(userid);
+
+    const username = session?.data?.user?.name as string;
 
     const current_group_name = decodeURIComponent(params.group as string);
 
-    const query = useQuery({ queryKey: ['groups'], queryFn: () => getGroups({ userid: userid }) });
+    const { data, isLoading } = useQuery({
+        queryKey: ['navigation'],
+        queryFn: () => axios.get(`${process.env.NEXT_PUBLIC_SITE_URL}/api/groups/${userid}`).then((res) => res.data),
+    });
 
     return (
         <ul className={style.group_category_wrapper}>
-            {[].map((group: any) => (
+            {isLoading && <div>loading...</div>}
+            {data?.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />
