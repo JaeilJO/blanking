@@ -6,13 +6,13 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
 
 // Style
 import style from './index.module.scss';
 
 // Components
 import ModalBackground from '../ModalBackground';
+import deleteGroup from '@/lib/deleteGroup';
 
 function DeleteGroupModal() {
     const router = useRouter();
@@ -23,20 +23,14 @@ function DeleteGroupModal() {
 
     // User ID
     const session = useSession();
-    const userid = session.data?.user.id;
+    const userid = session.data?.user.id as string;
 
     const { error, success } = useAlertStore((state) => state);
 
     // Delete Group
     const queryClient = useQueryClient();
     const { mutate } = useMutation({
-        mutationFn: async () => {
-            return axios.delete(`${process.env.NEXT_PUBLIC_SITE_URL}/api/groups/${userid}`, {
-                data: {
-                    groupname,
-                },
-            });
-        },
+        mutationFn: () => deleteGroup({ userid, groupname }),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             success('그룹 삭제에 성공하였습니다.');
