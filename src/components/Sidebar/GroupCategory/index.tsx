@@ -17,7 +17,7 @@ import GroupCategoryTitle from './GroupCategoryTitle';
 
 //Icons
 import { BsFillPlusSquareFill } from 'react-icons/bs';
-import { BsFillPencilFill } from 'react-icons/bs';
+import ChangeGroupNameButton from './ChangeGroupNameButton';
 
 interface GroupCategoryProps {
     userid: string;
@@ -31,24 +31,20 @@ function GroupCategory({ userid }: GroupCategoryProps) {
 
     const current_group_name = decodeURIComponent(params.group as string);
 
-    const { data, isLoading } = useQuery({
+    const { data } = useQuery({
         queryKey: ['navigation'],
         queryFn: () => getGroups(userid),
     });
 
     return (
         <ul className={style.group_category_wrapper}>
-            {isLoading && <div>loading...</div>}
             {data?.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />
 
                         <div className={style.group_title_button_wrapper}>
-                            <button title="change group name">
-                                <BsFillPencilFill />
-                            </button>
-
+                            <ChangeGroupNameButton groupname={group.groupname} username={username} />
                             <DeleteGroupButton groupname={group.groupname} />
                         </div>
                     </div>
