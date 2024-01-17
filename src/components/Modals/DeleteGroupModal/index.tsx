@@ -1,43 +1,53 @@
 'use client';
 
+// Utils
 import { useSession } from 'next-auth/react';
-import ModalBackground from '../ModalBackground';
-import style from './index.module.scss';
-
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+
+// Style
+import style from './index.module.scss';
+
+// Components
+import ModalBackground from '../ModalBackground';
+import deleteGroup from '@/lib/deleteGroup';
 
 function DeleteGroupModal() {
     const router = useRouter();
+
+    // Group Name
     const searchParams = useSearchParams();
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
+
+    // User ID
     const session = useSession();
+    const userid = session.data?.user.id as string;
+
     const { error, success } = useAlertStore((state) => state);
 
-    const userid = session.data?.user.id;
-
-    const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const res = await fetch('/api/group', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                groupname,
-                userid,
-            }),
-        });
-
-        if (res.ok) {
+    // Delete Group
+    const queryClient = useQueryClient();
+    const { mutate } = useMutation({
+        mutationFn: () => deleteGroup({ userid, groupname }),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['navigation'] });
             success('그룹 삭제에 성공하였습니다.');
             router.back();
-        } else {
+        },
+        onError: () => {
             error('그룹 삭제에 실패하였습니다.');
-        }
+        },
+    });
+
+    // Sumbit Handler
+    const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        mutate();
     };
 
+    // Cancel Button Handler
     const cancelButtonHandler = () => {
         router.back();
     };

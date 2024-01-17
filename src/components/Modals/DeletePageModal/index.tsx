@@ -6,32 +6,35 @@ import style from './index.module.scss';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 import { useAlertStore } from '@/zustand/alertStore';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { deletePage } from '@/lib/deletePage';
 
 function DeletePageModal() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const pagename = decodeURIComponent(searchParams.get('pagename') as string);
+    const groupname = decodeURIComponent(searchParams.get('groupname') as string);
 
     const { error, success } = useAlertStore((state) => state);
 
-    const onClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-        const res = await fetch('/api/userpages', {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                pagename,
-            }),
-        });
+    const queryClient = useQueryClient();
 
-        if (res.ok) {
+    const { mutate } = useMutation({
+        mutationFn: () => deletePage({ pagename, groupname }),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['navigation'] });
+            queryClient.invalidateQueries({ queryKey: ['pages'] });
             success('페이지 삭제에 성공하였습니다.');
             router.back();
-        } else {
+        },
+        onError: () => {
             error('페이지 삭제에 실패하였습니다.');
-        }
+        },
+    });
+
+    const onClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.preventDefault();
+        mutate();
     };
 
     const cancelButtonHandler = () => {

@@ -1,8 +1,18 @@
 import { PrismaClient } from '@prisma/client';
-import { NextApiRequest, NextApiResponse } from 'next';
-import { NextResponse } from 'next/server';
 import bcrypt from 'bcrypt';
 
+/* 
+    * 필요 데이터
+        * email
+            - body로 받음
+            - string
+        * name
+            - body로 받음
+            - string
+        * password
+            - body로 받음
+            - string
+*/
 export async function POST(req: Request) {
     const { email, name, password } = await req.json();
     const prisma = new PrismaClient();

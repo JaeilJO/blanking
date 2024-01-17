@@ -1,16 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 import { cookies } from 'next/headers';
 
-export async function GET(res: Response) {
-    const cookieStore = cookies();
-
-    const groupname = cookieStore.get('groupname')?.value as string;
-
+export async function GET(res: Response, { params }: { params: { groupname: string } }) {
     const prisma = new PrismaClient();
 
     const group = await prisma.group.findUnique({
         where: {
-            groupname,
+            groupname: params.groupname,
         },
         include: {
             pages: true,
@@ -57,20 +53,3 @@ export async function POST(req: Request, res: Response) {
 }
 
 export async function PATCH(request: Request) {}
-
-export async function DELETE(req: Request) {
-    const request = await req.json();
-    const pagename = request.pagename;
-    const prisma = new PrismaClient();
-
-    try {
-        await prisma.page.delete({
-            where: {
-                pagename,
-            },
-        });
-        return new Response('페이지가 삭제되었습니다.', { status: 200 });
-    } catch (err) {
-        return new Response('페이지 삭제에 실패하였습니다.', { status: 403 });
-    }
-}

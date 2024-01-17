@@ -8,7 +8,14 @@ import style from './index.module.scss';
 import LogoutButton from './LogoutButton';
 import GroupCategory from './GroupCategory';
 
-function Sidebar({ username, groups }: { username: string; groups: any }) {
+//Next Auth
+import { getServerSession } from 'next-auth';
+import { config } from '@/utils/auth';
+
+async function Sidebar() {
+    const username = (await getServerSession(config).then((res) => res?.user.name)) as string;
+    const userid = (await getServerSession(config).then((res) => res?.user.id)) as string;
+
     return (
         <div className={style.sidebar}>
             <Link href={`/user/${username}`} className={style.title}>
@@ -18,11 +25,7 @@ function Sidebar({ username, groups }: { username: string; groups: any }) {
             <hr className={style.line} />
 
             <div className={style.category_wrapper}>
-                {groups?.length === 0 ? (
-                    <div>Group이 없습니다.</div>
-                ) : (
-                    <GroupCategory groups={groups} username={username} />
-                )}
+                <GroupCategory userid={userid} />
             </div>
 
             <LogoutButton />

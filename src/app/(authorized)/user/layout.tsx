@@ -6,11 +6,11 @@ import { config } from '@/utils/auth';
 import { getServerSession } from 'next-auth';
 
 //Utils
-import getUser from '@/utils/getUser';
 import { redirect } from 'next/navigation';
 
 // Style
 import style from './layout.module.scss';
+import ReactQueryProvider from '@/components/ReactQueryProvider';
 
 async function Layout({
     children,
@@ -26,27 +26,26 @@ async function Layout({
     deletePageModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
-    const userid = session?.user.id as string;
 
     if (!session) {
         redirect(`/auth/signin`);
     }
 
-    const user = await getUser(userid);
-
     return (
-        <div>
-            {/* Modals */}
-            {createGroupModal}
-            {deleteGroupModal}
-            {createPageModal}
-            {deletePageModal}
+        <ReactQueryProvider>
+            <div>
+                {/* Modals */}
+                {createGroupModal}
+                {deleteGroupModal}
+                {createPageModal}
+                {deletePageModal}
 
-            <nav className={style.navigation_wrapper}>
-                <Sidebar username={user.name} groups={user.groups} />
-            </nav>
-            <main className={style.content_wrapper}>{children}</main>
-        </div>
+                <nav className={style.navigation_wrapper}>
+                    <Sidebar />
+                </nav>
+                <main className={style.content_wrapper}>{children}</main>
+            </div>
+        </ReactQueryProvider>
     );
 }
 

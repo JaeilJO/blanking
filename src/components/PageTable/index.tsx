@@ -6,13 +6,17 @@ import style from './index.module.scss';
 import { useParams } from 'next/navigation';
 import PageDeleteButton from './PageDeleteButton';
 import PageChangeNameButton from './PageChangeNameButton';
+import { useQuery } from '@tanstack/react-query';
+import { getPages } from '@/lib/getPages';
 
-function PageTable({ pages }: { pages: any }) {
+function PageTable({ current_group_name }: { current_group_name: string }) {
     const param = useParams();
+
+    const { data } = useQuery({ queryKey: ['pages'], queryFn: () => getPages({ groupname: current_group_name }) });
 
     return (
         <ul className={style.page_contatiner}>
-            {pages?.map((page: any) => (
+            {data?.map((page: any) => (
                 <li className={style.page_item} key={page.pagename}>
                     <Link href={`${param.group}/${page.pagename}`} className={style.page_item_image} />
 
@@ -23,7 +27,7 @@ function PageTable({ pages }: { pages: any }) {
 
                         <ul className={style.page_info_icons}>
                             <PageChangeNameButton />
-                            <PageDeleteButton pagename={page.pagename} />
+                            <PageDeleteButton pagename={page.pagename} groupname={current_group_name} />
                         </ul>
                     </div>
                 </li>

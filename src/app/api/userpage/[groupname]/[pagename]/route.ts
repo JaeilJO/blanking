@@ -1,11 +1,18 @@
 import { PrismaClient } from '@prisma/client';
-import { cookies } from 'next/headers';
 
-export async function GET(res: Response) {
-    const cookieStore = cookies();
+/* 
+    * 필요 데이터
+        * groupname
+            - params로 받음
+            - string
+        * pagename
+            - params로 받음
+            - string
+*/
 
-    const groupname = cookieStore.get('groupname')?.value as string;
-    const pagename = cookieStore.get('pagename')?.value as string;
+export async function GET(res: Response, { params }: { params: { groupname: string; pagename: string } }) {
+    const groupname = params.groupname;
+    const pagename = params.pagename;
 
     const prisma = new PrismaClient();
 

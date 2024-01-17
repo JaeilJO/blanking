@@ -1,33 +1,45 @@
 'use client';
 
+//Utils
 import Link from 'next/link';
-import style from './index.module.scss';
 import { useParams } from 'next/navigation';
-import classNames from 'classnames/bind';
-import PageCategory from '../PageCategory';
+import { useQuery } from '@tanstack/react-query';
+import { useSession } from 'next-auth/react';
+import getGroups from '@/lib/getGroups';
 
-import { BsFolder2Open } from 'react-icons/bs';
-import { BsFillPlusSquareFill } from 'react-icons/bs';
-import { BsFolder } from 'react-icons/bs';
-import { BsTrash3 } from 'react-icons/bs';
-import { BsFillPencilFill } from 'react-icons/bs';
-import { useState } from 'react';
+//Style
+import style from './index.module.scss';
+
+//Components
+import PageCategory from '../PageCategory';
 import DeleteGroupButton from './DeleteGroupButton';
 import GroupCategoryTitle from './GroupCategoryTitle';
 
+//Icons
+import { BsFillPlusSquareFill } from 'react-icons/bs';
+import { BsFillPencilFill } from 'react-icons/bs';
+
 interface GroupCategoryProps {
-    groups: any;
-    username: string;
+    userid: string;
 }
 
-function GroupCategory({ groups, username }: GroupCategoryProps) {
+function GroupCategory({ userid }: GroupCategoryProps) {
     const params = useParams();
+    const session = useSession();
+
+    const username = session?.data?.user?.name as string;
 
     const current_group_name = decodeURIComponent(params.group as string);
 
+    const { data, isLoading } = useQuery({
+        queryKey: ['navigation'],
+        queryFn: () => getGroups(userid),
+    });
+
     return (
         <ul className={style.group_category_wrapper}>
-            {groups.map((group: any) => (
+            {isLoading && <div>loading...</div>}
+            {data?.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />

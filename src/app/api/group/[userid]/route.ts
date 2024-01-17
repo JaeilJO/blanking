@@ -1,26 +1,21 @@
 import { PrismaClient } from '@prisma/client';
-import { cookies } from 'next/headers';
 
-export async function GET(req: Request, res: Response) {
-    const cookie = cookies();
+import { NextRequest } from 'next/server';
 
-    const userid = Number(cookie.get('id')?.value);
+export async function GET(req: NextRequest, { params }: { params: { userid: string } }, res: Response) {}
 
-    const prisma = new PrismaClient();
-
-    const groups = await prisma.group.findMany({
-        where: {
-            userid: userid,
-        },
-    });
-
-    return new Response(JSON.stringify(groups), { status: 200 });
-}
-
-export async function POST(req: Request, res: Response) {
+/* 
+    * 필요 데이터
+        * userid
+            - params로 받음
+            - string
+        * groupname
+            - body로 받음
+            - string
+*/
+export async function POST(req: Request, { params }: { params: { userid: string } }, res: Response) {
     const data = await req.json();
-
-    const userid = Number(data.id);
+    const userid = Number(params.userid);
     const groupName = data.groupname;
 
     const prisma = new PrismaClient();
@@ -42,10 +37,19 @@ export async function POST(req: Request, res: Response) {
 
 export async function PATCH(request: Request) {}
 
-export async function DELETE(request: Request) {
+/* 
+    * 필요 데이터
+        * userid
+            - params로 받음
+            - string
+        * groupname
+            - body로 받음
+            - string
+*/
+export async function DELETE(request: Request, { params }: { params: { userid: string } }) {
     const data = await request.json();
 
-    const userid = Number(data.userid);
+    const userid = Number(params.userid);
     const groupname = data.groupname;
 
     const prisma = new PrismaClient();
