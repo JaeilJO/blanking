@@ -19,6 +19,7 @@ async function Layout({
     createPageModal,
     deletePageModal,
     changeGroupNameModal,
+    changePageNameModal,
 }: {
     children: React.ReactNode;
     createGroupModal: React.ReactNode;
@@ -26,6 +27,7 @@ async function Layout({
     createPageModal: React.ReactNode;
     deletePageModal: React.ReactNode;
     changeGroupNameModal: React.ReactNode;
+    changePageNameModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
 
@@ -37,6 +39,7 @@ async function Layout({
         <ReactQueryProvider>
             <div>
                 {/* Modals */}
+                {changePageNameModal}
                 {changeGroupNameModal}
                 {createGroupModal}
                 {deleteGroupModal}

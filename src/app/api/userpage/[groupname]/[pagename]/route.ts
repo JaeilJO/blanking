@@ -29,3 +29,27 @@ export async function GET(res: Response, { params }: { params: { groupname: stri
 
     return new Response(JSON.stringify(page), { status: 200 });
 }
+
+export async function PATCH(req: Request, { params }: { params: { pagename: string } }) {
+    const requset = await req.json();
+
+    const new_pagename = requset.data.new_pagename;
+
+    const pagename = params.pagename as string;
+
+    const prisma = new PrismaClient();
+
+    try {
+        await prisma.page.update({
+            where: {
+                pagename: pagename,
+            },
+            data: {
+                pagename: new_pagename,
+            },
+        });
+        return new Response(`${pagename}이(가) ${new_pagename}으로 변경되었습니다`, { status: 200 });
+    } catch (e) {
+        return new Response('Group이름 변경에 실패했습니다', { status: 403 });
+    }
+}
