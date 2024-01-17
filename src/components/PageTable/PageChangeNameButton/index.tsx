@@ -3,9 +3,18 @@
 import { BsPencilSquare } from 'react-icons/bs';
 import style from './index.module.scss';
 import Link from 'next/link';
-function PageChangeNameButton() {
+function PageChangeNameButton({ pagename, groupname }: { pagename: string; groupname: string }) {
     return (
-        <Link href={'/user/changepagename'} className={style.page_info_icon}>
+        <Link
+            href={{
+                pathname: '/user/changepagename',
+                query: {
+                    pagename: `${pagename}`,
+                    groupname: `${groupname}`,
+                },
+            }}
+            className={style.page_info_icon}
+        >
             <BsPencilSquare />
         </Link>
     );

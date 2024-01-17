@@ -6,7 +6,7 @@ import style from './index.module.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { changeGroupName } from '@/lib/changeGroupName';
+import { changePageName } from '@/lib/changePageName';
 import { useAlertStore } from '@/zustand/alertStore';
 
 function ChangePageNameModal() {
@@ -18,33 +18,35 @@ function ChangePageNameModal() {
 
     //Group Name
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
+    const pagename = decodeURIComponent(searchParams.get('pagename') as string);
 
     //New Group Name
-    const [newGroupName, setNewGroupName] = useState('');
+    const [newPageName, setNewPageName] = useState('');
 
     //User Name
     const userid = session.data?.user.id as string;
 
     const onChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            setNewGroupName(e.target.value);
+            setNewPageName(e.target.value);
         },
-        [newGroupName]
+        [newPageName]
     );
 
-    // const { mutate } = useMutation({
-    //     mutationFn: () => changeGroupName({ userid, groupname, new_groupname: newGroupName }),
-    //     onSuccess: (res) => {
-    //         const message = res.data;
-    //         success(message);
-    //         queryClient.invalidateQueries({ queryKey: ['navigation'] });
-    //         router.back();
-    //     },
-    // });
+    const { mutate } = useMutation({
+        mutationFn: () => changePageName({ pagename, groupname, new_pagename: newPageName }),
+        onSuccess: (res) => {
+            const message = res.data;
+            success(message);
+            queryClient.invalidateQueries({ queryKey: ['navigation'] });
+            queryClient.invalidateQueries({ queryKey: ['pages'] });
+            router.back();
+        },
+    });
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        // mutate();
+        mutate();
     };
 
     const cancelButtonHandler = () => {
@@ -53,14 +55,14 @@ function ChangePageNameModal() {
     return (
         <ModalBackground>
             <div className={style.modal_wrapper}>
-                <div className={style.title}>Group 이름 변경하기</div>
+                <div className={style.title}>Page 이름 변경하기</div>
 
                 <form onSubmit={submitHandler} className={style.form}>
                     <input
                         onChange={onChange}
                         required
                         className={style.input}
-                        placeholder="변경하실 Group이름을 입력해주세요"
+                        placeholder="변경하실 Page이름을 입력해주세요"
                     />
                     <div className={style.guide_text}>
                         특수문자를 제외한 <b>영어 대 소문자 혹은 한글</b>만을 사용해주세요
