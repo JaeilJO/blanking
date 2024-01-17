@@ -1,0 +1,5 @@
+@use '@style/abstracts' as a;
+
+.page_title {
+    @include a.typhography('tit-01');
+}
