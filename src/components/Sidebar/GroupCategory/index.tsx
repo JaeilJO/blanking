@@ -31,6 +31,7 @@ function GroupCategory({ userid }: GroupCategoryProps) {
 
     const current_group_name = decodeURIComponent(params.group as string);
 
+    //Group 정보 가져오기
     const { data } = useQuery({
         queryKey: ['navigation'],
         queryFn: () => getGroups(userid),
