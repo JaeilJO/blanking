@@ -1,0 +1,41 @@
+@use '@style/abstracts' as a;
+
+.change_mode_title_wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    margin-right: 12px;
+    gap: 12px;
+}
+
+.submit_button {
+    @include a.typhography('body-02');
+    padding: 0.2em 0.5em;
+    background-color: a.$primary-color;
+    color: a.$white-color;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: a.$primary-hover-color;
+    }
+}
+
+.cancel_button {
+    @include a.typhography('body-02');
+    padding: 0.2em 0.5em;
+    background-color: a.$gray-color;
+    color: a.$white-color;
+    border-radius: 4px;
+    cursor: pointer;
+    &:hover {
+        background-color: a.$gray-hover-color;
+    }
+}
+
+.page_title {
+    @include a.typhography('tit-01');
+}

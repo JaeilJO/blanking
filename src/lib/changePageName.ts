@@ -9,6 +9,7 @@ export async function changePageName({
     groupname: string;
     new_pagename: string;
 }) {
+    console.log(new_pagename);
     return axios
         .patch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${groupname}/${pagename}`, {
             data: {

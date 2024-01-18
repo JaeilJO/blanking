@@ -10,7 +10,6 @@ import { changePageName } from '@/lib/changePageName';
 import { useAlertStore } from '@/zustand/alertStore';
 
 function ChangePageNameModal() {
-    const session = useSession();
     const searchParams = useSearchParams();
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
@@ -22,9 +21,6 @@ function ChangePageNameModal() {
 
     //New Group Name
     const [newPageName, setNewPageName] = useState('');
-
-    //User Name
-    const userid = session.data?.user.id as string;
 
     const onChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
