@@ -22,10 +22,7 @@ function ChangeGroupNameModal() {
     //New Group Name
     const [newGroupName, setNewGroupName] = useState('');
 
-    //User Name
-    const userid = session.data?.user.id as string;
-
-    const onChange = useCallback(
+    const newGroupNameInputHandler = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             setNewGroupName(e.target.value);
         },
@@ -33,13 +30,15 @@ function ChangeGroupNameModal() {
     );
 
     const { mutate } = useMutation({
-        mutationFn: () => changeGroupName({ userid, groupname, new_groupname: newGroupName }),
+        mutationFn: () => changeGroupName({ groupname, new_groupname: newGroupName }),
+
         onSuccess: (res) => {
             const message = res.data;
             success(message);
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             router.back();
         },
+
         onError: () => {
             error('Group 이름 변경에 실패했습니다');
         },
@@ -61,7 +60,7 @@ function ChangeGroupNameModal() {
 
                 <form onSubmit={submitHandler} className={style.form}>
                     <input
-                        onChange={onChange}
+                        onChange={newGroupNameInputHandler}
                         required
                         className={style.input}
                         placeholder="변경하실 Group이름을 입력해주세요"

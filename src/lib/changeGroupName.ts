@@ -1,15 +1,12 @@
 import axios from 'axios';
 
-export async function changeGroupName({
-    userid,
-    groupname,
-    new_groupname,
-}: {
-    userid: string;
+interface changeGroupNameParams {
     groupname: string;
     new_groupname: string;
-}) {
-    return axios.patch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group/${userid}/${groupname}`, {
+}
+
+export async function changeGroupName({ groupname, new_groupname }: changeGroupNameParams) {
+    return axios.patch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group/${groupname}`, {
         data: {
             new_groupname,
         },
