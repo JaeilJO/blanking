@@ -1,16 +1,19 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
-import ModalBackground from '../ModalBackground';
-import style from './index.module.scss';
+//Utils
+import { useCallback, useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-import { changeGroupName } from '@/lib/changeGroupName';
 import { useAlertStore } from '@/zustand/alertStore';
+import { changeGroupName } from '@/lib/changeGroupName';
+
+//Style
+import style from './index.module.scss';
+
+//Components
+import ModalBackground from '../ModalBackground';
 
 function ChangeGroupNameModal() {
-    const session = useSession();
     const searchParams = useSearchParams();
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
