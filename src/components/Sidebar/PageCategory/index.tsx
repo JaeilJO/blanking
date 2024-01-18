@@ -1,12 +1,11 @@
 'use clinet';
 
-import Link from 'next/link';
 import style from './index.module.scss';
-import classNames from 'classnames/bind';
-import { useParams, useRouter } from 'next/navigation';
-import PageAddButton from './PageAddButton';
-import PageCategoryItemWrapper from './PageCategoryItemWrapper';
+
+import { useParams } from 'next/navigation';
+
 import PageCategoryItem from './PageCategoryItem';
+import CreatePageButton from './CreatePageButton';
 
 interface PageCategoryProps {
     username: string;
@@ -39,7 +38,7 @@ function PageCategory({ username, groupname, pages, iscurrent_group }: PageCateg
                 />
             ))}
 
-            <PageAddButton current_group_name={current_group_name} />
+            <CreatePageButton current_group_name={current_group_name} />
         </ul>
     );
 }

@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { cookies } from 'next/headers';
+
 import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest, { params }: { params: { userid: string } }, res: Response) {
@@ -19,7 +19,29 @@ export async function GET(req: NextRequest, { params }: { params: { userid: stri
     return new Response(JSON.stringify(groups), { status: 200 });
 }
 
-export async function POST(req: Request, res: Response) {}
+export async function POST(req: Request, { params }: { params: { userid: string } }) {
+    const data = await req.json();
+
+    const userid = Number(params.userid);
+
+    const groupname = data.groupname;
+
+    const prisma = new PrismaClient();
+
+    try {
+        await prisma.group.create({
+            data: {
+                groupname: groupname,
+                userid,
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            },
+        });
+        return new Response('OK', { status: 200 });
+    } catch (e) {
+        return new Response(e as string, { status: 403 });
+    }
+}
 
 export async function PATCH(request: Request) {}
 

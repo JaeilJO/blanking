@@ -1,16 +1,19 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
-import ModalBackground from '../ModalBackground';
-import style from './index.module.scss';
+//Utils
+import { useCallback, useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-import { changeGroupName } from '@/lib/changeGroupName';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAlertStore } from '@/zustand/alertStore';
+import { changeGroupName } from '@/lib/changeGroupName';
+
+//Style
+import style from './index.module.scss';
+
+//Components
+import ModalBackground from '../ModalBackground';
 
 function ChangeGroupNameModal() {
-    const session = useSession();
     const searchParams = useSearchParams();
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
@@ -22,10 +25,7 @@ function ChangeGroupNameModal() {
     //New Group Name
     const [newGroupName, setNewGroupName] = useState('');
 
-    //User Name
-    const userid = session.data?.user.id as string;
-
-    const onChange = useCallback(
+    const newGroupNameInputHandler = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             setNewGroupName(e.target.value);
         },
@@ -33,12 +33,17 @@ function ChangeGroupNameModal() {
     );
 
     const { mutate } = useMutation({
-        mutationFn: () => changeGroupName({ userid, groupname, new_groupname: newGroupName }),
+        mutationFn: () => changeGroupName({ groupname, new_groupname: newGroupName }),
+
         onSuccess: (res) => {
             const message = res.data;
             success(message);
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             router.back();
+        },
+
+        onError: () => {
+            error('Group 이름 변경에 실패했습니다');
         },
     });
 
@@ -50,6 +55,7 @@ function ChangeGroupNameModal() {
     const cancelButtonHandler = () => {
         router.back();
     };
+
     return (
         <ModalBackground>
             <div className={style.modal_wrapper}>
@@ -57,7 +63,7 @@ function ChangeGroupNameModal() {
 
                 <form onSubmit={submitHandler} className={style.form}>
                     <input
-                        onChange={onChange}
+                        onChange={newGroupNameInputHandler}
                         required
                         className={style.input}
                         placeholder="변경하실 Group이름을 입력해주세요"

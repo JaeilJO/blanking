@@ -1,7 +1,6 @@
 'use client';
 
 //Utils
-import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
@@ -16,8 +15,8 @@ import DeleteGroupButton from './DeleteGroupButton';
 import GroupCategoryTitle from './GroupCategoryTitle';
 
 //Icons
-import { BsFillPlusSquareFill } from 'react-icons/bs';
 import ChangeGroupNameButton from './ChangeGroupNameButton';
+import CreateGroupButton from './CreateGroupButton';
 
 interface GroupCategoryProps {
     userid: string;
@@ -31,6 +30,7 @@ function GroupCategory({ userid }: GroupCategoryProps) {
 
     const current_group_name = decodeURIComponent(params.group as string);
 
+    //Group 정보 가져오기
     const { data } = useQuery({
         queryKey: ['navigation'],
         queryFn: () => getGroups(userid),
@@ -58,15 +58,7 @@ function GroupCategory({ userid }: GroupCategoryProps) {
                 </li>
             ))}
 
-            {/* // Group 생성 버튼 */}
-            <li>
-                <Link className={style.create_group_button} href={`/user/creategroup`}>
-                    <span className={style.create_group_button_icon}>
-                        <BsFillPlusSquareFill />
-                    </span>
-                    <span>Group 생성</span>
-                </Link>
-            </li>
+            <CreateGroupButton />
         </ul>
     );
 }

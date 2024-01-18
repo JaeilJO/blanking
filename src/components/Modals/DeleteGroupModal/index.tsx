@@ -21,16 +21,12 @@ function DeleteGroupModal() {
     const searchParams = useSearchParams();
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
 
-    // User ID
-    const session = useSession();
-    const userid = session.data?.user.id as string;
-
     const { error, success } = useAlertStore((state) => state);
 
     // Delete Group
     const queryClient = useQueryClient();
     const { mutate } = useMutation({
-        mutationFn: () => deleteGroup({ userid, groupname }),
+        mutationFn: () => deleteGroup({ groupname }),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             success('그룹 삭제에 성공하였습니다.');

@@ -1,12 +1,11 @@
 'use client';
 
-import { BsFillPlusCircleFill } from 'react-icons/bs';
 import { BsFilePlus } from 'react-icons/bs';
 import style from './index.module.scss';
 import Link from 'next/link';
 import PageCategoryItemWrapper from '../PageCategoryItemWrapper';
 
-function PageAddButton({ current_group_name }: { current_group_name: string }) {
+function CreatePageButton({ current_group_name }: { current_group_name: string }) {
     return (
         <PageCategoryItemWrapper>
             <Link
@@ -25,4 +24,4 @@ function PageAddButton({ current_group_name }: { current_group_name: string }) {
     );
 }
 
-export default PageAddButton;
+export default CreatePageButton;
