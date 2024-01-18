@@ -5,6 +5,8 @@ import style from './index.module.scss';
 import { getPage } from '@/lib/getPage';
 import { useEffect, useState } from 'react';
 import { Page } from '@/utils/userDataType';
+import { BsPencil } from 'react-icons/bs';
+import DeletePageButton from './DeletePageButton';
 
 function UserPage({ pagename, groupname }: { pagename: string; groupname: string }) {
     const { data } = useQuery({ queryKey: ['page'], queryFn: () => getPage({ pagename, groupname }) });
@@ -20,6 +22,13 @@ function UserPage({ pagename, groupname }: { pagename: string; groupname: string
     return (
         <>
             <div className={style.page_title}>{pagename}</div>
+
+            <div className={style.page_config_buttons}>
+                <button>
+                    <BsPencil />
+                </button>
+                <DeletePageButton pagename={pagename} groupname={groupname} />
+            </div>
 
             <EditorJs data={page?.content} />
         </>
