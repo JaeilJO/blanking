@@ -4,7 +4,7 @@ import { useCallback, useRef, useState } from 'react';
 import ModalBackground from '../ModalBackground';
 import style from './index.module.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { changeGroupName } from '@/lib/changeGroupName';
 import { useAlertStore } from '@/zustand/alertStore';
@@ -40,6 +40,9 @@ function ChangeGroupNameModal() {
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             router.back();
         },
+        onError: () => {
+            error('Group 이름 변경에 실패했습니다');
+        },
     });
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,6 +53,7 @@ function ChangeGroupNameModal() {
     const cancelButtonHandler = () => {
         router.back();
     };
+
     return (
         <ModalBackground>
             <div className={style.modal_wrapper}>
