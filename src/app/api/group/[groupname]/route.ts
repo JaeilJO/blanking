@@ -65,18 +65,14 @@ export async function PATCH(request: Request, { params }: { params: { groupname:
             - body로 받음
             - string
 */
-export async function DELETE(request: Request, { params }: { params: { userid: string } }) {
-    const data = await request.json();
-
-    const userid = Number(params.userid);
-    const groupname = data.groupname;
+export async function DELETE(request: Request, { params }: { params: { groupname: string } }) {
+    const groupname = params.groupname as string;
 
     const prisma = new PrismaClient();
 
     try {
         await prisma.group.delete({
             where: {
-                userid,
                 groupname,
             },
         });
