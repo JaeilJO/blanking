@@ -15,6 +15,7 @@ function DeletePageModal() {
     const pagename = decodeURIComponent(searchParams.get('pagename') as string);
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
 
+    console.log(pagename, groupname);
     const { error, success } = useAlertStore((state) => state);
 
     const queryClient = useQueryClient();

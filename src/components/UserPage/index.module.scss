@@ -3,3 +3,8 @@
 .page_title {
     @include a.typhography('tit-01');
 }
+
+.page_config_buttons {
+    display: flex;
+    gap: 8px;
+}
