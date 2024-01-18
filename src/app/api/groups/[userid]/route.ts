@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { cookies } from 'next/headers';
+
 import { NextRequest } from 'next/server';
 
 export async function GET(req: NextRequest, { params }: { params: { userid: string } }, res: Response) {
