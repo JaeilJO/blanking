@@ -1,8 +1,14 @@
+import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import style from './page.module.scss';
 import UserPage from '@/components/UserPage';
+import { getPage } from '@/lib/getPage';
+import { getServerSession } from 'next-auth';
+import { config } from '@/utils/auth';
+import { redirect } from 'next/navigation';
 
 interface PageProps {
     params: {
+        username: string;
         page: string;
         group: string;
     };
@@ -11,11 +17,28 @@ interface PageProps {
 async function Page({ params }: PageProps) {
     const pagename = decodeURIComponent(params.page as string);
     const groupname = decodeURIComponent(params.group as string);
+    const username = decodeURIComponent(params.username as string);
+    const session = await getServerSession(config);
+
+    if (username !== session?.user.name) {
+        redirect('/not-found');
+    }
+
+    const queryClient = new QueryClient();
+
+    await queryClient.prefetchQuery({
+        queryKey: ['page', pagename],
+        queryFn: () => getPage({ pagename, groupname }),
+    });
+
+    const dehydratedState = dehydrate(queryClient);
 
     return (
-        <div className={style.page_wrapper}>
-            <UserPage pagename={pagename} groupname={groupname} />
-        </div>
+        <HydrationBoundary state={dehydratedState}>
+            <div className={style.page_wrapper}>
+                <UserPage pagename={pagename} groupname={groupname} />
+            </div>
+        </HydrationBoundary>
     );
 }
 

@@ -1,4 +1,4 @@
-import type { NextAuthOptions, Session } from 'next-auth';
+import { type NextAuthOptions, type Session } from 'next-auth';
 
 import CredentialsProvider from 'next-auth/providers/credentials';
 
@@ -14,7 +14,7 @@ export const config: NextAuthOptions = {
                 email: { key: 'email', type: 'email' },
                 password: { key: 'password', type: 'password' },
             },
-            async authorize(credentials): Promise<any> {
+            async authorize(credentials, req): Promise<any> {
                 const prisma = new PrismaClient();
                 const email = credentials?.email as string;
                 const password = credentials?.password as string;

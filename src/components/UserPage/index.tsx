@@ -1,12 +1,10 @@
 'use client';
 
-//Types
-import { Page } from '@/utils/userDataType';
-
 // Utils
 import { useQuery } from '@tanstack/react-query';
 import { getPage } from '@/lib/getPage';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { redirect } from 'next/navigation';
 
 // Styles
 import style from './index.module.scss';
@@ -16,18 +14,22 @@ import EditorJs from '../EditorJs';
 import DeletePageButton from './DeletePageButton';
 import ChangePageButton from './ChangePageButton';
 import ChangeModeTitle from './ChangeModeTitle';
+import { useSession } from 'next-auth/react';
 
 function UserPage({ pagename, groupname }: { pagename: string; groupname: string }) {
-    const { data } = useQuery({ queryKey: ['page'], queryFn: () => getPage({ pagename, groupname }) });
+    const { data } = useQuery({ queryKey: ['page', pagename], queryFn: () => getPage({ pagename, groupname }) });
 
-    const [page, setPage] = useState<Page>();
     const [changeMode, setChangeMode] = useState(false);
 
-    useEffect(() => {
-        if (data) {
-            setPage(data[0]);
-        }
-    }, [page]);
+    if (!data) {
+        console.log('data is null');
+        redirect('/not-found');
+    }
+
+    if (data?.length === 0) {
+        console.log('data is empty');
+        redirect('/not-found');
+    }
 
     return (
         <>
@@ -41,7 +43,7 @@ function UserPage({ pagename, groupname }: { pagename: string; groupname: string
                         <DeletePageButton pagename={pagename} groupname={groupname} />
                     </div>
 
-                    <EditorJs data={page?.content} />
+                    <EditorJs data={data?.content} />
                 </>
             )}
         </>

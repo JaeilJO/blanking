@@ -23,6 +23,10 @@ export async function GET(res: Response, { params }: { params: { groupname: stri
     });
     const groupid = group?.id;
 
+    if (!groupid) {
+        return new Response('Group이 존재하지 않습니다', { status: 403 });
+    }
+
     const page = await prisma.page.findMany({
         where: { groupid, pagename },
     });
