@@ -4,10 +4,9 @@ import useForm from '@/hooks/useForm';
 import Input from './Input';
 import SubmitButton from './SubmitButton';
 import style from './index.module.scss';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useAlertStore } from '@/zustand/alertStore';
-import { compareSync } from 'bcrypt';
 
 interface FormProps {
     formType: 'signin' | 'signup';
@@ -15,7 +14,7 @@ interface FormProps {
 
 function Form({ formType }: FormProps) {
     const { defaultValues, register, resetInputValue } = useForm();
-    const session = useSession();
+
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,11 +42,8 @@ function Form({ formType }: FormProps) {
             });
 
             if (res?.ok) {
-                const username = session.data?.user?.name;
-                const useremail = session.data?.user?.email;
-
-                success(`환영합니다 ${username}님`);
-                router.push(`/user/${useremail}`);
+                success(`환영합니다`);
+                router.push(`/user/`);
             }
         }
         resetInputValue();

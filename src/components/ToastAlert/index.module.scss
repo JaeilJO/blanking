@@ -28,15 +28,15 @@
     animation-name: none;
 
     &.success {
-        animation: show 1s ease-in-out forwards;
+        animation: show 0.5s ease-in-out forwards;
         background-color: a.$success-color;
     }
     &.error {
-        animation: show 1s ease-in-out forwards;
+        animation: show 0.5s ease-in-out forwards;
         background-color: a.$error-color;
     }
     &.loading {
-        animation: show 1s ease-in-out forwards;
+        animation: show 0.5s ease-in-out forwards;
         background-color: a.$loading-color;
     }
 }
@@ -54,12 +54,7 @@
         top: -5%;
     }
 
-    70% {
-        top: 9%;
-    }
-
     100% {
-        opacity: 1;
-        top: 8%;
+        top: 3%;
     }
 }

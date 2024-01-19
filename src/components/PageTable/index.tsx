@@ -3,16 +3,30 @@
 import Link from 'next/link';
 import style from './index.module.scss';
 
-import { useParams } from 'next/navigation';
+import { redirect, useParams } from 'next/navigation';
 import PageDeleteButton from './PageDeleteButton';
 import PageChangeNameButton from './PageChangeNameButton';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getPages } from '@/lib/getPages';
+import { useSession } from 'next-auth/react';
 
 function PageTable({ current_group_name }: { current_group_name: string }) {
     const param = useParams();
+    const session = useSession();
+    const params = useParams();
 
-    const { data } = useQuery({ queryKey: ['pages'], queryFn: () => getPages({ groupname: current_group_name }) });
+    const parameterUsername = decodeURIComponent(params.username as string);
+
+    const isCurrentUser = parameterUsername === session?.data?.user.name;
+
+    const { data } = useQuery({
+        queryKey: ['pages', { groupname: current_group_name }],
+        queryFn: () => getPages({ groupname: current_group_name }),
+    });
+
+    if (!data || !isCurrentUser) {
+        redirect('/not-found');
+    }
 
     return (
         <ul className={style.page_contatiner}>

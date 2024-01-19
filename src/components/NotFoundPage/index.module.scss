@@ -1,0 +1,39 @@
+@use '@style/abstracts' as a;
+
+.background {
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not_fount_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.title {
+    @include a.media-query('small') {
+        @include a.typhography('tit-03');
+    }
+    @include a.media-query('middle') {
+        @include a.typhography('tit-02');
+    }
+}
+
+.button {
+    @include a.typhography('body-01');
+    background-color: a.$primary-color;
+    padding: 1em 1.5em;
+    border-radius: 4px;
+    color: a.$white-color;
+
+    transition: background-color 0.25s ease-in-out;
+
+    &:hover {
+        background-color: a.$primary-hover-color;
+    }
+}

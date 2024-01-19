@@ -5,7 +5,7 @@ import ModalBackground from '../ModalBackground';
 import style from './index.module.scss';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
-import { FormEventHandler, useRef } from 'react';
+import { FormEventHandler, useCallback, useRef, useState } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createPage } from '@/lib/createPage';
@@ -14,12 +14,19 @@ const cn = classNames.bind(style);
 
 function CreatePageModal() {
     const searchParams = useSearchParams();
+    const [pagename, setPagename] = useState('');
+
+    const pageNameHandler = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setPagename(e.target.value);
+        },
+        [pagename]
+    );
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
-    const inputRef = useRef<HTMLInputElement>(null);
+
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
 
-    const pagename = inputRef.current?.value as string;
     const queryClient = useQueryClient();
 
     const { mutate } = useMutation({
@@ -50,7 +57,7 @@ function CreatePageModal() {
                 <form className={style.form} onSubmit={submitButtonClickHandler}>
                     <input
                         className={style.input_field}
-                        ref={inputRef}
+                        onChange={pageNameHandler}
                         type="text"
                         placeholder="페이지 이름을 입력해주세요"
                     />
