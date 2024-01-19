@@ -1,55 +1,69 @@
-'use client';
+"use client";
 
-import { useSession } from 'next-auth/react';
-import style from './index.module.scss';
-import { BsPlusCircle } from 'react-icons/bs';
-import { useRef } from 'react';
-import { useAlertStore } from '@/zustand/alertStore';
-import { redirect } from 'next/navigation';
+import { useSession } from "next-auth/react";
+import style from "./index.module.scss";
+import { BsPlusCircle } from "react-icons/bs";
+import { useCallback, useState } from "react";
+import { useAlertStore } from "@/zustand/alertStore";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createGroup } from "@/lib/createGroup";
+import { useRouter } from "next/navigation";
 
 function GroupMaker() {
-    const inputRef = useRef<HTMLInputElement>(null);
-    const { error, success } = useAlertStore((state) => state);
+  const [groupname, setGroupname] = useState<string>("");
+  const { error, success } = useAlertStore((state) => state);
+  const session = useSession();
+  const userid = session.data?.user.id as string;
+  const queryClient = useQueryClient();
+  const router = useRouter();
 
-    const session = useSession();
-    const user = session.data?.user;
+  const groupnameHandler = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setGroupname(e.target.value);
+    },
+    [groupname]
+  );
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        const groupname = inputRef.current?.value;
+  const { mutate } = useMutation({
+    mutationFn: () => createGroup({ userid, groupname }),
+    onSuccess: async () => {
+      success("그룹 생성이 완료되었습니다.");
+      queryClient.invalidateQueries({ queryKey: ["navigation"] });
+      router.push(`/user/`);
+    },
+    onError: () => {
+      error("해당 그룹이름은 사용할 수 없습니다. 다른 이름을 사용해주세요.");
+    },
+  });
 
-        await fetch('/api/group', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ ...user, groupname }),
-        })
-            .then(() => {
-                success('그룹 생성이 완료되었습니다.');
-                redirect(`/user/${user?.name}/${groupname}`);
-            })
-            .catch(() => {
-                error('그룹 이름은 중복될 수 없습니다. 다른 이름을 사용해주세요.');
-            });
-    };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    mutate();
+  };
 
-    return (
-        <form className={style.group_maker_form} onSubmit={handleSubmit}>
-            <label className={style.group_maker_submit_button} htmlFor="group_maker_submit">
-                <BsPlusCircle />
-            </label>
+  return (
+    <form className={style.group_maker_form} onSubmit={handleSubmit}>
+      <label
+        className={style.group_maker_submit_button}
+        htmlFor="group_maker_submit"
+      >
+        <BsPlusCircle />
+      </label>
 
-            <input id="group_maker_submit" className={style.group_maker_submit} type="submit" />
-            <input
-                required
-                ref={inputRef}
-                type="text"
-                className={style.group_maker_text_input}
-                placeholder="Group 이름을 입력해주세요"
-            />
-        </form>
-    );
+      <input
+        id="group_maker_submit"
+        className={style.group_maker_submit}
+        type="submit"
+      />
+      <input
+        required
+        onChange={groupnameHandler}
+        type="text"
+        className={style.group_maker_text_input}
+        placeholder="Group 이름을 입력해주세요"
+      />
+    </form>
+  );
 }
 
 export default GroupMaker;
