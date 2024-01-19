@@ -1,66 +1,78 @@
-'use client';
+"use client";
 
 //Utils
-import { useParams } from 'next/navigation';
-import { useQuery } from '@tanstack/react-query';
-import { useSession } from 'next-auth/react';
-import getGroups from '@/lib/getGroups';
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { useSession } from "next-auth/react";
+import getGroups from "@/lib/getGroups";
 
 //Style
-import style from './index.module.scss';
+import style from "./index.module.scss";
 
 //Components
-import PageCategory from '../PageCategory';
-import DeleteGroupButton from './DeleteGroupButton';
-import GroupCategoryTitle from './GroupCategoryTitle';
+import PageCategory from "../PageCategory";
+import DeleteGroupButton from "./DeleteGroupButton";
+import GroupCategoryTitle from "./GroupCategoryTitle";
 
 //Icons
-import ChangeGroupNameButton from './ChangeGroupNameButton';
-import CreateGroupButton from './CreateGroupButton';
+import ChangeGroupNameButton from "./ChangeGroupNameButton";
+import CreateGroupButton from "./CreateGroupButton";
+import GroupCategoryLoading from "./GroupCategoryLoading";
 
 interface GroupCategoryProps {
-    userid: string;
+  userid: string;
 }
 
 function GroupCategory({ userid }: GroupCategoryProps) {
-    const params = useParams();
-    const session = useSession();
+  const params = useParams();
+  const session = useSession();
 
-    const username = session?.data?.user?.name as string;
+  const username = session?.data?.user?.name as string;
 
-    const current_group_name = decodeURIComponent(params.group as string);
+  const current_group_name = decodeURIComponent(params.group as string);
 
-    //Group 정보 가져오기
-    const { data } = useQuery({
-        queryKey: ['navigation'],
-        queryFn: () => getGroups(userid),
-    });
+  //Group 정보 가져오기
+  const { data, isLoading } = useQuery({
+    queryKey: ["navigation"],
+    queryFn: () => getGroups(userid),
+  });
 
-    return (
-        <ul className={style.group_category_wrapper}>
-            {data?.map((group: any) => (
-                <li key={group.groupname}>
-                    <div className={style.group_title_wrapper}>
-                        <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />
+  if (isLoading) {
+    return <GroupCategoryLoading />;
+  }
 
-                        <div className={style.group_title_button_wrapper}>
-                            <ChangeGroupNameButton groupname={group.groupname} username={username} />
-                            <DeleteGroupButton groupname={group.groupname} />
-                        </div>
-                    </div>
+  return (
+    <ul className={style.group_category_wrapper}>
+      {data?.map((group: any) => (
+        <li key={group.groupname}>
+          <div className={style.group_title_wrapper}>
+            <GroupCategoryTitle
+              current_group_name={current_group_name}
+              username={username}
+              group={group}
+            />
 
-                    <PageCategory
-                        username={username}
-                        groupname={group.groupname}
-                        pages={group.pages}
-                        iscurrent_group={current_group_name === group.groupname}
-                    />
-                </li>
-            ))}
+            <div className={style.group_title_button_wrapper}>
+              <ChangeGroupNameButton
+                groupname={group.groupname}
+                username={username}
+              />
+              <DeleteGroupButton groupname={group.groupname} />
+            </div>
+          </div>
 
-            <CreateGroupButton />
-        </ul>
-    );
+          <PageCategory
+            username={username}
+            groupname={group.groupname}
+            pages={group.pages}
+            iscurrent_group={current_group_name === group.groupname}
+          />
+        </li>
+      ))}
+
+      <CreateGroupButton />
+    </ul>
+  );
 }
 
 export default GroupCategory;
