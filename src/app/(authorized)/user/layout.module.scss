@@ -1,17 +1,5 @@
 @use '@style/abstracts' as a;
 
-.navigation_wrapper {
-    position: fixed;
-    z-index: 9999;
-    width: calc(#{a.$sidebar-width} - 2 * #{a.$sidebar-padding-side});
-
-    height: 100dvh;
-    padding: a.$sidebar-padding-vertical a.$sidebar-padding-side;
-
-    background-color: a.$white-color;
-    box-shadow: a.$basic-shadow;
-}
-
 .content_wrapper {
     position: relative;
     height: 100dvh;

@@ -42,8 +42,6 @@ function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string;
         };
     }, [data]);
 
-    const onClick = async () => {};
-
     return (
         <>
             <div id="editor" className={style.editor} />
