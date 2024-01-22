@@ -27,5 +27,12 @@
 }
 
 .title {
+    width: fit-content;
+
     @include a.typhography('sub-02');
+
+    transition: color 0.2s ease-in-out;
+    &:hover {
+        color: a.$gray-color;
+    }
 }

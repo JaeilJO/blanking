@@ -1,3 +1,5 @@
+'use client';
+
 // Utiles
 import Link from 'next/link';
 
@@ -9,13 +11,14 @@ import LogoutButton from './LogoutButton';
 import GroupCategory from './GroupCategory';
 
 //Next Auth
-import { getServerSession } from 'next-auth';
-import { config } from '@/utils/auth';
 
-async function Sidebar() {
-    const username = (await getServerSession(config).then((res) => res?.user.name)) as string;
-    const userid = (await getServerSession(config).then((res) => res?.user.id)) as string;
+import { useSession } from 'next-auth/react';
 
+function Sidebar() {
+    const session = useSession();
+
+    const username = session?.data?.user?.name as string;
+    const userid = session?.data?.user?.id as string;
     return (
         <div className={style.sidebar}>
             <Link href={`/user/${username}`} className={style.title}>

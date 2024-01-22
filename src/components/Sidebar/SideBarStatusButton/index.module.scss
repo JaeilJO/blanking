@@ -1,0 +1,30 @@
+@use '@style/abstracts' as a;
+
+.close_button {
+    position: fixed;
+    z-index: 999;
+    width: 24px;
+    height: 24px;
+    left: calc(a.$sidebar-width - 24px - a.$sidebar-padding-side);
+    top: a.$sidebar-padding-vertical;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include a.typhography('sub-02');
+
+    color: a.$text-color;
+
+    cursor: pointer;
+
+    transition: color 0.2s, left 0.2s, transform 0.3s ease-in-out;
+
+    &:hover {
+        color: a.$gray-color;
+    }
+
+    &.open_status {
+        position: fixed;
+        transform: rotate(180deg);
+        left: 24px;
+    }
+}

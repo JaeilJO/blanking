@@ -1,0 +1,21 @@
+@use '@style/abstracts' as a;
+.sidebar_wrapper {
+    position: fixed;
+    z-index: 9999;
+
+    width: calc(#{a.$sidebar-width} - 2 * #{a.$sidebar-padding-side});
+
+    height: 100dvh;
+    padding: a.$sidebar-padding-vertical a.$sidebar-padding-side;
+
+    background-color: a.$white-color;
+    box-shadow: a.$basic-shadow;
+    overflow: hidden;
+
+    transition: width 0.2s, padding 0.2s ease-in-out;
+
+    &.close {
+        width: 0px;
+        padding: a.$sidebar-padding-vertical 0;
+    }
+}
