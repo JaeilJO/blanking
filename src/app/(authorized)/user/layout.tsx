@@ -40,7 +40,7 @@ async function Layout({
     }
 
     await queryClient.prefetchQuery({
-        queryKey: ['navigation'],
+        queryKey: ['groups'],
         queryFn: () => getGroups(userid),
     });
 
@@ -59,7 +59,7 @@ async function Layout({
 
                 {/* Sidebar */}
                 <HydrationBoundary state={dehydratedState}>
-                    <SideBarLayout />
+                    <SideBarLayout userid={userid} />
                 </HydrationBoundary>
 
                 <main className={style.content_wrapper}>{children}</main>
