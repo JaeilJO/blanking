@@ -10,9 +10,6 @@ import axios from 'axios';
 
 function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string; groupname: string }) {
     const ref = useRef<any>(null);
-    const socket = new WebSocket(
-        `${process.env.NEXT_PUBLIC_SITE_WEBSOCKET_URL}/api/userpage/${groupname}/${pagename}/content`
-    );
 
     useEffect(() => {
         if (!ref.current) {
@@ -21,9 +18,17 @@ function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string;
                 data: data[0],
                 tools: EDITOR_JS_TOOLS,
 
-                onChange: () => {
-                    console.log('hello');
-                    socket.send('change');
+                onChange: async () => {
+                    const outputData = await ref.current.save();
+
+                    const res = await axios.patch(
+                        `${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${groupname}/${pagename}/content`,
+                        {
+                            data: {
+                                new_content: [outputData],
+                            },
+                        }
+                    );
                 },
             });
 
@@ -37,23 +42,11 @@ function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string;
         };
     }, [data]);
 
-    const onClick = async () => {
-        const outputData = await ref.current.save();
-        console.log(outputData);
-        const res = await axios.patch(
-            `${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${groupname}/${pagename}/content`,
-            {
-                data: {
-                    new_content: [outputData],
-                },
-            }
-        );
-    };
+    const onClick = async () => {};
 
     return (
         <>
             <div id="editor" className={style.editor} />
-            <button onClick={onClick}>Hey</button>
         </>
     );
 }

@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 export async function PATCH(req: Request, { params }: { params: { pagename: string } }) {
     const requset = await req.json();
-    console.log(requset);
+
     const new_content = requset.data.new_content;
 
     const pagename = params.pagename as string;
