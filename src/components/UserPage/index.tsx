@@ -31,6 +31,8 @@ function UserPage({ pagename, groupname }: { pagename: string; groupname: string
         redirect('/not-found');
     }
 
+    console.log(data[0].content);
+
     return (
         <>
             {changeMode ? (
@@ -43,7 +45,7 @@ function UserPage({ pagename, groupname }: { pagename: string; groupname: string
                         <DeletePageButton pagename={pagename} groupname={groupname} />
                     </div>
 
-                    <EditorJs data={data?.content} />
+                    <EditorJs data={data[0]?.content} pagename={pagename} groupname={groupname} />
                 </>
             )}
         </>

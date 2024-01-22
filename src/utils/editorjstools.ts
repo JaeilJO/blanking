@@ -1,7 +1,5 @@
-import Header from "@editorjs/header";
-import Blank from "./blankTool";
+import Header from '@editorjs/header';
 
 export const EDITOR_JS_TOOLS = {
-  header: Header,
-  blank: Blank,
+    header: Header,
 };

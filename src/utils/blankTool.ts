@@ -1,104 +1,116 @@
-export default class Blank {
-    button: any;
-    state: boolean;
+import { EditorConfig, InlineTool } from '@editorjs/editorjs';
+import './blanktoolstyle.css';
 
-    //Inline tool 설정
+interface BlankButton extends HTMLButtonElement {
+    status: boolean;
+}
+
+export default class Blank implements InlineTool {
+    status: boolean;
+    button: HTMLButtonElement | null;
+
+    tag: string;
+    class: string;
+    block_text: Node | null;
+
     static get isInline() {
         return true;
     }
 
-    // Tool 이름설정
-    constructor() {
-        this.button;
-        this.state = false;
+    static get shortcut() {
+        return 'CMD+H';
+    }
+    static get title() {
+        return 'Blank';
     }
 
-    //button의 Create UI설정
+    static get sanitize() {
+        return {
+            button: {
+                class: ['blank_style', 'blank_style blank_show'],
+                attribute: { contenteditable: false },
+
+                disabled: true,
+            },
+            text: true,
+        };
+    }
+
+    constructor() {
+        this.button = null;
+        this.status = false;
+        this.tag = 'button';
+        this.class = 'blank_style';
+        this.block_text = null;
+    }
+
     render() {
         this.button = document.createElement('button');
-        this.button.type = 'blank';
-        this.button.textContent = 'Blank';
-
+        this.button.type = 'button';
+        this.button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mouse-pointer-square-dashed"><path d="M5 3a2 2 0 0 0-2 2"/><path d="M19 3a2 2 0 0 1 2 2"/><path d="m12 12 4 10 1.7-4.3L22 16Z"/><path d="M5 21a2 2 0 0 1-2-2"/><path d="M9 3h1"/><path d="M9 21h2"/><path d="M14 3h1"/><path d="M3 9v1"/><path d="M21 9v2"/><path d="M3 14v1"/></svg>`;
         return this.button;
     }
 
-    //선택된 범위에서의 동작 설정
-    //range: 선택된 범위가 fragment안에 들어있음
     surround(range: Range) {
-        if (this.state) {
+        const blank = this.createBlank();
+
+        const clone = range.cloneRange();
+        const cloneContents = clone.cloneContents().childNodes;
+
+        const HtmlIncludeStatus = this.checkHtmlElementIsInclude(cloneContents);
+
+        if (HtmlIncludeStatus) {
             return;
         }
 
-        let button_status = false;
+        const text = range.extractContents();
 
-        const selectedText = range.extractContents();
+        this.block_text = text;
 
-        const span = document.createElement('span');
-        const button = document.createElement('button');
-        const text = document.createElement('span');
+        console.log(blank.style.width);
+        // this.blank_button.appendChild(text);
 
-        text.appendChild(selectedText);
-        span.appendChild(button);
-        span.appendChild(text);
+        range.insertNode(blank);
+    }
 
-        span.style.position = 'relative';
-        span.style.padding = '2px 1px';
-        span.style.margin = '3px';
-        span.style.whiteSpace = 'nowrap';
+    createBlank() {
+        const blank = document.createElement(this.tag) as BlankButton;
+        this.addCssClass(blank, this.class);
+        blank.contentEditable = 'false';
+        blank.onclick = () => {
+            console.log('hello');
+        };
 
-        button.style.width = '100%';
-        button.style.height = '100%';
-        button.style.position = 'absolute';
-        button.style.top = '0';
-        button.style.backgroundColor = '#FBFBFB';
-        button.style.zIndex = '1';
-        button.style.border = '2px dashed #2C5695';
-        button.style.borderRadius = '4px';
-        button.style.whiteSpace = 'nowrap';
-        button.style.cursor = 'pointer';
+        return blank;
+    }
 
-        text.style.position = 'relative';
-        text.style.zIndex = '0';
-
-        button.addEventListener('click', () => {
-            if (!button_status) {
-                button.style.backgroundColor = '#FBFBFB';
-                button.style.borderRadius = '4px';
-                button.style.borderBottom = 'none';
-                button.style.border = '2px dashed #2C5695';
-                button_status = true;
-            } else {
-                button.style.backgroundColor = 'transparent';
-                button.style.border = '0';
-                button.style.borderBottom = '3px dashed #2C5695';
-                button.style.borderRadius = '0';
-                button.style.bottom = '-2px';
-                button_status = false;
+    // Check Html Element Include
+    private checkHtmlElementIsInclude(nodes: NodeListOf<ChildNode>) {
+        let noChange = false;
+        nodes.forEach((node) => {
+            if (node instanceof HTMLElement) {
+                noChange = true;
             }
         });
 
-        button.addEventListener('mouseover', () => {
-            button.style.borderColor = '#E2E2E2';
-        });
-
-        button.addEventListener('mouseleave', () => {
-            button.style.borderColor = '#2C5695';
-        });
-
-        range.insertNode(span);
+        return noChange;
     }
 
-    //선택할때 선택할 수 있는 UI가 열리는데 그때 호출되는 메서드
-    //selection: 현재 선택된 fragment
-    checkState(selection: Selection) {
-        const text = selection.anchorNode;
+    checkState() {
+        return false;
+    }
 
-        if (!text) {
-            return;
+    // Add CSS class
+    private addCssClass(element: HTMLElement, className: string) {
+        if (!element.classList.contains(className)) {
+            element.classList.add(className);
         }
+    }
 
-        const anchorElement = text instanceof Element ? text : text.parentElement;
-
-        this.state = !!anchorElement?.closest('button');
+    // Remove CSS class
+    private removeCssClass(element: HTMLElement, className: string) {
+        if (element.classList.contains(className)) {
+            element.classList.remove(className);
+        }
     }
 }
