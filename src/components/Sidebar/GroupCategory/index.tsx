@@ -36,7 +36,6 @@ function GroupCategory({ userid }: GroupCategoryProps) {
         queryKey: ['navigation'],
         queryFn: () => getGroups(userid),
     });
-    console.log(data);
 
     if (isLoading) {
         return <GroupCategoryLoading />;

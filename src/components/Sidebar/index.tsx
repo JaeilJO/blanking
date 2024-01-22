@@ -14,11 +14,11 @@ import GroupCategory from './GroupCategory';
 
 import { useSession } from 'next-auth/react';
 
-function Sidebar() {
+function Sidebar({ userid }) {
     const session = useSession();
 
     const username = session?.data?.user?.name as string;
-    const userid = session?.data?.user?.id as string;
+
     return (
         <div className={style.sidebar}>
             <Link href={`/user/${username}`} className={style.title}>

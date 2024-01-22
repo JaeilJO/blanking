@@ -16,7 +16,7 @@ function SideBarLayout({ userid }: { userid: string }) {
         <nav className={cn({ sidebar_wrapper: true, close: status })}>
             <SideBarStatusButton />
 
-            <Sidebar />
+            <Sidebar userid={userid} />
         </nav>
     );
 }
