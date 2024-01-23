@@ -26,6 +26,7 @@ export async function POST(req: Request) {
                 email,
                 name,
                 password: hash,
+                account_type: 'local',
                 createdAt: new Date(),
                 updatedAt: new Date(),
             },

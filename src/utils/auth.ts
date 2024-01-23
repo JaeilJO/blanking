@@ -1,13 +1,21 @@
 import { type NextAuthOptions, type Session } from 'next-auth';
 
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GoogleProvider from 'next-auth/providers/google';
 
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import { JWT } from 'next-auth/jwt';
 
+const prisma = new PrismaClient();
+
 export const config: NextAuthOptions = {
     providers: [
+        GoogleProvider({
+            clientId: process.env.GOOGLE_CLIENT_ID || '',
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET || '',
+        }),
+
         CredentialsProvider({
             name: 'credentials',
             credentials: {
@@ -30,7 +38,7 @@ export const config: NextAuthOptions = {
                 }
 
                 if (user) {
-                    const checking_password = await bcrypt.compare(password, user.password);
+                    const checking_password = bcrypt.compare(password, user.password as string);
 
                     if (!checking_password) {
                         return null;
@@ -49,6 +57,15 @@ export const config: NextAuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     callbacks: {
         async jwt({ token, account, profile }) {
+            console.log(token, account);
+            if (account?.provider === 'google') {
+                const signedUser = await prisma.user.findUnique({
+                    where: {
+                        email: token?.email as string,
+                    },
+                });
+            }
+
             return token;
         },
 

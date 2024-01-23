@@ -28,9 +28,7 @@ export default class Blank implements InlineTool {
         return {
             button: {
                 class: ['blank_style', 'blank_style blank_show'],
-                attribute: { contenteditable: false },
-
-                disabled: true,
+                contenteditable: false,
             },
             text: true,
         };
@@ -67,8 +65,7 @@ export default class Blank implements InlineTool {
 
         this.block_text = text;
 
-        console.log(blank.style.width);
-        // this.blank_button.appendChild(text);
+        blank.appendChild(text);
 
         range.insertNode(blank);
     }
