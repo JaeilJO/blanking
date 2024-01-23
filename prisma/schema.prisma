@@ -9,6 +9,7 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
+  subkey    String   @unique
   email     String   
   name      String
   password  String?
