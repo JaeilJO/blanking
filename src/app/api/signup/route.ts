@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
+import { v4 as uuidv4 } from 'uuid';
 
 /* 
     * 필요 데이터
@@ -20,12 +21,14 @@ export async function POST(req: Request) {
     try {
         const salt = bcrypt.genSaltSync(10);
         const hash = bcrypt.hashSync(password, salt);
+        const subkey = uuidv4();
 
         await prisma.user.create({
             data: {
                 email,
                 name,
                 password: hash,
+                subkey,
                 account_type: 'local',
                 createdAt: new Date(),
                 updatedAt: new Date(),
