@@ -2,22 +2,24 @@
 
 //Utils
 import { useCallback, useState } from 'react';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useAlertStore } from '@/zustand/alertStore';
-import { changeGroupName } from '@/services/changeGroupName';
 
 //Style
 import style from './index.module.scss';
 
 //Components
 import ModalBackground from '../ModalBackground';
+import { useSession } from 'next-auth/react';
+import useChangeGroupName from '@/hooks/useChangeGroupName';
 
 function ChangeGroupNameModal() {
     const searchParams = useSearchParams();
+    const session = useSession();
     const router = useRouter();
-    const { error, success } = useAlertStore((state) => state);
-    const queryClient = useQueryClient();
+
+    //Subkey
+    const subkey = session.data?.user.subkey as string;
 
     //Group Name
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
@@ -32,20 +34,7 @@ function ChangeGroupNameModal() {
         [newGroupName]
     );
 
-    const { mutate } = useMutation({
-        mutationFn: () => changeGroupName({ groupname, new_groupname: newGroupName }),
-
-        onSuccess: (res) => {
-            const message = res.data;
-            success(message);
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            router.back();
-        },
-
-        onError: () => {
-            error('Group 이름 변경에 실패했습니다');
-        },
-    });
+    const { mutate } = useChangeGroupName({ groupname, new_groupname: newGroupName, subkey, router });
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
