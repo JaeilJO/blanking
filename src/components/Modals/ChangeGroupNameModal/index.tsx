@@ -12,12 +12,17 @@ import style from './index.module.scss';
 
 //Components
 import ModalBackground from '../ModalBackground';
+import { useSession } from 'next-auth/react';
 
 function ChangeGroupNameModal() {
     const searchParams = useSearchParams();
+    const session = useSession();
     const router = useRouter();
     const { error, success } = useAlertStore((state) => state);
     const queryClient = useQueryClient();
+
+    //Subkey
+    const subkey = session.data?.user.subkey as string;
 
     //Group Name
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
@@ -33,7 +38,7 @@ function ChangeGroupNameModal() {
     );
 
     const { mutate } = useMutation({
-        mutationFn: () => changeGroupName({ groupname, new_groupname: newGroupName }),
+        mutationFn: () => changeGroupName({ groupname, new_groupname: newGroupName, subkey }),
 
         onSuccess: (res) => {
             const message = res.data;
