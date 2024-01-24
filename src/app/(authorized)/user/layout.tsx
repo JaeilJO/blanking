@@ -38,7 +38,7 @@ async function Layout({
     if (!session) {
         redirect(`/auth/signin`);
     }
-    console.log(session);
+
     await queryClient.prefetchQuery({
         queryKey: ['groups'],
         queryFn: () => getGroups(subkey),

@@ -1,10 +1,9 @@
 'use client';
 
 //Utils
-import { useParams } from 'next/navigation';
-import { useQuery } from '@tanstack/react-query';
+import { redirect, useParams } from 'next/navigation';
+
 import { useSession } from 'next-auth/react';
-import getGroups from '@/lib/getGroups';
 
 //Style
 import style from './index.module.scss';
@@ -18,6 +17,7 @@ import GroupCategoryTitle from './GroupCategoryTitle';
 import ChangeGroupNameButton from './ChangeGroupNameButton';
 import CreateGroupButton from './CreateGroupButton';
 import GroupCategoryLoading from './GroupCategoryLoading';
+import useGetGroups from '@/hooks/useGetGroups';
 
 interface GroupCategoryProps {
     subkey: string;
@@ -31,11 +31,11 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
 
     const current_group_name = decodeURIComponent(params.group as string);
 
-    //Group 정보 가져오기
-    const { data, isLoading } = useQuery({
-        queryKey: ['navigation'],
-        queryFn: () => getGroups(subkey),
-    });
+    const { data, isLoading, isError } = useGetGroups({ subkey });
+
+    if (isError) {
+        return redirect('/500');
+    }
 
     if (isLoading) {
         return <GroupCategoryLoading />;
