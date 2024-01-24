@@ -5,7 +5,7 @@ import ModalBackground from '../ModalBackground';
 import style from './index.module.scss';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
-import { FormEventHandler, useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createPage } from '@/lib/createPage';
