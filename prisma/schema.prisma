@@ -21,20 +21,24 @@ model User {
 
 model Group {
   id         Int      @id @default(autoincrement())
-  groupname  String   @unique
+  groupname  String
   createdAt  DateTime
   updatedAt  DateTime
   usersubkey String
   user       User     @relation(fields: [usersubkey], references: [subkey], onDelete: Cascade)
   pages      Page[]
+
+  @@unique([groupname, usersubkey])
 }
 
 model Page {
   id        Int      @id @default(autoincrement())
-  pagename  String   @unique
+  pagename  String
   groupid   Int
   content   Json[]
   createdAt DateTime
   updatedAt DateTime
   group     Group    @relation(fields: [groupid], references: [id], onDelete: Cascade)
+
+  @@unique([pagename, groupid])
 }

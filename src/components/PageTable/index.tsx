@@ -10,22 +10,27 @@ import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getPages } from '@/lib/getPages';
 import { useSession } from 'next-auth/react';
 
-function PageTable({ current_group_name }: { current_group_name: string }) {
+function PageTable({ current_group_name, username }: { current_group_name: string; username: string }) {
     const param = useParams();
     const session = useSession();
+    const subkey = session.data?.user.subkey as string;
     const params = useParams();
 
     const parameterUsername = decodeURIComponent(params.username as string);
 
-    const isCurrentUser = parameterUsername === session?.data?.user.name;
+    const isCurrentUser = parameterUsername === username;
 
     const { data } = useQuery({
         queryKey: ['pages', { groupname: current_group_name }],
-        queryFn: () => getPages({ groupname: current_group_name }),
+        queryFn: () => getPages({ groupname: current_group_name, subkey }),
     });
 
-    if (!data || !isCurrentUser) {
+    if (!isCurrentUser) {
         redirect('/not-found');
+    }
+
+    if (data.length === 0) {
+        return <div>페이지가 없습니다.</div>;
     }
 
     return (

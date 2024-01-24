@@ -43,7 +43,7 @@ function CreateGroupModal() {
             router.back();
         },
         onError: () => {
-            error('그룹 이름은 중복될 수 없습니다. 다른 이름을 사용해주세요.');
+            error('');
         },
     });
 
