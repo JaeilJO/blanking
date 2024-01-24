@@ -4,6 +4,7 @@ import style from './index.module.scss';
 
 import { BsGoogle } from 'react-icons/bs';
 import classNames from 'classnames/bind';
+import { signIn } from 'next-auth/react';
 
 interface SocialButtonProps {
     socialType: string;
@@ -17,9 +18,15 @@ function SocialButton({ socialType }: SocialButtonProps) {
         google: socialType === 'google',
     });
 
+    const onClick = () => {
+        if (socialType === 'google') {
+            signIn('google');
+        }
+    };
+
     if (socialType === 'google') {
         return (
-            <button className={className}>
+            <button onClick={onClick} className={className}>
                 <BsGoogle />
             </button>
         );

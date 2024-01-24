@@ -17,10 +17,11 @@ interface PageProps {
 async function Page({ params }: PageProps) {
     const pagename = decodeURIComponent(params.page as string);
     const groupname = decodeURIComponent(params.group as string);
-    const username = decodeURIComponent(params.username as string);
+
+    const paramUsername = decodeURIComponent(params.username);
     const session = await getServerSession(config);
 
-    if (username !== session?.user.name) {
+    if (paramUsername !== session?.user.name) {
         redirect('/not-found');
     }
 

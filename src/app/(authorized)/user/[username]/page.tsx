@@ -7,9 +7,10 @@ import { redirect } from 'next/navigation';
 
 export default async function Page({ params }: { params: { username: string } }) {
     const session = await getServerSession(config);
+    const paramUsername = decodeURIComponent(params.username);
     const username = session?.user.name as string;
 
-    if (params.username !== username) {
+    if (paramUsername !== username) {
         redirect('/not-found');
     }
 
