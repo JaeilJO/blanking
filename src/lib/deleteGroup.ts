@@ -6,5 +6,5 @@ interface DeleteGroupParams {
 }
 
 export default async function deleteGroup({ groupname, subkey }: DeleteGroupParams) {
-    return axios.delete(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group/${groupname}`);
+    return axios.delete(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group/${subkey}/${groupname}`);
 }

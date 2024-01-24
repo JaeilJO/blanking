@@ -10,7 +10,6 @@ async function Page({ params }: { params: { group: string } }) {
     const current_group_name = decodeURIComponent(params.group as string);
     const session = await getServerSession(config);
     const subkey = session?.user.subkey as string;
-
     const queryClient = new QueryClient();
 
     await queryClient.prefetchQuery({

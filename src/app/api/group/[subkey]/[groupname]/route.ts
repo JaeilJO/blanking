@@ -56,6 +56,6 @@ export async function DELETE(request: Request, { params }: { params: { subkey: s
         });
         return new Response('OK', { status: 200 });
     } catch (e) {
-        return new Response(e as string, { status: 403 });
+        return new Response('그룹 생성에 실패했습니다. Modal창을 껐다가 다시 시도해주시겠습니까?', { status: 403 });
     }
 }
