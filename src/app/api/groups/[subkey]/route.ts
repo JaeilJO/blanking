@@ -46,23 +46,23 @@ export async function POST(req: Request, { params }: { params: { subkey: string 
 
 export async function PATCH(request: Request) {}
 
-export async function DELETE(request: Request, { params }: { params: { subkey: string } }) {
-    const data = await request.json();
+// export async function DELETE(request: Request, { params }: { params: { subkey: string } }) {
+//     const data = await request.json();
 
-    const subkey = params.subkey;
-    const groupname = data.groupname;
+//     const subkey = params.subkey;
+//     const groupname = data.groupname;
 
-    const prisma = new PrismaClient();
+//     const prisma = new PrismaClient();
 
-    try {
-        await prisma.group.delete({
-            where: {
-                usersubkey: subkey,
-                groupname,
-            },
-        });
-        return new Response('OK', { status: 200 });
-    } catch (e) {
-        return new Response(e as string, { status: 403 });
-    }
-}
+//     try {
+//         await prisma.group.delete({
+//             where: {
+//                 usersubkey: subkey,
+//                 groupname,
+//             },
+//         });
+//         return new Response('OK', { status: 200 });
+//     } catch (e) {
+//         return new Response(e as string, { status: 403 });
+//     }
+// }

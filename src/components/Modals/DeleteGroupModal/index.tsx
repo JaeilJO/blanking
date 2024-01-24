@@ -16,6 +16,10 @@ import deleteGroup from '@/lib/deleteGroup';
 
 function DeleteGroupModal() {
     const router = useRouter();
+    const session = useSession();
+
+    // usersubid
+    const usersubkey = session.data?.user.subkey;
 
     // Group Name
     const searchParams = useSearchParams();

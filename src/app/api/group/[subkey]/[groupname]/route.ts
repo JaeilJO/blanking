@@ -2,19 +2,22 @@ import { PrismaClient } from '@prisma/client';
 
 export async function POST(req: Request, res: Response) {}
 
-export async function PATCH(request: Request, { params }: { params: { groupname: string } }) {
+export async function PATCH(request: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const requset = await request.json();
 
     const new_groupname = requset.data.new_groupname;
 
     const groupname = params.groupname as string;
-
+    const subkey = params.subkey as string;
     const prisma = new PrismaClient();
 
     try {
         await prisma.group.update({
             where: {
-                groupname: groupname,
+                groupname_usersubkey: {
+                    groupname,
+                    usersubkey: subkey,
+                },
             },
             data: {
                 groupname: new_groupname,
@@ -36,15 +39,18 @@ export async function PATCH(request: Request, { params }: { params: { groupname:
             - body로 받음
             - string
 */
-export async function DELETE(request: Request, { params }: { params: { groupname: string } }) {
+export async function DELETE(request: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const groupname = params.groupname as string;
-
+    const subkey = params.subkey as string;
     const prisma = new PrismaClient();
 
     try {
         await prisma.group.delete({
             where: {
-                groupname,
+                groupname_usersubkey: {
+                    groupname: groupname,
+                    usersubkey: subkey,
+                },
             },
         });
         return new Response('OK', { status: 200 });
