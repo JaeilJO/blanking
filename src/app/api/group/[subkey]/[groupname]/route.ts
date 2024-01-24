@@ -1,15 +1,33 @@
-import { PrismaClient } from '@prisma/client';
+import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
+import { Prisma, PrismaClient } from '@prisma/client';
 
-export async function POST(req: Request, res: Response) {}
-
+// Change GroupName
+/*
+- 필요 데이터
+    * subkey
+        - params로 받음
+        - string
+    * groupname
+        - params로 받음
+        - string
+*/
 export async function PATCH(request: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const requset = await request.json();
-
-    const new_groupname = requset.data.new_groupname;
+    const prisma = new PrismaClient();
 
     const groupname = params.groupname as string;
     const subkey = params.subkey as string;
-    const prisma = new PrismaClient();
+    const new_groupname = requset.data.new_groupname;
+
+    const isContainsSpecialChariacter = containsSpecialCharacters(new_groupname);
+
+    if (isContainsSpecialChariacter) {
+        return new Response('특수문자는 사용할 수 없습니다.', { status: 422 });
+    }
+
+    if (new_groupname === groupname) {
+        return new Response('기존 이름과 동일합니다.', { status: 423 });
+    }
 
     try {
         await prisma.group.update({
@@ -23,22 +41,27 @@ export async function PATCH(request: Request, { params }: { params: { subkey: st
                 groupname: new_groupname,
             },
         });
-
-        return new Response(`${groupname}이(가) ${new_groupname}으로 변경되었습니다`, { status: 200 });
+        return new Response(`${groupname}이(가) ${new_groupname}으로 변경되었습니다.`, { status: 200 });
     } catch (e) {
-        return new Response('Group이름 변경에 실패했습니다', { status: 403 });
+        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+            if (e.code === 'P2002') {
+                return new Response('이미 사용되고 있는 Group 이름입니다.', { status: 403 });
+            }
+        }
+
+        return new Response('Group이름 변경에 실패했습니다. 다시 시도해주시겠습니까?', { status: 409 });
     }
 }
 
-/* 
 // Delete Group
-    * 필요 데이터
-        * subkey
-            - params로 받음
-            - string
-        * groupname
-            - params로 받음
-            - string
+/* 
+- 필요 데이터
+    * subkey
+        - params로 받음
+        - string
+    * groupname
+        - params로 받음
+        - string
 */
 export async function DELETE(request: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const groupname = params.groupname as string;
@@ -56,6 +79,6 @@ export async function DELETE(request: Request, { params }: { params: { subkey: s
         });
         return new Response('OK', { status: 200 });
     } catch (e) {
-        return new Response('그룹 생성에 실패했습니다. Modal창을 껐다가 다시 시도해주시겠습니까?', { status: 403 });
+        return new Response('그룹 생성에 실패했습니다. 다시 시도해주시겠습니까?', { status: 403 });
     }
 }

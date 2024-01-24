@@ -13,6 +13,7 @@ import style from './index.module.scss';
 //Components
 import ModalBackground from '../ModalBackground';
 import { useSession } from 'next-auth/react';
+import { AxiosError } from 'axios';
 
 function ChangeGroupNameModal() {
     const searchParams = useSearchParams();
@@ -47,8 +48,22 @@ function ChangeGroupNameModal() {
             router.back();
         },
 
-        onError: () => {
-            error('Group 이름 변경에 실패했습니다');
+        onError: (e: AxiosError) => {
+            if (e.request?.status === 409) {
+                error('Group이름 변경에 실패했습니다. 다시 시도해주시겠습니까?');
+            }
+
+            if (e.request?.status === 403) {
+                error('이미 사용되고 있는 Group 이름입니다.');
+            }
+
+            if (e.request?.status === 422) {
+                error('특수문자를 제외한 영어 대 소문자 혹은 한글만을 사용해주세요');
+            }
+
+            if (e.request?.status === 423) {
+                error('기존 Group 이름과 동일합니다.');
+            }
         },
     });
 
