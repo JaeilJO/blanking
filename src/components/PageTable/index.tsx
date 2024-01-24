@@ -13,6 +13,7 @@ import { useSession } from 'next-auth/react';
 function PageTable({ current_group_name }: { current_group_name: string }) {
     const param = useParams();
     const session = useSession();
+    const subkey = session.data?.user.subkey as string;
     const params = useParams();
 
     const parameterUsername = decodeURIComponent(params.username as string);
@@ -21,10 +22,11 @@ function PageTable({ current_group_name }: { current_group_name: string }) {
 
     const { data } = useQuery({
         queryKey: ['pages', { groupname: current_group_name }],
-        queryFn: () => getPages({ groupname: current_group_name }),
+        queryFn: () => getPages({ groupname: current_group_name, subkey }),
     });
 
     if (!data || !isCurrentUser) {
+        console.log('hello');
         redirect('/not-found');
     }
 

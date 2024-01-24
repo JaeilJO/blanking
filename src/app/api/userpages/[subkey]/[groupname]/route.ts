@@ -1,11 +1,12 @@
 import { PrismaClient } from '@prisma/client';
-import { cookies } from 'next/headers';
 
-export async function GET(res: Response, { params }: { params: { groupname: string } }) {
+// Get Pages
+export async function GET(res: Response, { params }: { params: { subkey: string; groupname: string } }) {
     const prisma = new PrismaClient();
 
-    const group = await prisma.group.findUnique({
+    const group = await prisma.group.findFirst({
         where: {
+            usersubkey: params.subkey,
             groupname: params.groupname,
         },
         include: {
