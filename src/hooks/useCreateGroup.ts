@@ -27,7 +27,7 @@ export default function useCreateGroup({ subkey, groupname, router }: useCreateG
             }
 
             if (e.request?.status === 400) {
-                error('그룹 생성에 실패했습니다. Modal창을 껐다가 다시 시도해주시겠습니까?');
+                error('그룹 생성에 실패했습니다. 다시 시도해주시겠습니까?');
             }
 
             if (e.request?.status === 422) {
