@@ -13,33 +13,20 @@ import style from './index.module.scss';
 // Components
 import ModalBackground from '../ModalBackground';
 import deleteGroup from '@/services/deleteGroup';
+import useDeleteGroup from '@/hooks/useDeleteGroup';
 
 function DeleteGroupModal() {
     const router = useRouter();
     const session = useSession();
 
     // usersubid
-    const usersubkey = session.data?.user.subkey as string;
+    const subkey = session.data?.user.subkey as string;
 
     // Group Name
     const searchParams = useSearchParams();
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
 
-    const { error, success } = useAlertStore((state) => state);
-
-    // Delete Group
-    const queryClient = useQueryClient();
-    const { mutate } = useMutation({
-        mutationFn: () => deleteGroup({ groupname, subkey: usersubkey }),
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            success('그룹 삭제에 성공하였습니다.');
-            router.back();
-        },
-        onError: () => {
-            error('그룹 삭제에 실패하였습니다.');
-        },
-    });
+    const { mutate } = useDeleteGroup({ groupname, subkey, router });
 
     // Sumbit Handler
     const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
