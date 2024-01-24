@@ -2,7 +2,7 @@ import GroupTable from '@/components/PageTable';
 
 import style from './page.module.scss';
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
-import { getPages } from '@/lib/getPages';
+import { getPages } from '@/services/getPages';
 import { getServerSession } from 'next-auth';
 import { config } from '@/utils/auth';
 

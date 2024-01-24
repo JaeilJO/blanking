@@ -2,6 +2,7 @@
 
 //Utils
 import { redirect, useParams } from 'next/navigation';
+import useGetGroups from '@/hooks/useGetGroups';
 
 import { useSession } from 'next-auth/react';
 
@@ -12,12 +13,9 @@ import style from './index.module.scss';
 import PageCategory from '../PageCategory';
 import DeleteGroupButton from './DeleteGroupButton';
 import GroupCategoryTitle from './GroupCategoryTitle';
-
-//Icons
 import ChangeGroupNameButton from './ChangeGroupNameButton';
 import CreateGroupButton from './CreateGroupButton';
 import GroupCategoryLoading from './GroupCategoryLoading';
-import useGetGroups from '@/hooks/useGetGroups';
 
 interface GroupCategoryProps {
     subkey: string;

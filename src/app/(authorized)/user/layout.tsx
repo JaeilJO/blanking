@@ -12,7 +12,7 @@ import style from './layout.module.scss';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
 import SideBarLayout from '@/components/Sidebar/SidebarLayout/sidebarLayout';
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
-import getGroups from '@/lib/getGroups';
+import getGroups from '@/services/getGroups';
 
 async function Layout({
     children,

@@ -2,7 +2,7 @@
 
 // Utils
 import { useQuery } from '@tanstack/react-query';
-import { getPage } from '@/lib/getPage';
+import { getPage } from '@/services/getPage';
 import { useState } from 'react';
 import { redirect } from 'next/navigation';
 

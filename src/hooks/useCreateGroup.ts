@@ -1,4 +1,4 @@
-import { createGroup } from '@/lib/createGroup';
+import { createGroup } from '@/services/createGroup';
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';

@@ -6,8 +6,8 @@ import style from './index.module.scss';
 import { redirect, useParams } from 'next/navigation';
 import PageDeleteButton from './PageDeleteButton';
 import PageChangeNameButton from './PageChangeNameButton';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { getPages } from '@/lib/getPages';
+import { useQuery } from '@tanstack/react-query';
+import { getPages } from '@/services/getPages';
 import { useSession } from 'next-auth/react';
 
 function PageTable({ current_group_name, username }: { current_group_name: string; username: string }) {

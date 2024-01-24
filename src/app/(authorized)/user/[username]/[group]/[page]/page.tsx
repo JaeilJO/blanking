@@ -1,7 +1,7 @@
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import style from './page.module.scss';
 import UserPage from '@/components/UserPage';
-import { getPage } from '@/lib/getPage';
+import { getPage } from '@/services/getPage';
 import { getServerSession } from 'next-auth';
 import { config } from '@/utils/auth';
 import { redirect } from 'next/navigation';

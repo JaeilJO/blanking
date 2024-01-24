@@ -6,7 +6,7 @@ import style from './index.module.scss';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { changePageName } from '@/lib/changePageName';
+import { changePageName } from '@/services/changePageName';
 import { useAlertStore } from '@/zustand/alertStore';
 
 function ChangePageNameModal() {

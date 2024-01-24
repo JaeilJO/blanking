@@ -1,4 +1,4 @@
-import getGroups from '@/lib/getGroups';
+import getGroups from '@/services/getGroups';
 import { useQuery } from '@tanstack/react-query';
 
 interface useGetGroupsParasm {
