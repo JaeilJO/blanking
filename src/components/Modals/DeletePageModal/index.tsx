@@ -7,7 +7,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deletePage } from '@/lib/deletePage';
+import { deletePage } from '@/services/deletePage';
 
 function DeletePageModal() {
     const router = useRouter();

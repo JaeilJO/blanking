@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useState } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createPage } from '@/lib/createPage';
+import { createPage } from '@/services/createPage';
 
 const cn = classNames.bind(style);
 

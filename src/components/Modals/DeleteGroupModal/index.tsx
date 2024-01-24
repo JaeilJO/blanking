@@ -12,7 +12,7 @@ import style from './index.module.scss';
 
 // Components
 import ModalBackground from '../ModalBackground';
-import deleteGroup from '@/lib/deleteGroup';
+import deleteGroup from '@/services/deleteGroup';
 
 function DeleteGroupModal() {
     const router = useRouter();

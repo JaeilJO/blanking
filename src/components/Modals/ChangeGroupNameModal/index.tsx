@@ -5,7 +5,7 @@ import { useCallback, useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAlertStore } from '@/zustand/alertStore';
-import { changeGroupName } from '@/lib/changeGroupName';
+import { changeGroupName } from '@/services/changeGroupName';
 
 //Style
 import style from './index.module.scss';

@@ -3,7 +3,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import style from './index.module.scss';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { changePageName } from '@/lib/changePageName';
+import { changePageName } from '@/services/changePageName';
 import { useAlertStore } from '@/zustand/alertStore';
 
 import { useRouter } from 'next/navigation';
