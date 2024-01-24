@@ -14,7 +14,7 @@ import GroupCategory from './GroupCategory';
 
 import { useSession } from 'next-auth/react';
 
-function Sidebar({ userid }) {
+function Sidebar({ subkey }: { subkey: string }) {
     const session = useSession();
 
     const username = session?.data?.user?.name as string;
@@ -28,7 +28,7 @@ function Sidebar({ userid }) {
             <hr className={style.line} />
 
             <div className={style.category_wrapper}>
-                <GroupCategory userid={userid} />
+                <GroupCategory subkey={subkey} />
             </div>
 
             <LogoutButton />

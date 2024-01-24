@@ -1,4 +1,4 @@
-import { type NextAuthOptions, type Session } from 'next-auth';
+import { Account, type NextAuthOptions, type Session } from 'next-auth';
 
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
@@ -6,6 +6,8 @@ import GoogleProvider from 'next-auth/providers/google';
 import bcrypt from 'bcrypt';
 import { PrismaClient } from '@prisma/client';
 import { JWT } from 'next-auth/jwt';
+
+import { v4 as uuidv4 } from 'uuid';
 
 const prisma = new PrismaClient();
 
@@ -30,6 +32,7 @@ export const config: NextAuthOptions = {
                 const user = await prisma.user.findFirstOrThrow({
                     where: {
                         email,
+                        account_type: 'credentials',
                     },
                 });
 
@@ -55,22 +58,59 @@ export const config: NextAuthOptions = {
         newUser: '/auth/signup',
     },
     secret: process.env.NEXTAUTH_SECRET,
+
     callbacks: {
-        async jwt({ token, account, profile }) {
-            console.log(token, account);
+        async signIn({ user, account, profile }) {
             if (account?.provider === 'google') {
-                const signedUser = await prisma.user.findUnique({
+                const signedUser = await prisma.user.findFirst({
                     where: {
-                        email: token?.email as string,
+                        email: user?.email as string,
+                        account_type: 'google',
                     },
                 });
+
+                if (!signedUser) {
+                    const subkey = uuidv4();
+                    await prisma.user.create({
+                        data: {
+                            email: user?.email as string,
+                            name: user?.name as string,
+                            account_type: 'google',
+                            subkey,
+                            createdAt: new Date(),
+                            updatedAt: new Date(),
+                        },
+                    });
+                }
+            }
+            return true;
+        },
+
+        async jwt({ token, account, profile }) {
+            const account_type = account?.provider as string;
+
+            if (account) {
+                console.log(account);
+                const userdata = await prisma.user.findFirst({
+                    where: {
+                        email: account?.email as string,
+                        account_type,
+                    },
+                    select: {
+                        subkey: true,
+                        account_type: true,
+                    },
+                });
+                token.subkey = userdata?.subkey;
+                token.account_type = userdata?.account_type;
             }
 
             return token;
         },
 
         async session({ session, token }: { session: Session; token: JWT }) {
-            session.user.id = token.sub;
+            session.user.account_type = token.account_type as string;
+            session.user.subkey = token.subkey as string;
 
             return session;
         },

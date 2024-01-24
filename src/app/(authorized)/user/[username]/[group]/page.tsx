@@ -6,6 +6,7 @@ import { getPages } from '@/lib/getPages';
 
 async function Page({ params }: { params: { group: string } }) {
     const current_group_name = decodeURIComponent(params.group as string);
+
     const queryClient = new QueryClient();
 
     await queryClient.prefetchQuery({

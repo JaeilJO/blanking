@@ -9,14 +9,14 @@ import SideBarStatusButton from '../SideBarStatusButton';
 
 const cn = classNames.bind(style);
 
-function SideBarLayout({ userid }: { userid: string }) {
+function SideBarLayout({ subkey }: { subkey: string }) {
     const { status, close, open } = useSideBarStatusStore((state) => state);
 
     return (
         <nav className={cn({ sidebar_wrapper: true, close: status })}>
             <SideBarStatusButton />
 
-            <Sidebar userid={userid} />
+            <Sidebar subkey={subkey} />
         </nav>
     );
 }

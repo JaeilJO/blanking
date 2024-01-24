@@ -8,25 +8,25 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  subkey    String   @unique
-  email     String   
-  name      String
-  password  String?
-  createdAt DateTime
-  updatedAt DateTime
+  id           Int      @id @default(autoincrement())
+  email        String
+  name         String
+  password     String?
+  createdAt    DateTime
+  updatedAt    DateTime
   account_type String
-  groups    Group[]
+  subkey       String   @unique
+  groups       Group[]
 }
 
 model Group {
-  id        Int      @id @default(autoincrement())
-  groupname String   @unique
-  userid    Int
-  createdAt DateTime
-  updatedAt DateTime
-  user      User     @relation(fields: [userid], references: [id], onDelete: Cascade)
-  pages     Page[]
+  id         Int      @id @default(autoincrement())
+  groupname  String   @unique
+  createdAt  DateTime
+  updatedAt  DateTime
+  usersubkey String
+  user       User     @relation(fields: [usersubkey], references: [subkey], onDelete: Cascade)
+  pages      Page[]
 }
 
 model Page {

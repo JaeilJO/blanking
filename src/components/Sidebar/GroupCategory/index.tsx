@@ -20,10 +20,10 @@ import CreateGroupButton from './CreateGroupButton';
 import GroupCategoryLoading from './GroupCategoryLoading';
 
 interface GroupCategoryProps {
-    userid: string;
+    subkey: string;
 }
 
-function GroupCategory({ userid }: GroupCategoryProps) {
+function GroupCategory({ subkey }: GroupCategoryProps) {
     const params = useParams();
     const session = useSession();
 
@@ -34,7 +34,7 @@ function GroupCategory({ userid }: GroupCategoryProps) {
     //Group 정보 가져오기
     const { data, isLoading } = useQuery({
         queryKey: ['navigation'],
-        queryFn: () => getGroups(userid),
+        queryFn: () => getGroups(subkey),
     });
 
     if (isLoading) {

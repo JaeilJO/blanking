@@ -29,13 +29,14 @@ function CreateGroupModal() {
         [groupname]
     );
 
-    // User ID
-    const userid = session?.data?.user.id as string;
+    // User Subkey
+
+    const subkey = session?.data?.user.subkey as string;
 
     const { error, success } = useAlertStore((state) => state);
 
     const { mutate } = useMutation({
-        mutationFn: () => createGroup({ userid, groupname }),
+        mutationFn: () => createGroup({ subkey, groupname }),
         onSuccess: () => {
             success('그룹 생성이 완료되었습니다.');
             queryClient.invalidateQueries({ queryKey: ['navigation'] });

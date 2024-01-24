@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
 */
 export async function POST(req: Request) {
     const { email, name, password } = await req.json();
+
     const prisma = new PrismaClient();
 
     try {
@@ -37,6 +38,7 @@ export async function POST(req: Request) {
 
         return new Response('OK', { status: 200 });
     } catch (e) {
+        console.log(e);
         return new Response(e as string, { status: 403 });
     }
 }

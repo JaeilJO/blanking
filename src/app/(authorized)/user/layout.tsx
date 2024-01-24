@@ -32,16 +32,16 @@ async function Layout({
     changePageNameModal: React.ReactNode;
 }) {
     const session = await getServerSession(config);
-    const userid = session?.user.id as string;
+    const subkey = session?.user.subkey as string;
     const queryClient = new QueryClient();
 
     if (!session) {
         redirect(`/auth/signin`);
     }
-
+    console.log(session);
     await queryClient.prefetchQuery({
         queryKey: ['groups'],
-        queryFn: () => getGroups(userid),
+        queryFn: () => getGroups(subkey),
     });
 
     const dehydratedState = dehydrate(queryClient);
@@ -59,7 +59,7 @@ async function Layout({
 
                 {/* Sidebar */}
                 <HydrationBoundary state={dehydratedState}>
-                    <SideBarLayout userid={userid} />
+                    <SideBarLayout subkey={subkey} />
                 </HydrationBoundary>
 
                 <main className={style.content_wrapper}>{children}</main>
