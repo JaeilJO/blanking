@@ -1,21 +1,25 @@
 'use client';
 
+// Utils
 import { useSession } from 'next-auth/react';
-import style from './index.module.scss';
-import { BsPlusCircle } from 'react-icons/bs';
 import { useCallback, useState } from 'react';
-import { useAlertStore } from '@/zustand/alertStore';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createGroup } from '@/lib/createGroup';
 import { useRouter } from 'next/navigation';
+import useCreateGroup from '@/hooks/useCreateGroup';
+
+// Style
+import style from './index.module.scss';
+
+//Icons
+import { BsPlusCircle } from 'react-icons/bs';
 
 function GroupMaker() {
     const [groupname, setGroupname] = useState<string>('');
-    const { error, success } = useAlertStore((state) => state);
+
     const session = useSession();
     const subkey = session.data?.user.subkey as string;
-    const queryClient = useQueryClient();
     const router = useRouter();
+
+    const { mutate } = useCreateGroup({ subkey, groupname, router });
 
     const groupnameHandler = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,18 +27,6 @@ function GroupMaker() {
         },
         [groupname]
     );
-
-    const { mutate } = useMutation({
-        mutationFn: () => createGroup({ subkey, groupname }),
-        onSuccess: async () => {
-            success('그룹 생성이 완료되었습니다.');
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            router.push(`/user/`);
-        },
-        onError: () => {
-            error('해당 그룹이름은 사용할 수 없습니다. 다른 이름을 사용해주세요.');
-        },
-    });
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
