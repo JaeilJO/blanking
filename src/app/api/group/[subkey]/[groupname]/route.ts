@@ -31,12 +31,13 @@ export async function PATCH(request: Request, { params }: { params: { subkey: st
 }
 
 /* 
+// Delete Group
     * 필요 데이터
-        * userid
+        * subkey
             - params로 받음
             - string
         * groupname
-            - body로 받음
+            - params로 받음
             - string
 */
 export async function DELETE(request: Request, { params }: { params: { subkey: string; groupname: string } }) {

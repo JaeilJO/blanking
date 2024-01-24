@@ -19,7 +19,7 @@ function DeleteGroupModal() {
     const session = useSession();
 
     // usersubid
-    const usersubkey = session.data?.user.subkey;
+    const usersubkey = session.data?.user.subkey as string;
 
     // Group Name
     const searchParams = useSearchParams();
@@ -30,7 +30,7 @@ function DeleteGroupModal() {
     // Delete Group
     const queryClient = useQueryClient();
     const { mutate } = useMutation({
-        mutationFn: () => deleteGroup({ groupname }),
+        mutationFn: () => deleteGroup({ groupname, subkey: usersubkey }),
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
             success('그룹 삭제에 성공하였습니다.');
