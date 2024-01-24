@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { Prisma, PrismaClient } from '@prisma/client';
 
 import { NextRequest } from 'next/server';
 
@@ -19,6 +19,7 @@ export async function GET(req: NextRequest, { params }: { params: { subkey: stri
     return new Response(JSON.stringify(groups), { status: 200 });
 }
 
+// Create Group
 export async function POST(req: Request, { params }: { params: { subkey: string } }) {
     const data = await req.json();
 
@@ -38,31 +39,18 @@ export async function POST(req: Request, { params }: { params: { subkey: string 
             },
         });
 
-        return new Response('OK', { status: 200 });
+        return new Response('OK', { status: 201 });
     } catch (e) {
-        return new Response(e as string, { status: 403 });
+        // P200P는 Unique Constraint에 걸린 경우 (이미 존재하는 그룹인 경우)
+
+        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+            if (e.code === 'P2002') {
+                return new Response('이미 존재하는 그룹입니다', { status: 409 });
+            }
+        }
+
+        return new Response('그룹 생성에 실패했습니다. Modal창을 껐다가 다시 시도해주시겠습니까?', { status: 400 });
     }
 }
 
 export async function PATCH(request: Request) {}
-
-// export async function DELETE(request: Request, { params }: { params: { subkey: string } }) {
-//     const data = await request.json();
-
-//     const subkey = params.subkey;
-//     const groupname = data.groupname;
-
-//     const prisma = new PrismaClient();
-
-//     try {
-//         await prisma.group.delete({
-//             where: {
-//                 usersubkey: subkey,
-//                 groupname,
-//             },
-//         });
-//         return new Response('OK', { status: 200 });
-//     } catch (e) {
-//         return new Response(e as string, { status: 403 });
-//     }
-// }
