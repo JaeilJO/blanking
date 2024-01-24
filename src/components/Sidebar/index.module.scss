@@ -31,6 +31,8 @@
 
     @include a.typhography('sub-02');
 
+    white-space: nowrap;
+
     transition: color 0.2s ease-in-out;
     &:hover {
         color: a.$gray-color;
