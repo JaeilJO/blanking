@@ -1,36 +1,26 @@
 'use client';
 
-import ModalBackground from '../ModalBackground';
+// Utils
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import useDeletePage from '@/hooks/useDeletePage';
+
+// Styles
 import style from './index.module.scss';
 
-import { useRouter, useSearchParams } from 'next/navigation';
-
-import { useAlertStore } from '@/zustand/alertStore';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { deletePage } from '@/services/deletePage';
+// Components
+import ModalBackground from '../ModalBackground';
 
 function DeletePageModal() {
     const router = useRouter();
     const searchParams = useSearchParams();
+    const session = useSession();
+
+    const subkey = session.data?.user.subkey as string;
     const pagename = decodeURIComponent(searchParams.get('pagename') as string);
     const groupname = decodeURIComponent(searchParams.get('groupname') as string);
 
-    const { error, success } = useAlertStore((state) => state);
-
-    const queryClient = useQueryClient();
-
-    const { mutate } = useMutation({
-        mutationFn: () => deletePage({ pagename, groupname }),
-        onSuccess: () => {
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            queryClient.invalidateQueries({ queryKey: ['pages'] });
-            success('페이지 삭제에 성공하였습니다.');
-            router.back();
-        },
-        onError: () => {
-            error('페이지 삭제에 실패하였습니다.');
-        },
-    });
+    const { mutate } = useDeletePage({ subkey, pagename, groupname, router });
 
     const onClickHandler = async (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();

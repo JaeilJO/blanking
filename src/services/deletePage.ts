@@ -1,7 +1,13 @@
 import axios from 'axios';
 
-export async function deletePage({ pagename, groupname }: { pagename: string; groupname: string }) {
-    return axios.delete(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${groupname}`, {
+interface deletePageParams {
+    subkey: string;
+    pagename: string;
+    groupname: string;
+}
+
+export async function deletePage({ subkey, pagename, groupname }: deletePageParams) {
+    return axios.delete(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${subkey}/${groupname}`, {
         data: { pagename: pagename },
     });
 }

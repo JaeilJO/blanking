@@ -34,6 +34,7 @@ export async function POST(req: Request, { params }: { params: { groupname: stri
     }
 }
 
+//Delete Page
 /* 
     * 필요 데이터
         * pagename
@@ -41,18 +42,35 @@ export async function POST(req: Request, { params }: { params: { groupname: stri
             - string
 */
 
-export async function DELETE(req: Request) {
+export async function DELETE(req: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const request = await req.json();
+    const groupname = params.groupname;
     const pagename = request.pagename;
     const prisma = new PrismaClient();
+
+    const gorup = await prisma.group.findFirst({
+        where: {
+            groupname: groupname,
+            usersubkey: params.subkey,
+        },
+
+        select: {
+            id: true,
+        },
+    });
+
+    const groupid = gorup?.id as number;
 
     try {
         await prisma.page.delete({
             where: {
-                pagename,
+                pagename_groupid: {
+                    groupid,
+                    pagename,
+                },
             },
         });
-        return new Response('페이지가 삭제되었습니다.', { status: 200 });
+        return new Response('페이지가 삭제되었습니다.', { status: 203 });
     } catch (err) {
         return new Response('페이지 삭제에 실패하였습니다.', { status: 403 });
     }
