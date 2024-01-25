@@ -1,29 +1,33 @@
 'use client';
 
+//Utils
 import Link from 'next/link';
+import { redirect, useParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import useGetPages from '@/hooks/useGetpages';
+
+//Styles
 import style from './index.module.scss';
 
-import { redirect, useParams } from 'next/navigation';
+//Components
 import PageDeleteButton from './PageDeleteButton';
 import PageChangeNameButton from './PageChangeNameButton';
-import { useQuery } from '@tanstack/react-query';
-import { getPages } from '@/services/getPages';
-import { useSession } from 'next-auth/react';
+import GetPagesLoading from './GetPagesLoading';
 
 function PageTable({ current_group_name, username }: { current_group_name: string; username: string }) {
     const param = useParams();
     const session = useSession();
-    const subkey = session.data?.user.subkey as string;
     const params = useParams();
 
+    const subkey = session.data?.user.subkey as string;
     const parameterUsername = decodeURIComponent(params.username as string);
-
     const isCurrentUser = parameterUsername === username;
 
-    const { data } = useQuery({
-        queryKey: ['pages', { groupname: current_group_name }],
-        queryFn: () => getPages({ groupname: current_group_name, subkey }),
-    });
+    const { data, isLoading } = useGetPages({ groupname: current_group_name, subkey });
+
+    if (isLoading) {
+        return <GetPagesLoading />;
+    }
 
     if (!isCurrentUser) {
         redirect('/not-found');
