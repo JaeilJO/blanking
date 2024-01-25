@@ -1,18 +1,29 @@
-import { PrismaClient } from '@prisma/client';
+import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
+import { Prisma, PrismaClient } from '@prisma/client';
 
-export async function GET(res: Response) {}
-
-export async function POST(req: Request, { params }: { params: { groupname: string } }) {
+//Create Page
+export async function POST(req: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const request = await req.json();
 
     const groupname = params.groupname;
+    const subkey = params.subkey;
 
     const pagename = request.data.pagename;
     const prisma = new PrismaClient();
 
-    const group = await prisma.group.findUnique({
+    const isContainsSpecialChariacter = containsSpecialCharacters(pagename);
+
+    if (isContainsSpecialChariacter) {
+        return new Response('특수문자는 사용할 수 없습니다.', { status: 422 });
+    }
+
+    const group = await prisma.group.findFirst({
         where: {
             groupname,
+            usersubkey: subkey,
+        },
+        select: {
+            id: true,
         },
     });
 
@@ -29,8 +40,14 @@ export async function POST(req: Request, { params }: { params: { groupname: stri
         });
 
         return new Response('페이지가 생성되었습니다.', { status: 200 });
-    } catch (err) {
-        return new Response('페이지 생성에 실패하였습니다.', { status: 403 });
+    } catch (e) {
+        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+            if (e.code === 'P2002') {
+                return new Response('이미 사용되고 있는 Page 이름입니다.', { status: 403 });
+            }
+        }
+
+        return new Response('Page이름 변경에 실패했습니다. 다시 시도해주시겠습니까?', { status: 409 });
     }
 }
 
@@ -41,7 +58,6 @@ export async function POST(req: Request, { params }: { params: { groupname: stri
             - body로 받음
             - string
 */
-
 export async function DELETE(req: Request, { params }: { params: { subkey: string; groupname: string } }) {
     const request = await req.json();
     const groupname = params.groupname;
