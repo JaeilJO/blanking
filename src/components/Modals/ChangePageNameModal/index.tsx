@@ -1,26 +1,32 @@
 'use client';
 
-import { useCallback, useRef, useState } from 'react';
+//Utils
+import { useCallback, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import useChangePageName from '@/hooks/useChangePageName';
+
 import ModalBackground from '../ModalBackground';
 import style from './index.module.scss';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useParams, useRouter, useSearchParams } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-import { changePageName } from '@/services/changePageName';
-import { useAlertStore } from '@/zustand/alertStore';
 
 function ChangePageNameModal() {
     const searchParams = useSearchParams();
     const router = useRouter();
-    const { error, success } = useAlertStore((state) => state);
-    const queryClient = useQueryClient();
-
-    //Group Name
-    const groupname = decodeURIComponent(searchParams.get('groupname') as string);
-    const pagename = decodeURIComponent(searchParams.get('pagename') as string);
+    const session = useSession();
 
     //New Group Name
     const [newPageName, setNewPageName] = useState('');
+
+    //Subkey
+    const subkey = session.data?.user.subkey as string;
+
+    //Group Name
+    const groupname = decodeURIComponent(searchParams.get('groupname') as string);
+
+    //Page Name
+    const pagename = decodeURIComponent(searchParams.get('pagename') as string);
+
+    const { mutate } = useChangePageName({ subkey, groupname, pagename, new_pagename: newPageName, router });
 
     const onChange = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,17 +34,6 @@ function ChangePageNameModal() {
         },
         [newPageName]
     );
-
-    const { mutate } = useMutation({
-        mutationFn: () => changePageName({ pagename, groupname, new_pagename: newPageName }),
-        onSuccess: (res) => {
-            const message = res.data;
-            success(message);
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            queryClient.invalidateQueries({ queryKey: ['pages'] });
-            router.back();
-        },
-    });
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
