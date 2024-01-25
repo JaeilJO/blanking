@@ -28,7 +28,7 @@ export default class Blank implements InlineTool {
         return {
             button: {
                 class: ['blank_style', 'blank_style blank_show'],
-                contenteditable: false,
+                contenteditable: () => true,
             },
             text: true,
         };
@@ -75,7 +75,13 @@ export default class Blank implements InlineTool {
         this.addCssClass(blank, this.class);
         blank.contentEditable = 'false';
         blank.onclick = () => {
-            console.log('hello');
+            if (this.status) {
+                this.status = false;
+                this.addCssClass(blank, 'blank_show');
+            } else {
+                this.status = true;
+                this.removeCssClass(blank, 'blank_show');
+            }
         };
 
         return blank;
@@ -85,9 +91,7 @@ export default class Blank implements InlineTool {
     private checkHtmlElementIsInclude(nodes: NodeListOf<ChildNode>) {
         let noChange = false;
         nodes.forEach((node) => {
-            if (node instanceof HTMLElement) {
-                noChange = true;
-            }
+            console.log('click');
         });
 
         return noChange;
