@@ -8,7 +8,17 @@ import style from './index.module.scss';
 import { EDITOR_JS_TOOLS } from '@/utils/editorjstools';
 import axios from 'axios';
 
-function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string; groupname: string }) {
+function EditorJs({
+    subkey,
+    data,
+    pagename,
+    groupname,
+}: {
+    subkey: string;
+    data?: any;
+    pagename: string;
+    groupname: string;
+}) {
     const ref = useRef<any>(null);
 
     useEffect(() => {
@@ -20,7 +30,14 @@ function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string;
 
                 onChange: async () => {
                     const outputData = await ref.current.save();
-                    console.log(outputData);
+                    await axios.patch(
+                        `${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${subkey}/${groupname}/${pagename}/content`,
+                        {
+                            data: {
+                                new_content: outputData,
+                            },
+                        }
+                    );
                 },
             });
 

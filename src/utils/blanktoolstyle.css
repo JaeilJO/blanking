@@ -14,46 +14,10 @@
         color: #e2e2e2;
     }
 
-    &.blank_show {
-        border: none;
-        border-bottom: 2px dashed #2c5695;
-        border-radius: 0;
-        padding: 4px 8px;
-        font-size: 1.6rem;
-        margin: 0 4px;
-        background-color: white;
+    &:active {
         color: #333333;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #e2e2e2;
-            color: #333333;
-        }
     }
 }
-
-.blank_cancel_button {
-    position: absolute;
-    opacity: 0;
-    right: -8px;
-    top: -8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 18px;
-    height: 18px;
-    border-radius: 20px;
-    color: white;
-    font-size: 1.2rem;
-    background-color: #f7471c;
-    cursor: pointer;
-    transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
-
-    &.cancel_button_show {
-        opacity: 1;
-    }
-
-    &:hover {
-        background-color: #f08d74;
-    }
+.blank_button {
+    display: none;
 }
