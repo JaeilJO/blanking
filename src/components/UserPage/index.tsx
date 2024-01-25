@@ -1,8 +1,6 @@
 'use client';
 
 // Utils
-import { useQuery } from '@tanstack/react-query';
-import { getPage } from '@/services/getPage';
 import { useState } from 'react';
 import { redirect } from 'next/navigation';
 
@@ -14,24 +12,24 @@ import EditorJs from '../EditorJs';
 import DeletePageButton from './DeletePageButton';
 import ChangePageButton from './ChangePageButton';
 import ChangeModeTitle from './ChangeModeTitle';
-import { useSession } from 'next-auth/react';
+import useGetpage from '@/hooks/useGetPage';
 
-function UserPage({ pagename, groupname }: { pagename: string; groupname: string }) {
-    const { data } = useQuery({ queryKey: ['page', pagename], queryFn: () => getPage({ pagename, groupname }) });
+function UserPage({ subkey, pagename, groupname }: { subkey: string; pagename: string; groupname: string }) {
+    const { data, isLoading } = useGetpage({ subkey, pagename, groupname });
 
     const [changeMode, setChangeMode] = useState(false);
 
+    if (isLoading) {
+        return <div>Loading</div>;
+    }
+
     if (!data) {
-        console.log('data is null');
         redirect('/not-found');
     }
 
     if (data?.length === 0) {
-        console.log('data is empty');
         redirect('/not-found');
     }
-
-    console.log(data[0].content);
 
     return (
         <>

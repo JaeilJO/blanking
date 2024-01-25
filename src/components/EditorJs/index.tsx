@@ -20,15 +20,7 @@ function EditorJs({ data, pagename, groupname }: { data?: any; pagename: string;
 
                 onChange: async () => {
                     const outputData = await ref.current.save();
-
-                    const res = await axios.patch(
-                        `${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${groupname}/${pagename}/content`,
-                        {
-                            data: {
-                                new_content: [outputData],
-                            },
-                        }
-                    );
+                    console.log(outputData);
                 },
             });
 
