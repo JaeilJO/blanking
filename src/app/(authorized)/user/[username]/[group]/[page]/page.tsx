@@ -20,6 +20,7 @@ async function Page({ params }: PageProps) {
 
     const paramUsername = decodeURIComponent(params.username);
     const session = await getServerSession(config);
+    const subkey = session?.user.subkey as string;
 
     if (paramUsername !== session?.user.name) {
         redirect('/not-found');
@@ -29,7 +30,7 @@ async function Page({ params }: PageProps) {
 
     await queryClient.prefetchQuery({
         queryKey: ['page', pagename],
-        queryFn: () => getPage({ pagename, groupname }),
+        queryFn: () => getPage({ subkey, pagename, groupname }),
     });
 
     const dehydratedState = dehydrate(queryClient);
@@ -37,7 +38,7 @@ async function Page({ params }: PageProps) {
     return (
         <HydrationBoundary state={dehydratedState}>
             <div className={style.page_wrapper}>
-                <UserPage pagename={pagename} groupname={groupname} />
+                <UserPage subkey={subkey} pagename={pagename} groupname={groupname} />
             </div>
         </HydrationBoundary>
     );

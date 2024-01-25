@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
+// Get Page
 /* 
     * 필요 데이터
         * groupname
@@ -9,18 +10,23 @@ import { PrismaClient } from '@prisma/client';
             - params로 받음
             - string
 */
-
-export async function GET(res: Response, { params }: { params: { groupname: string; pagename: string } }) {
+export async function GET(
+    res: Response,
+    { params }: { params: { subkey: string; groupname: string; pagename: string } }
+) {
     const groupname = params.groupname;
     const pagename = params.pagename;
+    const subkey = params.subkey;
 
     const prisma = new PrismaClient();
 
-    const group = await prisma.group.findUnique({
+    const group = await prisma.group.findFirst({
         where: {
+            usersubkey: subkey,
             groupname,
         },
     });
+
     const groupid = group?.id;
 
     if (!groupid) {
@@ -31,7 +37,7 @@ export async function GET(res: Response, { params }: { params: { groupname: stri
         where: { groupid, pagename },
     });
 
-    return new Response(JSON.stringify(page), { status: 200 });
+    return new Response(JSON.stringify(page), { status: 201 });
 }
 
 export async function PATCH(req: Request, { params }: { params: { pagename: string } }) {

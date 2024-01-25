@@ -16,18 +16,19 @@ import ChangePageButton from './ChangePageButton';
 import ChangeModeTitle from './ChangeModeTitle';
 import { useSession } from 'next-auth/react';
 
-function UserPage({ pagename, groupname }: { pagename: string; groupname: string }) {
-    const { data } = useQuery({ queryKey: ['page', pagename], queryFn: () => getPage({ pagename, groupname }) });
+function UserPage({ subkey, pagename, groupname }: { subkey: string; pagename: string; groupname: string }) {
+    const { data } = useQuery({
+        queryKey: ['page', pagename],
+        queryFn: () => getPage({ subkey, pagename, groupname }),
+    });
 
     const [changeMode, setChangeMode] = useState(false);
 
     if (!data) {
-        console.log('data is null');
         redirect('/not-found');
     }
 
     if (data?.length === 0) {
-        console.log('data is empty');
         redirect('/not-found');
     }
 
