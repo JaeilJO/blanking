@@ -14,15 +14,16 @@ import EditorJs from '../EditorJs';
 import DeletePageButton from './DeletePageButton';
 import ChangePageButton from './ChangePageButton';
 import ChangeModeTitle from './ChangeModeTitle';
-import { useSession } from 'next-auth/react';
+import useGetpage from '@/hooks/useGetPage';
 
 function UserPage({ subkey, pagename, groupname }: { subkey: string; pagename: string; groupname: string }) {
-    const { data } = useQuery({
-        queryKey: ['page', pagename],
-        queryFn: () => getPage({ subkey, pagename, groupname }),
-    });
+    const { data, isLoading } = useGetpage({ subkey, pagename, groupname });
 
     const [changeMode, setChangeMode] = useState(false);
+
+    if (isLoading) {
+        return <div>Loading</div>;
+    }
 
     if (!data) {
         redirect('/not-found');
@@ -31,8 +32,6 @@ function UserPage({ subkey, pagename, groupname }: { subkey: string; pagename: s
     if (data?.length === 0) {
         redirect('/not-found');
     }
-
-    console.log(data[0].content);
 
     return (
         <>
