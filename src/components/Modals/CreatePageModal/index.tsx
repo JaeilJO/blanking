@@ -9,40 +9,37 @@ import { useCallback, useState } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createPage } from '@/services/createPage';
+import { useSession } from 'next-auth/react';
+import { AxiosError } from 'axios';
+import useCreatePage from '@/hooks/useCreatePage';
 
 const cn = classNames.bind(style);
 
 function CreatePageModal() {
     const searchParams = useSearchParams();
+    const session = useSession();
+    const router = useRouter();
+
+    //Page Name
     const [pagename, setPagename] = useState('');
 
+    //Subkey
+    const subkey = session.data?.user.subkey as string;
+
+    //Group Name
+    const groupname = decodeURIComponent(searchParams.get('groupname') as string);
+
+    const { mutate } = useCreatePage({ subkey, groupname, pagename, router });
+
+    const cancelButtonClickHandler = () => {
+        router.back();
+    };
     const pageNameHandler = useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             setPagename(e.target.value);
         },
         [pagename]
     );
-    const groupname = decodeURIComponent(searchParams.get('groupname') as string);
-
-    const router = useRouter();
-    const { error, success } = useAlertStore((state) => state);
-
-    const queryClient = useQueryClient();
-
-    const { mutate } = useMutation({
-        mutationFn: () => createPage({ groupname, pagename }),
-        onSuccess: () => {
-            success('페이지 생성에 성공했습니다');
-            queryClient.invalidateQueries({ queryKey: ['pages'] });
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            router.back();
-        },
-    });
-
-    const cancelButtonClickHandler = () => {
-        router.back();
-    };
-
     const submitButtonClickHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         mutate();
