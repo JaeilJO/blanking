@@ -2,10 +2,10 @@ import AuthSlide from '@/components/AuthSlide';
 import style from './layout.module.scss';
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
-import { config } from '@/utils/auth';
+import { NextAuthOption } from '@/lib/nextAuth/auth';
 
 async function Layout({ children }: { children: React.ReactNode }) {
-    const session = await getServerSession(config);
+    const session = await getServerSession(NextAuthOption);
 
     if (session) {
         //이름이 한글일 수 도 있으니까 인코딩 해준다.

@@ -1,7 +1,7 @@
 // Components
 
 // Next Auth
-import { config } from '@/utils/auth';
+import { NextAuthOption } from '@/lib/nextAuth/auth';
 import { getServerSession } from 'next-auth';
 
 //Utils
@@ -31,7 +31,7 @@ async function Layout({
     changeGroupNameModal: React.ReactNode;
     changePageNameModal: React.ReactNode;
 }) {
-    const session = await getServerSession(config);
+    const session = await getServerSession(NextAuthOption);
     const subkey = session?.user.subkey as string;
     const queryClient = new QueryClient();
 

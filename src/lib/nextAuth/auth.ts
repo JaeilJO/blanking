@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const prisma = new PrismaClient();
 
-export const config: NextAuthOptions = {
+export const NextAuthOption: NextAuthOptions = {
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID || '',

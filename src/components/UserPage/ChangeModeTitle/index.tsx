@@ -1,13 +1,11 @@
 'use client';
 
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import style from './index.module.scss';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { changePageName } from '@/services/changePageName';
-import { useAlertStore } from '@/zustand/alertStore';
 
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import useChangePageName from '@/hooks/useChangePageName';
 
 function ChangeModeTitle({
     pagename,
@@ -19,12 +17,14 @@ function ChangeModeTitle({
     setChangeMode: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
     const session = useSession();
-
-    const username = session?.data?.user.name as string;
-    const inputRef = useRef<HTMLInputElement>(null);
-    const [newPagename, setNewPagename] = useState('');
     const router = useRouter();
-    const { error, success } = useAlertStore((state) => state);
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    //New Pagename
+    const [newPagename, setNewPagename] = useState('');
+
+    //Subkey
+    const subkey = session?.data?.user.subkey as string;
 
     useEffect(() => {
         inputRef.current?.focus();
@@ -36,21 +36,8 @@ function ChangeModeTitle({
         },
         [newPagename]
     );
-    const queryClient = useQueryClient();
 
-    const { mutate } = useMutation({
-        mutationFn: () => changePageName({ pagename, groupname, new_pagename: newPagename }),
-        onSuccess: () => {
-            success('페이지 이름 변경에 성공하였습니다.');
-            queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            queryClient.invalidateQueries({ queryKey: ['page'] });
-            setChangeMode(false);
-            router.replace(`/user/${username}/${groupname}/${newPagename}`);
-        },
-        onError: () => {
-            error('페이지 이름 변경에 실패하였습니다.');
-        },
-    });
+    const { mutate } = useChangePageName({ subkey, pagename, groupname, new_pagename: newPagename, router });
 
     const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

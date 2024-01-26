@@ -38,6 +38,17 @@ function Input({ type, register }: InputProps) {
         }
     }, [isValue]);
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (inputRef.current) {
+                inputRef?.current.blur();
+            }
+
+            document.getElementById('submitBtn')?.click();
+        }
+    };
+
     return (
         <div className={style.input_wrapper}>
             <label
@@ -62,6 +73,7 @@ function Input({ type, register }: InputProps) {
                             type={isHide ? 'text' : 'password'}
                             onBlur={onBlur}
                             ref={inputRef}
+                            onKeyDown={handleKeyDown}
                             required
                             {...register('password')}
                         />
@@ -72,10 +84,26 @@ function Input({ type, register }: InputProps) {
                 )}
 
                 {type === 'E-mail' && (
-                    <input type="email" onBlur={onBlur} required ref={inputRef} {...register('email')} />
+                    <input
+                        type="email"
+                        onKeyDown={handleKeyDown}
+                        onBlur={onBlur}
+                        required
+                        ref={inputRef}
+                        {...register('email')}
+                    />
                 )}
 
-                {type === 'Name' && <input type="text" onBlur={onBlur} required ref={inputRef} {...register('name')} />}
+                {type === 'Name' && (
+                    <input
+                        type="text"
+                        onKeyDown={handleKeyDown}
+                        onBlur={onBlur}
+                        required
+                        ref={inputRef}
+                        {...register('name')}
+                    />
+                )}
             </div>
         </div>
     );
