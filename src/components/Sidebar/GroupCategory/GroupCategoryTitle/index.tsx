@@ -9,7 +9,7 @@ import style from './index.module.scss';
 import { BsFolder, BsFolder2Open } from 'react-icons/bs';
 
 // Types
-import { Group } from '@/utils/userDataType';
+import { Group } from '@/utils/modelTypes';
 
 interface GroupCategoryTitleProps {
     current_group_name: string;
