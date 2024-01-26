@@ -6,7 +6,7 @@ interface SubmitButtonProps {
 }
 
 function SubmitButton({ value, disabeld = false }: SubmitButtonProps) {
-    return <input type="submit" className={style.input_button} disabled={disabeld} value={value} />;
+    return <input id={'submitBtn'} type="submit" className={style.input_button} disabled={disabeld} value={value} />;
 }
 
 export default SubmitButton;
