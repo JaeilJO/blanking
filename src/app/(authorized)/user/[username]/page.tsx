@@ -2,7 +2,7 @@ import style from './page.module.scss';
 import NoGroup from '@/components/NoGroup';
 
 import { getServerSession } from 'next-auth';
-import { config } from '@/utils/auth';
+import { config } from '@/lib/nextAuth/auth';
 import { redirect } from 'next/navigation';
 
 export default async function Page({ params }: { params: { username: string } }) {

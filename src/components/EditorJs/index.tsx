@@ -5,8 +5,9 @@ import EditorJS from '@editorjs/editorjs';
 import { useEffect, useRef } from 'react';
 
 import style from './index.module.scss';
-import { EDITOR_JS_TOOLS } from '@/utils/editorjstools';
+
 import axios from 'axios';
+import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorjstools';
 
 function EditorJs({
     subkey,

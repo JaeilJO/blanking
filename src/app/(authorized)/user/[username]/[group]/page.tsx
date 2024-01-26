@@ -4,11 +4,11 @@ import style from './page.module.scss';
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import { getPages } from '@/services/getPages';
 import { getServerSession } from 'next-auth';
-import { config } from '@/utils/auth';
+import { NextAuthOption } from '@/lib/nextAuth/auth';
 
 async function Page({ params }: { params: { group: string } }) {
     const current_group_name = decodeURIComponent(params.group as string);
-    const session = await getServerSession(config);
+    const session = await getServerSession(NextAuthOption);
     const username = session?.user.name as string;
     const subkey = session?.user.subkey as string;
     const queryClient = new QueryClient();

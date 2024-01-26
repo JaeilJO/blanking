@@ -3,7 +3,7 @@ import style from './page.module.scss';
 import UserPage from '@/components/UserPage';
 import { getPage } from '@/services/getPage';
 import { getServerSession } from 'next-auth';
-import { config } from '@/utils/auth';
+import { NextAuthOption } from '@/lib/nextAuth/auth';
 import { redirect } from 'next/navigation';
 
 interface PageProps {
@@ -19,7 +19,7 @@ async function Page({ params }: PageProps) {
     const groupname = decodeURIComponent(params.group as string);
 
     const paramUsername = decodeURIComponent(params.username);
-    const session = await getServerSession(config);
+    const session = await getServerSession(NextAuthOption);
     const subkey = session?.user.subkey as string;
 
     if (paramUsername !== session?.user.name) {
