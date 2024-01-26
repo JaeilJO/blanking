@@ -1,5 +1,6 @@
 import AccountInquery from './AccountInquiry';
 import Form from './Form';
+import SignUpForm from './SignUpForm';
 import Social from './Social';
 import Title from './Title';
 
@@ -8,4 +9,5 @@ export const AuthComponent = {
     Form,
     Social,
     AccountInquery,
+    SignUpForm,
 };

@@ -2,8 +2,6 @@ import Link from 'next/link';
 import style from './index.module.scss';
 import { AuthComponent } from '../AuthCommon';
 import social_login_list from '@/utils/socialLoginList';
-import { useSession } from 'next-auth/react';
-import { redirect } from 'next/navigation';
 
 function SignInComponent() {
     return (
