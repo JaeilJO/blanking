@@ -43,7 +43,7 @@ function UserPage({ subkey, pagename, groupname }: { subkey: string; pagename: s
                         <DeletePageButton pagename={pagename} groupname={groupname} />
                     </div>
 
-                    <EditorJs data={data[0]?.content} pagename={pagename} groupname={groupname} />
+                    <EditorJs subkey={subkey} data={data[0]?.content} pagename={pagename} groupname={groupname} />
                 </>
             )}
         </>

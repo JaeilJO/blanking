@@ -1,17 +1,16 @@
-import { EditorConfig, InlineTool } from '@editorjs/editorjs';
+import { InlineTool } from '@editorjs/editorjs';
 import './blanktoolstyle.css';
 
-interface BlankButton extends HTMLButtonElement {
-    status: boolean;
-}
+import { v4 as uuidv4 } from 'uuid';
 
 export default class Blank implements InlineTool {
     status: boolean;
     button: HTMLButtonElement | null;
 
-    tag: string;
     class: string;
     block_text: Node | null;
+
+    api: any;
 
     static get isInline() {
         return true;
@@ -26,9 +25,15 @@ export default class Blank implements InlineTool {
 
     static get sanitize() {
         return {
-            button: {
-                class: ['blank_style', 'blank_style blank_show'],
+            input: {
+                type: true,
+                id: true,
+                class: 'blank_button',
+            },
+            label: {
+                class: 'blank_style',
                 contenteditable: () => true,
+                htmlFor: () => true,
             },
             text: true,
         };
@@ -37,7 +42,7 @@ export default class Blank implements InlineTool {
     constructor() {
         this.button = null;
         this.status = false;
-        this.tag = 'button';
+
         this.class = 'blank_style';
         this.block_text = null;
     }
@@ -50,7 +55,9 @@ export default class Blank implements InlineTool {
     }
 
     surround(range: Range) {
-        const blank = this.createBlank();
+        const uuid = uuidv4();
+        const button = this.createButton(uuid);
+        const label = this.createLabel(uuid);
 
         const clone = range.cloneRange();
         const cloneContents = clone.cloneContents().childNodes;
@@ -65,33 +72,35 @@ export default class Blank implements InlineTool {
 
         this.block_text = text;
 
-        blank.appendChild(text);
-
-        range.insertNode(blank);
+        label.appendChild(text);
+        range.insertNode(button);
+        range.insertNode(label);
     }
 
-    createBlank() {
-        const blank = document.createElement(this.tag) as BlankButton;
-        this.addCssClass(blank, this.class);
-        blank.contentEditable = 'false';
-        blank.onclick = () => {
-            if (this.status) {
-                this.status = false;
-                this.addCssClass(blank, 'blank_show');
-            } else {
-                this.status = true;
-                this.removeCssClass(blank, 'blank_show');
-            }
-        };
+    createButton(uuid: string) {
+        const button = document.createElement('input');
+        button.type = 'checkbox';
+        button.id = uuid;
+        this.addCssClass(button, 'blank_button');
+        return button;
+    }
 
-        return blank;
+    createLabel(uuid: string) {
+        const label = document.createElement('label');
+        label.htmlFor = uuid;
+        label.contentEditable = 'false';
+        this.addCssClass(label, this.class);
+
+        return label;
     }
 
     // Check Html Element Include
     private checkHtmlElementIsInclude(nodes: NodeListOf<ChildNode>) {
         let noChange = false;
         nodes.forEach((node) => {
-            console.log('click');
+            if (node instanceof HTMLElement) {
+                noChange = true;
+            }
         });
 
         return noChange;
