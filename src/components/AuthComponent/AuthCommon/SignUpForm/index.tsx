@@ -1,7 +1,7 @@
 'use client';
 
 //Utils
-import useForm from '@/hooks/useForm';
+
 import { useRouter } from 'next/navigation';
 import { useAlertStore } from '@/zustand/alertStore';
 import axios from 'axios';
@@ -10,9 +10,14 @@ import style from './index.module.scss';
 
 import Input from '../Form/Input';
 import SubmitButton from '../Form/SubmitButton';
+import { useState } from 'react';
 
 function SignUpForm() {
-    const { defaultValues, register, resetInputValue } = useForm();
+    const [form, setForm] = useState({
+        email: '',
+        password: '',
+        name: '',
+    });
 
     const router = useRouter();
 
@@ -23,10 +28,10 @@ function SignUpForm() {
 
         try {
             await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/signup`, {
-                ...defaultValues,
+                ...form,
             });
             success('회원가입이 완료되었습니다.');
-            router.push('/auth/signin');
+            router.replace('/auth/signin');
         } catch (e) {
             if (axios.isAxiosError(e)) {
                 if (e.request?.status === 403) {
@@ -47,18 +52,23 @@ function SignUpForm() {
             }
         }
 
-        resetInputValue();
+        setForm({
+            email: '',
+            password: '',
+            name: '',
+        });
     };
 
     return (
         <>
             <form className={style.form_wrapper} onSubmit={onSubmit}>
-                <Input type="Name" register={register} />
-                <Input type="E-mail" register={register} />
-                <Input type="Password" register={register} />
+                <Input.TextInput title="Name" setForm={setForm} />
+                <Input.EmailInput setForm={setForm} />
+                <Input.PasswordInput setForm={setForm} />
 
                 <SubmitButton value={'Sign Up'} />
             </form>
+            ㅁ
         </>
     );
 }

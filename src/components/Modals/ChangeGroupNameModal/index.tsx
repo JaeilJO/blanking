@@ -1,7 +1,7 @@
 'use client';
 
 //Utils
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -27,12 +27,9 @@ function ChangeGroupNameModal() {
     //New Group Name
     const [newGroupName, setNewGroupName] = useState('');
 
-    const newGroupNameInputHandler = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setNewGroupName(e.target.value);
-        },
-        [newGroupName]
-    );
+    const newGroupNameInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewGroupName(e.target.value);
+    };
 
     const { mutate } = useChangeGroupName({ groupname, new_groupname: newGroupName, subkey, router });
 

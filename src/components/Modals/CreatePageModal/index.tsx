@@ -5,12 +5,10 @@ import ModalBackground from '../ModalBackground';
 import style from './index.module.scss';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
-import { useCallback, useState } from 'react';
-import { useAlertStore } from '@/zustand/alertStore';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createPage } from '@/services/createPage';
+import { useState } from 'react';
+
 import { useSession } from 'next-auth/react';
-import { AxiosError } from 'axios';
+
 import useCreatePage from '@/hooks/useCreatePage';
 
 const cn = classNames.bind(style);
@@ -34,12 +32,11 @@ function CreatePageModal() {
     const cancelButtonClickHandler = () => {
         router.back();
     };
-    const pageNameHandler = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setPagename(e.target.value);
-        },
-        [pagename]
-    );
+
+    const pageNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPagename(e.target.value);
+    };
+
     const submitButtonClickHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         mutate();

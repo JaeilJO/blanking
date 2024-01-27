@@ -1,7 +1,7 @@
 'use client';
 
 import style from './index.module.scss';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
@@ -30,12 +30,9 @@ function ChangeModeTitle({
         inputRef.current?.focus();
     }, []);
 
-    const onChangeHandler = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setNewPagename(e.target.value);
-        },
-        [newPagename]
-    );
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewPagename(e.target.value);
+    };
 
     const { mutate } = useChangePageName({ subkey, pagename, groupname, new_pagename: newPagename, router });
 

@@ -2,7 +2,7 @@
 
 // Utils
 import { useSession } from 'next-auth/react';
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import useCreateGroup from '@/hooks/useCreateGroup';
 
@@ -21,12 +21,9 @@ function GroupMaker() {
 
     const { mutate } = useCreateGroup({ subkey, groupname, router });
 
-    const groupnameHandler = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setGroupname(e.target.value);
-        },
-        [groupname]
-    );
+    const groupnameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setGroupname(e.target.value);
+    };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
