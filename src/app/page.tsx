@@ -1,11 +1,7 @@
-import Link from 'next/link';
+import WelcomePage from '@/components/WelcomePage';
 
 function Page() {
-    return (
-        <div>
-            <div>wellcome to Blanking</div> <Link href={'/auth/signin'}>Sign In</Link>
-        </div>
-    );
+    return <WelcomePage />;
 }
 
 export default Page;
