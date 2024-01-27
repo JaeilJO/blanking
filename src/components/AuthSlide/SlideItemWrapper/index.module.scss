@@ -2,6 +2,7 @@ $background-top-bottom-padding: 50px;
 $background-height: calc(100dvh - ($background-top-bottom-padding * 2));
 
 .slide_item_wrapper {
+    position: relative;
     height: $background-height;
 
     scroll-snap-align: start;
