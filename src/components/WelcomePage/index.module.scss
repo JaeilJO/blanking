@@ -23,9 +23,11 @@
     box-shadow: a.$basic-shadow;
 
     transition: box-shadow 0.2s, background-color 0.2s, transform 0.2s ease-in-out;
+
     &:hover {
         transform: translateY(-5px);
     }
+
     &:first-child {
         background-color: a.$primary-color;
         color: a.$white-color;
