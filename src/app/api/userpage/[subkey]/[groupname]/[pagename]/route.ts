@@ -1,5 +1,6 @@
 import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
 import { Prisma, PrismaClient } from '@prisma/client';
+import { NextRequest } from 'next/server';
 
 // Get Page
 /* 
@@ -12,7 +13,7 @@ import { Prisma, PrismaClient } from '@prisma/client';
             - string
 */
 export async function GET(
-    res: Response,
+    req: NextRequest,
     { params }: { params: { subkey: string; groupname: string; pagename: string } }
 ) {
     const groupname = params.groupname;

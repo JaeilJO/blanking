@@ -6,19 +6,19 @@ import style from './index.module.scss';
 import classNames from 'classnames/bind';
 
 import SideBarStatusButton from '../SideBarStatusButton';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 
 const cn = classNames.bind(style);
 
 function SideBarLayout({ subkey }: { subkey: string }) {
     const { status, close, open } = useSideBarStatusStore((state) => state);
-    const handleResize = () => {
+    const handleResize = useCallback(() => {
         if (window.innerWidth < 768) {
             close();
         } else {
             open();
         }
-    };
+    }, [close, open]);
     useEffect(() => {
         window.addEventListener('resize', handleResize);
 
