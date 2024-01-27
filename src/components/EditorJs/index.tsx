@@ -51,7 +51,7 @@ function EditorJs({
                 ref.current.destroy();
             }
         };
-    }, []);
+    }, [data, pagename, groupname, subkey]);
 
     return <div id="editor" className={style.editor} />;
 }

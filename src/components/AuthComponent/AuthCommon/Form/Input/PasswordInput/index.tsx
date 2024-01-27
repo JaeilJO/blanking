@@ -48,13 +48,13 @@ function PasswordInput({ setForm }: PasswordInputProps) {
         }
     };
 
-    const onBlur = useCallback(() => {
+    const onBlur = () => {
         if (inputRef.current?.value) {
             setIsValue(true);
         } else {
             setIsValue(false);
         }
-    }, [inputRef.current?.value]);
+    };
 
     const onChange = (e: any) => {
         if (e.target.value) {
