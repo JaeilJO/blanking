@@ -7,7 +7,8 @@ import { useEffect, useRef } from 'react';
 import style from './index.module.scss';
 
 import axios from 'axios';
-import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorjstools';
+
+import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorJsTools';
 
 function EditorJs({
     subkey,
@@ -15,10 +16,10 @@ function EditorJs({
     pagename,
     groupname,
 }: {
-    subkey: string;
-    data?: any;
-    pagename: string;
-    groupname: string;
+    subkey?: string;
+    data: any;
+    pagename?: string;
+    groupname?: string;
 }) {
     const ref = useRef<any>(null);
 

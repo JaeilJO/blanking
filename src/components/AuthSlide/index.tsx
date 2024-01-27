@@ -5,7 +5,6 @@ function AuthSlide() {
         <ul className={style.slide_wrapper}>
             <SlideItems.Logo />
             <SlideItems.Example />
-            <SlideItems.Contect />
         </ul>
     );
 }
