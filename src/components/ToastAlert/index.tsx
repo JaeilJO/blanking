@@ -17,7 +17,7 @@ function ToastAlert() {
         setTimeout(() => {
             reset();
         }, 5000);
-    }, [status]);
+    }, [status, reset]);
 
     return (
         <div

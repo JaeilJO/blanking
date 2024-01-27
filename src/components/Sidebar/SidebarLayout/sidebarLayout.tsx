@@ -25,7 +25,7 @@ function SideBarLayout({ subkey }: { subkey: string }) {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [handleResize]);
 
     return (
         <nav className={cn({ sidebar_wrapper: true, close: status })}>

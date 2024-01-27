@@ -1,7 +1,7 @@
 'use client';
 
 // Utils
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import useCreateGroup from '@/hooks/useCreateGroup';
@@ -18,13 +18,10 @@ function CreateGroupModal() {
 
     //Group Name
     const [groupname, setGroupname] = useState('');
-    const groupNameHandler = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            e.preventDefault();
-            setGroupname(e.target.value);
-        },
-        [groupname]
-    );
+    const groupNameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        setGroupname(e.target.value);
+    };
 
     // User Subkey
     const subkey = session?.data?.user.subkey as string;

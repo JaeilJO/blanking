@@ -51,13 +51,9 @@ function EditorJs({
                 ref.current.destroy();
             }
         };
-    }, [data]);
+    }, []);
 
-    return (
-        <>
-            <div id="editor" className={style.editor} />
-        </>
-    );
+    return <div id="editor" className={style.editor} />;
 }
 
 export default EditorJs;

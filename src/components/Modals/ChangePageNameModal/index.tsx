@@ -1,7 +1,7 @@
 'use client';
 
 //Utils
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import useChangePageName from '@/hooks/useChangePageName';
@@ -28,12 +28,9 @@ function ChangePageNameModal() {
 
     const { mutate } = useChangePageName({ subkey, groupname, pagename, new_pagename: newPageName, router });
 
-    const onChange = useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setNewPageName(e.target.value);
-        },
-        [newPageName]
-    );
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setNewPageName(e.target.value);
+    };
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
