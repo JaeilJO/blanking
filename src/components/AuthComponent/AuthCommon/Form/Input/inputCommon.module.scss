@@ -7,15 +7,6 @@
     gap: 6px;
 }
 
-.input_title {
-    display: block;
-    color: a.$text-color;
-    &.has_value {
-        color: a.$primary-color;
-        @include a.typhography('body-01-b');
-    }
-}
-
 .input_box {
     display: flex;
     justify-content: space-between;
@@ -40,19 +31,5 @@
     &:focus-within {
         border: 1px solid a.$primary-color;
         box-shadow: a.$basic-shadow;
-    }
-}
-
-.hide_button {
-    @include a.typhography('sub-02');
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 12px;
-    color: a.$gray-color;
-    &:hover {
-        cursor: pointer;
-        color: a.$primary-color;
     }
 }
