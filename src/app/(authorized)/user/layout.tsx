@@ -6,11 +6,14 @@ import { getServerSession } from 'next-auth';
 
 //Utils
 import { redirect } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
 // Style
 import style from './layout.module.scss';
-import ReactQueryProvider from '@/components/ReactQueryProvider';
-import SideBarLayout from '@/components/Sidebar/SidebarLayout/sidebarLayout';
+
+const ReactQueryProvider = dynamic(() => import('@/components/ReactQueryProvider'), { ssr: false });
+const SideBarLayout = dynamic(() => import('@/components/Sidebar/SidebarLayout/sidebarLayout'), { ssr: false });
+
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import getGroups from '@/services/getGroups';
 
