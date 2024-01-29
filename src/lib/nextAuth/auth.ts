@@ -25,6 +25,7 @@ export const NextAuthOption: NextAuthOptions = {
                 password: { key: 'password', type: 'password' },
             },
             async authorize(credentials, req): Promise<any> {
+                console.log('hello');
                 const prisma = new PrismaClient();
                 const email = credentials?.email as string;
                 const password = credentials?.password as string;

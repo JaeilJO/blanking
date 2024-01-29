@@ -18,8 +18,6 @@ import { v4 as uuidv4 } from 'uuid';
             - string
 */
 export async function POST(req: Request) {
-    console.log('here');
-
     const { email, name, password } = await req.json();
     console.log(email, name, password);
 
