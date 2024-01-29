@@ -31,8 +31,6 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
 
     const { data, isLoading, isError } = useGetGroups({ subkey });
 
-    console.log(data);
-
     if (isError) {
         return redirect('/500');
     }
@@ -57,7 +55,7 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
                     <PageCategory
                         username={username}
                         groupname={group.groupname}
-                        pages={group.pages}
+                        pages={group?.pages}
                         iscurrent_group={current_group_name === group.groupname}
                     />
                 </li>
