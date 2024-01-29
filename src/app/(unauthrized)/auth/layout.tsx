@@ -13,8 +13,6 @@ async function Layout({ children }: { children: React.ReactNode }) {
         redirect(`/user/${encodedText}`);
     }
 
-    console.log(session);
-
     return (
         <div className={style.background_wrapper}>
             <div className={style.slide_intro_wrapper}>

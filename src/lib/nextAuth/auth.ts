@@ -25,11 +25,11 @@ export const NextAuthOption: NextAuthOptions = {
                 password: { key: 'password', type: 'password' },
             },
             async authorize(credentials, req): Promise<any> {
-                console.log('hello');
                 const prisma = new PrismaClient();
                 const email = credentials?.email as string;
                 const password = credentials?.password as string;
 
+                console.log('hello');
                 const user = await prisma.user.findFirstOrThrow({
                     where: {
                         email,
@@ -49,6 +49,8 @@ export const NextAuthOption: NextAuthOptions = {
                     }
                 }
 
+                console.log(user);
+
                 return user;
             },
         }),
@@ -58,6 +60,7 @@ export const NextAuthOption: NextAuthOptions = {
         signIn: '/auth/signin',
         newUser: '/auth/signup',
     },
+
     secret: process.env.NEXTAUTH_SECRET,
 
     callbacks: {
