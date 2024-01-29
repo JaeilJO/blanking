@@ -1,7 +1,8 @@
 import { PrismaClient } from '@prisma/client';
+import { NextRequest } from 'next/server';
 
 // Get Pages
-export async function GET(res: Response, { params }: { params: { subkey: string; groupname: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { subkey: string; groupname: string } }) {
     const prisma = new PrismaClient();
 
     const group = await prisma.group.findFirst({

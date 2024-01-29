@@ -3,9 +3,11 @@ CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
+    "password" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "account_type" TEXT NOT NULL,
+    "subkey" TEXT NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -14,9 +16,9 @@ CREATE TABLE "User" (
 CREATE TABLE "Group" (
     "id" SERIAL NOT NULL,
     "groupname" TEXT NOT NULL,
-    "userid" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "usersubkey" TEXT NOT NULL,
 
     CONSTRAINT "Group_pkey" PRIMARY KEY ("id")
 );
@@ -34,16 +36,16 @@ CREATE TABLE "Page" (
 );
 
 -- CreateIndex
-CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+CREATE UNIQUE INDEX "User_subkey_key" ON "User"("subkey");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Group_groupname_key" ON "Group"("groupname");
+CREATE UNIQUE INDEX "Group_groupname_usersubkey_key" ON "Group"("groupname", "usersubkey");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Page_pagename_key" ON "Page"("pagename");
+CREATE UNIQUE INDEX "Page_pagename_groupid_key" ON "Page"("pagename", "groupid");
 
 -- AddForeignKey
-ALTER TABLE "Group" ADD CONSTRAINT "Group_userid_fkey" FOREIGN KEY ("userid") REFERENCES "User"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Group" ADD CONSTRAINT "Group_usersubkey_fkey" FOREIGN KEY ("usersubkey") REFERENCES "User"("subkey") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Page" ADD CONSTRAINT "Page_groupid_fkey" FOREIGN KEY ("groupid") REFERENCES "Group"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Page" ADD CONSTRAINT "Page_groupid_fkey" FOREIGN KEY ("groupid") REFERENCES "Group"("id") ON DELETE CASCADE ON UPDATE CASCADE;

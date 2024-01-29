@@ -68,7 +68,6 @@ function SignUpForm() {
 
                 <SubmitButton value={'Sign Up'} />
             </form>
-            ㅁ
         </>
     );
 }

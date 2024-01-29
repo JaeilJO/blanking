@@ -1,5 +1,6 @@
 import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
 import { NextRequest } from 'next/server';
 
@@ -49,7 +50,7 @@ export async function POST(req: Request, { params }: { params: { subkey: string 
         return new Response('OK', { status: 201 });
     } catch (e) {
         // P200P는 Unique Constraint에 걸린 경우 (이미 존재하는 그룹인 경우)
-        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+        if (e instanceof PrismaClientKnownRequestError) {
             if (e.code === 'P2002') {
                 return new Response('이미 존재하는 그룹입니다', { status: 409 });
             }

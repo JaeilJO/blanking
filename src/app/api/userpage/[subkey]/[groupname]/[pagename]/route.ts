@@ -1,5 +1,6 @@
 import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { NextRequest } from 'next/server';
 
 // Get Page
@@ -100,7 +101,7 @@ export async function PATCH(
         });
         return new Response(`${pagename}이(가) ${new_pagename}으로 변경되었습니다`, { status: 200 });
     } catch (e) {
-        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+        if (e instanceof PrismaClientKnownRequestError) {
             if (e.code === 'P2002') {
                 return new Response('이미 사용되고 있는 Page 이름입니다.', { status: 403 });
             }

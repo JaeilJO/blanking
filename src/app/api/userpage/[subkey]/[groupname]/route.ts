@@ -1,5 +1,6 @@
 import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
-import { Prisma, PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
 //Create Page
 export async function POST(req: Request, { params }: { params: { subkey: string; groupname: string } }) {
@@ -41,7 +42,7 @@ export async function POST(req: Request, { params }: { params: { subkey: string;
 
         return new Response('페이지가 생성되었습니다.', { status: 200 });
     } catch (e) {
-        if (e instanceof Prisma.PrismaClientKnownRequestError) {
+        if (e instanceof PrismaClientKnownRequestError) {
             if (e.code === 'P2002') {
                 return new Response('이미 사용되고 있는 Page 이름입니다.', { status: 403 });
             }
