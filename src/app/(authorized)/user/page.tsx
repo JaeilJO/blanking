@@ -6,7 +6,6 @@ async function Page() {
     const session = await getServerSession(NextAuthOption);
     const username = session?.user.name;
 
-    console.log(session);
     if (session) {
         redirect(`/user/${username}`);
     }

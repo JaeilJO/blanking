@@ -1,4 +1,6 @@
 // Components
+const ReactQueryProvider = dynamic(() => import('@/components/ReactQueryProvider'), { ssr: false });
+const SideBarLayout = dynamic(() => import('@/components/Sidebar/SidebarLayout/sidebarLayout'), { ssr: false });
 
 // Next Auth
 import { NextAuthOption } from '@/lib/nextAuth/auth';
@@ -10,9 +12,6 @@ import dynamic from 'next/dynamic';
 
 // Style
 import style from './layout.module.scss';
-
-const ReactQueryProvider = dynamic(() => import('@/components/ReactQueryProvider'), { ssr: false });
-const SideBarLayout = dynamic(() => import('@/components/Sidebar/SidebarLayout/sidebarLayout'), { ssr: false });
 
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import getGroups from '@/services/getGroups';

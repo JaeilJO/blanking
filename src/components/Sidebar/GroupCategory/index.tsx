@@ -31,6 +31,8 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
 
     const { data, isLoading, isError } = useGetGroups({ subkey });
 
+    console.log(data);
+
     if (isError) {
         return redirect('/500');
     }
