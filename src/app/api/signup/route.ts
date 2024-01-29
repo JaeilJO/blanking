@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     const user = await prisma.user.findFirst({
         where: {
             email,
-            account_type: 'local',
+            account_type: 'credentials',
         },
     });
 
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
                 name,
                 password: hash,
                 subkey,
-                account_type: 'local',
+                account_type: 'credentials',
                 createdAt: new Date(),
                 updatedAt: new Date(),
             },
