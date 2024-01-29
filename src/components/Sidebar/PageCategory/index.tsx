@@ -22,8 +22,6 @@ function PageCategory({ username, groupname, pages, iscurrent_group }: PageCateg
 
     const pageLength = pages ? pages.length : 0;
 
-    console.log(pages);
-
     return (
         <ul
             className={style.page_category_wrapper}
