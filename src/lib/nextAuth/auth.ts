@@ -29,7 +29,7 @@ export const NextAuthOption: NextAuthOptions = {
                 const email = credentials?.email as string;
                 const password = credentials?.password as string;
 
-                console.log('hello');
+                console.log(email, password);
                 const user = await prisma.user.findFirstOrThrow({
                     where: {
                         email,
@@ -48,8 +48,6 @@ export const NextAuthOption: NextAuthOptions = {
                         return null;
                     }
                 }
-
-                console.log(user);
 
                 return user;
             },
