@@ -27,7 +27,7 @@ function SignUpForm() {
         e.preventDefault();
 
         try {
-            await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/signup`, {
+            await axios.post(`/api/signup`, {
                 ...form,
             });
             success('회원가입이 완료되었습니다.');
