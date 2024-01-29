@@ -41,11 +41,12 @@ async function Layout({
     if (!session) {
         redirect(`/auth/signin`);
     }
-
-    await queryClient.prefetchQuery({
-        queryKey: ['groups'],
-        queryFn: () => getGroups(subkey),
-    });
+    if (subkey) {
+        await queryClient.prefetchQuery({
+            queryKey: ['groups'],
+            queryFn: () => getGroups(subkey),
+        });
+    }
 
     const dehydratedState = dehydrate(queryClient);
     console.log(session);
