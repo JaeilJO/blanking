@@ -1,5 +1,7 @@
+import dynamic from 'next/dynamic';
 import style from './page.module.scss';
-import NoGroup from '@/components/NoGroup';
+
+const NoGroup = dynamic(() => import('@/components/NoGroup'), { ssr: false });
 
 import { getServerSession } from 'next-auth';
 import { NextAuthOption } from '@/lib/nextAuth/auth';
