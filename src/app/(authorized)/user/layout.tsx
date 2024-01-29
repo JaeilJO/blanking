@@ -35,7 +35,7 @@ async function Layout({
     changePageNameModal: React.ReactNode;
 }) {
     const session = await getServerSession(NextAuthOption);
-    const subkey = session?.user.subkey as string;
+    const subkey = session?.user.subkey || '';
     const queryClient = new QueryClient();
 
     if (!session) {
@@ -48,7 +48,7 @@ async function Layout({
     });
 
     const dehydratedState = dehydrate(queryClient);
-
+    console.log(session);
     return (
         <ReactQueryProvider>
             <div>
