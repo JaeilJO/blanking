@@ -9,7 +9,6 @@
         "lint": "next lint",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build",
-        "vercel-bulid": "prisma generate && prisma migrate deploy && next build",
         "postinstall": "prisma generate"
     },
     "dependencies": {
