@@ -29,7 +29,7 @@ export const NextAuthOption: NextAuthOptions = {
                 const email = credentials?.email as string;
                 const password = credentials?.password as string;
 
-                console.log(email, password);
+                console.log(prisma);
                 const user = await prisma.user.findFirstOrThrow({
                     where: {
                         email,
