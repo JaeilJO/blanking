@@ -1,6 +1,5 @@
 import checkName from '@/utils/checkName';
 import checkPassword from '@/utils/checkPassword';
-import containsSpecialCharacters from '@/utils/containsSpecialCharacters';
 import { PrismaClient } from '@prisma/client';
 import bcrypt from 'bcrypt';
 import { v4 as uuidv4 } from 'uuid';

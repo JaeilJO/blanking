@@ -4,15 +4,12 @@
 import { useSession } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { FormEvent } from 'react';
-import { useAlertStore } from '@/zustand/alertStore';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 // Style
 import style from './index.module.scss';
 
 // Components
 import ModalBackground from '../ModalBackground';
-import deleteGroup from '@/services/deleteGroup';
 import useDeleteGroup from '@/hooks/useDeleteGroup';
 
 function DeleteGroupModal() {
