@@ -30,10 +30,8 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
     const current_group_name = decodeURIComponent(params.group as string);
 
     const { data, isLoading, isError } = useGetGroups({ subkey });
-    console.log(data);
-    if (isError) {
-        return redirect('/500');
-    }
+
+    const groups = data || [];
 
     if (isLoading) {
         return <GroupCategoryLoading />;
@@ -41,7 +39,7 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
 
     return (
         <ul className={style.group_category_wrapper}>
-            {data?.map((group: any) => (
+            {groups?.map((group: any) => (
                 <li key={group.groupname}>
                     <div className={style.group_title_wrapper}>
                         <GroupCategoryTitle current_group_name={current_group_name} username={username} group={group} />
