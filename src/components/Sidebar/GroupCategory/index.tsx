@@ -30,7 +30,7 @@ function GroupCategory({ subkey }: GroupCategoryProps) {
     const current_group_name = decodeURIComponent(params.group as string);
 
     const { data, isLoading, isError } = useGetGroups({ subkey });
-
+    console.log(data);
     if (isError) {
         return redirect('/500');
     }

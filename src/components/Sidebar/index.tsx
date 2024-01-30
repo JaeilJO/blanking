@@ -17,7 +17,7 @@ import { useSession } from 'next-auth/react';
 function Sidebar({ subkey }: { subkey: string }) {
     const session = useSession();
 
-    const username = session?.data?.user?.name as string;
+    const username = session?.data?.user?.name || '';
 
     return (
         <div className={style.sidebar}>
