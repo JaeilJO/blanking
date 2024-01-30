@@ -17,7 +17,6 @@ function Example() {
                 holder: 'example_editor',
                 data: data,
                 tools: EDITOR_JS_TOOLS,
-                autofocus: true,
             });
 
             ref.current = editor;
@@ -31,7 +30,7 @@ function Example() {
 
     return (
         <SlideItemWrapper>
-            <div id="example_editor" className={style.editor} />
+            <div tabIndex={-1} id="example_editor" className={style.editor} />
             <div className={style['empty-box']}></div>
         </SlideItemWrapper>
     );
