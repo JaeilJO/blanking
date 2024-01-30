@@ -7,7 +7,8 @@ import { useAlertStore } from '@/zustand/alertStore';
 
 import SubmitButton from '../Form/SubmitButton';
 import Input from '../Form/Input';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useIsLoading from '@/hooks/useIsLoading';
 
 function SignInForm() {
     const [form, setForm] = useState({
@@ -15,17 +16,11 @@ function SignInForm() {
         password: '',
     });
 
-    const [isLoading, setIsLoading] = useState(false);
-
     const router = useRouter();
 
     const { error, success, loading } = useAlertStore((state) => state);
 
-    useEffect(() => {
-        if (isLoading) {
-            loading('Loading...');
-        }
-    }, [isLoading]);
+    const { isLoading, setIsLoading } = useIsLoading('Sign In 중입니다', loading);
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
