@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools/production';
 import { useState } from 'react';
 import style from './index.module.scss';
+import React from 'react';
 
 function ReactQueryProvider({ children }: { children: React.ReactNode }) {
     const [queryClient] = useState(
@@ -21,9 +22,14 @@ function ReactQueryProvider({ children }: { children: React.ReactNode }) {
     return (
         <QueryClientProvider client={queryClient}>
             {children}
-            <div className={style.devtool}>
-                <ReactQueryDevtools initialIsOpen={process.env.NEXT_PUBLIC_MODE === 'local'} />
-            </div>
+
+            {process.env.NEXT_PUBLIC_MODE === 'local' ? (
+                <div className={style.devtool}>
+                    <ReactQueryDevtools initialIsOpen={process.env.NEXT_PUBLIC_MODE === 'local'} />
+                </div>
+            ) : (
+                <></>
+            )}
         </QueryClientProvider>
     );
 }
