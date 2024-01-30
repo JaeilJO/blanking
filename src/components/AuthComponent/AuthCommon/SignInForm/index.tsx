@@ -17,7 +17,7 @@ function SignInForm() {
 
     const router = useRouter();
 
-    const { error, success } = useAlertStore((state) => state);
+    const { error, success, loading } = useAlertStore((state) => state);
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
