@@ -12,7 +12,7 @@ export async function changePageName({
     new_pagename: string;
 }) {
     return axios
-        .patch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${subkey}/${groupname}/${pagename}`, {
+        .patch(`/api/userpage/${subkey}/${groupname}/${pagename}`, {
             data: {
                 new_pagename,
             },

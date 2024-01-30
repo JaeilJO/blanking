@@ -7,7 +7,7 @@ interface createPageParams {
 }
 
 export async function createPage({ subkey, groupname, pagename }: createPageParams) {
-    return axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${subkey}/${groupname}`, {
+    return axios.post(`/api/userpage/${subkey}/${groupname}`, {
         data: { pagename },
     });
 }

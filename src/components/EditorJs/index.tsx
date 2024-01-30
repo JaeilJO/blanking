@@ -32,14 +32,11 @@ function EditorJs({
 
                 onChange: async () => {
                     const outputData = await ref.current.save();
-                    await axios.patch(
-                        `${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${subkey}/${groupname}/${pagename}/content`,
-                        {
-                            data: {
-                                new_content: outputData,
-                            },
-                        }
-                    );
+                    await axios.patch(`/api/userpage/${subkey}/${groupname}/${pagename}/content`, {
+                        data: {
+                            new_content: outputData,
+                        },
+                    });
                 },
             });
 

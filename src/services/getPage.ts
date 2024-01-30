@@ -9,7 +9,5 @@ export async function getPage({
     pagename: string;
     groupname: string;
 }) {
-    return axios
-        .get(`${process.env.NEXT_PUBLIC_SITE_URL}/api/userpage/${subkey}/${groupname}/${pagename}`)
-        .then((res) => res.data);
+    return axios.get(`/api/userpage/${subkey}/${groupname}/${pagename}`).then((res) => res.data);
 }

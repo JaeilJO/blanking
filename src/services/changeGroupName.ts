@@ -7,7 +7,7 @@ interface changeGroupNameParams {
 }
 
 export async function changeGroupName({ groupname, new_groupname, subkey }: changeGroupNameParams) {
-    return axios.patch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/group/${subkey}/${groupname}`, {
+    return axios.patch(`/api/group/${subkey}/${groupname}`, {
         data: {
             new_groupname,
         },
