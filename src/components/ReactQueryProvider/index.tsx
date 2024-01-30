@@ -16,6 +16,8 @@ function ReactQueryProvider({ children }: { children: React.ReactNode }) {
             },
         })
     );
+
+    console.log(process.env.NEXT_PUBLIC_MODE);
     return (
         <QueryClientProvider client={queryClient}>
             {children}
