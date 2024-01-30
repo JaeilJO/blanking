@@ -12,7 +12,7 @@ function WelcomePage() {
                 <Link className={style.link} href={'/auth/signin'}>
                     Sign In
                 </Link>
-                <Link className={style.link} href={'/auth/signin'}>
+                <Link className={style.link} href={'/auth/signup'}>
                     Sign Up
                 </Link>
             </div>
