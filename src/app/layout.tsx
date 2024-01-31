@@ -3,8 +3,6 @@ import './global.scss';
 import localFont from 'next/font/local';
 import AuthSession from '@/components/AuthSession';
 import ToastAlert from '@/components/ToastAlert';
-import { redirect } from 'next/navigation';
-import MobileModal from '@/components/MobileModal';
 
 export const metadata: Metadata = {
     title: 'Blanking',
@@ -22,17 +20,9 @@ const nanum_square = localFont({
 });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-    let userAgent = navigator.userAgent;
-    let isMobile = false;
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent)) {
-        isMobile = true;
-    }
-
     return (
         <html lang="en">
             <body className={nanum_square.className}>
-                {isMobile && <MobileModal />}
-
                 <ToastAlert />
                 <AuthSession>{children}</AuthSession>
             </body>
