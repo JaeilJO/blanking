@@ -39,7 +39,7 @@ function SignInComponent() {
 
             <AuthComponent.SignInForm />
 
-            <Link className={style.link_text} href={'#'}>
+            <Link className={style.link_text} href={'#'} title="아직 구현이 안됐습니다">
                 비밀번호를 잊어버리셨나요?
             </Link>
 
