@@ -1,11 +1,14 @@
 @use '@style/abstracts' as a;
 
 .link_text {
-    @include a.typhography('body-01-b');
+    display: block;
 
     text-align: center;
 
+    @include a.typhography('body-01-b');
     color: a.$primary-color;
+
+    margin-bottom: 100px;
 
     &:hover {
         color: a.$primary-hover-color;
@@ -18,4 +21,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
