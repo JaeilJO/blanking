@@ -6,9 +6,11 @@
     text-align: center;
 
     @include a.typhography('body-01-b');
-    color: a.$primary-color;
+    color: a.$gray-color;
 
     margin-bottom: 100px;
+
+    pointer-events: none;
 
     &:hover {
         color: a.$primary-hover-color;
@@ -21,4 +23,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }

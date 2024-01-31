@@ -3,7 +3,7 @@
 .input_wrapper {
     display: flex;
     flex-direction: column;
-
+    width: calc(100% - 4px);
     gap: 6px;
 }
 
