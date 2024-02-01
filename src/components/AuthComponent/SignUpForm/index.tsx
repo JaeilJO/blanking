@@ -1,17 +1,14 @@
 'use client';
 
 //Utils
-
 import { useRouter } from 'next/navigation';
 import { useAlertStore } from '@/zustand/alertStore';
 import axios from 'axios';
-
-import style from './index.module.scss';
-
-import Input from '../Form/Input';
-import SubmitButton from '../Form/SubmitButton';
 import { useState } from 'react';
 import useIsLoading from '@/hooks/useIsLoading';
+
+// Components
+import Form from '../AuthCommon/Form';
 
 function SignUpForm() {
     const [form, setForm] = useState({
@@ -68,15 +65,13 @@ function SignUpForm() {
     };
 
     return (
-        <>
-            <form className={style.form_wrapper} onSubmit={onSubmit}>
-                <Input.TextInput title="Name" setForm={setForm} />
-                <Input.EmailInput setForm={setForm} />
-                <Input.PasswordInput setForm={setForm} />
+        <Form.FormWrapper onSubmit={onSubmit}>
+            <Form.Input.TextInput title="Name" setForm={setForm} />
+            <Form.Input.EmailInput setForm={setForm} />
+            <Form.Input.PasswordInput setForm={setForm} />
 
-                <SubmitButton disabeld={isLoading} value={'Sign Up'} />
-            </form>
-        </>
+            <Form.SubmitButton disabeld={isLoading} value={'Sign Up'} />
+        </Form.FormWrapper>
     );
 }
 

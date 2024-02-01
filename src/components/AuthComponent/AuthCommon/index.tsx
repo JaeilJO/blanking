@@ -1,13 +1,15 @@
 import AccountInquery from './AccountInquiry';
-import SignInForm from './SignInForm';
-import SignUpForm from './SignUpForm';
+import SignInForm from '../SignInForm';
+import SignUpForm from '../SignUpForm';
 import Social from './Social';
 import Title from './Title';
 
-export const AuthComponent = {
+const AuthCommon = {
     Title,
     Social,
     AccountInquery,
     SignUpForm,
     SignInForm,
 };
+
+export default AuthCommon;
