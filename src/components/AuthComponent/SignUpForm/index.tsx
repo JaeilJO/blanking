@@ -47,7 +47,7 @@ function SignUpForm() {
 
                 if (e.request?.status === 406) {
                     setIsLoading(false);
-                    error('비밀번호는 영문 대문자 혹은 소문자 중 하나 그리고 숫자를 조합시켜주세요');
+                    error('비밀번호는 영문 대문자,소문자 하나 그리고 숫자를 조합시켜주세요');
                 }
 
                 if (e.request?.status === 407) {
