@@ -13,11 +13,19 @@
   justify-content: center;
 
   gap: 40px;
+
+  @include a.media-query("small") {
+    gap: 20px;
+  }
 }
 
 .title {
   @include a.typhography("tit-01");
   white-space: nowrap;
+
+  @include a.media-query("small") {
+    @include a.typhography("tit-02");
+  }
 }
 
 .subscribe {

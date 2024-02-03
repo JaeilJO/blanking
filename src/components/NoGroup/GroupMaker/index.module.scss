@@ -1,39 +1,38 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 
 .group_maker_form {
-    display: flex;
-    flex-direction: column;
-
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 .group_maker_submit_button {
-    width: 300px;
-    height: 400px;
-    border-radius: 4px;
-    border: 1px solid a.$gray-color;
-    background-color: a.$white-color;
-    font-size: 100px;
-    color: a.$light-gray-color;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
+  width: 300px;
+  height: 400px;
+  border-radius: 4px;
+  border: 1px solid a.$gray-color;
+  background-color: a.$white-color;
+  font-size: 100px;
+  color: a.$light-gray-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 
-    transition: (box-shadow, color) 0.25s ease-in-out;
+  transition: (box-shadow, color) 0.25s ease-in-out;
 
-    &:hover {
-        box-shadow: a.$hover_shadow;
-        color: a.$gray-color;
-    }
+  &:hover {
+    box-shadow: a.$hover_shadow;
+    color: a.$gray-color;
+  }
 }
 
 .group_maker_submit {
-    display: none;
+  display: none;
 }
 
 .group_maker_text_input {
-    @include a.typhography('sub-02');
-    background: none;
-    text-align: center;
+  @include a.typhography("sub-02");
+  background: none;
+  text-align: center;
 }
