@@ -48,7 +48,7 @@ async function Layout({
     }
 
     const dehydratedState = dehydrate(queryClient);
-    console.log(session);
+
     return (
         <ReactQueryProvider>
             <div>

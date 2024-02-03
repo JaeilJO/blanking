@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { AuthComponent } from '../AuthCommon';
+import AuthCommon from '../AuthCommon';
 import style from './index.module.scss';
 import ScrollGuideBox from '../ScrollGuideBox';
+import SignUpForm from '../SignUpForm';
 
 const socials = ['google'];
 
@@ -35,13 +36,13 @@ function SignUpComponent() {
 
     return (
         <div ref={ref} className={style.auth_wrapper}>
-            <AuthComponent.Title title="Sign Up" welcome_message="환영합니다." />
+            <AuthCommon.Title title="Sign Up" welcome_message="환영합니다." />
 
-            <AuthComponent.SignUpForm />
+            <SignUpForm />
 
-            <AuthComponent.Social socials={socials} />
+            <AuthCommon.Social socials={socials} />
 
-            <AuthComponent.AccountInquery authType={'signup'} />
+            <AuthCommon.AccountInquery authType={'signup'} />
 
             {isHeightBelowMax && <ScrollGuideBox />}
         </div>

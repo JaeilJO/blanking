@@ -1,7 +1,7 @@
 import SignUpComponent from '@/components/AuthComponent/SignUpComponent';
 
 async function Page() {
-    return <SignUpComponent></SignUpComponent>;
+    return <SignUpComponent />;
 }
 
 export default Page;

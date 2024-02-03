@@ -1,14 +1,14 @@
 'use client';
 
-import style from './index.module.scss';
+// Utils
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useAlertStore } from '@/zustand/alertStore';
-
-import SubmitButton from '../Form/SubmitButton';
-import Input from '../Form/Input';
 import { useState } from 'react';
 import useIsLoading from '@/hooks/useIsLoading';
+
+// Components
+import Form from '../AuthCommon/Form';
 
 function SignInForm() {
     const [form, setForm] = useState({
@@ -48,14 +48,12 @@ function SignInForm() {
     };
 
     return (
-        <>
-            <form className={style.form_wrapper} onSubmit={onSubmit}>
-                <Input.EmailInput setForm={setForm} />
-                <Input.PasswordInput setForm={setForm} />
+        <Form.FormWrapper onSubmit={onSubmit}>
+            <Form.Input.EmailInput setForm={setForm} />
+            <Form.Input.PasswordInput setForm={setForm} />
 
-                <SubmitButton disabeld={isLoading} value={'Sign In'} />
-            </form>
-        </>
+            <Form.SubmitButton disabeld={isLoading} value={'Sign In'} />
+        </Form.FormWrapper>
     );
 }
 
