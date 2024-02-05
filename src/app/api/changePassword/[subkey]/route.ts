@@ -7,12 +7,9 @@ export async function PATCH(request: Request, { params }: { params: { subkey: st
     const { password } = await request.json();
 
     const prisma = new PrismaClient();
-    console.log(password, subkey);
 
     // 비밀번호 유효성 검사
     const checkedPassword = checkPassword(password);
-
-    console.log(checkedPassword);
 
     if (!checkedPassword) {
         return new Response('비밀번호는 영문 대문자,소문자 하나 그리고 숫자를 조합시켜주세요', { status: 406 });
@@ -26,16 +23,18 @@ export async function PATCH(request: Request, { params }: { params: { subkey: st
             password: true,
         },
     });
-    console.log(password, userPassword?.password as string);
+
     // 현재 비밀번호와 동일한지 확인
     const isSameCurrentPassword = await bcrypt.compare(password, userPassword?.password as string);
-    console.log(isSameCurrentPassword);
+
     if (isSameCurrentPassword) {
         return new Response('최근에 사용한 비밀번호입니다.', { status: 403 });
     }
 
     try {
-        const hash = await bcrypt.hash(password, 10);
+        const saltRounds = parseInt(process.env.SALT_ROUNDS as string);
+        const salt = bcrypt.genSaltSync(saltRounds);
+        const hash = bcrypt.hashSync(password, salt);
         await prisma.user.update({
             where: {
                 subkey,

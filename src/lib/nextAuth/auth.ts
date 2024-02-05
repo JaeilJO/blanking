@@ -91,7 +91,6 @@ export const NextAuthOption: NextAuthOptions = {
             const account_type = account?.provider as string;
 
             if (account) {
-                console.log(account);
                 const userdata = await prisma.user.findFirst({
                     where: {
                         email: account?.email as string,

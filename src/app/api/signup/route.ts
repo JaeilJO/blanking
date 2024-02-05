@@ -18,7 +18,6 @@ import { v4 as uuidv4 } from 'uuid';
 */
 export async function POST(req: Request) {
     const { email, name, password } = await req.json();
-    console.log(email, name, password);
 
     const prisma = new PrismaClient();
 
@@ -47,7 +46,8 @@ export async function POST(req: Request) {
     }
 
     try {
-        const salt = bcrypt.genSaltSync(10);
+        const saltRounds = parseInt(process.env.SALT_ROUNDS as string);
+        const salt = bcrypt.genSaltSync(saltRounds);
         const hash = bcrypt.hashSync(password, salt);
         const subkey = uuidv4();
 
