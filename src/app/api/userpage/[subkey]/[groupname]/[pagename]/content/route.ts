@@ -11,8 +11,6 @@ export async function PATCH(
     const groupname = params.groupname as string;
     const subkey = params.subkey as string;
 
-    console.log(pagename, groupname, subkey);
-
     const prisma = new PrismaClient();
 
     const group = await prisma.group.findFirst({
@@ -39,7 +37,6 @@ export async function PATCH(
 
         return new Response('Ok', { status: 200 });
     } catch (e) {
-        console.log(e);
         return new Response('Error', { status: 403 });
     }
 }
