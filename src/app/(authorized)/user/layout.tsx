@@ -1,6 +1,6 @@
 // Components
-const ReactQueryProvider = dynamic(() => import('@/components/ReactQueryProvider'), { ssr: false });
-const SideBarLayout = dynamic(() => import('@/components/Sidebar/SidebarLayout/sidebarLayout'), { ssr: false });
+import ReactQueryProvider from '@/components/ReactQueryProvider';
+import SideBarLayout from '@/components/Sidebar/SidebarLayout/sidebarLayout';
 
 // Next Auth
 import { NextAuthOption } from '@/lib/nextAuth/auth';
@@ -8,7 +8,6 @@ import { getServerSession } from 'next-auth';
 
 //Utils
 import { redirect } from 'next/navigation';
-import dynamic from 'next/dynamic';
 
 // Style
 import style from './layout.module.scss';
