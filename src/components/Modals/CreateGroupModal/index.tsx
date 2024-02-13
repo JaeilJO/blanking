@@ -27,7 +27,7 @@ function CreateGroupModal() {
     const subkey = session?.data?.user.subkey as string;
 
     // useCreaqteGroup
-    const { mutate } = useCreateGroup({ subkey, groupname, router });
+    const { mutate } = useCreateGroup({ subkey, groupname, router, isModal: true });
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

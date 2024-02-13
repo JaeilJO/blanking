@@ -19,7 +19,7 @@ function GroupMaker() {
     const subkey = session.data?.user.subkey as string;
     const router = useRouter();
 
-    const { mutate } = useCreateGroup({ subkey, groupname, router });
+    const { mutate } = useCreateGroup({ subkey, groupname, router, isModal: false });
 
     const groupnameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setGroupname(e.target.value);

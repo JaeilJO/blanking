@@ -8,9 +8,10 @@ interface useCreateGroupPrams {
     subkey: string;
     groupname: string;
     router: AppRouterInstance;
+    isModal: boolean;
 }
 
-export default function useCreateGroup({ subkey, groupname, router }: useCreateGroupPrams) {
+export default function useCreateGroup({ subkey, groupname, router, isModal }: useCreateGroupPrams) {
     const queryClient = useQueryClient();
     const { error, success } = useAlertStore((state) => state);
     const { mutate } = useMutation({
@@ -19,7 +20,7 @@ export default function useCreateGroup({ subkey, groupname, router }: useCreateG
         onSuccess: () => {
             success('그룹 생성이 완료되었습니다.');
             queryClient.invalidateQueries({ queryKey: ['navigation'] });
-            router.back();
+            isModal ? router.back() : router.replace('/user');
         },
         onError: (e: AxiosError) => {
             if (e.request?.status === 409) {
