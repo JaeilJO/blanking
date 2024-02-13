@@ -1,19 +1,56 @@
-# Nextjs with SCSS
+<p align="center">
+  <img src="./src/public/Logo.png">
+</p>
 
-해당 템플릿은 다음 라이브러리 혹은 프레임 워크를 사용했습니다.
+<h3 align="middle">Language</h3>
 
--   Nextjs 14
--   SCSS
--   Storybook
--   classnames
+<p align="middle">
+  <img src="https://img.shields.io/badge/language-js-yellow.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/language-scss-lightpink.svg?style=flat-square"/>
+</p>
 
-## 시작하는 법
+<h3 align="middle">Frame Work</h3>
+<p align="middle">
+  <img src="https://img.shields.io/badge/framework-next.js-black.svg?style=flat-square"/>
+</p>
 
-1. npm i 로 시작해주세요
-2. root layout에 들어가서 font를 선택해주세요
-3. global.scss는 meyerweb.com을 참고했으니 수정사항이 있으면 수정해주세요
-4. typescript alia는 기본적으로 다음과 같이 설정되어 있습니다.
-    - "@/_": ["./src/_"],
-    - "@/style/_": ["./src/style/_"],
-    - "@/components/_": ["./src/components/_"]
-      만약 추가적인 alias를 원한다면 .storybook 폴더의 main.ts파일의 webpackFinal부분을 같이 수정해주셔야 storybook 사용시 에러가 나지 않습니다
+<h3 align="middle">Library</h3>
+<p align="middle">
+  <img src="https://img.shields.io/badge/library-storybook-red.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-editorJs-skyblue.svg?style=flat-square"/>
+    <img src="https://img.shields.io/badge/library-nextAuth-blue.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-zustand-lightblue.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-prisma-purple.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-axios-lightgray.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-bcrypt-lightgray.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-uuid-lightgray.svg?style=flat-square"/>
+  <img src="https://img.shields.io/badge/library-classnames-lightgray.svg?style=flat-square"/>
+</p>
+
+<h3 align="middle">License</h3>
+<p align="middle">
+  <a href="https://github.com/daybrush/moveable/blob/master/LICENSE" target="_blank">
+      <img src="https://img.shields.io/github/license/woowacourse/javascript-lotto.svg?style=flat-square&label=license&color=08CE5D"/>
+  </a>
+</p>
+
+## 프로젝트 소개
+
+교육을 위한 어플리케이션으로, 빈칸을 쉽게 만들 수 있게 해주는 어플리케이션이다.
+
+## 제작 동기
+
+영어를 공부하면서 불편한 점이, 어떠한 단어를 외웠을때 해당 단어를 일일이 손으로 가리거나 노트앱으로 검정색으로 색칠을 하는 등 귀찮은 점이 너무 많았다. 그리고 Margin Note라는 어플리케이션도 결제하여 사용해봤지만, 빈칸을 만드는 방법이 직관적이지 않아 불편함을 겪어서 직접만들게 되었다.
+
+## 주요 기능
+
+-   Notion과 같은 사용성
+-   빈칸만들기 기능
+
+## 비로그인 상태에서 경험해보기
+
+:warning: 주의 : 브라우저 width가 768px이상인 경우에만 체험해볼 수 있습니다.
+
+1. https://myblanking.vercel.app/auth/signin -> 접속
+2. Blanking 로고부분에서 마우스 휠을 이용해서 아래로 내리기
+3. 체험 해보기
