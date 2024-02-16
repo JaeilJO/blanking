@@ -1,11 +1,14 @@
+//Utils
 import dynamic from 'next/dynamic';
-import style from './page.module.scss';
-
-const NoGroup = dynamic(() => import('@/components/NoGroup'), { ssr: false });
-
 import { getServerSession } from 'next-auth';
 import { NextAuthOption } from '@/lib/nextAuth/auth';
 import { redirect } from 'next/navigation';
+
+//Style
+import style from './page.module.scss';
+
+//Components
+const NoGroup = dynamic(() => import('@/components/NoGroup'), { ssr: false });
 
 export default async function Page({ params }: { params: { username: string } }) {
     const session = await getServerSession(NextAuthOption);

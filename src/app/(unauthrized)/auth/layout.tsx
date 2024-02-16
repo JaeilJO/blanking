@@ -1,8 +1,13 @@
-import AuthSlide from '@/components/AuthSlide';
-import style from './layout.module.scss';
+//Utils
 import { getServerSession } from 'next-auth';
 import { redirect } from 'next/navigation';
 import { NextAuthOption } from '@/lib/nextAuth/auth';
+
+//Style
+import style from './layout.module.scss';
+
+//Components
+import AuthSlide from '@/components/AuthSlide';
 
 async function Layout({ children }: { children: React.ReactNode }) {
     const session = await getServerSession(NextAuthOption);
