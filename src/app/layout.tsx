@@ -1,6 +1,11 @@
+//Utills
 import type { Metadata } from 'next';
-import './global.scss';
 import localFont from 'next/font/local';
+
+//Styles
+import './global.scss';
+
+//Components
 import AuthSession from '@/components/AuthSession';
 import ToastAlert from '@/components/ToastAlert';
 

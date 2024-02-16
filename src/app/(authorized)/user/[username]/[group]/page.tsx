@@ -1,10 +1,14 @@
-import GroupTable from '@/components/PageTable';
-
-import style from './page.module.scss';
+//Utils
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import { getPages } from '@/services/getPages';
 import { getServerSession } from 'next-auth';
 import { NextAuthOption } from '@/lib/nextAuth/auth';
+
+//Style
+import style from './page.module.scss';
+
+//Components
+import GroupTable from '@/components/PageTable';
 
 async function Page({ params }: { params: { group: string } }) {
     const current_group_name = decodeURIComponent(params.group as string);

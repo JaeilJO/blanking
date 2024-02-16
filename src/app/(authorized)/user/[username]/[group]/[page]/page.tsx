@@ -1,10 +1,15 @@
+//Utils
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
-import style from './page.module.scss';
-import UserPage from '@/components/UserPage';
 import { getPage } from '@/services/getPage';
 import { getServerSession } from 'next-auth';
 import { NextAuthOption } from '@/lib/nextAuth/auth';
 import { redirect } from 'next/navigation';
+
+//Style
+import style from './page.module.scss';
+
+//Components
+import UserPage from '@/components/UserPage';
 
 interface PageProps {
     params: {
