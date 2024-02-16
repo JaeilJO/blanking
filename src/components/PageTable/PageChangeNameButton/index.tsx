@@ -1,8 +1,14 @@
 'use client';
 
-import { BsPencilSquare } from 'react-icons/bs';
-import style from './index.module.scss';
+// Utils
 import Link from 'next/link';
+
+// Style
+import style from './index.module.scss';
+
+// Icons
+import { BsPencilSquare } from 'react-icons/bs';
+
 function PageChangeNameButton({ pagename, groupname }: { pagename: string; groupname: string }) {
     return (
         <Link

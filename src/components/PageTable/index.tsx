@@ -1,15 +1,15 @@
 'use client';
 
-//Utils
+// Utils
 import Link from 'next/link';
 import { redirect, useParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import useGetPages from '@/hooks/useGetpages';
 
-//Styles
+// Style
 import style from './index.module.scss';
 
-//Components
+// Components
 import PageDeleteButton from './PageDeleteButton';
 import PageChangeNameButton from './PageChangeNameButton';
 import GetPagesLoading from './GetPagesLoading';

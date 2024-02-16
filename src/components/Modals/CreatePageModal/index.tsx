@@ -1,15 +1,18 @@
 'use client';
 
+// Utils
 import { useSearchParams } from 'next/navigation';
-import ModalBackground from '../ModalBackground';
-import style from './index.module.scss';
 import classNames from 'classnames/bind';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
 import { useSession } from 'next-auth/react';
-
 import useCreatePage from '@/hooks/useCreatePage';
+
+// Style
+import style from './index.module.scss';
+
+// Components
+import ModalBackground from '../ModalBackground';
 
 const cn = classNames.bind(style);
 

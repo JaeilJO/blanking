@@ -1,5 +1,9 @@
-import { LiaPrayingHandsSolid } from 'react-icons/lia';
+// Style
 import style from './index.module.scss';
+
+// Icons
+import { LiaPrayingHandsSolid } from 'react-icons/lia';
+
 function MobileModal() {
     return (
         <div className={style.modal_background}>

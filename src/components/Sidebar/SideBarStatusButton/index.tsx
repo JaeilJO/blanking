@@ -1,9 +1,14 @@
 'use client';
 
+// Utils
 import { useSideBarStatusStore } from '@/zustand/sideBarStatusStore';
 import classNames from 'classnames/bind';
 import { useCallback } from 'react';
+
+// Style
 import style from './index.module.scss';
+
+// Icons
 import { BsBoxArrowLeft } from 'react-icons/bs';
 
 const cn = classNames.bind(style);

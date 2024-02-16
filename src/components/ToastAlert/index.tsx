@@ -1,10 +1,14 @@
 'use client';
 
+// Utils
 import classNames from 'classnames/bind';
-import style from './index.module.scss';
 import { useEffect } from 'react';
 import { useAlertStore } from '@/zustand/alertStore';
 
+// Style
+import style from './index.module.scss';
+
+// Icons
 import { BsCheckCircle } from 'react-icons/bs';
 import { BsDashCircle } from 'react-icons/bs';
 

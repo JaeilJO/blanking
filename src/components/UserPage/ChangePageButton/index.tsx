@@ -1,7 +1,10 @@
 'use client';
 
-import { BsPencil } from 'react-icons/bs';
+// Style
 import style from './index.module.scss';
+
+// Icons
+import { BsPencil } from 'react-icons/bs';
 
 function ChangePageButton({ setChangeMode }: { setChangeMode: React.Dispatch<React.SetStateAction<boolean>> }) {
     return (

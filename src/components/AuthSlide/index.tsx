@@ -1,9 +1,16 @@
 'use client';
 
+// Utils
 import { useEffect, useRef, useState } from 'react';
-import SlideIcon from './SlideIcon';
-import { SlideItems } from './SlideItems';
+
+// Style
 import style from './index.module.scss';
+
+// Icons
+import SlideIcon from './SlideIcon';
+
+// Components
+import { SlideItems } from './SlideItems';
 
 function AuthSlide() {
     const [isScroll, setIsScroll] = useState(false);

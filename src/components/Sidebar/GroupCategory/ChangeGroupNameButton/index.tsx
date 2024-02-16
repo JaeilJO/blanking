@@ -1,6 +1,11 @@
+// Utils
 import Link from 'next/link';
-import { BsPencil } from 'react-icons/bs';
+
+// Style
 import style from './index.module.scss';
+
+// Icons
+import { BsPencil } from 'react-icons/bs';
 
 function ChangeGroupNameButton({ groupname, username }: { groupname: string; username: string }) {
     return (

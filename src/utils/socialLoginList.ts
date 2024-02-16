@@ -1,3 +1,3 @@
-export const social_login_list = ['google'];
+export const socialLoginList = ['google'];
 
-export default social_login_list;
+export default socialLoginList;

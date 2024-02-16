@@ -1,12 +1,16 @@
 'use client';
 
+// Utils
 import { useEffect, useRef } from 'react';
-import SlideItemWrapper from '../../SlideItemWrapper';
+import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorJsTools';
+import exampleData from './example_data';
+
+// Style
 import style from './index.module.scss';
 
+// Components
+import SlideItemWrapper from '../../SlideItemWrapper';
 import EditorJS from '@editorjs/editorjs';
-import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorJsTools';
-import data from './example_data';
 
 function Example() {
     const ref = useRef<any>(null);
@@ -15,7 +19,7 @@ function Example() {
         if (!ref.current) {
             const editor = new EditorJS({
                 holder: 'example_editor',
-                data: data,
+                data: exampleData,
                 tools: EDITOR_JS_TOOLS,
             });
 

@@ -1,6 +1,11 @@
+// Utils
 import Link from 'next/link';
-import { BsTrash3 } from 'react-icons/bs';
+
+// Style
 import style from './index.module.scss';
+
+// Icons
+import { BsTrash3 } from 'react-icons/bs';
 
 function DeletePageButton({ pagename, groupname }: { pagename: string; groupname: string }) {
     return (

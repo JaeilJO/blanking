@@ -1,9 +1,9 @@
 'use client';
 
-// Utiles
+// Utils
 import Link from 'next/link';
 
-//Style
+// Style
 import style from './index.module.scss';
 
 // Components

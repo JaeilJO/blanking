@@ -1,4 +1,6 @@
 'use client';
+
+// Utils
 import { SessionProvider } from 'next-auth/react';
 
 function AuthSession({ children }: { children: React.ReactNode }) {

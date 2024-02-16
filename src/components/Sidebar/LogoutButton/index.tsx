@@ -1,8 +1,13 @@
 'use client';
 
-import style from './index.module.scss';
-import { BsDoorOpen } from 'react-icons/bs';
+// Utils
 import { signOut } from 'next-auth/react';
+
+// Style
+import style from './index.module.scss';
+
+// Icons
+import { BsDoorOpen } from 'react-icons/bs';
 
 function LogoutButton() {
     return (

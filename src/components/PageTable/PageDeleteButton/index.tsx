@@ -1,8 +1,14 @@
 'use client';
 
-import { BsTrash3 } from 'react-icons/bs';
-import style from './index.module.scss';
+// Utils
 import Link from 'next/link';
+
+// Style
+import style from './index.module.scss';
+
+// Icons
+import { BsTrash3 } from 'react-icons/bs';
+
 function PageDeleteButton({ pagename, groupname }: { pagename: string; groupname: string }) {
     return (
         <Link

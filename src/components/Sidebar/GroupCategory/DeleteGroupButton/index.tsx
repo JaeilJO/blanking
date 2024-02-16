@@ -1,10 +1,10 @@
-//Utils
+// Utils
 import Link from 'next/link';
 
-//Style
+// Style
 import style from './index.module.scss';
 
-//Icons
+// Icons
 import { BsTrash3 } from 'react-icons/bs';
 
 function DeleteGroupButton({ groupname }: { groupname: string }) {

@@ -1,9 +1,12 @@
 'use clinet';
 
-import style from './index.module.scss';
-
+// Utils
 import { useParams } from 'next/navigation';
 
+// Style
+import style from './index.module.scss';
+
+// Components
 import PageCategoryItem from './PageCategoryItem';
 import CreatePageButton from './CreatePageButton';
 

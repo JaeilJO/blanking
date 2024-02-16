@@ -1,9 +1,16 @@
+// Utils
 import Link from 'next/link';
-import PageCategoryItemWrapper from '../PageCategoryItemWrapper';
-import { BsFileEarmark } from 'react-icons/bs';
-import style from './index.module.scss';
 import classNames from 'classnames/bind';
+
+// Style
+import style from './index.module.scss';
+
+// Icons
+import { BsFileEarmark } from 'react-icons/bs';
 import { BsFileEarmarkCheck } from 'react-icons/bs';
+
+// Components
+import PageCategoryItemWrapper from '../PageCategoryItemWrapper';
 
 interface PageCategoryItemProps {
     current_page_name: string;

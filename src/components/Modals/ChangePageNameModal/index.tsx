@@ -1,13 +1,16 @@
 'use client';
 
-//Utils
+// Utils
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import useChangePageName from '@/hooks/useChangePageName';
 
-import ModalBackground from '../ModalBackground';
+// Style
 import style from './index.module.scss';
+
+// Components
+import ModalBackground from '../ModalBackground';
 
 function ChangePageNameModal() {
     const searchParams = useSearchParams();

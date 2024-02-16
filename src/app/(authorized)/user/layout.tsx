@@ -6,7 +6,7 @@ const SideBarLayout = dynamic(() => import('@/components/Sidebar/SidebarLayout/s
 import { NextAuthOption } from '@/lib/nextAuth/auth';
 import { getServerSession } from 'next-auth';
 
-//Utils
+// Utils
 import { redirect } from 'next/navigation';
 import dynamic from 'next/dynamic';
 
