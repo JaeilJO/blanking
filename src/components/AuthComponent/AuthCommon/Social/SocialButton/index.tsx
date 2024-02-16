@@ -1,10 +1,14 @@
 'use client';
 
-import style from './index.module.scss';
-
-import { BsGoogle } from 'react-icons/bs';
+// Utils
 import classNames from 'classnames/bind';
 import { signIn } from 'next-auth/react';
+
+// Style
+import style from './index.module.scss';
+
+// Icons
+import { BsGoogle } from 'react-icons/bs';
 
 interface SocialButtonProps {
     socialType: string;

@@ -1,12 +1,16 @@
 'use client';
 
+// Utils
 import { useEffect, useRef, useState } from 'react';
-import AuthCommon from '../AuthCommon';
+import socialLoginList from '@/utils/socialLoginList';
+
+// Style
 import style from './index.module.scss';
+
+// Components
+import AuthCommon from '../AuthCommon';
 import ScrollGuideBox from '../ScrollGuideBox';
 import SignUpForm from '../SignUpForm';
-
-const socials = ['google'];
 
 function SignUpComponent() {
     const [isHeightBelowMax, setIsHeightBelowMax] = useState(false);
@@ -40,7 +44,7 @@ function SignUpComponent() {
 
             <SignUpForm />
 
-            <AuthCommon.Social socials={socials} />
+            <AuthCommon.Social socials={socialLoginList} />
 
             <AuthCommon.AccountInquery authType={'signup'} />
 

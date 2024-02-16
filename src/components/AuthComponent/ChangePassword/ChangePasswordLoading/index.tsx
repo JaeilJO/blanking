@@ -1,6 +1,9 @@
 'use client';
 
+//Style
 import style from './index.module.scss';
+
+//Icons
 import { AiOutlineLoading } from 'react-icons/ai';
 
 function ChangePasswordLoading() {

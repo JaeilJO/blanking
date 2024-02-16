@@ -1,3 +1,4 @@
+// Style
 import style from './index.module.scss';
 
 interface PageCategoryItemWrapperProps {

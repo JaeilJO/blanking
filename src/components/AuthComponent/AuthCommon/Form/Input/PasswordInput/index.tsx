@@ -10,7 +10,7 @@ import { FormType } from '../formtype';
 // Components
 import InputLabel from '../InputLabel';
 
-// Styles
+// Style
 import style from './index.module.scss';
 import commonStyle from '../inputCommon.module.scss';
 

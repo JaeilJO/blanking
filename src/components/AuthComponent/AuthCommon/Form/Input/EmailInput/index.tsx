@@ -4,14 +4,14 @@
 import { Dispatch, SetStateAction, useCallback, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 
+// Style
+import commonStyle from '../inputCommon.module.scss';
+
 // Types
 import { FormType } from '../formtype';
 
 // Components
 import InputLabel from '../InputLabel';
-
-// Styles
-import commonStyle from '../inputCommon.module.scss';
 
 interface EamilInputProps {
     setForm: Dispatch<SetStateAction<any>>;

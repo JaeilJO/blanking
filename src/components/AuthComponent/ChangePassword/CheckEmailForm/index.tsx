@@ -1,11 +1,11 @@
 'use client';
 
-//Utils
+// Utils
 import { useAlertStore } from '@/zustand/alertStore';
 import axios from 'axios';
 import { useState } from 'react';
 
-//Components
+// Components
 import AuthCommon from '../../AuthCommon';
 import ChangePasswordLoading from '../ChangePasswordLoading';
 import Form from '../../AuthCommon/Form';

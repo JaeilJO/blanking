@@ -1,4 +1,7 @@
+//Style
 import style from './index.module.scss';
+
+// Icons
 import { BsMouse } from 'react-icons/bs';
 
 function ScrollGuideBox() {

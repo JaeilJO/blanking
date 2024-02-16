@@ -1,4 +1,4 @@
-const data = {
+const exampleData = {
     time: 12345,
     blocks: [
         {
@@ -55,4 +55,4 @@ const data = {
         },
     ],
 };
-export default data;
+export default exampleData;

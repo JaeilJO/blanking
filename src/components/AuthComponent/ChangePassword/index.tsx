@@ -1,7 +1,8 @@
 'use client';
-
+// Utils
 import { useState } from 'react';
 
+// Components
 import CheckEmailForm from './CheckEmailForm';
 import ChangePasswordForm from './ChangePasswordForm';
 

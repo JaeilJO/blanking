@@ -1,7 +1,10 @@
-import GroupMaker from './GroupMaker';
+// Style
 import style from './index.module.scss';
 
-function NoGroup() {
+// Components
+import GroupMaker from './GroupMaker';
+
+function GroupMakerWrapper() {
     return (
         <div className={style.nogroup_content_wrapper}>
             <h1 className={style.title}>Make Group</h1>
@@ -13,4 +16,4 @@ function NoGroup() {
     );
 }
 
-export default NoGroup;
+export default GroupMakerWrapper;

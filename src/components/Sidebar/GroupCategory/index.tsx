@@ -1,15 +1,14 @@
 'use client';
 
-//Utils
-import { redirect, useParams } from 'next/navigation';
+// Utils
+import { useParams } from 'next/navigation';
 import useGetGroups from '@/hooks/useGetGroups';
-
 import { useSession } from 'next-auth/react';
 
-//Style
+// Style
 import style from './index.module.scss';
 
-//Components
+// Components
 import PageCategory from '../PageCategory';
 import DeleteGroupButton from './DeleteGroupButton';
 import GroupCategoryTitle from './GroupCategoryTitle';

@@ -1,12 +1,16 @@
 'use client';
 
+// Utils
 import { useSideBarStatusStore } from '@/zustand/sideBarStatusStore';
-import Sidebar from '..';
-import style from './index.module.scss';
 import classNames from 'classnames/bind';
-
-import SideBarStatusButton from '../SideBarStatusButton';
 import { useCallback, useEffect } from 'react';
+
+// Style
+import style from './index.module.scss';
+
+// Components
+import Sidebar from '..';
+import SideBarStatusButton from '../SideBarStatusButton';
 
 const cn = classNames.bind(style);
 

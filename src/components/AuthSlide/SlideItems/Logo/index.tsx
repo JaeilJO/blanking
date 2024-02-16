@@ -1,12 +1,15 @@
 'use client';
 
-import SlideItemWrapper from '../../SlideItemWrapper';
-
-import { Player, Controls } from '@lottiefiles/react-lottie-player';
+// Utils
+import { Player } from '@lottiefiles/react-lottie-player';
 import logoAnimation from '@/public/logo.json';
 import { useEffect, useRef, useState } from 'react';
 
+// Style
 import style from './index.module.scss';
+
+// Components
+import SlideItemWrapper from '../../SlideItemWrapper';
 
 function Logo() {
     const animatioRef = useRef<Player>(null);

@@ -1,14 +1,13 @@
 'use client';
 
+// Utils
 import EditorJS from '@editorjs/editorjs';
-
+import axios from 'axios';
+import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorJsTools';
 import { useEffect, useRef } from 'react';
 
+// Style
 import style from './index.module.scss';
-
-import axios from 'axios';
-
-import { EDITOR_JS_TOOLS } from '@/lib/editorJs/editorJsTools';
 
 function EditorJs({
     subkey,

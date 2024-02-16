@@ -1,8 +1,15 @@
 'use client';
 
-import { BsFilePlus } from 'react-icons/bs';
-import style from './index.module.scss';
+// Utils
 import Link from 'next/link';
+
+// Style
+import style from './index.module.scss';
+
+// Icons
+import { BsFilePlus } from 'react-icons/bs';
+
+// Components
 import PageCategoryItemWrapper from '../PageCategoryItemWrapper';
 
 function CreatePageButton({ current_group_name }: { current_group_name: string }) {

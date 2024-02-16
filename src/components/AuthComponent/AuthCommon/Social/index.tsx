@@ -1,5 +1,8 @@
-import SocialButton from './SocialButton';
+// Style
 import style from './index.module.scss';
+
+//Components
+import SocialButton from './SocialButton';
 
 function Social({ socials }: { socials: string[] }) {
     return (

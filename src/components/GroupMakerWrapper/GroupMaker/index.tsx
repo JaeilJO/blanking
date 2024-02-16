@@ -9,7 +9,7 @@ import useCreateGroup from '@/hooks/useCreateGroup';
 // Style
 import style from './index.module.scss';
 
-//Icons
+// Icons
 import { BsPlusCircle } from 'react-icons/bs';
 
 function GroupMaker() {

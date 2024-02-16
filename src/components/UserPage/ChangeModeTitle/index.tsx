@@ -1,11 +1,13 @@
 'use client';
 
-import style from './index.module.scss';
+// Utils
 import { useEffect, useRef, useState } from 'react';
-
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import useChangePageName from '@/hooks/useChangePageName';
+
+// Style
+import style from './index.module.scss';
 
 function ChangeModeTitle({
     pagename,

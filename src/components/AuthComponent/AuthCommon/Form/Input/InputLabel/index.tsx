@@ -1,6 +1,6 @@
 'use client';
 
-// Styles
+// Style
 import style from './index.module.scss';
 
 // Utils

@@ -7,7 +7,7 @@ import { redirect } from 'next/navigation';
 // Styles
 import style from './index.module.scss';
 
-//Components
+// Components
 import EditorJs from '../EditorJs';
 import DeletePageButton from './DeletePageButton';
 import ChangePageButton from './ChangePageButton';

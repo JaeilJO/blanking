@@ -1,14 +1,13 @@
 'use client';
 
-//Utils
+// Utils
 import { useState } from 'react';
-
 import { useRouter, useSearchParams } from 'next/navigation';
 
-//Style
+// Style
 import style from './index.module.scss';
 
-//Components
+// Components
 import ModalBackground from '../ModalBackground';
 import { useSession } from 'next-auth/react';
 import useChangeGroupName from '@/hooks/useChangeGroupName';

@@ -1,4 +1,7 @@
+// Utils
 import Link from 'next/link';
+
+// Style
 import style from './index.module.scss';
 
 function NotFoundPage() {

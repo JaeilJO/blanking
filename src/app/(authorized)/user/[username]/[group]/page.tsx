@@ -1,13 +1,13 @@
-//Utils
+// Utils
 import { HydrationBoundary, QueryClient, dehydrate } from '@tanstack/react-query';
 import { getPages } from '@/services/getPages';
 import { getServerSession } from 'next-auth';
 import { NextAuthOption } from '@/lib/nextAuth/auth';
 
-//Style
+// Style
 import style from './page.module.scss';
 
-//Components
+// Components
 import GroupTable from '@/components/PageTable';
 
 async function Page({ params }: { params: { group: string } }) {
