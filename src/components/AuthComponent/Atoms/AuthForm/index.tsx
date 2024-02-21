@@ -1,3 +1,5 @@
+"use client";
+
 // Style
 import style from "./index.module.scss";
 
