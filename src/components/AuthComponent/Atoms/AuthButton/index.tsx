@@ -1,4 +1,9 @@
+"use client";
+
+// Utils
 import { ReactNode } from "react";
+
+// Style
 import style from "./index.module.scss";
 
 interface AuthButtonProps {
