@@ -4,6 +4,16 @@
   flex-direction: column;
   justify-content: space-between;
 
+  // 겹침방지 및 최소 간격
+  gap: 24px;
+
+  // height를 초과한 경우 scroll
+  overflow-y: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   max-height: 900px;
 
   @include a.media-query("small") {
