@@ -1,0 +1,29 @@
+@use "@style/abstracts" as a;
+
+.button {
+  position: relative;
+  top: 0;
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+
+  background-color: a.$white-color;
+
+  box-shadow: a.$basic-shadow;
+
+  transition: top 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    top: -4px;
+    box-shadow: a.$hover-shadow;
+  }
+
+  @include a.typhography("sub-02");
+}
