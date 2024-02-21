@@ -6,6 +6,9 @@ import { ReactNode } from "react";
 // Style
 import style from "./index.module.scss";
 
+// Icons
+import { AiOutlineLoading } from "react-icons/ai";
+
 interface AuthButtonProps {
   value: string;
 
@@ -14,14 +17,28 @@ interface AuthButtonProps {
    */
   icon?: ReactNode;
   type: "submit" | "button";
+  disable?: boolean;
   onClick?: () => void;
 }
 
-function AuthButton({ value, icon, type, onClick }: AuthButtonProps) {
+function AuthButton({ value, icon, type, onClick, disable }: AuthButtonProps) {
   return (
-    <button className={style["button"]} type={type} onClick={onClick}>
-      <div className={style["icon"]}>{icon}</div>
-      <div>{value}</div>
+    <button
+      className={style["button"]}
+      type={type}
+      onClick={onClick}
+      disabled={disable}
+    >
+      {disable ? (
+        <div className={style["disable-icon"]}>
+          <AiOutlineLoading />
+        </div>
+      ) : (
+        <>
+          <div className={style["icon"]}>{icon}</div>
+          <div>{value}</div>
+        </>
+      )}
     </button>
   );
 }

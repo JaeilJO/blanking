@@ -17,3 +17,11 @@ export const Primary: Story = {
     value: "Example",
   },
 };
+
+export const Disable: Story = {
+  args: {
+    icon: <BsGoogle />,
+    value: "Example",
+    disable: true,
+  },
+};

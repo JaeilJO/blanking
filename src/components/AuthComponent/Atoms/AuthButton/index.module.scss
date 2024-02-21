@@ -28,6 +28,11 @@
     background-color: a.$primary-active-color;
   }
 
+  &:disabled {
+    background-color: a.$gray-color;
+    pointer-events: none;
+  }
+
   @include a.typhography("body-01");
 }
 
@@ -39,4 +44,18 @@
   justify-content: center;
 
   @include a.typhography("sub-02");
+}
+
+.disable-icon {
+  @include a.typhography("sub-02");
+  animation: spinner 1s ease-in-out infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
