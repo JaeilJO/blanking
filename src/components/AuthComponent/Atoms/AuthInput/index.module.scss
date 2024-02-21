@@ -26,6 +26,10 @@
   &.on-text {
     border: 1px solid a.$primary-color;
   }
+
+  &.disabled {
+    border: 1px solid a.$gray-color;
+  }
 }
 
 .input {
@@ -35,6 +39,10 @@
   background: none;
 
   @include a.typhography("body-01");
+
+  &:disabled {
+    color: a.$gray-color;
+  }
 }
 
 .label {
@@ -56,6 +64,10 @@
   &:hover {
     cursor: pointer;
     color: a.$primary-color;
+  }
+
+  &:disabled {
+    pointer-events: none;
   }
 
   @include a.typhography("sub-02");

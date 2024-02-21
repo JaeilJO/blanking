@@ -23,3 +23,11 @@ export const Password: Story = {
     type: "password",
   },
 };
+
+export const Disable: Story = {
+  args: {
+    placeholder: "Password",
+    type: "password",
+    disabled: true,
+  },
+};

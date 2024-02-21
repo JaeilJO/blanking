@@ -71,7 +71,8 @@ function AuthInput({
 
         {type === "password" && (
           <button
-            className={style["password-toggle-button"]}
+            className={cn("password-toggle-button")}
+            disabled={disabled}
             onClick={passwordToggleHandler}
           >
             {isHide ? <BsEyeSlash /> : <BsEye />}
