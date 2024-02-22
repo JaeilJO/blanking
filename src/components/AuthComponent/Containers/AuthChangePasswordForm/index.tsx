@@ -1,58 +1,23 @@
 "use client";
 
+// Utils
+import useForm from "@/hooks/useForm";
+import useChangePassword from "@/hooks/useChangPassword";
+
+// Components
 import AuthButton from "../../Atoms/AuthButton";
 import AuthInput from "../../Atoms/AuthInput";
 import AuthForm from "../../Atoms/AuthForm";
-import useForm from "@/hooks/useForm";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { useAlertStore } from "@/zustand/alertStore";
-import useIsLoading from "@/hooks/useIsLoading";
 
+// Icons
 import { IoKeyOutline } from "react-icons/io5";
 
 function AuthChangePasswordForm({ subkey }: { subkey: string }) {
-  const router = useRouter();
-  const { error, success, loading } = useAlertStore((state) => state);
-
-  const { isLoading, setIsLoading } = useIsLoading(
-    "Email 확인중입니다.",
-    loading
-  );
+  const { isLoading, onSubmit } = useChangePassword({ subkey });
 
   const { register, handleSubmit } = useForm({
     password: "",
   });
-
-  const onSubmit = async (data: { [key: string]: string }) => {
-    try {
-      await axios.patch(`/api/changePassword/${subkey}`, {
-        password: data.password,
-      });
-      setIsLoading(false);
-      success("비밀번호 변경이 완료되었습니다. 다시 로그인을 시도해주세요");
-      router.replace("/auth/signin");
-    } catch (e) {
-      if (axios.isAxiosError(e)) {
-        if (e.request?.status === 406) {
-          setIsLoading(false);
-          error(
-            "비밀번호는 영문 대문자 혹은 소문자 중 하나 그리고 숫자를 조합시켜주세요"
-          );
-        }
-        if (e.request?.status === 405) {
-          setIsLoading(false);
-          error("비밀번호 변경에 실패했습니다. 새로고침 후 다시 시도해주세요");
-        }
-        if (e.request?.status === 403) {
-          setIsLoading(false);
-          error("최근에 사용한 비밀번호입니다.");
-        }
-      }
-
-      setIsLoading(false);
-    }
-  };
 
   return (
     <AuthForm onSubmit={handleSubmit(onSubmit)}>
