@@ -22,6 +22,6 @@ export const Disable: Story = {
   args: {
     icon: <BsGoogle />,
     value: "Example",
-    disable: true,
+    disabled: true,
   },
 };

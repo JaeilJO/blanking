@@ -17,19 +17,19 @@ interface AuthButtonProps {
    */
   icon?: ReactNode;
   type: "submit" | "button";
-  disable?: boolean;
+  disabled?: boolean;
   onClick?: () => void;
 }
 
-function AuthButton({ value, icon, type, onClick, disable }: AuthButtonProps) {
+function AuthButton({ value, icon, type, onClick, disabled }: AuthButtonProps) {
   return (
     <button
       className={style["button"]}
       type={type}
       onClick={onClick}
-      disabled={disable}
+      disabled={disabled}
     >
-      {disable ? (
+      {disabled ? (
         <div className={style["disable-icon"]}>
           <AiOutlineLoading />
         </div>
