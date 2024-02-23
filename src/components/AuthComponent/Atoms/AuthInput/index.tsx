@@ -53,7 +53,7 @@ function AuthInput({
 
   return (
     <div className={style["input-wrapper"]}>
-      <label className={cn("label", { "on-text": onText })}>
+      <label className={cn("label", { "on-text": onText, disabled: disabled })}>
         {placeholder}
       </label>
       <div className={cn("input-box", { "on-text": onText })}>
