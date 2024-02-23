@@ -2,10 +2,6 @@
 
 // Utils
 import useForm from "@/hooks/useForm";
-import { signIn } from "next-auth/react";
-import { useAlertStore } from "@/zustand/alertStore";
-import { useRouter } from "next/navigation";
-import useIsLoading from "@/hooks/useIsLoading";
 
 // Components
 import AuthButton from "../../Atoms/AuthButton";
@@ -14,35 +10,15 @@ import AuthForm from "../../Atoms/AuthForm";
 
 // Icons
 import { FaSignInAlt } from "react-icons/fa";
+import useSignIn from "./logic/useSignIn";
 
 function AuthSignInForm() {
-  const router = useRouter();
-  const { error, success, loading } = useAlertStore((state) => state);
-  const { isLoading, setIsLoading } = useIsLoading("로그인 중입니다", loading);
+  const { onSubmit, isLoading } = useSignIn();
 
   const { register, handleSubmit } = useForm({
     email: "",
     password: "",
   });
-
-  const onSubmit = async (data: { [key: string]: string }) => {
-    setIsLoading(true);
-    const res = await signIn("credentials", {
-      ...data,
-      redirect: false,
-    });
-
-    if (res?.ok) {
-      setIsLoading(false);
-      success(`환영합니다`);
-      router.replace(`/user/`);
-    }
-
-    if (!res?.ok) {
-      setIsLoading(false);
-      error("이메일 혹은 비밀번호를 확인해주세요");
-    }
-  };
 
   return (
     <AuthForm onSubmit={handleSubmit(onSubmit)}>
