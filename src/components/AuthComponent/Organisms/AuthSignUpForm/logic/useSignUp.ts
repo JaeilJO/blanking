@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import useIsLoading from "../../../../../hooks/useIsLoading";
 
 import axios from "axios";
-import { signUp } from "@/services/signUp";
+import { signUp } from "@/services/signUpService";
 
 export default function useSignUp() {
   const router = useRouter();
