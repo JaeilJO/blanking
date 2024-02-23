@@ -1,6 +1,5 @@
 import changePassword from "@/services/changePassword";
 import { useAlertStore } from "@/zustand/alertStore";
-
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import useIsLoading from "../../../../../hooks/useIsLoading";
@@ -16,7 +15,7 @@ export default function useChangePassword({
   const { error, success, loading } = useAlertStore((state) => state);
 
   const { isLoading, setIsLoading } = useIsLoading(
-    "Email 확인중입니다.",
+    "비밀번호 변경 중 입니다.",
     loading
   );
 
