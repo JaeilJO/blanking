@@ -2,7 +2,7 @@
 
 // Utils
 import useForm from "@/hooks/useForm";
-import useChangePassword from "@/hooks/useChangPassword";
+import useChangePassword from "@/components/AuthComponent/Containers/AuthChangePasswordForm/logic/useChangPassword";
 
 // Components
 import AuthButton from "../../Atoms/AuthButton";
