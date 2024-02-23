@@ -1,0 +1,61 @@
+@use "@style/abstracts" as a;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  width: 100%;
+
+  padding: a.$auth-button-padding;
+
+  background-color: a.$primary-color;
+
+  border-radius: a.$border-radius;
+
+  color: a.$white-color;
+
+  transition: background-color 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: a.$primary-hover-color;
+  }
+
+  &:active {
+    background-color: a.$primary-active-color;
+  }
+
+  &:disabled {
+    background-color: a.$gray-color;
+    pointer-events: none;
+  }
+
+  @include a.typhography("body-01");
+}
+
+.icon {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include a.typhography("sub-02");
+}
+
+.disable-icon {
+  @include a.typhography("sub-02");
+  animation: spinner 1s ease-in-out infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
