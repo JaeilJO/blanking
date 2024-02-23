@@ -1,8 +1,13 @@
 "use client";
 
-import style from "./index.module.scss";
-import { AuthSocial } from "../../Atoms/AuthSocialButton/index.type";
+// Components
 import AuthSocialButton from "../../Atoms/AuthSocialButton";
+
+// Style
+import style from "./index.module.scss";
+
+// Types
+import { AuthSocial } from "../../Atoms/AuthSocialButton/index.type";
 
 interface AuthSocilaButtonsProps {
   buttons: AuthSocial[];
