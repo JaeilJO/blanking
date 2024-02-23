@@ -4,7 +4,7 @@
 import AuthTextLink from "../../Atoms/AuthTextLink";
 import AuthTitle from "../../Atoms/AuthTitle";
 import AuthWrapper from "../../Atoms/AuthWrapper";
-import AuthCheckEmailForm from "../../Containers/AuthCheckEmailForm";
+import AuthCheckEmailForm from "../../Organisms/AuthCheckEmailForm";
 
 function CheckEmailTemplate() {
   return (

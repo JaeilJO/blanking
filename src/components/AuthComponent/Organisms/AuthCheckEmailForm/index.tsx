@@ -1,10 +1,14 @@
-import { MdOutlineMail } from "react-icons/md";
+// Utils
+import useForm from "@/hooks/useForm";
+import useCheckEmail from "./logic/useCheckEmail";
+
+// Components
 import AuthButton from "../../Atoms/AuthButton";
 import AuthInput from "../../Atoms/AuthInput";
 import AuthForm from "../../Atoms/AuthForm";
-import useForm from "@/hooks/useForm";
 
-import useCheckEmail from "./logic/useCheckEmail";
+// Icons
+import { MdOutlineMail } from "react-icons/md";
 
 function AuthCheckEmailForm() {
   const { onSubmit, isLoading } = useCheckEmail();

@@ -7,8 +7,8 @@ import socialButtons from "@/utils/socialButtons";
 import AuthTextLink from "../../Atoms/AuthTextLink";
 import AuthTitle from "../../Atoms/AuthTitle";
 import AuthWrapper from "../../Atoms/AuthWrapper";
-import AuthSignUpForm from "../../Containers/AuthSignUpForm";
-import AuthSocialButtons from "../../Containers/AuthSocialButtons";
+import AuthSignUpForm from "../../Organisms/AuthSignUpForm";
+import AuthSocialButtons from "../../Molecules/AuthSocialButtons";
 
 function SignUpTemplate() {
   return (

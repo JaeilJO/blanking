@@ -6,9 +6,9 @@ import socialButtons from "@/utils/socialButtons";
 // Components
 import AuthTextLink from "../../Atoms/AuthTextLink";
 import AuthTitle from "../../Atoms/AuthTitle";
-import AuthSocialButtons from "../../Containers/AuthSocialButtons";
+import AuthSocialButtons from "../../Molecules/AuthSocialButtons";
 import AuthWrapper from "../../Atoms/AuthWrapper";
-import AuthSignInForm from "../../Containers/AuthSignInForm";
+import AuthSignInForm from "../../Organisms/AuthSignInForm";
 
 function SignInTemplate() {
   return (

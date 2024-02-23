@@ -4,7 +4,7 @@
 import AuthTextLink from "../../Atoms/AuthTextLink";
 import AuthTitle from "../../Atoms/AuthTitle";
 import AuthWrapper from "../../Atoms/AuthWrapper";
-import AuthChangePasswordForm from "../../Containers/AuthChangePasswordForm";
+import AuthChangePasswordForm from "../../Organisms/AuthChangePasswordForm";
 
 function ChangePasswordTemplate({ subkey }: { subkey: string }) {
   return (

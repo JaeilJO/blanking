@@ -1,11 +1,16 @@
 "use client";
 
+// Utils
+import useForm from "@/hooks/useForm";
+import useSignUp from "./logic/useSignUp";
+
+// Components
 import AuthButton from "../../Atoms/AuthButton";
 import AuthInput from "../../Atoms/AuthInput";
 import AuthForm from "../../Atoms/AuthForm";
+
+// Icons
 import { CiUser } from "react-icons/ci";
-import useForm from "@/hooks/useForm";
-import useSignUp from "./logic/useSignUp";
 
 function AuthSignUpForm() {
   const { onSubmit, isLoading } = useSignUp();
