@@ -7,7 +7,8 @@ import { NextAuthOption } from "@/lib/nextAuth/auth";
 import style from "./layout.module.scss";
 
 // Components
-import AuthSlide from "@/components/AuthSlide";
+
+import AuthSlideTemplate from "@/components/AuthSlide/Templates/AuthSlideTemplate";
 
 async function Layout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(NextAuthOption);
@@ -21,7 +22,7 @@ async function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className={style["unauthorized-wrapper"]}>
       <div className={style["auth-slide-wrapper"]}>
-        <AuthSlide />
+        <AuthSlideTemplate />
       </div>
       <div className={style["auth-page-wrapper"]}>{children}</div>
     </div>
