@@ -1,0 +1,25 @@
+@use "@style/abstracts" as a;
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: a.$sidebar-width;
+
+  overflow: hidden;
+}
+
+.name {
+  transition: color 0.25s ease-in-out;
+
+  &:hover {
+    color: a.$gray-button-color;
+  }
+
+  @include a.typhography("body-01");
+}
+
+.email {
+  color: a.$gray-button-color;
+  @include a.typhography("body-02");
+}

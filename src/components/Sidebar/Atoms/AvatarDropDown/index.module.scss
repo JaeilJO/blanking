@@ -1,0 +1,56 @@
+@use "@style/abstracts" as a;
+
+.dropdown {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  width: fit-content;
+  min-width: a.$dropdown-min-width;
+
+  padding: 10px;
+
+  background-color: a.$white-color;
+
+  z-index: 99999999;
+
+  border-radius: a.$border-radius;
+
+  box-shadow: a.$basic-shadow;
+
+  opacity: 1;
+
+  transition: opacity 0.25s, bottom 0.25s ease-in-out;
+
+  &.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.dropdown-item {
+  position: relative;
+
+  display: flex;
+
+  border-radius: a.$border-radius;
+
+  padding: 4px 8px;
+
+  cursor: pointer;
+
+  transition: background-color 0.25s ease-in-out;
+
+  &:hover {
+    background-color: a.$light-gray-button-color;
+  }
+
+  @include a.typhography("body-01");
+}

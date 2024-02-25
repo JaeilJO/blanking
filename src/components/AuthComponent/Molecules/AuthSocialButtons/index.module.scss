@@ -7,7 +7,7 @@
   gap: 8px;
 }
 .title {
-  color: a.$gray-color;
+  color: a.$gray-button-color;
   text-align: center;
   margin-bottom: 8px;
   @include a.typhography("body-01");

@@ -1,60 +1,60 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 .toast_alert {
-    position: absolute;
+  position: absolute;
 
-    left: 50%;
+  left: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    gap: 5px;
+  gap: 5px;
 
-    width: 60%;
-    height: 50px;
+  width: 60%;
+  height: 50px;
 
-    z-index: 999999;
+  z-index: 999999;
 
-    border-radius: 8px;
+  border-radius: 8px;
 
-    text-align: left;
+  text-align: left;
 
-    transform: translateX(-50%);
+  transform: translateX(-50%);
 
-    @include a.typhography('body-01-b');
-    color: a.$white-color;
+  @include a.typhography("body-01-b");
+  color: a.$white-color;
 
-    cursor: pointer;
-    animation-name: none;
+  cursor: pointer;
+  animation-name: none;
 
-    &.success {
-        animation: show 0.5s ease-in-out forwards;
-        background-color: a.$success-color;
-    }
-    &.error {
-        animation: show 0.5s ease-in-out forwards;
-        background-color: a.$error-color;
-    }
-    &.loading {
-        animation: show 0.5s ease-in-out forwards;
-        background-color: a.$loading-color;
-    }
+  &.success {
+    animation: show 0.5s ease-in-out forwards;
+    background-color: a.$green-button-color;
+  }
+  &.error {
+    animation: show 0.5s ease-in-out forwards;
+    background-color: a.$red-button-color;
+  }
+  &.loading {
+    animation: show 0.5s ease-in-out forwards;
+    background-color: a.$yellow-button-color;
+  }
 }
 
 .icon {
-    @include a.typhography('body-01');
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  @include a.typhography("body-01");
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes show {
-    0% {
-        opacity: 0;
-        top: -5%;
-    }
+  0% {
+    opacity: 0;
+    top: -5%;
+  }
 
-    100% {
-        top: 3%;
-    }
+  100% {
+    top: 3%;
+  }
 }

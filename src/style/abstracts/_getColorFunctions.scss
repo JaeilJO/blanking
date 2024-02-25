@@ -1,0 +1,19 @@
+@function lighter($palette) {
+  @return map-get($palette, "lighter");
+}
+
+@function light($palette) {
+  @return map-get($palette, "light");
+}
+
+@function base($palette) {
+  @return map-get($palette, "base");
+}
+
+@function dark($palette) {
+  @return map-get($palette, "dark");
+}
+
+@function darker($palette) {
+  @return map-get($palette, "darker");
+}

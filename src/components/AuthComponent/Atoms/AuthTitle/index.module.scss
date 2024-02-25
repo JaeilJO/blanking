@@ -23,7 +23,7 @@
 }
 
 .sub-title {
-  color: a.$gray-color;
+  color: a.$gray-button-color;
 
   @include a.media-query("small") {
     @include a.typhography("body-02");

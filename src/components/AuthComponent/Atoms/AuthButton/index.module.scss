@@ -10,7 +10,7 @@
 
   padding: a.$auth-button-padding;
 
-  background-color: a.$primary-color;
+  background-color: a.$primary-button-color;
 
   border-radius: a.$border-radius;
 
@@ -21,16 +21,16 @@
   cursor: pointer;
 
   &:hover {
-    background-color: a.$primary-hover-color;
+    background-color: a.$primary-button-hover-color;
   }
 
   &:active {
-    background-color: a.$primary-active-color;
+    background-color: a.$primary-button-active-color;
   }
 
   &:disabled {
-    background-color: a.$gray-color;
     pointer-events: none;
+    background-color: a.$gray-button-color;
   }
 
   @include a.typhography("body-01");

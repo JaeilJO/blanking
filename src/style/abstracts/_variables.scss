@@ -8,17 +8,15 @@ $background-padding-vertical: 50px;
 
 //Auth
 $auth-page-wrapper-width: 400px;
-
 $auth-button-padding: 1.25em 0.75em;
-
 $auth-wrapper-max-height: 900px;
 $auth-wrapper-padding-side: 44px;
 $auth-wrapper-padding-vertical: 40px;
 
 //Side bar
-$sidebar-width: 300px;
-$sidebar-padding-side: 20px;
-$sidebar-padding-vertical: 46px;
+$sidebar-width: 240px;
+$sidebar-padding-side: 24px;
+$sidebar-padding-vertical: 36px;
 
 // Logout Button
 $logout-hegiht: 60px;
@@ -28,3 +26,8 @@ $logout-padding-side: 4px;
 $group-gap: 28px;
 $pageName-margin-left: 24px;
 $pageName-padding: 4px;
+
+// Avatar
+$avatar-width: 48px;
+$avatar-height: 48px;
+$dropdown-min-width: 100px;

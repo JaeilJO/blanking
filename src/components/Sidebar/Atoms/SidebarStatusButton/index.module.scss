@@ -1,0 +1,24 @@
+@use "@style/abstracts" as a;
+.button {
+  position: fixed;
+  top: 20px;
+  left: 200px;
+
+  z-index: 9999;
+
+  color: a.$text-color;
+
+  cursor: pointer;
+
+  transition: left 0.25s ease-in-out;
+
+  &.close {
+    left: 20px;
+  }
+
+  &:hover {
+    color: a.$gray-button-color;
+  }
+
+  @include a.typhography("sub-02");
+}

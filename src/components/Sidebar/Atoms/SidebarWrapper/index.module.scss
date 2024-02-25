@@ -1,0 +1,28 @@
+@use "@style/abstracts" as a;
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+
+  max-height: 100dvh;
+  min-height: 100dvh;
+  width: a.$sidebar-width;
+
+  background-color: a.$white-color;
+
+  z-index: 999;
+
+  padding: a.$sidebar-padding-vertical a.$sidebar-padding-side;
+
+  border-right: 1px solid a.$light-gray-button-color;
+
+  transition: width 0.25s ease-in-out;
+
+  overflow: hidden;
+
+  &.close {
+    width: 0;
+  }
+}
