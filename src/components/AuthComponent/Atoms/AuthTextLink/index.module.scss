@@ -5,16 +5,16 @@
 
   text-align: center;
 
-  color: a.$primary-color;
+  color: a.$primary-button-color;
 
   transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: a.$primary-hover-color;
+    color: a.$primary-button-hover-color;
   }
 
   &:active {
-    color: a.$primary-active-color;
+    color: a.$primary-button-active-color;
   }
 
   @include a.typhography("body-01-b");

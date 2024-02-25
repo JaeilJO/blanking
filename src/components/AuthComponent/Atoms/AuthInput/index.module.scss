@@ -13,22 +13,22 @@
 
   padding: 1.25em 0.75em;
 
-  border: 1px solid a.$light-gray-color;
+  border: 1px solid a.$light-gray-button-color;
   border-radius: 4px;
 
   background-color: a.$white-color;
 
   &:focus-within {
-    border: 1px solid a.$primary-color;
+    border: 1px solid a.$primary-button-color;
     box-shadow: a.$basic-shadow;
   }
 
   &.on-text {
-    border: 1px solid a.$primary-color;
+    border: 1px solid a.$primary-button-color;
   }
 
   &.disabled {
-    border: 1px solid a.$gray-color;
+    border: 1px solid a.$gray-button-color;
   }
 }
 
@@ -41,7 +41,7 @@
   @include a.typhography("body-01");
 
   &:disabled {
-    color: a.$gray-color;
+    color: a.$gray-button-color;
   }
 }
 
@@ -51,7 +51,7 @@
   color: a.$text-color;
 
   &.on-text {
-    color: a.$primary-color;
+    color: a.$primary-button-color;
     @include a.typhography("body-01-b");
   }
 }
@@ -59,11 +59,11 @@
 .password-toggle-button {
   display: flex;
 
-  color: a.$gray-color;
+  color: a.$gray-button-color;
 
   &:hover {
     cursor: pointer;
-    color: a.$primary-color;
+    color: a.$primary-button-color;
   }
 
   &:disabled {

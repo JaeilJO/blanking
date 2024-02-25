@@ -1,15 +1,15 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 
 .page_info_icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    @include a.typhography('sub-02');
-    cursor: pointer;
+  @include a.typhography("sub-02");
+  cursor: pointer;
 
-    transition: color 0.25s ease-in-out;
-    &:hover {
-        color: a.$gray-color;
-    }
+  transition: color 0.25s ease-in-out;
+  &:hover {
+    color: a.$gray-button-color;
+  }
 }
