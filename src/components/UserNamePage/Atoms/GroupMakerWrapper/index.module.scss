@@ -1,0 +1,33 @@
+@use "@style/abstracts" as a;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include a.media-query("small") {
+    width: 100dvw;
+    height: 100dvh;
+
+    padding: 24px 48px;
+  }
+
+  @include a.media-query("middle") {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 280px;
+    width: 30%;
+
+    max-height: 600px;
+    height: 70%;
+
+    padding: 0;
+  }
+
+  @include a.media-query("large") {
+    max-width: 380px;
+  }
+}
