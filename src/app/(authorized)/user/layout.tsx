@@ -10,15 +10,13 @@ import {
 } from "@tanstack/react-query";
 import getGroups from "@/services/getGroups";
 
-// Style
-import style from "./layout.module.scss";
-
 // Components
 const ReactQueryProvider = dynamic(
   () => import("@/components/ReactQueryProvider"),
   { ssr: false }
 );
 import SidebarTemplate from "@/components/Sidebar/Templates/SidebarTemplate";
+import UserPageWrapper from "@/components/UserPageNew/Atoms/UserPageWrapper";
 
 async function Layout({
   children,
@@ -55,22 +53,21 @@ async function Layout({
 
   return (
     <ReactQueryProvider>
-      <div>
-        {/* Modals */}
-        {changePageNameModal}
-        {changeGroupNameModal}
-        {createGroupModal}
-        {deleteGroupModal}
-        {createPageModal}
-        {deletePageModal}
+      {/* Modals */}
+      {changePageNameModal}
+      {changeGroupNameModal}
+      {createGroupModal}
+      {deleteGroupModal}
+      {createPageModal}
+      {deletePageModal}
 
-        {/* Sidebar */}
-        <HydrationBoundary state={dehydratedState}>
-          <SidebarTemplate subkey={subkey} />
-        </HydrationBoundary>
+      {/* Sidebar */}
+      <HydrationBoundary state={dehydratedState}>
+        <SidebarTemplate subkey={subkey} />
+      </HydrationBoundary>
 
-        <main className={style.content_wrapper}>{children}</main>
-      </div>
+      {/* UserPage */}
+      <UserPageWrapper>{children}</UserPageWrapper>
     </ReactQueryProvider>
   );
 }
