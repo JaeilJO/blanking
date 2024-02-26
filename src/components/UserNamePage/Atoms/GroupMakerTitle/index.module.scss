@@ -1,0 +1,13 @@
+@use "@style/abstracts" as a;
+
+.title {
+  text-align: center;
+
+  @include a.media-query("small") {
+    @include a.typhography("tit-03");
+  }
+
+  @include a.media-query("large") {
+    @include a.typhography("tit-01");
+  }
+}
