@@ -1,9 +1,0 @@
-@function palette($base) {
-  @return (
-    "lighter": adjust-color($base, $lightness: 24%),
-    "light": adjust-color($base, $lightness: 12%),
-    "base": $base,
-    "dark": adjust-color($base, $lightness: -12%),
-    "darker": adjust-color($base, $lightness: -24%)
-  );
-}
