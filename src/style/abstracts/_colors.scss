@@ -1,43 +1,43 @@
 @use "./palettes" as p;
-@use "./getColorFunctions" as g;
+@use "./functions" as f;
 
 // Special Colors
 $white-color: #fff;
 $background-color: #fbfbfb;
-$text-color: g.base(p.$black-palette);
+$text-color: f.base(p.$black-palette);
 $shadow-basic-color: #efefef;
 
 // Primary Button Color
-$primary-button-color: g.base(p.$primary-palette);
-$primary-button-hover-color: g.light(p.$primary-palette);
-$primary-button-active-color: g.dark(p.$primary-palette);
+$primary-button-color: f.base(p.$primary-palette);
+$primary-button-hover-color: f.light(p.$primary-palette);
+$primary-button-active-color: f.dark(p.$primary-palette);
 
 // Gray Button Color
-$gray-button-color: g.base(p.$gray-palette);
-$gray-button-hover-color: g.light(p.$gray-palette);
-$gray-button-active-color: g.dark(p.$gray-palette);
+$gray-button-color: f.base(p.$gray-palette);
+$gray-button-hover-color: f.light(p.$gray-palette);
+$gray-button-active-color: f.dark(p.$gray-palette);
 
 // Light Gray Button Color
-$light-gray-button-color: g.base(p.$light-gray-palette);
-$light-gray-button-hover-color: g.light(p.$light-gray-palette);
-$light-gray-button-active-color: g.dark(p.$light-gray-palette);
+$light-gray-button-color: f.base(p.$light-gray-palette);
+$light-gray-button-hover-color: f.light(p.$light-gray-palette);
+$light-gray-button-active-color: f.dark(p.$light-gray-palette);
 
 // Red Button Color
-$red-button-color: g.base(p.$red-palette);
-$red-button-hover-color: g.light(p.$red-palette);
-$red-button-active-color: g.dark(p.$red-palette);
+$red-button-color: f.base(p.$red-palette);
+$red-button-hover-color: f.light(p.$red-palette);
+$red-button-active-color: f.dark(p.$red-palette);
 
 // Yellow Button Color
-$yellow-button-color: g.base(p.$yellow-palette);
-$yellow-button-hover-color: g.light(p.$yellow-palette);
-$yellow-button-active-color: g.dark(p.$yellow-palette);
+$yellow-button-color: f.base(p.$yellow-palette);
+$yellow-button-hover-color: f.light(p.$yellow-palette);
+$yellow-button-active-color: f.dark(p.$yellow-palette);
 
 // Green Button Color
-$green-button-color: g.base(p.$green-palette);
-$green-button-hover-color: g.light(p.$green-palette);
-$green-button-active-color: g.dark(p.$green-palette);
+$green-button-color: f.base(p.$green-palette);
+$green-button-hover-color: f.light(p.$green-palette);
+$green-button-active-color: f.dark(p.$green-palette);
 
 // Black Button Color
-$black-button-color: g.base(p.$black-palette);
-$black-button-hover-color: g.light(p.$black-palette);
-$black-button-active-color: g.dark(p.$black-palette);
+$black-button-color: f.base(p.$black-palette);
+$black-button-hover-color: f.light(p.$black-palette);
+$black-button-active-color: f.dark(p.$black-palette);

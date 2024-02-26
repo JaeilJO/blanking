@@ -22,5 +22,5 @@ export default function useForm(initialValues: { [key: string]: string }) {
       }
     };
 
-  return { register, handleSubmit };
+  return { register, handleSubmit, values };
 }

@@ -1,4 +1,4 @@
-@use "./createPaletteFunctions" as c;
+@use "./functions" as c;
 
 //base palette
 $primary-palette: c.palette(#2c5695);

@@ -1,10 +1,9 @@
-@use '@style/abstracts' as a;
+@use "@style/abstracts" as a;
 
 .page_wrapper {
-    height: calc(100dvh - (58px * 2));
-    padding: 58px 80px 58px 80px;
+  height: calc(100dvh - (58px * 2));
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
