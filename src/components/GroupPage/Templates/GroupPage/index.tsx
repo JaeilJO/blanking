@@ -1,3 +1,4 @@
+// Components
 import GroupPageTitle from "../../Atoms/GroupPageTitle";
 import GroupPageWrapper from "../../Atoms/GroupPageWrapper";
 import GroupPageTable from "../../Organisms/GroupPageTable";
