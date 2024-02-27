@@ -1,0 +1,9 @@
+@use "@style/abstracts" as a;
+.title {
+  width: 100%;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include a.typhography("body-01");
+}
