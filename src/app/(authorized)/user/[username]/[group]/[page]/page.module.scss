@@ -1,9 +1,0 @@
-@use "@style/abstracts" as a;
-
-.page_wrapper {
-  height: calc(100dvh - (58px * 2));
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}

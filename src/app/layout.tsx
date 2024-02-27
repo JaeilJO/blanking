@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nanum_square.className}>
-        {/* <ToastAlert /> */}
+        <ToastAlert />
         <AuthSession>{children}</AuthSession>
       </body>
     </html>
