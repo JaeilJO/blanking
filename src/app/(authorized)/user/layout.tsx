@@ -16,7 +16,7 @@ const ReactQueryProvider = dynamic(
   { ssr: false }
 );
 import SidebarTemplate from "@/components/Sidebar/Templates/SidebarTemplate";
-import UserPageWrapper from "@/components/UserPageNew/Atoms/UserPageWrapper";
+import UserPageWrapper from "@/components/UserPage/Atoms/UserPageWrapper";
 
 async function Layout({
   children,

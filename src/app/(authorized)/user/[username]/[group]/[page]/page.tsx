@@ -10,10 +10,9 @@ import { NextAuthOption } from "@/lib/nextAuth/auth";
 import { redirect } from "next/navigation";
 
 // Style
-import style from "./page.module.scss";
 
 // Components
-import UserPage from "@/components/UserPage";
+import EditorPageTemplate from "@/components/EditorPage/Templates/EditorPageTemplate";
 
 interface PageProps {
   params: {
@@ -46,9 +45,11 @@ async function Page({ params }: PageProps) {
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <div className={style.page_wrapper}>
-        <UserPage subkey={subkey} pagename={pagename} groupname={groupname} />
-      </div>
+      <EditorPageTemplate
+        subkey={subkey}
+        pagename={pagename}
+        groupname={groupname}
+      />
     </HydrationBoundary>
   );
 }
