@@ -1,3 +1,4 @@
+// Style
 import style from "./index.module.scss";
 
 function GroupPageTableItemTitle({ pagename }: { pagename: string }) {

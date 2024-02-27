@@ -4,5 +4,6 @@
 
   overflow: hidden;
   text-overflow: ellipsis;
+
   @include a.typhography("body-01");
 }
