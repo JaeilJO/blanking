@@ -1,0 +1,55 @@
+@use "@style/abstracts" as a;
+
+.sub-title {
+  &.sub-title-01 {
+    @include a.typhography("sub-01");
+  }
+
+  &.sub-title-02 {
+    @include a.typhography("sub-02");
+  }
+
+  &.light {
+    font-weight: 300;
+  }
+
+  &.regular {
+    font-weight: 400;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+
+  &.displayInline {
+    display: inline;
+  }
+
+  &.default-color {
+    color: a.$text-color;
+  }
+
+  &.primary-color {
+    color: a.$primary-button-color;
+  }
+
+  &.gray-color {
+    color: a.$gray-button-color;
+  }
+
+  &.not-important-color {
+    color: a.$light-gray-button-color;
+  }
+}
