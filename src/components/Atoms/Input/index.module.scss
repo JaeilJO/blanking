@@ -3,78 +3,29 @@
 .input {
   width: 100%;
 
-  background: none;
-
   padding: 1.25em 0.75em;
 
   border-radius: a.$border-radius;
+  border-width: 1px;
+  border-style: solid;
 
   transition: box-shadow 0.25s ease-in-out;
 
+  // Color Theme
   &.primary {
-    background-color: a.$primary-button-color;
-    color: a.$white-color;
-
-    &::placeholder {
-      color: a.$white-color;
-    }
+    border-color: a.$primary-button-color;
   }
-
   &.default {
-    background-color: a.$text-color;
-    color: a.$white-color;
-
-    &::placeholder {
-      color: a.$white-color;
-    }
+    border-color: a.$text-color;
   }
-
   &.gray {
-    background-color: a.$light-gray-button-color;
-    color: a.$text-color;
-
-    &::placeholder {
-      color: a.$text-color;
-    }
+    border-color: a.$light-gray-button-color;
   }
-
   &.warn {
-    background-color: a.$red-button-color;
-    color: a.$white-color;
-
-    &::placeholder {
-      color: a.$white-color;
-    }
+    border-color: a.$red-button-color;
   }
 
-  &.border {
-    border-width: 1px;
-    border-style: solid;
-    background-color: a.$white-color;
-    color: a.$text-color;
-
-    &::placeholder {
-      color: a.$text-color;
-    }
-
-    &.primary {
-      border-color: a.$primary-button-color;
-    }
-    &.default {
-      border-color: a.$text-color;
-    }
-    &.gray {
-      border-color: a.$light-gray-button-color;
-    }
-    &.warn {
-      border-color: a.$red-button-color;
-    }
-  }
-
-  &:disabled {
-    color: a.$gray-button-color;
-  }
-
+  // Text Alignment
   &.left {
     text-align: left;
   }
@@ -85,8 +36,21 @@
     text-align: center;
   }
 
+  // Disabled
+  &:disabled {
+    color: a.$gray-button-color;
+    border-color: a.$gray-button-color;
+
+    background: a.$gray-button-hover-color;
+
+    &::placeholder {
+      color: a.$gray-button-color;
+    }
+  }
+
   &::placeholder {
     @include a.typhography("body-01");
+    color: a.$text-color;
   }
 
   &:focus {
