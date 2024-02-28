@@ -1,6 +1,9 @@
 @use "@style/abstracts" as a;
 
 .sub-title {
+  display: flex;
+  align-items: center;
+
   &.sub-title-01 {
     @include a.typhography("sub-01");
   }
@@ -22,15 +25,15 @@
   }
 
   &.left {
-    text-align: left;
+    justify-content: flex-start;
   }
 
   &.center {
-    text-align: center;
+    justify-content: center;
   }
 
   &.right {
-    text-align: right;
+    justify-content: flex-end;
   }
 
   &.displayInline {
@@ -49,7 +52,14 @@
     color: a.$gray-button-color;
   }
 
-  &.not-important-color {
+  &.light-gray-color {
     color: a.$light-gray-button-color;
+  }
+
+  &.no-drag {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
