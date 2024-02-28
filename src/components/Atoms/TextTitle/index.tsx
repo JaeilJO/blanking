@@ -1,15 +1,7 @@
 // Style
 import classNames from "classnames/bind";
 import style from "./index.module.scss";
-
-interface TextTitleProps {
-  children: React.ReactNode;
-  weight?: "light" | "regular" | "bold";
-  textAlign?: "left" | "center" | "right";
-  display: "block" | "inline";
-  level: "01" | "02" | "03";
-  color: "default" | "primary" | "not-important" | "gray";
-}
+import { TextTitleProps } from "./index.type";
 
 const cn = classNames.bind(style);
 
@@ -20,10 +12,11 @@ function TextTitle({
   display = "block",
   level = "01",
   color = "default",
+  noDrag = false,
 }: TextTitleProps) {
   // ClassName 설정
 
-  const className = cn("title", `title-${level}`, {
+  const textTitleClassName = cn("title", `title-${level}`, {
     light: weight === "light",
     regular: weight === "regular",
     bold: weight === "bold",
@@ -36,11 +29,13 @@ function TextTitle({
 
     "defulat-color": color === "default",
     "primary-color": color === "primary",
-    "not-important-color": color === "not-important",
+    "light-gray-color": color === "light-gray",
     "gray-color": color === "gray",
+
+    "no-drag": noDrag,
   });
 
-  return <h1 className={className}>{children}</h1>;
+  return <h1 className={textTitleClassName}>{children}</h1>;
 }
 
 export default TextTitle;

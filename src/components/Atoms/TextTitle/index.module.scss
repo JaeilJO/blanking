@@ -1,6 +1,9 @@
 @use "@style/abstracts" as a;
 
 .title {
+  display: flex;
+  align-items: center;
+
   &.title-01 {
     @include a.typhography("tit-01");
   }
@@ -53,7 +56,14 @@
     color: a.$gray-button-color;
   }
 
-  &.not-important-color {
+  &.light-gray-color {
     color: a.$light-gray-button-color;
+  }
+
+  &.no-drag {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
