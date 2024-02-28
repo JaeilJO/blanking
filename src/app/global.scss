@@ -8,8 +8,13 @@
 
 html {
   font-size: 62.6%;
-  box-sizing: border-box;
 }
+
+button,
+input {
+  font-family: inherit;
+}
+
 body {
   background-color: a.$background-color;
   margin: 0;
@@ -31,14 +36,18 @@ button {
   margin: 0;
   padding: 0;
   border: none;
+
   background-color: transparent;
   &:focus {
     outline: none;
   }
 }
 a {
+  color: #fff;
   text-decoration: none;
-  color: a.$text-color;
+  font-stretch: 100%;
+  padding: 0;
+  margin: 0;
 }
 div,
 span,
