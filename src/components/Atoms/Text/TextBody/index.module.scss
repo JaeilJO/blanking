@@ -1,8 +1,13 @@
+@use "../Common/common";
 @use "@style/abstracts" as a;
 
 .body {
-  display: flex;
-  align-items: center;
+  @include common.text-weight;
+  @include common.text-align;
+  @include common.text-theme;
+  @include common.text-inline;
+  @include common.text-block;
+  @include common.text-no-drag;
 
   &.body-01 {
     @include a.typhography("body-01");
@@ -10,56 +15,5 @@
 
   &.body-02 {
     @include a.typhography("body-02");
-  }
-
-  &.light {
-    font-weight: 300;
-  }
-
-  &.regular {
-    font-weight: 400;
-  }
-
-  &.bold {
-    font-weight: 700;
-  }
-
-  &.left {
-    text-align: left;
-  }
-
-  &.center {
-    text-align: center;
-  }
-
-  &.right {
-    text-align: right;
-  }
-
-  &.displayInline {
-    display: inline;
-  }
-
-  &.default-color {
-    color: a.$text-color;
-  }
-
-  &.primary-color {
-    color: a.$primary-button-color;
-  }
-
-  &.gray-color {
-    color: a.$gray-button-color;
-  }
-
-  &.light-gray-color {
-    color: a.$light-gray-button-color;
-  }
-
-  &.no-drag {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 }

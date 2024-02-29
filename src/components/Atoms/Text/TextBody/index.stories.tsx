@@ -13,5 +13,35 @@ type Story = StoryObj<typeof TextBody>;
 export const Primary: Story = {
   args: {
     children: "Body",
+    block: true,
+  },
+};
+
+export const Inline: Story = {
+  args: {
+    children: "Body",
+    block: false,
+  },
+};
+
+export const Warn: Story = {
+  args: {
+    children: "Body",
+    theme: "warn",
+  },
+};
+
+export const LightGray: Story = {
+  args: {
+    children: "Body",
+    theme: "light-gray",
+  },
+};
+
+export const NoDrag: Story = {
+  args: {
+    children: "No Drag",
+    theme: "default",
+    noDrag: true,
   },
 };
