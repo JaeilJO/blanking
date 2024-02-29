@@ -1,8 +1,13 @@
 @use "@style/abstracts" as a;
+@use "../Common/common";
 
 .title {
-  display: flex;
-  align-items: center;
+  @include common.text-weight;
+  @include common.text-align;
+  @include common.text-theme;
+  @include common.text-inline;
+  @include common.text-block;
+  @include common.text-no-drag;
 
   &.title-01 {
     @include a.typhography("tit-01");
@@ -14,56 +19,5 @@
 
   &.title-03 {
     @include a.typhography("tit-03");
-  }
-
-  &.light {
-    font-weight: 300;
-  }
-
-  &.regular {
-    font-weight: 400;
-  }
-
-  &.bold {
-    font-weight: 700;
-  }
-
-  &.left {
-    justify-content: flex-start;
-  }
-
-  &.center {
-    justify-content: center;
-  }
-
-  &.right {
-    justify-content: flex-end;
-  }
-
-  &.displayInline {
-    display: inline;
-  }
-
-  &.default-color {
-    color: a.$text-color;
-  }
-
-  &.primary-color {
-    color: a.$primary-button-color;
-  }
-
-  &.gray-color {
-    color: a.$gray-button-color;
-  }
-
-  &.light-gray-color {
-    color: a.$light-gray-button-color;
-  }
-
-  &.no-drag {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
 }

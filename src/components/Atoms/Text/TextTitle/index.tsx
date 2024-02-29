@@ -9,9 +9,9 @@ function TextTitle({
   children,
   weight = "regular",
   textAlign = "left",
-  display = "block",
+  block = true,
   level = "01",
-  color = "default",
+  theme = "default",
   noDrag = false,
 }: TextTitleProps) {
   // ClassName 설정
@@ -20,10 +20,9 @@ function TextTitle({
     "title",
     `title-${level}`,
     textAlign,
-    display === "inline" && "displayInline",
     weight,
-    `${color}-color`,
-    { "no-drag": noDrag }
+    theme,
+    { "no-drag": noDrag, block: block }
   );
 
   return <h1 className={textTitleClassName}>{children}</h1>;

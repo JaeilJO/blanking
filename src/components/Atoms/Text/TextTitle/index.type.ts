@@ -1,9 +1,5 @@
-export interface TextTitleProps {
-  children: React.ReactNode;
-  weight?: "light" | "regular" | "bold";
-  textAlign?: "left" | "center" | "right";
-  display?: "block" | "inline";
+import CommonTextTypes from "../Common/common.type";
+
+export interface TextTitleProps extends CommonTextTypes {
   level?: "01" | "02" | "03";
-  color?: "default" | "primary" | "light-gray" | "gray";
-  noDrag?: boolean;
 }
