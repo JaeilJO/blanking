@@ -47,6 +47,7 @@
   // fill Button의 기본 font 컬러
   color: a.$white-color;
 
+  // hover와 active 효과를 위한 transition
   transition: background-color 0.25s, box-shadow 0.25s,
     background-color 0.25s ease-in-out;
 

@@ -20,7 +20,6 @@ function FillButton({
 }: ButtonCommonTypes<"box">) {
   const buttonClassName = cn("fill-button", theme, square, {
     block: block,
-
     disabled: props.disabled,
   });
 
