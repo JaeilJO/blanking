@@ -1,0 +1,81 @@
+@use "@style/abstracts" as a;
+
+/**
+  @include common.text-weight;
+  @include common.text-align;
+  @include common.text-theme;
+  @include common.text-inline;
+  @include common.text-block;
+  @include common.text-no-drag;
+*/
+
+@mixin text-weight {
+  &.light {
+    font-weight: 300;
+  }
+
+  &.regular {
+    font-weight: 400;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+}
+
+@mixin text-align {
+  &.left {
+    text-align: left;
+  }
+
+  &.center {
+    text-align: center;
+  }
+
+  &.right {
+    text-align: right;
+  }
+}
+
+@mixin text-theme {
+  &.default {
+    color: a.$text-color;
+  }
+
+  &.primary {
+    color: a.$primary-button-color;
+  }
+
+  &.gray {
+    color: a.$gray-button-color;
+  }
+
+  &.warn {
+    color: a.$red-button-color;
+  }
+
+  &.light-gray {
+    color: a.$light-gray-button-color;
+  }
+}
+
+@mixin text-inline {
+  display: inline-flex;
+  align-items: center;
+}
+
+@mixin text-block {
+  &.block {
+    display: flex;
+    width: 100%;
+  }
+}
+
+@mixin text-no-drag {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+}
