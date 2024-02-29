@@ -2,7 +2,6 @@
 
 /**
   * 복사 후 붙여 넣어주세요.
-  
   @include common.text-weight;
   @include common.text-align;
   @include common.text-theme;
@@ -27,15 +26,15 @@
 
 @mixin text-align {
   &.left {
-    text-align: left;
+    justify-content: flex-start;
   }
 
   &.center {
-    text-align: center;
+    justify-content: center;
   }
 
   &.right {
-    text-align: right;
+    justify-content: flex-end;
   }
 }
 
