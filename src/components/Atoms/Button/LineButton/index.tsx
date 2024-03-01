@@ -16,7 +16,7 @@ function LineButton({
   type = "button",
   href,
   ...props
-}: ButtonCommonTypes<"box">) {
+}: ButtonCommonTypes) {
   const buttonClassName = cn("line-button", theme, square, {
     block,
     disabled: props.disabled,
@@ -33,8 +33,12 @@ function LineButton({
     throw Error("정사각형 버튼을 위해 squareSize가 필요합니다.");
   }
 
+  if (type === "link" && !href) {
+    throw Error("Link 타입의 버튼은 href가 필요합니다.");
+  }
+
   // Link 타입인 경우
-  if (type === "link" && href !== undefined) {
+  if (type === "link" && href) {
     return (
       <Link legacyBehavior href={href}>
         <a style={squareStyle} className={buttonClassName}>

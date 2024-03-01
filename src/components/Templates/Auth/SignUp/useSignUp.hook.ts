@@ -7,7 +7,7 @@ const useSignUp = () => {
   const { success, loading, error } = useAlertStore((state) => state);
   const router = useRouter();
 
-  const onSubmit = async (data: { name: ""; email: ""; password: "" }) => {
+  const onSubmit = async (data: { [key: string]: string }) => {
     try {
       loading("회원가입 중 입니다");
 

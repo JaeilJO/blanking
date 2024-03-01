@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 @use "../../Text/Common/common";
 
 @mixin text-button-theme($color, $hover-color, $active-color) {
@@ -25,9 +25,9 @@
 
   &.default {
     @include text-button-theme(
-      a.$black-color,
-      a.$black-hover-color,
-      a.$black-active-color
+      a.$default-color,
+      a.$default-hover-color,
+      a.$default-active-color
     );
   }
 
@@ -48,11 +48,7 @@
   }
 
   &.warn {
-    @include text-button-theme(
-      a.$red-color,
-      a.$red-hover-color,
-      a.$red-active-color
-    );
+    @include text-button-theme(a.$red-color, a.$red-color, a.$red-active-color);
   }
 
   &.light-gray {

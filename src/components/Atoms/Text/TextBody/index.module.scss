@@ -1,5 +1,5 @@
 @use "../Common/common";
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .body {
   @include common.text-weight;

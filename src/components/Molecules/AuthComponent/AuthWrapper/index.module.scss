@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 .auth-wrapper {
   display: flex;
   flex-direction: column;
@@ -15,9 +15,10 @@
   }
 
   @include a.media-query("small") {
+    width: 100%;
     height: 100dvh;
 
-    padding: 4.89% 4.44%;
+    padding: 24px;
   }
 
   @include a.media-query("middle") {

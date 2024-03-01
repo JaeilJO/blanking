@@ -6,7 +6,7 @@ import style from "./index.module.scss";
 import classNames from "classnames/bind";
 
 type TextBodyButtonProps = Omit<
-  ButtonCommonTypes<"box">,
+  ButtonCommonTypes,
   "square" | "squareSize" | "theme" | "block"
 > &
   Omit<TextBodyProps, "noDrag">;
@@ -36,6 +36,10 @@ function TextBodyButton({
       disabled: disabled,
     }
   );
+
+  if (type === "link" && !href) {
+    throw Error("Link 타입의 버튼은 href가 필요합니다.");
+  }
 
   // Link 타입인 경우
   if (type === "link" && href) {

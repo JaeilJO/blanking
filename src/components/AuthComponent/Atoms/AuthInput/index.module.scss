@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .input-wrapper {
   display: flex;
@@ -13,22 +13,22 @@
 
   padding: 1.25em 0.75em;
 
-  border: 1px solid a.$light-gray-button-color;
+  border: 1px solid a.$light-gray-color;
   border-radius: 4px;
 
   background-color: a.$white-color;
 
   &:focus-within {
-    border: 1px solid a.$primary-button-color;
+    border: 1px solid a.$primary-color;
     box-shadow: a.$basic-shadow;
   }
 
   &.on-text {
-    border: 1px solid a.$primary-button-color;
+    border: 1px solid a.$primary-color;
   }
 
   &.disabled {
-    border: 1px solid a.$gray-button-color;
+    border: 1px solid a.$gray-color;
   }
 }
 
@@ -41,7 +41,7 @@
   @include a.typhography("body-01");
 
   &:disabled {
-    color: a.$gray-button-color;
+    color: a.$gray-color;
   }
 }
 
@@ -51,7 +51,7 @@
   color: a.$text-color;
 
   &.on-text {
-    color: a.$primary-button-color;
+    color: a.$primary-color;
     @include a.typhography("body-01-b");
   }
 }
@@ -59,11 +59,11 @@
 .password-toggle-button {
   display: flex;
 
-  color: a.$gray-button-color;
+  color: a.$gray-color;
 
   &:hover {
     cursor: pointer;
-    color: a.$primary-button-color;
+    color: a.$primary-color;
   }
 
   &:disabled {

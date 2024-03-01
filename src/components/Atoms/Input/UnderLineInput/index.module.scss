@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 @use "../Common/common";
 .input {
   width: 100%;
@@ -7,25 +7,25 @@
 
   border-bottom-width: 2px;
   border-bottom-style: solid;
-  border-bottom-color: a.$light-gray-button-color;
+  border-bottom-color: a.$light-gray-color;
 
   transition: border-color 0.25s ease-in-out;
 
   &::placeholder {
-    color: a.$black-button-color;
+    color: a.$default-color;
   }
 
   &:disabled {
     background: none;
-    border-color: a.$light-gray-button-color;
-    color: a.$light-gray-button-color;
+    border-color: a.$light-gray-color;
+    color: a.$light-gray-color;
     &::placeholder {
-      color: a.$light-gray-button-color;
+      color: a.$light-gray-color;
     }
   }
 
   &:focus {
-    border-color: a.$black-button-color;
+    border-color: a.$default-color;
   }
 
   @include common.text-align();

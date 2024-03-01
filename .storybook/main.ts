@@ -21,9 +21,10 @@ const config: StorybookConfig = {
     if (config?.resolve?.alias) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        "@style": path.resolve(__dirname, "../src/style"),
-        "@components": path.resolve(__dirname, "../src/components"),
-        "@": path.resolve(__dirname, "../src"),
+        "@/style": path.resolve(__dirname, "../src/style"),
+        "@/components": path.resolve(__dirname, "../src/components"),
+        "@/": path.resolve(__dirname, "../src"),
+        "next/navigation": require.resolve("./__mock__/next/navigation.js"),
       };
     }
 

@@ -3,7 +3,7 @@ type CommonTextTypes = {
   block?: boolean;
   weight?: "light" | "regular" | "bold";
   textAlign?: "left" | "center" | "right";
-  theme?: "default" | "primary" | "gray " | "warn" | "light-gray";
+  theme?: "default" | "primary" | "gray " | "warn" | "white" | "light-gray";
   noDrag?: boolean;
 };
 

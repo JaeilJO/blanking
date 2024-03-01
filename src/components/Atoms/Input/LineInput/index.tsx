@@ -1,10 +1,10 @@
 "use client";
 
-import style from "./index.module.scss";
 import classNames from "classnames/bind";
-import { useState } from "react";
+import style from "./index.module.scss";
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 import { LineInputProps } from "./index.type";
+import { useState } from "react";
 
 const cn = classNames.bind(style);
 

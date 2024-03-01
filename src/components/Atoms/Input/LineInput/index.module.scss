@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 @use "../Common/common";
 .input {
   width: 100%;
@@ -8,16 +8,16 @@
 
   // Disabled
   &:disabled {
-    color: a.$light-gray-button-color;
+    color: a.$light-gray-color;
 
     &::placeholder {
-      color: a.$light-gray-button-color;
+      color: a.$light-gray-color;
     }
   }
 
   &::placeholder {
     @include a.typhography("body-01");
-    color: a.$light-gray-button-color;
+    color: a.$light-gray-color;
   }
 
   @include common.text-align();
@@ -32,7 +32,7 @@
   border-radius: a.$border-radius;
   border-width: 1px;
   border-style: solid;
-  border-color: a.$light-gray-button-color;
+  border-color: a.$light-gray-color;
 
   padding: 1.25em 0.75em;
 
@@ -43,22 +43,22 @@
     box-shadow: a.$basic-shadow;
 
     &.primary {
-      border-color: a.$primary-button-color;
+      border-color: a.$primary-color;
     }
     &.default {
       border-color: a.$text-color;
     }
     &.gray {
-      border-color: a.$gray-button-color;
+      border-color: a.$gray-color;
     }
     &.warn {
-      border-color: a.$red-button-color;
+      border-color: a.$red-color;
     }
   }
 
   // Disabled
   &.disabled {
-    border-color: a.$light-gray-button-color;
+    border-color: a.$light-gray-color;
   }
 
   @include a.typhography("body-01");
@@ -74,16 +74,16 @@
   cursor: pointer;
 
   &:hover {
-    color: a.$black-button-hover-color;
+    color: a.$default-hover-color;
   }
 
   &:disabled {
     pointer-events: none;
-    color: a.$light-gray-button-color;
+    color: a.$light-gray-color;
   }
 
   &:active {
-    color: a.$black-button-active-color;
+    color: a.$default-active-color;
   }
 
   @include a.typhography("body-01");

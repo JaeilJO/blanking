@@ -1,20 +1,18 @@
 "use client";
 
-import Button from "@/components/Atoms/Button";
-import Form from "@/components/Atoms/Form";
-import Text from "@/components/Atoms/Text";
-import InputWithLabel from "@/components/Molecules/AuthComponent/InputWidthLabel";
-
 import useForm from "@/hooks/useForm";
-
+import useSignUp from "./useSignUp.hook";
+import AuthWrapper from "@/components/Molecules/AuthComponent/AuthWrapper";
 import TitleWithSubtitle from "@/components/Molecules/AuthComponent/TitleWithSubTitle";
+import Form from "@/components/Atoms/Form";
+import InputWithLabel from "@/components/Molecules/AuthComponent/InputWithLabel";
+import Button from "@/components/Atoms/Button";
 import SocilaAccountSignInButtons from "@/components/Organisms/AuthComponent/SocialAccountSignInButtons";
 import { BsGoogle } from "react-icons/bs";
-import useSignUp from "@/components/AuthComponent/Organisms/AuthSignUpForm/logic/useSignUp";
-import AuthWrapper from "@/components/Molecules/AuthComponent/AuthWrapper";
+import Text from "@/components/Atoms/Text";
 
 function AuthSignUpTemplate() {
-  const { register, handleSubmit, values } = useForm({
+  const { register, handleSubmit } = useForm({
     name: "",
     email: "",
     password: "",

@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .button {
   display: flex;
@@ -14,14 +14,14 @@
 
   cursor: pointer;
 
-  border-bottom: 1px solid a.$light-gray-button-color;
+  border-bottom: 1px solid a.$light-gray-color;
 
   transition: background-color 0.25s ease-in-out;
 
   overflow: hidden;
 
   &:hover {
-    background-color: a.$light-gray-button-color;
+    background-color: a.$light-gray-color;
     color: a.$text-color;
   }
 

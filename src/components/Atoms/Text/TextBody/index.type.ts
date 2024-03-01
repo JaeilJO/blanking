@@ -1,5 +1,5 @@
 import CommonTextTypes from "../Common/common.type";
 
-export interface TextSubTitleProps extends CommonTextTypes {
+export interface TextBodyProps extends CommonTextTypes {
   level: "01" | "02";
 }

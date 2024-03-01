@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .modal_wrapper {
   background-color: a.$white-color;
@@ -39,7 +39,7 @@
 .warning {
   @include a.typhography("body-02");
   b {
-    color: a.$primary-button-color;
+    color: a.$primary-color;
   }
 }
 
@@ -52,16 +52,16 @@
 }
 
 .submit_button {
-  background-color: a.$primary-button-color;
+  background-color: a.$primary-color;
   transition: background-color 0.25s ease-in-out;
   margin-bottom: 8px;
   &:hover {
-    background-color: a.$primary-button-hover-color;
+    background-color: a.$primary-hover-color;
   }
 }
 
 .cancel_button {
-  background-color: a.$light-gray-button-color;
+  background-color: a.$light-gray-color;
   transition: border 0.25s, color 0.3s ease-in-out;
   border: 1px solid a.$white-color;
 

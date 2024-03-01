@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .modal_wrapper {
   background-color: white;
@@ -32,7 +32,7 @@
 
 .guide_text {
   @include a.typhography("body-02");
-  color: a.$gray-button-color;
+  color: a.$gray-color;
   b {
     color: a.$text-color;
   }
@@ -48,13 +48,13 @@
   transition: background-color ease-in-out 0.2s;
   color: a.$white-color;
 
-  background-color: a.$primary-button-color;
+  background-color: a.$primary-color;
 
   border-radius: 4px;
 
   margin-bottom: 12px;
   &:hover {
-    background-color: a.$primary-button-hover-color;
+    background-color: a.$primary-hover-color;
   }
 }
 .close_button {
@@ -62,7 +62,7 @@
 
   padding: 8px;
 
-  background-color: a.$light-gray-button-color;
+  background-color: a.$light-gray-color;
 
   @include a.typhography("body-01");
   cursor: pointer;

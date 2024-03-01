@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 .modal_wrapper {
   background-color: a.$white-color;
   max-width: 300px;
@@ -37,7 +37,7 @@
   transition: (boder-color, background-color) 0.2s ease-in-out;
 
   @include a.typhography("body-01");
-  color: a.$primary-button-color;
+  color: a.$primary-color;
   text-align: center;
   word-wrap: break-word;
 }
@@ -48,7 +48,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: 8px;
-  color: a.$red-button-color;
+  color: a.$red-color;
   padding: 8px;
   border-radius: 4px;
   @include a.typhography("body-02");
@@ -83,7 +83,7 @@
   @include a.typhography("body-01");
   color: a.$white-color;
   border-radius: 4px;
-  background-color: a.$red-button-color;
+  background-color: a.$red-color;
 
   width: 100%;
   height: 50px;
@@ -100,14 +100,14 @@
   @include a.typhography("body-01");
   color: a.$white-color;
   border-radius: 4px;
-  background-color: a.$light-gray-button-color;
+  background-color: a.$light-gray-color;
   border: 1px solid a.$white-color;
   width: 100%;
   height: 50px;
   cursor: pointer;
   transition: (border-color, color) 0.2s ease-in-out;
   &:hover {
-    border-color: a.$gray-button-color;
-    color: a.$gray-button-color;
+    border-color: a.$gray-color;
+    color: a.$gray-color;
   }
 }

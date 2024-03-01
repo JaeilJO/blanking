@@ -1,7 +1,7 @@
 // Style
 import style from "./index.module.scss";
 import classNames from "classnames/bind";
-import { TextSubTitleProps } from "./index.type";
+import { TextBodyProps } from "./index.type";
 
 const cn = classNames.bind(style);
 
@@ -13,7 +13,7 @@ function TextSubTitle({
   level = "01",
   theme = "default",
   noDrag = false,
-}: TextSubTitleProps) {
+}: TextBodyProps) {
   // ClassName 설정
   const className = cn("body", `body-${level}`, weight, textAlign, theme, {
     "no-drag": noDrag,

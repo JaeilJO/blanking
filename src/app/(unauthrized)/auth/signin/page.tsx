@@ -1,7 +1,7 @@
-import SignInTemplate from "@/components/AuthComponent/Templates/SignInTemplate";
+import AuthSignInTemplate from "@/components/Templates/Auth/SignIn/index";
 
 function Page() {
-  return <SignInTemplate />;
+  return <AuthSignInTemplate />;
 }
 
 export default Page;

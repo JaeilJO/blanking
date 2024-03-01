@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import AuthSignUpTemplate from ".";
+import useSignUp from "./useSignUp.hook";
 
 const meta: Meta<typeof AuthSignUpTemplate> = {
   component: AuthSignUpTemplate,

@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .flex-box {
   &.box-shadow {
@@ -30,7 +30,7 @@
   }
 
   &.border-default {
-    border: 1px solid a.$black-color;
+    border: 1px solid a.$default-color;
   }
 
   &.border-primary {

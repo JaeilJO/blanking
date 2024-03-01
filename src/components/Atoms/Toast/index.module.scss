@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 @mixin toast-color(
   $background-color,
@@ -41,25 +41,25 @@
 
   &.success {
     @include toast-color(
-      a.$green-button-color,
-      a.$green-button-hover-color,
-      a.$green-button-active-color,
+      a.$green-color,
+      a.$green-hover-color,
+      a.$green-active-color,
       a.$white-color
     );
   }
   &.error {
     @include toast-color(
-      a.$red-button-color,
-      a.$red-button-hover-color,
-      a.$red-button-active-color,
+      a.$red-color,
+      a.$red-hover-color,
+      a.$red-active-color,
       a.$white-color
     );
   }
   &.loading {
     @include toast-color(
-      a.$yellow-button-color,
-      a.$yellow-button-hover-color,
-      a.$yellow-button-active-color,
+      a.$yellow-color,
+      a.$yellow-hover-color,
+      a.$yellow-active-color,
       a.$text-color
     );
   }

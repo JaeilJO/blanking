@@ -15,8 +15,8 @@ async function Layout({ children }: { children: React.ReactNode }) {
 
   if (session) {
     //이름이 한글일 수 도 있으니까 인코딩 해준다.
-    const encodedText = encodeURIComponent(session?.user?.name as string);
-    redirect(`/user/${encodedText}`);
+    const encodedText = encodeURIComponent(session?.user?.name || "");
+    return redirect(`/user/${encodedText}`);
   }
 
   return (

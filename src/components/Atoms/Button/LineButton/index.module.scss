@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 @use "../Common/common";
 
 // Theme Style
@@ -25,15 +25,15 @@
   }
 
   &:active {
-    background-color: a.$light-gray-button-active-color;
+    background-color: a.$light-gray-active-color;
   }
 }
 
 // Disabled Theme
 @mixin disabled-theme {
-  border-color: a.$light-gray-button-color;
+  border-color: a.$light-gray-color;
 
-  color: a.$light-gray-button-color;
+  color: a.$light-gray-color;
 
   pointer-events: none;
 }
@@ -58,34 +58,30 @@
 
   &.primary {
     @include theme-style(
-      a.$primary-button-color,
-      a.$primary-button-hover-color,
-      a.$primary-button-active-color
+      a.$primary-color,
+      a.$primary-hover-color,
+      a.$primary-active-color
     );
   }
 
   &.default {
     @include theme-style(
-      a.$black-button-color,
-      a.$black-button-hover-color,
-      a.$black-button-active-color
+      a.$default-color,
+      a.$default-hover-color,
+      a.$default-active-color
     );
   }
 
   &.gray {
     @include theme-style(
-      a.$gray-button-color,
-      a.$gray-button-hover-color,
-      a.$gray-button-active-color
+      a.$gray-color,
+      a.$gray-hover-color,
+      a.$gray-active-color
     );
   }
 
   &.warn {
-    @include theme-style(
-      a.$red-button-color,
-      a.$red-button-hover-color,
-      a.$red-button-active-color
-    );
+    @include theme-style(a.$red-color, a.$red-hover-color, a.$red-active-color);
   }
 
   &.transparent {

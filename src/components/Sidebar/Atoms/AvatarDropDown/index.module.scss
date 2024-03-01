@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .dropdown {
   position: absolute;
@@ -49,7 +49,7 @@
   transition: background-color 0.25s ease-in-out;
 
   &:hover {
-    background-color: a.$light-gray-button-color;
+    background-color: a.$light-gray-color;
   }
 
   @include a.typhography("body-01");
