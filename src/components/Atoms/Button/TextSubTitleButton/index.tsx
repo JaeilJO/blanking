@@ -6,7 +6,7 @@ import classNames from "classnames/bind";
 import { TextSubTitleProps } from "../../Text/TextSubTitle/index.type";
 
 type TextSubTitleButtonProps = Omit<
-  ButtonCommonTypes<"box">,
+  ButtonCommonTypes,
   "square" | "squareSize" | "theme" | "block"
 > &
   Omit<TextSubTitleProps, "noDrag">;
