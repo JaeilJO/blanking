@@ -21,7 +21,7 @@ type Story = StoryObj<typeof ColoumForm>;
 
 export const Primary: Story = {
   args: {
-    gap: 10,
+    gap: 4,
     children: (
       <>
         <Input.LineInput />
