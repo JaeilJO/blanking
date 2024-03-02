@@ -1,0 +1,44 @@
+@use "@/style/abstracts" as a;
+
+.background {
+  background-color: a.$modal-background-color;
+
+  z-index: 99999999999;
+
+  width: 100dvw;
+  height: 100dvh;
+
+  position: absolute;
+}
+
+.modal {
+  position: relative;
+
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  max-width: 300px;
+
+  background-color: a.$white-color;
+  border-radius: a.$border-radius;
+
+  padding: a.$spacing-value-3;
+
+  animation: ShowModal 0.5s ease-in-out forwards;
+}
+
+@keyframes ShowModal {
+  0% {
+    opacity: 0;
+    top: 45%;
+  }
+
+  50% {
+    top: 52%;
+  }
+
+  100% {
+    top: 50%;
+  }
+}
