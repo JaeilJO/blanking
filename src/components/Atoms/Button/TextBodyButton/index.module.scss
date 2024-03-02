@@ -12,6 +12,14 @@
 }
 
 .text-button {
+  &.body-01 {
+    @include a.typhography("body-01");
+  }
+
+  &.body-02 {
+    @include a.typhography("body-02");
+  }
+
   @include common.text-weight;
   @include common.text-align;
 
@@ -61,13 +69,5 @@
   &.disabled {
     pointer-events: none;
     color: a.$light-gray-color;
-  }
-
-  &.body-01 {
-    @include a.typhography("body-01");
-  }
-
-  &.body-02 {
-    @include a.typhography("body-02");
   }
 }

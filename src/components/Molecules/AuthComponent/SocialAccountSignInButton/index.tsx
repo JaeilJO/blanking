@@ -5,11 +5,13 @@ import Button from "@/components/Atoms/Button";
 export interface SocialAccountSignInButtonProps {
   social: string;
   icon: React.ReactNode;
+  disabled?: boolean;
 }
 
 function SocialAccountSignInButton({
   social,
   icon,
+  disabled,
 }: SocialAccountSignInButtonProps) {
   return (
     <Button.FillButton
@@ -18,6 +20,7 @@ function SocialAccountSignInButton({
       theme="transparent"
       square={true}
       squareSize={60}
+      disabled={disabled}
     >
       <Text.Body textAlign="center" level="01" theme="primary">
         {icon}

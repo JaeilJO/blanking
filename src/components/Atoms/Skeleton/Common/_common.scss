@@ -1,0 +1,12 @@
+@use "@/style/abstracts" as a;
+@mixin backgroundAnimation {
+  animation: backgroundAnimation 1s infinite alternate ease-in-out;
+}
+@keyframes backgroundAnimation {
+  0% {
+    background-color: a.$background-color;
+  }
+  100% {
+    background-color: a.$light-gray-color;
+  }
+}

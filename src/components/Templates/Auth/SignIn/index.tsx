@@ -10,42 +10,16 @@ import TitleWithSubtitle from "@/components/Molecules/AuthComponent/TitleWithSub
 import SocilaAccountSignInButtons from "@/components/Organisms/AuthComponent/SocialAccountSignInButtons";
 
 import useForm from "@/hooks/useForm";
-import { useAlertStore } from "@/zustand/alertStore";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
+import useSignIn from "./useSignIn.hook";
+import FlexBox from "@/components/Atoms/FlexBox";
 
 function AuthSignInTemplate() {
   const { register, handleSubmit } = useForm({
     email: "",
     password: "",
   });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const router = useRouter();
-
-  const { error, loading, success } = useAlertStore((state) => state);
-
-  const onSubmit = async (data: { [key: string]: string }) => {
-    loading("로그인 중 입니다.");
-    setIsLoading(true);
-    const res = await signIn("credentials", {
-      ...data,
-      redirect: false,
-    });
-
-    if (res?.ok) {
-      success(`환영합니다`);
-
-      router.replace(`/user/`);
-    }
-
-    if (!res?.ok) {
-      error("이메일 혹은 비밀번호를 확인해주세요");
-      setIsLoading(false);
-    }
-  };
+  const { isLoading, onSubmit } = useSignIn();
 
   return (
     <AuthWrapper>
@@ -53,24 +27,52 @@ function AuthSignInTemplate() {
         title="Sign In"
         subtitle="다시 찾아주셔서 감사합니다"
       />
+      <FlexBox flexDirection="column" gap={4}>
+        <Form.ColoumForm gap={20} onSubmit={handleSubmit(onSubmit)}>
+          <InputWithLabel
+            theme="primary"
+            label="E-mail"
+            name="email"
+            {...register("email")}
+            disabled={isLoading}
+          />
+          <InputWithLabel
+            theme="primary"
+            label="Password"
+            type="password"
+            name="password"
+            {...register("password")}
+            disabled={isLoading}
+          />
+          <Button.FillButton type="submit" theme="primary" disabled={isLoading}>
+            <Text.Body
+              level="01"
+              weight="bold"
+              theme="white"
+              textAlign="center"
+            >
+              Sign In
+            </Text.Body>
+          </Button.FillButton>
+        </Form.ColoumForm>
 
-      <Form.ColoumForm gap={20} onSubmit={handleSubmit(onSubmit)}>
-        <InputWithLabel label="E-mail" name="email" {...register("email")} />
-        <InputWithLabel
-          label="Password"
-          type="password"
-          name="password"
-          {...register("password")}
-        />
-        <Button.FillButton type="submit" theme="primary">
-          <Text.Body level="01" weight="bold" theme="white" textAlign="center">
-            Sign In
-          </Text.Body>
-        </Button.FillButton>
-      </Form.ColoumForm>
+        <Button.TextBodyButton
+          block={true}
+          level="01"
+          textAlign="center"
+          theme="primary"
+          weight="bold"
+          type={"link"}
+          href={"/auth/checkemail"}
+          disabled={isLoading}
+        >
+          비밀번호를 잊어버리셨나요?
+        </Button.TextBodyButton>
+      </FlexBox>
 
       <SocilaAccountSignInButtons
         socials={[{ social: "google", icon: <BsGoogle /> }]}
+        disabled={isLoading}
       />
 
       <Button.TextBodyButton
@@ -81,6 +83,7 @@ function AuthSignInTemplate() {
         weight="bold"
         type={"link"}
         href={"/auth/signup"}
+        disabled={isLoading}
       >
         계정이 없으신가요?
       </Button.TextBodyButton>

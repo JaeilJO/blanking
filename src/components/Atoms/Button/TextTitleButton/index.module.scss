@@ -13,6 +13,17 @@
 }
 
 .text-button {
+  &.tit-01 {
+    @include a.typhography("tit-01");
+  }
+
+  &.tit-02 {
+    @include a.typhography("tit-02");
+  }
+
+  &.tit-03 {
+    @include a.typhography("tit-03");
+  }
   @include common.text-weight;
   @include common.text-align;
 
@@ -57,17 +68,6 @@
       a.$light-gray-hover-color,
       a.$light-gray-active-color
     );
-  }
-  &.tit-01 {
-    @include a.typhography("tit-01");
-  }
-
-  &.tit-02 {
-    @include a.typhography("tit-02");
-  }
-
-  &.tit-03 {
-    @include a.typhography("tit-03");
   }
 
   &.disabled {

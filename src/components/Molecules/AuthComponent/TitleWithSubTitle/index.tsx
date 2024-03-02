@@ -12,9 +12,9 @@ function TitleWithSubtitle({ title, subtitle }: TitleWithSubtitleProps) {
       <Text.Title level="02" weight="bold">
         {title}
       </Text.Title>
-      <Text.SubTitle level="02" weight="light">
+      <Text.Body level="01" weight="light">
         {subtitle}
-      </Text.SubTitle>
+      </Text.Body>
     </FlexBox>
   );
 }

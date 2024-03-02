@@ -2,15 +2,18 @@ import { useAlertStore } from "@/zustand/alertStore";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { signUp } from "@/services/signUpService";
+import { useState } from "react";
 
 const useSignUp = () => {
   const { success, loading, error } = useAlertStore((state) => state);
+  const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
 
   const onSubmit = async (data: { [key: string]: string }) => {
     try {
       loading("회원가입 중 입니다");
-
+      setIsLoading(true);
       await signUp(data);
 
       success("회원가입이 완료되었습니다.");
@@ -38,10 +41,11 @@ const useSignUp = () => {
           error("회원가입에 실패했습니다. 새로고침 후 다시 시도해주세요");
         }
       }
+      setIsLoading(false);
     }
   };
 
-  return { onSubmit };
+  return { isLoading, onSubmit };
 };
 
 export default useSignUp;

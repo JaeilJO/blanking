@@ -6,10 +6,12 @@ import SocialAccountSignInButton, {
 
 interface SocilaAccountSignInButtonsProps {
   socials: SocialAccountSignInButtonProps[];
+  disabled?: boolean;
 }
 
 function SocilaAccountSignInButtons({
   socials,
+  disabled,
 }: SocilaAccountSignInButtonsProps) {
   return (
     <FlexBox
@@ -27,6 +29,7 @@ function SocilaAccountSignInButtons({
           key={social.social}
           social={social.social}
           icon={social.icon}
+          disabled={disabled}
         />
       ))}
     </FlexBox>

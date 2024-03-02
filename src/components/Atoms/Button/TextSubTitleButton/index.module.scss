@@ -13,6 +13,13 @@
 }
 
 .text-button {
+  &.sub-01 {
+    @include a.typhography("sub-01");
+  }
+
+  &.sub-02 {
+    @include a.typhography("sub-02");
+  }
   @include common.text-weight;
   @include common.text-align;
 
@@ -57,13 +64,6 @@
       a.$light-gray-hover-color,
       a.$light-gray-active-color
     );
-  }
-  &.sub-01 {
-    @include a.typhography("sub-01");
-  }
-
-  &.sub-02 {
-    @include a.typhography("sub-02");
   }
 
   &.disabled {
