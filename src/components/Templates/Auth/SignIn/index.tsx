@@ -28,7 +28,7 @@ function AuthSignInTemplate() {
         subtitle="다시 찾아주셔서 감사합니다"
       />
       <FlexBox flexDirection="column" gap={4}>
-        <Form.ColoumForm gap={20} onSubmit={handleSubmit(onSubmit)}>
+        <Form.ColoumForm gap={2} onSubmit={handleSubmit(onSubmit)}>
           <InputWithLabel
             theme="primary"
             label="E-mail"

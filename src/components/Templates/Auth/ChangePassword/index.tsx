@@ -27,7 +27,7 @@ function ChangePasswordTemplate({ subkey }: { subkey: string }) {
       />
 
       <FlexBox flexDirection="column" gap={3}>
-        <Form.ColoumForm gap={20} onSubmit={handleSubmit(onSubmit)}>
+        <Form.ColoumForm gap={2} onSubmit={handleSubmit(onSubmit)}>
           <InputWithLabel
             label="Password"
             theme="primary"

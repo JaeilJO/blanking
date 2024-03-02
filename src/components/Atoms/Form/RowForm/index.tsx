@@ -1,15 +1,20 @@
+import SpacingTypes from "@/style/designSystem/spacing/spacing.type";
 import style from "./index.module.scss";
+import classNames from "classnames/bind";
 
 interface RowFormProps extends React.HTMLAttributes<HTMLFormElement> {
   /**
    * px단위로 간격을 설정합니다.
    */
-  gap: number;
+  gap: SpacingTypes;
 }
 
+const cn = classNames.bind(style);
+
 function RowForm({ children, gap, ...props }: RowFormProps) {
+  const formClass = cn("form", `gap-${gap}`);
   return (
-    <form style={{ gap: gap }} className={style["form"]} {...props}>
+    <form className={formClass} {...props}>
       {children}
     </form>
   );

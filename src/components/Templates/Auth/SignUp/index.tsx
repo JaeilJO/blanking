@@ -26,7 +26,7 @@ function AuthSignUpTemplate() {
     <AuthWrapper>
       <TitleWithSubtitle title="Sign Up" subtitle="환영합니다" />
 
-      <Form.ColoumForm gap={20} onSubmit={handleSubmit(onSubmit)}>
+      <Form.ColoumForm gap={2} onSubmit={handleSubmit(onSubmit)}>
         <InputWithLabel
           {...register("name")}
           theme="primary"

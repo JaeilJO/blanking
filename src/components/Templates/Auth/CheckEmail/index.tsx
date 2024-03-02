@@ -26,7 +26,7 @@ function CheckEmailTemplate() {
         subtitle="이메일 확인 후 비밀번호 변경을 진행합니다."
       />
 
-      <Form.ColoumForm gap={20} onSubmit={handleSubmit(onSubmit)}>
+      <Form.ColoumForm gap={2} onSubmit={handleSubmit(onSubmit)}>
         <InputWithLabel
           label="E-mail"
           theme="primary"
