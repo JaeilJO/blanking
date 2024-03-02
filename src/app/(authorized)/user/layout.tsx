@@ -35,13 +35,11 @@ async function Layout({
   changeGroupNameModal: React.ReactNode;
   changePageNameModal: React.ReactNode;
 }) {
+  console.log("JHHH");
   const session = await getServerSession(NextAuthOption);
   const subkey = session?.user.subkey || "";
   const queryClient = new QueryClient();
 
-  if (!session) {
-    redirect(`/auth/signin`);
-  }
   if (subkey) {
     await queryClient.prefetchQuery({
       queryKey: ["groups"],

@@ -26,8 +26,8 @@ function ChangePasswordTemplate({ subkey }: { subkey: string }) {
         subtitle="비밀번호 변경을 진행합니다."
       />
 
-      <FlexBox flexDirection="column" gap={3}>
-        <Form.ColoumForm gap={2} onSubmit={handleSubmit(onSubmit)}>
+      <FlexBox flexDirection="column" gap={4}>
+        <Form.ColoumForm gap={4} onSubmit={handleSubmit(onSubmit)}>
           <InputWithLabel
             label="Password"
             theme="primary"
