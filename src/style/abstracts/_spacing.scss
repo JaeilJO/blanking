@@ -1,13 +1,22 @@
-$spacing-values: (
-  1: 8px,
-  2: 12px,
-  3: 16px,
-  4: 24px,
-  5: 32px,
-  6: 42px,
-  7: 48px,
-);
+$spacing-value-0: 0;
+$spacing-value-1: 8px;
+$spacing-value-2: 12px;
+$spacing-value-3: 16px;
+$spacing-value-4: 24px;
+$spacing-value-5: 32px;
+$spacing-value-6: 42px;
+$spacing-value-7: 48px;
 
+$spacing-values: (
+  0: $spacing-value-0,
+  1: $spacing-value-1,
+  2: $spacing-value-2,
+  3: $spacing-value-3,
+  4: $spacing-value-4,
+  5: $spacing-value-5,
+  6: $spacing-value-6,
+  7: $spacing-value-7,
+);
 @mixin spacing-vertical($level) {
   $value: map-get($spacing-values, $level);
   padding-top: $value;

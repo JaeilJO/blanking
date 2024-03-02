@@ -13,6 +13,8 @@ function TextTitle({
   level = "01",
   theme = "default",
   noDrag = false,
+  style,
+  whiteSpace = false,
 }: TextTitleProps) {
   // ClassName 설정
 
@@ -22,10 +24,14 @@ function TextTitle({
     textAlign,
     weight,
     theme,
-    { "no-drag": noDrag, block: block }
+    { "no-drag": noDrag, block: block, "white-space": whiteSpace }
   );
 
-  return <h1 className={textTitleClassName}>{children}</h1>;
+  return (
+    <h1 style={style} className={textTitleClassName}>
+      {children}
+    </h1>
+  );
 }
 
 export default TextTitle;

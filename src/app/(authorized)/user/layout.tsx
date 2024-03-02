@@ -1,7 +1,7 @@
 // Utils
 import { NextAuthOption } from "@/lib/nextAuth/auth";
 import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+
 import dynamic from "next/dynamic";
 import {
   HydrationBoundary,
@@ -26,6 +26,7 @@ async function Layout({
   deletePageModal,
   changeGroupNameModal,
   changePageNameModal,
+  logoutModal,
 }: {
   children: React.ReactNode;
   createGroupModal: React.ReactNode;
@@ -34,8 +35,8 @@ async function Layout({
   deletePageModal: React.ReactNode;
   changeGroupNameModal: React.ReactNode;
   changePageNameModal: React.ReactNode;
+  logoutModal: React.ReactNode;
 }) {
-  console.log("JHHH");
   const session = await getServerSession(NextAuthOption);
   const subkey = session?.user.subkey || "";
   const queryClient = new QueryClient();
@@ -58,6 +59,7 @@ async function Layout({
       {deleteGroupModal}
       {createPageModal}
       {deletePageModal}
+      {logoutModal}
 
       {/* Sidebar */}
       <HydrationBoundary state={dehydratedState}>

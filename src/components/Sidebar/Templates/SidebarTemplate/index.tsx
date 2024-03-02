@@ -6,9 +6,10 @@ import { useSideBarStatusStore } from "@/zustand/sideBarStatusStore";
 
 // Components
 import SidebarWrapper from "../../Atoms/SidebarWrapper";
-import SidebarName from "../../Molecules/SidebarName";
+
 import SidebarStatusButton from "../../Atoms/SidebarStatusButton";
 import GroupCategory from "../../Organisms/GroupCategory";
+import LogoutLink from "@/components/Molecules/Sidebar/LogoutButton";
 
 function SidebarTemplate({ subkey }: { subkey: string }) {
   const session = useSession();
@@ -24,7 +25,7 @@ function SidebarTemplate({ subkey }: { subkey: string }) {
   return (
     <SidebarWrapper status={status}>
       <SidebarStatusButton status={status} onClick={sidebarStatusHandler} />
-      <SidebarName name={username} email={email} />
+      <LogoutLink name={username} email={email} />
       <GroupCategory subkey={subkey} />
     </SidebarWrapper>
   );

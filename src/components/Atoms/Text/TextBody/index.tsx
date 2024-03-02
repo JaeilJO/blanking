@@ -13,14 +13,21 @@ function TextSubTitle({
   level = "01",
   theme = "default",
   noDrag = false,
+  whiteSpace,
+  style,
 }: TextBodyProps) {
   // ClassName 설정
   const className = cn("body", `body-${level}`, weight, textAlign, theme, {
     "no-drag": noDrag,
     block: block,
+    "white-space": whiteSpace,
   });
 
-  return <div className={className}>{children}</div>;
+  return (
+    <div style={style} className={className}>
+      {children}
+    </div>
+  );
 }
 
 export default TextSubTitle;
