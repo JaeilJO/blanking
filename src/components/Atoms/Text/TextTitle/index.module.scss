@@ -2,13 +2,6 @@
 @use "../Common/common";
 
 .title {
-  @include common.text-weight;
-  @include common.text-align;
-  @include common.text-theme;
-  @include common.text-inline;
-  @include common.text-block;
-  @include common.text-no-drag;
-
   &.title-01 {
     @include a.typhography("tit-01");
   }
@@ -20,4 +13,11 @@
   &.title-03 {
     @include a.typhography("tit-03");
   }
+  @include common.text-weight;
+  @include common.text-align;
+  @include common.text-theme;
+  @include common.text-inline;
+  @include common.text-block;
+  @include common.text-no-drag;
+  @include common.white-space;
 }

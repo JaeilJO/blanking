@@ -13,6 +13,8 @@ function TextSubTitle({
   level = "01",
   theme = "default",
   noDrag = false,
+  whiteSpace = false,
+  style,
 }: TextSubTitleProps) {
   // ClassName 설정
   const textSubTitleClassName = cn(
@@ -22,10 +24,14 @@ function TextSubTitle({
     textAlign,
 
     theme,
-    { "no-drag": noDrag, block: block }
+    { "no-drag": noDrag, block: block, "white-space": whiteSpace }
   );
 
-  return <h2 className={textSubTitleClassName}>{children}</h2>;
+  return (
+    <h2 style={style} className={textSubTitleClassName}>
+      {children}
+    </h2>
+  );
 }
 
 export default TextSubTitle;

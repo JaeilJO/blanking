@@ -80,3 +80,10 @@
   -ms-user-select: none;
   -o-user-select: none;
 }
+
+@mixin white-space {
+  white-space: nowrap;
+  &.white-space {
+    white-space: nomal;
+  }
+}
