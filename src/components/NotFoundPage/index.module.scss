@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .background {
   width: 100dvw;
@@ -26,7 +26,7 @@
 
 .button {
   @include a.typhography("body-01");
-  background-color: a.$primary-button-color;
+  background-color: a.$primary-color;
   padding: 1em 1.5em;
   border-radius: 4px;
   color: a.$white-color;
@@ -34,6 +34,6 @@
   transition: background-color 0.25s ease-in-out;
 
   &:hover {
-    background-color: a.$primary-button-hover-color;
+    background-color: a.$primary-hover-color;
   }
 }

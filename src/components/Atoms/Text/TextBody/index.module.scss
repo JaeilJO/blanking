@@ -1,0 +1,19 @@
+@use "../Common/common";
+@use "@/style/abstracts" as a;
+
+.body {
+  @include common.text-weight;
+  @include common.text-align;
+  @include common.text-theme;
+  @include common.text-inline;
+  @include common.text-block;
+  @include common.text-no-drag;
+
+  &.body-01 {
+    @include a.typhography("body-01");
+  }
+
+  &.body-02 {
+    @include a.typhography("body-02");
+  }
+}

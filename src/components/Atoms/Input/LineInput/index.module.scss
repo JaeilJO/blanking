@@ -1,0 +1,90 @@
+@use "@/style/abstracts" as a;
+@use "../Common/common";
+.input {
+  width: 100%;
+  height: 100%;
+
+  background: none;
+
+  // Disabled
+  &:disabled {
+    color: a.$light-gray-color;
+
+    &::placeholder {
+      color: a.$light-gray-color;
+    }
+  }
+
+  &::placeholder {
+    @include a.typhography("body-01");
+    color: a.$light-gray-color;
+  }
+
+  @include common.text-align();
+  @include a.typhography("body-01");
+}
+
+.input-wrapper {
+  display: flex;
+
+  width: 100%;
+
+  border-radius: a.$border-radius;
+  border-width: 1px;
+  border-style: solid;
+  border-color: a.$light-gray-color;
+
+  padding: 1.25em 0.75em;
+
+  transition: box-shadow 0.25s, border-color 0.25s ease-in-out;
+
+  // Color Theme
+  &:focus-within {
+    box-shadow: a.$basic-shadow;
+
+    &.primary {
+      border-color: a.$primary-color;
+    }
+    &.default {
+      border-color: a.$text-color;
+    }
+    &.gray {
+      border-color: a.$gray-color;
+    }
+    &.warn {
+      border-color: a.$red-color;
+    }
+  }
+
+  // Disabled
+  &.disabled {
+    border-color: a.$light-gray-color;
+  }
+
+  @include a.typhography("body-01");
+}
+
+.password-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: a.$text-color;
+
+  cursor: pointer;
+
+  &:hover {
+    color: a.$default-hover-color;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    color: a.$light-gray-color;
+  }
+
+  &:active {
+    color: a.$default-active-color;
+  }
+
+  @include a.typhography("body-01");
+}

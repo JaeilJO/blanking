@@ -1,0 +1,48 @@
+@use "@/style/abstracts" as a;
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  // 겹침방지 및 최소 간격
+  gap: 24px;
+
+  // height를 초과한 경우 scroll
+  overflow-y: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include a.media-query("small") {
+    width: 100%;
+    height: 100dvh;
+
+    padding: 24px;
+  }
+
+  @include a.media-query("middle") {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 400px;
+    height: 90%;
+
+    border-radius: 4px;
+
+    box-shadow: a.$basic-shadow;
+
+    max-height: 900px;
+  }
+
+  @include a.media-query("large") {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 500px;
+    height: 70%;
+  }
+}

@@ -1,4 +1,4 @@
-import CheckEmailTemplate from "@/components/AuthComponent/Templates/CheckEmailTemplate";
+import CheckEmailTemplate from "@/components/Templates/Auth/CheckEmail";
 
 function Page() {
   return <CheckEmailTemplate />;

@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 .toast_alert {
   position: absolute;
 
@@ -29,15 +29,15 @@
 
   &.success {
     animation: show 0.5s ease-in-out forwards;
-    background-color: a.$green-button-color;
+    background-color: a.$green-color;
   }
   &.error {
     animation: show 0.5s ease-in-out forwards;
-    background-color: a.$red-button-color;
+    background-color: a.$red-color;
   }
   &.loading {
     animation: show 0.5s ease-in-out forwards;
-    background-color: a.$yellow-button-color;
+    background-color: a.$yellow-color;
   }
 }
 

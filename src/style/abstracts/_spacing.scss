@@ -1,0 +1,41 @@
+$spacing-values: (
+  1: 8px,
+  2: 12px,
+  3: 16px,
+  4: 24px,
+  5: 32px,
+  6: 42px,
+  7: 48px,
+);
+
+@mixin spacing-vertical($level) {
+  $value: map-get($spacing-values, $level);
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin spacing-horizontal($level) {
+  $value: map-get($spacing-values, $level);
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin spacing-gap($level) {
+  $value: map-get($spacing-values, $level);
+  gap: $value;
+}
+
+// 사용을 원한다면 아래와 같은 반복문을 사용하는 것이 편합니다.
+// @for $i from 0 through 7 {
+//   &.spacing-vertical-#{$i} {
+//     @include spacing-vertical($i);
+//   }
+
+//   &.spacing-horizontal-#{$i} {
+//     @include spacing-horizontal($i);
+//   }
+
+//   &.gap-#{$i} {
+//     @include spacing-gap($i);
+//   }
+// }

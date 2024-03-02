@@ -1,0 +1,69 @@
+@use "@/style/abstracts" as a;
+
+.title {
+  display: flex;
+  align-items: center;
+
+  &.title-01 {
+    @include a.typhography("tit-01");
+  }
+
+  &.title-02 {
+    @include a.typhography("tit-02");
+  }
+
+  &.title-03 {
+    @include a.typhography("tit-03");
+  }
+
+  &.light {
+    font-weight: 300;
+  }
+
+  &.regular {
+    font-weight: 400;
+  }
+
+  &.bold {
+    font-weight: 700;
+  }
+
+  &.left {
+    justify-content: flex-start;
+  }
+
+  &.center {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  &.displayInline {
+    display: inline;
+  }
+
+  &.default-color {
+    color: a.$text-color;
+  }
+
+  &.primary-color {
+    color: a.$primary-color;
+  }
+
+  &.gray-color {
+    color: a.$gray-color;
+  }
+
+  &.light-gray-color {
+    color: a.$light-gray-color;
+  }
+
+  &.no-drag {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}

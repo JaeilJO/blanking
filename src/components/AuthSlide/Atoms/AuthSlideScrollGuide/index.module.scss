@@ -1,4 +1,4 @@
-@use "@style/abstracts" as a;
+@use "@/style/abstracts" as a;
 
 .wrapper {
   position: absolute;
@@ -12,7 +12,7 @@
   align-items: center;
   gap: 8px;
 
-  color: a.$gray-button-color;
+  color: a.$gray-color;
 }
 
 .icon {

@@ -1,0 +1,19 @@
+@use "@/style/abstracts" as a;
+@use "../Common/common";
+
+.sub-title {
+  @include common.text-weight;
+  @include common.text-align;
+  @include common.text-theme;
+  @include common.text-inline;
+  @include common.text-block;
+  @include common.text-no-drag;
+
+  &.sub-title-01 {
+    @include a.typhography("sub-01");
+  }
+
+  &.sub-title-02 {
+    @include a.typhography("sub-02");
+  }
+}

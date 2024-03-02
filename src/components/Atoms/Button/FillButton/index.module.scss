@@ -1,0 +1,89 @@
+@use "@/style/abstracts" as a;
+@use "../Common/common";
+
+// Theme Style
+@mixin theme-style($bg-color, $hover-color, $active-color) {
+  background-color: $bg-color;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &:active {
+    background-color: $active-color;
+  }
+}
+
+// Transparent Theme
+@mixin transparent-theme {
+  color: a.$text-color;
+  box-shadow: a.$basic-shadow;
+
+  &:hover {
+    box-shadow: a.$hover-shadow;
+  }
+
+  &:active {
+    background-color: a.$light-gray-active-color;
+  }
+}
+
+// Disabled Theme
+@mixin disabled-theme {
+  background-color: a.$light-gray-color;
+
+  color: a.$white-color;
+
+  pointer-events: none;
+}
+
+.fill-button {
+  @include common.button-inline;
+  @include common.button-block;
+  @include common.box-button-basic-style;
+  @include common.box-button-basic-hover-style;
+  @include common.box-button-basic-square-style;
+
+  // fill Button의 기본 font 컬러
+  color: a.$white-color;
+
+  // hover와 active 효과를 위한 transition
+  transition: background-color 0.25s, box-shadow 0.25s,
+    background-color 0.25s ease-in-out;
+
+  &.primary {
+    @include theme-style(
+      a.$primary-color,
+      a.$primary-hover-color,
+      a.$primary-active-color
+    );
+  }
+
+  &.default {
+    @include theme-style(
+      a.$default-color,
+      a.$default-hover-color,
+      a.$default-active-color
+    );
+  }
+
+  &.gray {
+    @include theme-style(
+      a.$gray-color,
+      a.$gray-hover-color,
+      a.$gray-active-color
+    );
+  }
+
+  &.warn {
+    @include theme-style(a.$red-color, a.$red-hover-color, a.$red-active-color);
+  }
+
+  &.transparent {
+    @include transparent-theme();
+  }
+
+  &.disabled {
+    @include disabled-theme();
+  }
+}

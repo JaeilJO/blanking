@@ -1,15 +1,15 @@
-@use '@style/abstracts' as a;
+@use "@/style/abstracts" as a;
 
 .background {
-    position: absolute;
-    z-index: 99999999999;
+  position: absolute;
+  z-index: 99999999999;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: 100dvw;
-    height: 100dvh;
+  width: 100dvw;
+  height: 100dvh;
 
-    background-color: rgba(143, 143, 143, 0.5);
+  background-color: rgba(143, 143, 143, 0.5);
 }

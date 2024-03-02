@@ -1,0 +1,35 @@
+@use "../Common/common";
+@use "@/style/abstracts" as a;
+.skeleton {
+  border-radius: a.$border-radius;
+
+  @include common.backgroundAnimation;
+
+  &.title-01 {
+    height: 6.4rem;
+  }
+
+  &.title-02 {
+    height: 4.8rem;
+  }
+
+  &.title-03 {
+    height: 3.6rem;
+  }
+
+  &.subTitle-01 {
+    height: 2.4rem;
+  }
+
+  &.subTitle-02 {
+    height: 2.1rem;
+  }
+
+  &.body-01 {
+    height: 1.6rem;
+  }
+
+  &.body-02 {
+    height: 1.4rem;
+  }
+}

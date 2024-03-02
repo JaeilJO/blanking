@@ -1,7 +1,7 @@
-import SignUpTemplate from "@/components/AuthComponent/Templates/SignUpTemplate";
+import AuthSignUpTemplate from "@/components/Templates/Auth/SignUp";
 
 async function Page() {
-  return <SignUpTemplate />;
+  return <AuthSignUpTemplate />;
 }
 
 export default Page;
