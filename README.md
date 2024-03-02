@@ -45,6 +45,53 @@
 -   Margin Note 어플리케이션 결제 후 사용했지만, 빈칸을 만드는 방법이 직관적이 않아서 불편
 -   따라서 이를 해결하고자 제작
 
+## Component 구조
+```
+📦 components
+├─ Atoms
+│  └─ Representative component name
+│     ├─ Common
+│     │  ├─ _common.scss
+│     │  └─ common.type.ts
+│     ├─ Atom Component 
+│     │  ├─ index.tsx
+│     │  ├─ index.module.scss
+│     │  ├─ index.stories.tsx
+│     │  └─ index.type.ts
+│     └─ index.ts
+├─ Molecules
+│  └─ Layout or Page Name
+│     └─ Molecule Component
+│        ├─ index.tsx
+│        ├─ index.module.scss
+│        ├─ index.stories.tsx
+│        └─ index.type.ts
+├─ Organisms
+│  └─ Layout or Page Name
+│     └─ Organism Component
+│        ├─ index.tsx
+│        └─ index.stories.tsx
+└─ Template
+   └─ Layout or Page Name
+      └─ Template Component
+         ├─ index.tsx
+         └─ customHook.hook.ts
+```
+
+- Atoms
+  - 재사용이 많은 UI Component를 모아 두었습니다
+    
+- Molecules
+  - Atoms를 이용해서 만들었거나, 특정 페이지 혹은 레이아웃에서 독단적으로 사용되는 Wrapper등을 모아 두었습니다
+    
+- Organisms
+  - Atoms와 Molecules를 이용해서 만든 UI Component를 모아두었습니다
+    
+- Template
+  - 주요 로직을 담당하는 Component 입니다
+  - 해당 Component는 UI Component가 아니기 때문에 로직과 UI 배치만을 해야합니다
+ 
+
 ## 주요 기능
 
 -   Notion과 같은 사용성
