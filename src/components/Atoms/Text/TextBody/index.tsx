@@ -1,33 +1,27 @@
-// Style
-import style from "./index.module.scss";
+import { FontSize, FontWeight } from "@/style/style.type";
 import classNames from "classnames/bind";
-import { TextBodyProps } from "./index.type";
+import { HTMLAttributes } from "react";
+import style from "./index.module.scss";
+
+interface TextBodyProps extends HTMLAttributes<HTMLParagraphElement> {
+  textAlign: "text-left" | "text-center" | "text-right";
+  fontSize?: "body-01" | "body-02";
+  fontWeight?: FontWeight;
+}
 
 const cn = classNames.bind(style);
 
-function TextSubTitle({
+function TextBody({
   children,
-  weight = "regular",
-  textAlign = "left",
-  block = true,
-  level = "01",
-  theme = "default",
-  noDrag = false,
-  whiteSpace,
-  style,
+  textAlign = "text-left",
+  fontSize = "body-01",
+  fontWeight,
 }: TextBodyProps) {
-  // ClassName 설정
-  const className = cn("body", `body-${level}`, weight, textAlign, theme, {
-    "no-drag": noDrag,
-    block: block,
-    "white-space": whiteSpace,
-  });
-
   return (
-    <div style={style} className={className}>
+    <p className={cn("paragraph", fontSize, textAlign, fontWeight)}>
       {children}
-    </div>
+    </p>
   );
 }
 
-export default TextSubTitle;
+export default TextBody;

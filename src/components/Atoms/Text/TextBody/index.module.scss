@@ -1,19 +1,11 @@
-@use "../Common/common";
-@use "@/style/abstracts" as a;
-
-.body {
-  &.body-01 {
-    @include a.typhography("body-01");
+.paragraph {
+  &.text-left {
+    text-align: left;
   }
-
-  &.body-02 {
-    @include a.typhography("body-02");
+  &.text-center {
+    text-align: center;
   }
-  @include common.text-weight;
-  @include common.text-align;
-  @include common.text-theme;
-  @include common.text-inline;
-  @include common.text-block;
-  @include common.text-no-drag;
-  @include common.white-space;
+  &.text-right {
+    text-align: right;
+  }
 }
