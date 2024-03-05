@@ -10,6 +10,7 @@ import SidebarWrapper from "../../Atoms/SidebarWrapper";
 import SidebarStatusButton from "../../Atoms/SidebarStatusButton";
 import GroupCategory from "../../Organisms/GroupCategory";
 import LogoutLink from "@/components/Molecules/Sidebar/LogoutButton";
+import Button from "@/components/Atoms/Button";
 
 function SidebarTemplate({ subkey }: { subkey: string }) {
   const session = useSession();
@@ -26,7 +27,10 @@ function SidebarTemplate({ subkey }: { subkey: string }) {
     <SidebarWrapper status={status}>
       <SidebarStatusButton status={status} onClick={sidebarStatusHandler} />
       <LogoutLink name={username} email={email} />
-      <GroupCategory subkey={subkey} />
+      {/* <GroupCategory subkey={subkey} /> */}
+      <Button.FillButton theme="transparent">Hello</Button.FillButton>
+      <Button.FillButton theme="transparent">Hello</Button.FillButton>
+      <Button.FillButton theme="transparent">Hello</Button.FillButton>
     </SidebarWrapper>
   );
 }
