@@ -1,0 +1,144 @@
+@use "@/style/color";
+@use "@/style/spacing";
+@use "@/style/shadow";
+.link {
+  border-radius: 4px;
+  gap: spacing.$spacing-value-1;
+  cursor: pointer;
+  border-width: 1;
+  border-style: solid;
+
+  transition: border 0.2s, background-color 0.2s, box-shadow 0.2s ease-in-out;
+
+  &.block {
+    width: 100%;
+    display: flex;
+  }
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.text-left {
+    justify-content: flex-start;
+  }
+
+  &.text-center {
+    justify-content: center;
+  }
+
+  &.text-right {
+    justify-content: flex-end;
+  }
+
+  &.primary {
+    border-color: color.$primary-color;
+    &:hover {
+      border-color: color.$primary-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$primary-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  &.black {
+    border-color: color.$black-color;
+    &:hover {
+      border-color: color.$black-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$black-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  &.gray {
+    border-color: color.$gray-color;
+    &:hover {
+      border-color: color.$gray-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$gray-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  /* 이하 동일한 패턴으로 나머지 테마 스타일 정의 */
+  &.light-gray {
+    border-color: color.$light-gray-color;
+    &:hover {
+      border-color: color.$light-gray-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$light-gray-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  &.red {
+    border-color: color.$red-color;
+    &:hover {
+      border-color: color.$red-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$red-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  &.yellow {
+    border-color: color.$yellow-color;
+    &:hover {
+      border-color: color.$yellow-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$yellow-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  &.green {
+    border-color: color.$green-color;
+    &:hover {
+      border-color: color.$green-hover-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+    &:active {
+      border-color: color.$green-active-color;
+    }
+    color: color.$text-color;
+  }
+
+  &.white {
+    border-color: color.$white-color;
+    &:hover {
+      background-color: color.$light-gray-color;
+    }
+
+    color: color.$text-color;
+  }
+
+  &.border-thin {
+    border-width: 1px;
+  }
+
+  &.border-medium {
+    border-width: 2px;
+  }
+
+  &.border-thick {
+    border-width: 4px;
+  }
+}
+
+.button-text {
+  position: relative;
+  top: 0.02em;
+}
