@@ -38,7 +38,7 @@ $green-color: f.base(p.$green-palette);
 $green-hover-color: f.light(p.$green-palette);
 $green-active-color: f.dark(p.$green-palette);
 
-// default Color
-$default-color: f.base(p.$black-palette);
-$default-hover-color: f.light(p.$black-palette);
-$default-active-color: f.dark(p.$black-palette);
+// black Color
+$black-color: f.base(p.$black-palette);
+$black-hover-color: f.light(p.$black-palette);
+$black-active-color: f.dark(p.$black-palette);
