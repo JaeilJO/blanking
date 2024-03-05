@@ -1,0 +1,67 @@
+$font-size-map: (
+  "tit-01": (
+    size: 6.4rem,
+  ),
+  "tit-02": (
+    size: 4.8rem,
+  ),
+  "tit-03": (
+    size: 3.6rem,
+  ),
+  "sub-01": (
+    size: 2.4rem,
+  ),
+  "sub-02": (
+    size: 2.1rem,
+  ),
+  "body-01": (
+    size: 1.6rem,
+  ),
+  "body-02": (
+    size: 1.4rem,
+  ),
+);
+
+// Font-size 사용하기
+@mixin font-size($font-size-name) {
+  @if (not map-has-key($font-size-map, $font-size-name)) {
+    @error 'font-size값을 확인해주세요';
+  }
+
+  $font-size-value: map-get($font-size-map, $font-size-name);
+  $size: map-get($font-size-value, "size");
+
+  font-size: $size;
+  letter-spacing: $size * (-4/100);
+}
+
+// Global Font Size
+@mixin font-size-classes() {
+  .tit-01 {
+    font-size: 6.4rem;
+  }
+
+  .tit-02 {
+    font-size: 4.8rem;
+  }
+
+  .tit-03 {
+    font-size: 3.6rem;
+  }
+
+  .sub-01 {
+    font-size: 2.4rem;
+  }
+
+  .sub-02 {
+    font-size: 2.1rem;
+  }
+
+  .body-01 {
+    font-size: 1.6rem;
+  }
+
+  .body-02 {
+    font-size: 1.4rem;
+  }
+}

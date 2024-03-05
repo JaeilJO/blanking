@@ -1,0 +1,107 @@
+@use "./spacing";
+
+@mixin margin-classes() {
+  // Top Margin
+  .mt-0 {
+    margin-top: spacing.$spacing-value-0;
+  }
+  .mt-1 {
+    margin-top: spacing.$spacing-value-1;
+  }
+  .mt-2 {
+    margin-top: spacing.$spacing-value-2;
+  }
+  .mt-3 {
+    margin-top: spacing.$spacing-value-3;
+  }
+  .mt-4 {
+    margin-top: spacing.$spacing-value-4;
+  }
+  .mt-5 {
+    margin-top: spacing.$spacing-value-5;
+  }
+  .mt-6 {
+    margin-top: spacing.$spacing-value-6;
+  }
+  .mt-7 {
+    margin-top: spacing.$spacing-value-7;
+  }
+
+  // Right Margin
+  .mr-0 {
+    margin-right: spacing.$spacing-value-0;
+  }
+  .mr-1 {
+    margin-right: spacing.$spacing-value-1;
+  }
+  .mr-2 {
+    margin-right: spacing.$spacing-value-2;
+  }
+  .mr-3 {
+    margin-right: spacing.$spacing-value-3;
+  }
+  .mr-4 {
+    margin-right: spacing.$spacing-value-4;
+  }
+  .mr-5 {
+    margin-right: spacing.$spacing-value-5;
+  }
+  .mr-6 {
+    margin-right: spacing.$spacing-value-6;
+  }
+  .mr-7 {
+    margin-right: spacing.$spacing-value-7;
+  }
+
+  // Bottom Margin
+  .mb-0 {
+    margin-bottom: spacing.$spacing-value-0;
+  }
+  .mb-1 {
+    margin-bottom: spacing.$spacing-value-1;
+  }
+  .mb-2 {
+    margin-bottom: spacing.$spacing-value-2;
+  }
+  .mb-3 {
+    margin-bottom: spacing.$spacing-value-3;
+  }
+  .mb-4 {
+    margin-bottom: spacing.$spacing-value-4;
+  }
+  .mb-5 {
+    margin-bottom: spacing.$spacing-value-5;
+  }
+  .mb-6 {
+    margin-bottom: spacing.$spacing-value-6;
+  }
+  .mb-7 {
+    margin-bottom: spacing.$spacing-value-7;
+  }
+
+  // Left Margin
+  .ml-0 {
+    margin-left: spacing.$spacing-value-0;
+  }
+  .ml-1 {
+    margin-left: spacing.$spacing-value-1;
+  }
+  .ml-2 {
+    margin-left: spacing.$spacing-value-2;
+  }
+  .ml-3 {
+    margin-left: spacing.$spacing-value-3;
+  }
+  .ml-4 {
+    margin-left: spacing.$spacing-value-4;
+  }
+  .ml-5 {
+    margin-left: spacing.$spacing-value-5;
+  }
+  .ml-6 {
+    margin-left: spacing.$spacing-value-6;
+  }
+  .ml-7 {
+    margin-left: spacing.$spacing-value-7;
+  }
+}

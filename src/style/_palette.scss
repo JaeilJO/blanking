@@ -1,14 +1,3 @@
-@use "./functions" as c;
-
-// Palette 종류
-$primary-palette: c.palette(#2c5695);
-$red-palette: c.palette(#f7471c);
-$gray-palette: c.palette(#616161);
-$light-gray-palette: c.palette(#e2e2e2);
-$yellow-palette: c.palette(#febc22);
-$green-palette: c.palette(#47d78a);
-$black-palette: c.palette(#333333);
-
 // Palette 생성하기
 @function palette($base) {
   @return (
@@ -40,3 +29,12 @@ $black-palette: c.palette(#333333);
 @function darker($palette) {
   @return map-get($palette, "darker");
 }
+
+// Palette 종류
+$primary-palette: palette(#2c5695);
+$red-palette: palette(#f7471c);
+$gray-palette: palette(#616161);
+$light-gray-palette: palette(#e2e2e2);
+$yellow-palette: palette(#febc22);
+$green-palette: palette(#47d78a);
+$black-palette: palette(#333333);

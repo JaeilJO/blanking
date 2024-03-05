@@ -1,5 +1,5 @@
-@use "./colors" as c;
+@use "./color";
 
-$basic-shadow: 0px 4px 20px c.$shadow-basic-color;
+$basic-shadow: 0px 4px 20px color.$shadow-basic-color;
 $hover-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
   rgba(17, 17, 26, 0.05) 0px 8px 32px;
