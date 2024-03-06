@@ -6,7 +6,7 @@ import TextButtonProps from "./index.type";
 const cn = classNames.bind(style);
 
 function TextButton({
-  theme,
+  theme = "primary",
   display = "block",
   children,
   fontSize,
@@ -24,7 +24,7 @@ function TextButton({
       disabled={disabled}
       className={cn(
         "button",
-        (theme = "primary"),
+        theme,
         display,
         fontSize,
         fontWeight,

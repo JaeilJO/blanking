@@ -5,7 +5,7 @@ import LineButtonProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-function LinkButton({
+function LineButton({
   theme,
   display,
   fontSize,
@@ -49,4 +49,4 @@ function LinkButton({
   );
 }
 
-export default LinkButton;
+export default LineButton;

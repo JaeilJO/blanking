@@ -1,6 +1,7 @@
 @use "@/style/color";
 @use "@/style/spacing";
 @use "@/style/shadow";
+
 .button {
   border-radius: 4px;
   gap: spacing.$spacing-value-1;

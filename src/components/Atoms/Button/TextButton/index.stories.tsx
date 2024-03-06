@@ -5,6 +5,7 @@ import TextButton from ".";
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof TextButton> = {
   component: TextButton,
+  tags: ["autodocs"],
 };
 
 export default meta;
