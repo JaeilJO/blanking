@@ -1,26 +1,7 @@
-import { FontSize, FontWeight } from "@/style/style.type";
 import classNames from "classnames/bind";
-import { HTMLAttributes } from "react";
-import style from "./index.module.scss";
 
-interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  theme:
-    | "primary"
-    | "black"
-    | "gray"
-    | "light-gray"
-    | "red"
-    | "yellow"
-    | "green"
-    | "white";
-  display?: "block" | "inline";
-  icon?: React.ReactNode;
-  borderWidth?: "border-thin" | "border-medium" | "border-thick";
-  children: string;
-  fontSize?: FontSize;
-  fontWeight?: FontWeight;
-  textAlign?: "text-left" | "text-center" | "text-right";
-}
+import style from "./index.module.scss";
+import LineButtonProps from "./index.type";
 
 const cn = classNames.bind(style);
 
@@ -33,6 +14,11 @@ function LinkButton({
   icon,
   children,
   borderWidth,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+
   ...props
 }: LineButtonProps) {
   return (
@@ -48,12 +34,16 @@ function LinkButton({
         fontSize,
         fontWeight,
         textAlign,
-        borderWidth
+        borderWidth,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop
       )}
       {...props}
     >
       {icon}
-      <div className={style["button-text"]}>{children}</div>
+      {children}
     </button>
   );
 }

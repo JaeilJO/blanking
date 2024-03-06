@@ -1,24 +1,31 @@
+// Import color, spacing, and shadow modules
 @use "@/style/color";
 @use "@/style/spacing";
 @use "@/style/shadow";
+
+// Button styles
 .button {
   border-radius: 4px;
   gap: spacing.$spacing-value-1;
   cursor: pointer;
   border-width: 1;
   border-style: solid;
+  display: flex;
+  transition: color 0.2s, border 0.2s, background-color 0.2s,
+    box-shadow 0.2s ease-in-out;
 
-  transition: border 0.2s, background-color 0.2s, box-shadow 0.2s ease-in-out;
-
+  // Block button style
   &.block {
     width: 100%;
     display: flex;
   }
 
+  // Inline button style
   &.inline {
     display: inline-flex;
   }
 
+  // Text alignment styles
   &.text-left {
     justify-content: flex-start;
   }
@@ -31,100 +38,152 @@
     justify-content: flex-end;
   }
 
+  // Primary button style
   &.primary {
     border-color: color.$primary-color;
+    color: color.$primary-color;
+
+    // Primary button hover style
     &:hover {
+      color: color.$primary-hover-color;
       border-color: color.$primary-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Primary button active style
     &:active {
+      color: color.$primary-active-color;
       border-color: color.$primary-active-color;
     }
-    color: color.$text-color;
   }
 
+  // Black button style
   &.black {
     border-color: color.$black-color;
+    color: color.$black-color;
+
+    // Black button hover style
     &:hover {
+      color: color.$black-hover-color;
       border-color: color.$black-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Black button active style
     &:active {
+      color: color.$black-active-color;
       border-color: color.$black-active-color;
     }
-    color: color.$text-color;
   }
 
+  // Gray button style
   &.gray {
     border-color: color.$gray-color;
+    color: color.$gray-color;
+
+    // Gray button hover style
     &:hover {
+      color: color.$gray-hover-color;
       border-color: color.$gray-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Gray button active style
     &:active {
+      color: color.$gray-active-color;
       border-color: color.$gray-active-color;
     }
-    color: color.$text-color;
   }
 
-  /* 이하 동일한 패턴으로 나머지 테마 스타일 정의 */
+  // Light gray button style
   &.light-gray {
+    color: color.$light-gray-color;
     border-color: color.$light-gray-color;
+
+    // Light gray button hover style
     &:hover {
+      color: color.$light-gray-hover-color;
       border-color: color.$light-gray-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Light gray button active style
     &:active {
+      color: color.$light-gray-active-color;
       border-color: color.$light-gray-active-color;
     }
-    color: color.$text-color;
   }
 
+  // Red button style
   &.red {
+    color: color.$red-color;
     border-color: color.$red-color;
+
+    // Red button hover style
     &:hover {
+      color: color.$red-hover-color;
       border-color: color.$red-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Red button active style
     &:active {
+      color: color.$red-active-color;
       border-color: color.$red-active-color;
     }
-    color: color.$text-color;
   }
 
+  // Yellow button style
   &.yellow {
+    color: color.$yellow-color;
     border-color: color.$yellow-color;
+
+    // Yellow button hover style
     &:hover {
+      color: color.$yellow-hover-color;
       border-color: color.$yellow-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Yellow button active style
     &:active {
+      color: color.$yellow-active-color;
       border-color: color.$yellow-active-color;
     }
-    color: color.$text-color;
   }
 
+  // Green button style
   &.green {
+    color: color.$green-color;
     border-color: color.$green-color;
+
+    // Green button hover style
     &:hover {
+      color: color.$green-hover-color;
       border-color: color.$green-hover-color;
       box-shadow: shadow.$basic-shadow;
     }
+
+    // Green button active style
     &:active {
+      color: color.$green-active-color;
       border-color: color.$green-active-color;
     }
-    color: color.$text-color;
   }
 
+  // White button style
   &.white {
     border-color: color.$white-color;
+
+    // White button hover style
     &:hover {
-      background-color: color.$light-gray-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     color: color.$text-color;
   }
 
+  // Border thickness styles
   &.border-thin {
     border-width: 1px;
   }
@@ -136,9 +195,4 @@
   &.border-thick {
     border-width: 4px;
   }
-}
-
-.button-text {
-  position: relative;
-  top: 0.02em;
 }
