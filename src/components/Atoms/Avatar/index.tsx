@@ -8,7 +8,7 @@ const cn = classNames.bind(style);
 
 function Avatar({
   name,
-  size,
+  size = "medium",
   fontSize,
   marginBottom,
   marginLeft,
