@@ -18,7 +18,7 @@ function LinkButton({
   marginBottom,
   marginLeft,
   marginRight,
-
+  disabled,
   ...props
 }: LineButtonProps) {
   return (
@@ -40,6 +40,7 @@ function LinkButton({
         marginRight,
         marginTop
       )}
+      disabled={disabled}
       {...props}
     >
       {icon}

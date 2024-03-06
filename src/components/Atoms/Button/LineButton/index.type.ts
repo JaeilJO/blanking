@@ -65,6 +65,8 @@ export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
    * 버튼의 왼쪽 여백입니다.
    */
   marginLeft?: MarginLeft;
+
+  disabled?: boolean;
 }
 
 export default LineButtonProps;

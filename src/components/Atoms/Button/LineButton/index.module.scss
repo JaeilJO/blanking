@@ -195,4 +195,10 @@
   &.border-thick {
     border-width: 4px;
   }
+
+  &:disabled {
+    color: color.$light-gray-color;
+    border-color: color.$light-gray-color;
+    pointer-events: noen;
+  }
 }
