@@ -1,23 +1,24 @@
 import classNames from "classnames/bind";
 import style from "./index.module.scss";
-import TextBodyProps from "./index.type";
+import TextSubtitleProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-function TextBody({
+function TextSubtitle({
   children,
   display = "block",
   textAlign = "text-left",
-  fontSize = "body-01",
+  fontSize = "sub-01",
   fontWeight,
   marginTop,
   marginBottom,
   marginLeft,
   marginRight,
   color,
-}: TextBodyProps) {
+  ...props
+}: TextSubtitleProps) {
   return (
-    <p
+    <h2
       className={cn(
         "paragraph",
         fontSize,
@@ -30,10 +31,11 @@ function TextBody({
         marginRight,
         display
       )}
+      {...props}
     >
       {children}
-    </p>
+    </h2>
   );
 }
 
-export default TextBody;
+export default TextSubtitle;
