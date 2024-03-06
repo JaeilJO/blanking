@@ -1,38 +1,27 @@
 import classNames from "classnames/bind";
 import style from "./index.module.scss";
-import { FontSize, FontWeight } from "@/style/style.type";
-import { HTMLAttributes } from "react";
 
-interface SolidButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  theme:
-    | "primary"
-    | "black"
-    | "gray"
-    | "light-gray"
-    | "red"
-    | "yellow"
-    | "green"
-    | "white";
-  display?: "block" | "inline";
-  icon?: React.ReactNode;
-  children: string;
-  fontSize?: FontSize;
-  fontWeight?: FontWeight;
-  textAlign?: "text-left" | "text-center" | "text-right";
-}
+import SolidButtonProps from "./index.type";
+
 const cn = classNames.bind(style);
 function SolidButton({
   theme,
-  display,
+  display = "block",
   children,
   icon,
   fontSize,
   fontWeight,
   textAlign = "text-center",
+  marginBottom,
+  marginTop,
+  marginLeft,
+  marginRight,
+  disabled,
   ...props
 }: SolidButtonProps) {
   return (
     <button
+      disabled={disabled}
       className={cn(
         "button",
         theme,
@@ -43,12 +32,16 @@ function SolidButton({
         display,
         fontSize,
         fontWeight,
-        textAlign
+        textAlign,
+        marginBottom,
+        marginLeft,
+        marginTop,
+        marginRight
       )}
       {...props}
     >
       {icon}
-      <div className={style["button-text"]}>{children}</div>
+      {children}
     </button>
   );
 }
