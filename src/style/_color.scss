@@ -18,9 +18,10 @@ $gray-hover-color: palette.light(palette.$gray-palette);
 $gray-active-color: palette.dark(palette.$gray-palette);
 
 // Light Gray Color
+// light gray는 hover했을때 light값으로 하면 white와 거의 비슷해져서 dark로 설정
 $light-gray-color: palette.base(palette.$light-gray-palette);
-$light-gray-hover-color: palette.light(palette.$light-gray-palette);
-$light-gray-active-color: palette.dark(palette.$light-gray-palette);
+$light-gray-hover-color: palette.dark(palette.$light-gray-palette);
+$light-gray-active-color: palette.darker(palette.$light-gray-palette);
 
 // Red Color
 $red-color: palette.base(palette.$red-palette);
