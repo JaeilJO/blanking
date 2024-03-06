@@ -1,72 +1,158 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import TextButton from ".";
 import TextLink from ".";
 
 //👇 This default export determines where your story goes in the story list
-const meta: Meta<typeof TextButton> = {
-  component: TextButton,
+const meta: Meta<typeof TextLink> = {
+  component: TextLink,
+  tags: ["autodocs"],
 };
 
 export default meta;
-type Story = StoryObj<typeof TextButton>;
+type Story = StoryObj<typeof TextLink>;
 
-export const FirstStory: Story = {
+export const Custom: Story = {
+  args: {
+    children: "TextLink",
+    href: "/",
+  },
+};
+
+export const Theme: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "24px" }}>
-      <TextLink fontSize="body-01" theme="primary" href="/">
+      <TextLink theme="primary" href="/">
         Primary
       </TextLink>
-      <TextLink fontSize="body-01" theme="gray" href="/">
+      <TextLink theme="gray" href="/">
         Gray
       </TextLink>
-      <TextLink fontSize="body-01" theme="black" href="/">
+      <TextLink theme="black" href="/">
         Black
       </TextLink>
-      <TextLink fontSize="body-01" theme="light-gray" href="/">
+      <TextLink theme="light-gray" href="/">
         Light Gray
       </TextLink>
-      <TextLink fontSize="body-01" theme="red" href="/">
+      <TextLink theme="red" href="/">
         Red
       </TextLink>
-      <TextLink fontSize="body-01" theme="yellow" href="/">
+      <TextLink theme="yellow" href="/">
         Yellow
       </TextLink>
-      <TextLink fontSize="body-01" theme="green" href="/">
+      <TextLink theme="green" href="/">
         Green
       </TextLink>
-      <TextLink fontSize="body-01" theme="white" href="/">
+      <TextLink theme="white" href="/">
         White
       </TextLink>
     </div>
   ),
 };
+export const Display: Story = {
+  render: () => (
+    <>
+      <TextLink display="block" theme="primary" href="/">
+        Primary
+      </TextLink>
+      <TextLink display="inline" theme="gray" href="/">
+        Gray
+      </TextLink>
+    </>
+  ),
+};
 export const FontSize: Story = {
   render: () => {
     return (
-      <>
-        <TextLink fontSize="tit-01" theme="primary" href="/">
+      <div>
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-01"
+          theme="primary"
+          href="/"
+        >
           tit-01
         </TextLink>
-        <TextLink fontSize="tit-02" theme="primary" href="/">
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-02"
+          theme="primary"
+          href="/"
+        >
           tit-02
         </TextLink>
-        <TextLink fontSize="tit-03" theme="primary" href="/">
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-03"
+          theme="primary"
+          href="/"
+        >
           tit-03
         </TextLink>
-        <TextLink fontSize="sub-01" theme="primary" href="/">
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="sub-01"
+          theme="primary"
+          href="/"
+        >
           sub-01
         </TextLink>
-        <TextLink fontSize="sub-02" theme="primary" href="/">
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="sub-02"
+          theme="primary"
+          href="/"
+        >
           sub-02
         </TextLink>
-        <TextLink fontSize="body-01" theme="primary" href="/">
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="body-01"
+          theme="primary"
+          href="/"
+        >
           body-01
         </TextLink>
-        <TextLink fontSize="body-02" theme="primary" href="/">
+        <TextLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="body-02"
+          theme="primary"
+          href="/"
+        >
           body-02
         </TextLink>
-      </>
+      </div>
     );
   },
+};
+export const TextAlign: Story = {
+  render: () => (
+    <>
+      <TextLink textAlign="text-left" theme="primary" href="/">
+        Left
+      </TextLink>
+      <TextLink textAlign="text-center" theme="primary" href="/">
+        Center
+      </TextLink>
+      <TextLink textAlign="text-right" theme="primary" href="/">
+        Right
+      </TextLink>
+    </>
+  ),
+};
+
+export const Disabled: Story = {
+  render: () => (
+    <>
+      <TextLink disabled href="/">
+        Disabled
+      </TextLink>
+    </>
+  ),
 };

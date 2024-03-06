@@ -1,41 +1,25 @@
-import { FontSize, FontWeight } from "@/style/style.type";
 import classNames from "classnames/bind";
-import { HTMLAttributes } from "react";
-import style from "./index.module.scss";
-import { UrlObject } from "url";
-import Link from "next/link";
 
-interface LineLinkProps {
-  theme:
-    | "primary"
-    | "black"
-    | "gray"
-    | "light-gray"
-    | "red"
-    | "yellow"
-    | "green"
-    | "white";
-  display?: "block" | "inline";
-  icon?: React.ReactNode;
-  borderWidth?: "border-thin" | "border-medium" | "border-thick";
-  children: string;
-  fontSize: FontSize;
-  fontWeight?: FontWeight;
-  textAlign?: "text-left" | "text-center" | "text-right";
-  href: string | UrlObject;
-}
+import style from "./index.module.scss";
+import LineLinkProps from "./index.type";
+import Link from "next/link";
 
 const cn = classNames.bind(style);
 
 function LineLink({
-  theme,
-  display = "block",
-  fontSize,
+  theme = "primary",
+  display,
+  fontSize = "body-01",
   fontWeight = "font-light",
   textAlign,
   icon,
   children,
-  borderWidth = "border-thin",
+  borderWidth,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  disabled,
   href,
 }: LineLinkProps) {
   return (
@@ -51,12 +35,18 @@ function LineLink({
         fontSize,
         fontWeight,
         textAlign,
-        borderWidth
+        borderWidth,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        marginTop,
+
+        { disabled: disabled }
       )}
       href={href}
     >
       {icon}
-      <div className={style["button-text"]}>{children}</div>
+      {children}
     </Link>
   );
 }

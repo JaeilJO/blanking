@@ -1,45 +1,31 @@
 import classNames from "classnames/bind";
 import style from "./index.module.scss";
-import { FontSize, FontWeight } from "@/style/style.type";
 
-import { UrlObject } from "url";
+import SolidLinkProps from "./index.type";
 import Link from "next/link";
 
-interface SolidLinkProps {
-  theme:
-    | "primary"
-    | "black"
-    | "gray"
-    | "light-gray"
-    | "red"
-    | "yellow"
-    | "green"
-    | "white";
-  display?: "block" | "inline";
-  icon?: React.ReactNode;
-  children: string;
-  fontSize: FontSize;
-  fontWeight?: FontWeight;
-  textAlign?: "text-left" | "text-center" | "text-right";
-  href: string | UrlObject;
-}
 const cn = classNames.bind(style);
 function SolidLink({
-  theme,
+  theme = "primary",
   display = "block",
   children,
   icon,
-  fontSize,
-  fontWeight,
+  fontSize = "body-01",
+  fontWeight = "font-light",
   textAlign = "text-center",
+  marginBottom,
+  marginTop,
+  marginLeft,
+  marginRight,
+  disabled,
   href,
 }: SolidLinkProps) {
   return (
     <Link
+      href={href}
       className={cn(
         "link",
         theme,
-
         "pr-3",
         "pl-3",
         "pt-2",
@@ -47,12 +33,16 @@ function SolidLink({
         display,
         fontSize,
         fontWeight,
-        textAlign
+        textAlign,
+        marginBottom,
+        marginLeft,
+        marginTop,
+        marginRight,
+        { disabled: disabled }
       )}
-      href={href}
     >
       {icon}
-      <div className={style["button-text"]}>{children}</div>
+      {children}
     </Link>
   );
 }

@@ -1,105 +1,158 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import LineLink from ".";
+import { BsGoogle } from "react-icons/bs";
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof LineLink> = {
   component: LineLink,
+  tags: ["autodocs"],
 };
 
 export default meta;
 type Story = StoryObj<typeof LineLink>;
 
-export const FirstStory: Story = {
+export const Custom: Story = {
+  args: {
+    children: "LineLink",
+    href: "/",
+  },
+};
+
+export const Theme: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "24px" }}>
-      <LineLink href="/" fontSize="body-01" theme="primary">
+      <LineLink theme="primary" href="/">
         Primary
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="gray">
+      <LineLink theme="gray" href="/">
         Gray
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="black">
+      <LineLink theme="black" href="/">
         Black
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="light-gray">
+      <LineLink theme="light-gray" href="/">
         Light Gray
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="red">
+      <LineLink theme="red" href="/">
         Red
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="yellow">
+      <LineLink theme="yellow" href="/">
         Yellow
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="green">
+      <LineLink theme="green" href="/">
         Green
       </LineLink>
-      <LineLink href="/" fontSize="body-01" theme="white">
+      <LineLink theme="white" href="/">
         White
       </LineLink>
     </div>
   ),
 };
-export const Block: Story = {
+
+export const Display: Story = {
   render: () => (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "24px",
-        height: "500px",
-      }}
-    >
-      <LineLink href="/" fontSize="body-01" display="block" theme="primary">
+    <>
+      <LineLink display="block" marginBottom="mb-3" theme="primary" href="/">
         Primary
       </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="gray">
+
+      <LineLink display="inline" theme="gray" href="/">
         Gray
       </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="black">
-        Black
+    </>
+  ),
+};
+
+export const Icon: Story = {
+  args: {
+    icon: <BsGoogle />,
+    href: "/",
+    children: "Icon Text",
+  },
+};
+
+export const BorderWidth: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
+      <LineLink theme="primary" borderWidth="border-thin" href="/">
+        Thin Border
       </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="light-gray">
-        Light Gray
+      <LineLink theme="primary" borderWidth="border-medium" href="/">
+        Medium Border
       </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="red">
-        Red
-      </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="yellow">
-        Yellow
-      </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="green">
-        Green
-      </LineLink>
-      <LineLink href="/" fontSize="body-01" display="block" theme="white">
-        White
+      <LineLink theme="primary" borderWidth="border-thick" href="/">
+        Thick Border
       </LineLink>
     </div>
   ),
 };
+
 export const FontSize: Story = {
   render: () => {
     return (
       <div>
-        <LineLink href="/" fontSize="tit-01" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-01"
+          theme="primary"
+          href="/"
+        >
           tit-01
         </LineLink>
-        <LineLink href="/" fontSize="tit-02" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-02"
+          theme="primary"
+          href="/"
+        >
           tit-02
         </LineLink>
-        <LineLink href="/" fontSize="tit-03" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-03"
+          theme="primary"
+          href="/"
+        >
           tit-03
         </LineLink>
-        <LineLink href="/" fontSize="sub-01" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="sub-01"
+          theme="primary"
+          href="/"
+        >
           sub-01
         </LineLink>
-        <LineLink href="/" fontSize="sub-02" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="sub-02"
+          theme="primary"
+          href="/"
+        >
           sub-02
         </LineLink>
-        <LineLink href="/" fontSize="body-01" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="body-01"
+          theme="primary"
+          href="/"
+        >
           body-01
         </LineLink>
-        <LineLink href="/" fontSize="body-02" theme="primary">
+        <LineLink
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="body-02"
+          theme="primary"
+          href="/"
+        >
           body-02
         </LineLink>
       </div>
@@ -107,33 +160,77 @@ export const FontSize: Story = {
   },
 };
 
-export const BorderWidth: Story = {
+export const FontWeight: Story = {
   render: () => (
-    <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
+    <div>
       <LineLink
+        marginLeft="ml-3"
+        display="inline"
+        fontWeight="font-bold"
         theme="primary"
-        borderWidth="border-thin"
-        fontSize="body-01"
         href="/"
       >
-        Thin Border
+        Bold
       </LineLink>
       <LineLink
+        marginLeft="ml-3"
+        display="inline"
+        fontWeight="font-light"
         theme="primary"
-        borderWidth="border-medium"
-        fontSize="body-01"
         href="/"
       >
-        Medium Border
+        Light
       </LineLink>
       <LineLink
+        marginLeft="ml-3"
+        display="inline"
+        fontWeight="font-regular"
         theme="primary"
-        borderWidth="border-thick"
-        fontSize="body-01"
         href="/"
       >
-        Thick Border
+        Regular
       </LineLink>
     </div>
   ),
+};
+export const TextAlign: Story = {
+  render: () => (
+    <div>
+      <LineLink
+        marginBottom="mb-3"
+        display="block"
+        textAlign="text-left"
+        theme="primary"
+        href="/"
+      >
+        Left Align
+      </LineLink>
+      <LineLink
+        marginBottom="mb-3"
+        display="block"
+        textAlign="text-center"
+        theme="primary"
+        href="/"
+      >
+        Center Align
+      </LineLink>
+      <LineLink
+        marginBottom="mb-3"
+        display="block"
+        textAlign="text-right"
+        theme="primary"
+        href="/"
+      >
+        Right Align
+      </LineLink>
+    </div>
+  ),
+};
+
+export const Disabled: Story = {
+  args: {
+    children: "Disabled",
+    href: "/",
+    disabled: true,
+  },
 };
