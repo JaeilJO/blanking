@@ -18,14 +18,7 @@ export const Custom: Story = {
   },
 };
 
-export const Icon: Story = {
-  args: {
-    icon: <BsGoogle />,
-    children: "Icon Text",
-  },
-};
-
-export const Color: Story = {
+export const Theme: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "24px" }}>
       <LineButton theme="primary">Primary</LineButton>
@@ -39,70 +32,25 @@ export const Color: Story = {
     </div>
   ),
 };
-export const Block: Story = {
+
+export const Display: Story = {
   render: () => (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "24px",
-        height: "500px",
-      }}
-    >
-      <LineButton display="block" theme="primary">
+    <>
+      <LineButton display="block" marginBottom="mb-3" theme="primary">
         Primary
       </LineButton>
-      <LineButton display="block" theme="gray">
+
+      <LineButton display="inline" theme="gray">
         Gray
       </LineButton>
-      <LineButton display="block" theme="black">
-        Black
-      </LineButton>
-      <LineButton display="block" theme="light-gray">
-        Light Gray
-      </LineButton>
-      <LineButton display="block" theme="red">
-        Red
-      </LineButton>
-      <LineButton display="block" theme="yellow">
-        Yellow
-      </LineButton>
-      <LineButton display="block" theme="green">
-        Green
-      </LineButton>
-      <LineButton display="block" theme="white">
-        White
-      </LineButton>
-    </div>
+    </>
   ),
 };
-export const FontSize: Story = {
-  render: () => {
-    return (
-      <div>
-        <LineButton marginBottom="mb-3" fontSize="tit-01" theme="primary">
-          tit-01
-        </LineButton>
-        <LineButton marginBottom="mb-3" fontSize="tit-02" theme="primary">
-          tit-02
-        </LineButton>
-        <LineButton marginBottom="mb-3" fontSize="tit-03" theme="primary">
-          tit-03
-        </LineButton>
-        <LineButton marginBottom="mb-3" fontSize="sub-01" theme="primary">
-          sub-01
-        </LineButton>
-        <LineButton marginBottom="mb-3" fontSize="sub-02" theme="primary">
-          sub-02
-        </LineButton>
-        <LineButton marginBottom="mb-3" fontSize="body-01" theme="primary">
-          body-01
-        </LineButton>
-        <LineButton marginBottom="mb-3" fontSize="body-02" theme="primary">
-          body-02
-        </LineButton>
-      </div>
-    );
+
+export const Icon: Story = {
+  args: {
+    icon: <BsGoogle />,
+    children: "Icon Text",
   },
 };
 
@@ -120,4 +68,137 @@ export const BorderWidth: Story = {
       </LineButton>
     </div>
   ),
+};
+
+export const FontSize: Story = {
+  render: () => {
+    return (
+      <div>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-01"
+          theme="primary"
+        >
+          tit-01
+        </LineButton>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-02"
+          theme="primary"
+        >
+          tit-02
+        </LineButton>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="tit-03"
+          theme="primary"
+        >
+          tit-03
+        </LineButton>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="sub-01"
+          theme="primary"
+        >
+          sub-01
+        </LineButton>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="sub-02"
+          theme="primary"
+        >
+          sub-02
+        </LineButton>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="body-01"
+          theme="primary"
+        >
+          body-01
+        </LineButton>
+        <LineButton
+          display="inline"
+          marginLeft="ml-3"
+          fontSize="body-02"
+          theme="primary"
+        >
+          body-02
+        </LineButton>
+      </div>
+    );
+  },
+};
+
+export const FontWeight: Story = {
+  render: () => (
+    <div>
+      <LineButton
+        marginLeft="ml-3"
+        display="inline"
+        fontWeight="font-bold"
+        theme="primary"
+      >
+        Bold
+      </LineButton>
+      <LineButton
+        marginLeft="ml-3"
+        display="inline"
+        fontWeight="font-light"
+        theme="primary"
+      >
+        Light
+      </LineButton>
+      <LineButton
+        marginLeft="ml-3"
+        display="inline"
+        fontWeight="font-regular"
+        theme="primary"
+      >
+        Regular
+      </LineButton>
+    </div>
+  ),
+};
+export const TextAlign: Story = {
+  render: () => (
+    <div>
+      <LineButton
+        marginBottom="mb-3"
+        display="block"
+        textAlign="text-left"
+        theme="primary"
+      >
+        Left Align
+      </LineButton>
+      <LineButton
+        marginBottom="mb-3"
+        display="block"
+        textAlign="text-center"
+        theme="primary"
+      >
+        Center Align
+      </LineButton>
+      <LineButton
+        marginBottom="mb-3"
+        display="block"
+        textAlign="text-right"
+        theme="primary"
+      >
+        Right Align
+      </LineButton>
+    </div>
+  ),
+};
+
+export const Disabled: Story = {
+  args: {
+    children: "Disabled",
+    disabled: true,
+  },
 };

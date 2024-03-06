@@ -1,18 +1,22 @@
 import {
   FontSize,
   FontWeight,
-  MarginTop,
-  MarginRight,
   MarginBottom,
   MarginLeft,
+  MarginRight,
+  MarginTop,
 } from "@/style/style.type";
-import React, { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
 
-export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
+/**
+ * 솔리드 버튼 컴포넌트의 속성을 나타냅니다.
+ */
+export default interface SolidButtonProps
+  extends HTMLAttributes<HTMLButtonElement> {
   /**
    * 버튼의 테마입니다.
    */
-  theme:
+  theme?:
     | "primary"
     | "black"
     | "gray"
@@ -28,22 +32,12 @@ export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
   display?: "block" | "inline";
 
   /**
-   * 버튼에 표시될 아이콘입니다.
-   */
-  icon?: React.ReactNode;
-
-  /**
-   * 버튼의 테두리 너비입니다.
-   */
-  borderWidth?: "border-thin" | "border-medium" | "border-thick";
-
-  /**
-   * 버튼 텍스트의 글꼴 크기입니다.
+   * 버튼의 글꼴 크기입니다.
    */
   fontSize?: FontSize;
 
   /**
-   * 버튼 텍스트의 글꼴 두께입니다.
+   * 버튼의 글꼴 두께입니다.
    */
   fontWeight?: FontWeight;
 
@@ -76,11 +70,8 @@ export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
    * 버튼의 비활성화 여부입니다.
    */
   disabled?: boolean;
-
   /**
-   * 버튼의 텍스트 내용입니다.
+   * 버튼의 내용입니다.
    */
   children: string;
 }
-
-export default LineButtonProps;
