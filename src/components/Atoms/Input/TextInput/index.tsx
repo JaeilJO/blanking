@@ -38,10 +38,10 @@ function TextInput({
     <div
       className={cn(
         "input-wrapper",
-        "pr-3",
-        "pl-3",
-        "pt-2",
-        "pb-2",
+        "pr-4",
+        "pl-4",
+        "pt-3",
+        "pb-3",
         display,
         borderWidth,
         marginRight,
