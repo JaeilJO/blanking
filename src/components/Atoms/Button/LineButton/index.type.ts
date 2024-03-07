@@ -81,6 +81,8 @@ export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
    * 버튼의 텍스트 내용입니다.
    */
   children: string;
+
+  type?: "button" | "submit" | "reset";
 }
 
 export default LineButtonProps;

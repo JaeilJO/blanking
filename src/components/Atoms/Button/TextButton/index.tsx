@@ -17,10 +17,12 @@ function TextButton({
   marginBottom,
   marginLeft,
   disabled,
+  type = "button",
   ...props
 }: TextButtonProps) {
   return (
     <button
+      type={type}
       disabled={disabled}
       className={cn(
         "button",

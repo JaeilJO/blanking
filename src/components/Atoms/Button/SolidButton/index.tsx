@@ -17,11 +17,13 @@ function SolidButton({
   marginLeft,
   marginRight,
   disabled,
+  type = "button",
   ...props
 }: SolidButtonProps) {
   return (
     <button
       disabled={disabled}
+      type={type}
       className={cn(
         "button",
         theme,

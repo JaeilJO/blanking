@@ -19,10 +19,12 @@ function LineButton({
   marginLeft,
   marginRight,
   disabled,
+  type = "button",
   ...props
 }: LineButtonProps) {
   return (
     <button
+      type={type}
       className={cn(
         "button",
         theme,

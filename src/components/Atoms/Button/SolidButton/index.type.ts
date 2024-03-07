@@ -80,4 +80,6 @@ export default interface SolidButtonProps
    * 버튼의 텍스트 내용입니다.
    */
   children: string;
+
+  type?: "button" | "submit" | "reset";
 }
