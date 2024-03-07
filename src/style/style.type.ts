@@ -88,3 +88,13 @@ export type PaddingRight =
   | "pr-5"
   | "pr-6"
   | "pr-7";
+
+export type Gap =
+  | "gap-0"
+  | "gap-1"
+  | "gap-2"
+  | "gap-3"
+  | "gap-4"
+  | "gap-5"
+  | "gap-6"
+  | "gap-7";
