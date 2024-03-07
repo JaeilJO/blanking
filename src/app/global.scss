@@ -3,11 +3,13 @@
 @use "@/style/padding";
 @use "@/style/fontSize";
 @use "@/style/fontWeight";
+@use "@/style/gap";
 
 @include margin.margin-classes();
 @include padding.padding-classes();
 @include fontSize.font-size-classes();
 @include fontWeight.font-weight-classes();
+@include gap.gap-classes();
 
 *,
 *::before,
