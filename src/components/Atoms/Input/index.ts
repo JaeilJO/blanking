@@ -1,9 +1,7 @@
-import LineInput from "./LineInput";
-import UnderLineInput from "./UnderLineInput";
+import TextInput from "./TextInput";
 
 const Input = {
-  LineInput: LineInput,
-  UnderLineInput: UnderLineInput,
+  Text: TextInput,
 };
 
 export default Input;
