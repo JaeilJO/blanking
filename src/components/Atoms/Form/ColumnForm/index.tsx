@@ -1,15 +1,15 @@
 import style from "./index.module.scss";
 import classNames from "classnames/bind";
-import RowFormProps from "./index.type";
+import ColoumFormProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-function RowForm({
+function ColumnForm({
   children,
   gap = "gap-0",
   display = "block",
-  justifyContent = "flex-start",
   alignItems,
+  justifyContent = "flex-start",
   marginBottom,
   marginTop,
   marginLeft,
@@ -19,11 +19,10 @@ function RowForm({
   paddingLeft,
   paddingRight,
   ...props
-}: RowFormProps) {
+}: ColoumFormProps) {
   const formClass = cn(
     "form",
     gap,
-    display,
     marginBottom,
     marginTop,
     marginLeft,
@@ -44,4 +43,4 @@ function RowForm({
   );
 }
 
-export default RowForm;
+export default ColumnForm;

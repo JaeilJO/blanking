@@ -5,6 +5,7 @@ import {
   PaddingRight,
   MarginBottom,
   MarginTop,
+  Gap,
 } from "@/style/style.type";
 
 /**
@@ -104,13 +105,5 @@ export default interface RowFlexBoxProps {
   /**
    * RowFlexBox의 자식 요소 사이의 간격입니다.
    */
-  gap?:
-    | "gap-0"
-    | "gap-1"
-    | "gap-2"
-    | "gap-3"
-    | "gap-4"
-    | "gap-5"
-    | "gap-6"
-    | "gap-7";
+  gap?: Gap;
 }
