@@ -1,0 +1,186 @@
+@use "@/style/fontSize";
+@use "@/style/color";
+@use "@/style/shadow";
+.input-wrapper {
+  border-radius: 4px;
+  border-color: color.$light-gray-color;
+
+  transition: border-color 0.2s ease-in-out;
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.block {
+    display: flex;
+  }
+
+  &.border-thin {
+    border-width: 1px;
+    border-style: solid;
+  }
+  &.border-medium {
+    border-width: 2px;
+    border-style: solid;
+  }
+  &.border-thick {
+    border-width: 3px;
+    border-style: solid;
+  }
+
+  &.primary {
+    &:focus-within {
+      border-color: color.$primary-active-color;
+    }
+  }
+
+  &.gray {
+    &:focus-within {
+      border-color: color.$gray-active-color;
+    }
+  }
+
+  &.light-gray {
+    &:focus-within {
+      border-color: color.$light-gray-active-color;
+    }
+  }
+
+  &.red {
+    &:focus-within {
+      border-color: color.$red-active-color;
+    }
+  }
+
+  &.green {
+    &:focus-within {
+      border-color: color.$green-active-color;
+    }
+  }
+
+  &.yellow {
+    &:focus-within {
+      border-color: color.$yellow-active-color;
+    }
+  }
+
+  &.black {
+    &:focus-within {
+      border-color: color.$black-active-color;
+    }
+  }
+
+  &.white {
+    &:focus-within {
+      border-color: color.$white-color;
+      box-shadow: shadow.$basic-shadow;
+    }
+  }
+
+  &.disabled {
+    border-color: color.$light-gray-color;
+    pointer-events: none;
+  }
+}
+
+.input {
+  background: none;
+  width: 100%;
+  height: 100%;
+
+  &.primary {
+    color: color.$primary-hover-color;
+  }
+  &.gray {
+    color: color.$gray-hover-color;
+  }
+
+  &.light-gray {
+    color: color.$light-gray-hover-color;
+  }
+
+  &.red {
+    color: color.$red-hover-color;
+  }
+
+  &.green {
+    color: color.$green-hover-color;
+  }
+
+  &.yellow {
+    color: color.$yellow-hover-color;
+  }
+
+  &.black {
+    color: color.$black-hover-color;
+  }
+
+  &.white {
+    color: color.$black-color;
+  }
+
+  &:disabled {
+    color: color.$light-gray-color;
+  }
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+
+  color: color.$black-color;
+
+  transition: color 0.25s ease-in-out;
+
+  cursor: pointer;
+
+  &.primary {
+    &:hover {
+      color: color.$primary-hover-color;
+    }
+  }
+
+  &.gray {
+    &:hover {
+      color: color.$gray-hover-color;
+    }
+  }
+
+  &.light-gray {
+    &:hover {
+      color: color.$light-gray-hover-color;
+    }
+  }
+
+  &.red {
+    &:hover {
+      color: color.$red-hover-color;
+    }
+  }
+
+  &.green {
+    &:hover {
+      color: color.$green-hover-color;
+    }
+  }
+
+  &.yellow {
+    &:hover {
+      color: color.$yellow-hover-color;
+    }
+  }
+
+  &.black {
+    &:hover {
+      color: color.$black-hover-color;
+    }
+  }
+
+  &.white {
+    &:hover {
+      color: color.$black-color;
+    }
+  }
+}
