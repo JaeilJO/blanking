@@ -73,7 +73,7 @@ export default interface SolidButtonProps
   /**
    * 버튼의 내용입니다.
    */
-  children: string;
+  children: string | React.ReactNode;
 
   type?: "button" | "submit" | "reset";
 }
