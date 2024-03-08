@@ -31,7 +31,11 @@ function LineButton(props: LineButtonProps) {
     marginRight,
     marginTop,
 
+    textAlign = "text-center",
+
     icon,
+
+    disabled,
 
     children,
 
@@ -40,7 +44,9 @@ function LineButton(props: LineButtonProps) {
 
   return (
     <BaseButton
+      backgroundColor="bg-white"
       //기본 패딩
+
       paddingBottom="pb-3"
       paddingTop="pt-3"
       paddingRight="pr-4"
@@ -48,14 +54,16 @@ function LineButton(props: LineButtonProps) {
       // 사용자가 지정할 수 있는 것 (props로 받아옴)
       fontSize={fontSize}
       display={display}
+      textAlign={textAlign}
       borderColor={`border-${theme}`}
       marginBottom={marginBottom}
       marginLeft={marginLeft}
       marginRight={marginRight}
       marginTop={marginTop}
+      borderWidth={borderWidth}
       // white인 경우 font color는 검정색이여야 보이니까 지정
       fontColor={theme === "white" ? `text-black` : `text-${theme}`}
-      borderWidth={borderWidth}
+      disabled={disabled}
       {...otherProps}
     >
       {icon}
