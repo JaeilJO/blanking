@@ -277,6 +277,8 @@
   &:disabled {
     color: color.$light-gray-color;
     border-color: color.$light-gray-color;
+    background-color: color.$white-color;
+
     pointer-events: none;
   }
 }
