@@ -26,25 +26,29 @@ export const Theme: Story = {
       >
         Primary
       </LineButton>
-      <LineButton theme="gray" marginBottom="mb-3">
+      <LineButton theme="gray" marginBottom="mb-3" borderWidth="border-thick">
         Gray
       </LineButton>
-      <LineButton theme="black" marginBottom="mb-3">
+      <LineButton theme="black" marginBottom="mb-3" borderWidth="border-thick">
         Black
       </LineButton>
-      <LineButton theme="light-gray" marginBottom="mb-3">
+      <LineButton
+        theme="light-gray"
+        marginBottom="mb-3"
+        borderWidth="border-thick"
+      >
         Light Gray
       </LineButton>
-      <LineButton theme="red" marginBottom="mb-3">
+      <LineButton theme="red" marginBottom="mb-3" borderWidth="border-thick">
         Red
       </LineButton>
-      <LineButton theme="yellow" marginBottom="mb-3">
+      <LineButton theme="yellow" marginBottom="mb-3" borderWidth="border-thick">
         Yellow
       </LineButton>
-      <LineButton theme="green" marginBottom="mb-3">
+      <LineButton theme="green" marginBottom="mb-3" borderWidth="border-thick">
         Green
       </LineButton>
-      <LineButton theme="white" marginBottom="mb-3">
+      <LineButton theme="white" marginBottom="mb-3" borderWidth="border-thick">
         White
       </LineButton>
     </div>
