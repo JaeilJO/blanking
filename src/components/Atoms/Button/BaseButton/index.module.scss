@@ -1,0 +1,282 @@
+@use "@/style/variables";
+@use "@/style/color";
+@use "@/style/spacing";
+@use "@/style/shadow";
+
+.button {
+  display: flex;
+
+  border-radius: variables.$border-radius;
+
+  gap: spacing.$spacing-value-1;
+
+  cursor: pointer;
+
+  transition: color 0.2s, border 0.2s, background-color 0.2s,
+    box-shadow 0.2s ease-in-out;
+
+  &.bg-primary {
+    background-color: color.$primary-color;
+
+    &:hover {
+      background-color: color.$primary-hover-color;
+    }
+
+    &:active {
+      background-color: color.$primary-active-color;
+    }
+  }
+
+  &.bg-black {
+    background-color: color.$black-color;
+
+    &:hover {
+      background-color: color.$black-hover-color;
+    }
+
+    &:active {
+      background-color: color.$black-active-color;
+    }
+  }
+
+  &.bg-gray {
+    background-color: color.$gray-color;
+
+    &:hover {
+      background-color: color.$gray-hover-color;
+    }
+
+    &:active {
+      background-color: color.$gray-active-color;
+    }
+  }
+
+  &.bg-light-gray {
+    background-color: color.$light-gray-color;
+
+    &:hover {
+      background-color: color.$light-gray-hover-color;
+    }
+
+    &:active {
+      background-color: color.$light-gray-active-color;
+    }
+  }
+
+  &.bg-red {
+    background-color: color.$red-color;
+
+    &:hover {
+      background-color: color.$red-hover-color;
+    }
+
+    &:active {
+      background-color: color.$red-active-color;
+    }
+  }
+
+  &.bg-yellow {
+    background-color: color.$yellow-color;
+
+    &:hover {
+      background-color: color.$yellow-hover-color;
+    }
+
+    &:active {
+      background-color: color.$yellow-active-color;
+    }
+  }
+
+  &.bg-green {
+    background-color: color.$green-color;
+
+    &:hover {
+      background-color: color.$green-hover-color;
+    }
+
+    &:active {
+      background-color: color.$green-active-color;
+    }
+  }
+
+  &.bg-white {
+    background-color: color.$white-color;
+
+    &:hover {
+      box-shadow: shadow.$basic-shadow;
+    }
+
+    &:active {
+      background-color: color.$light-gray-color;
+    }
+  }
+
+  //Border
+  &.border-primary {
+    border: 1px solid color.$primary-color;
+
+    &:hover {
+      border-color: color.$primary-hover-color;
+    }
+
+    &:active {
+      border-color: color.$primary-active-color;
+    }
+  }
+
+  &.border-black {
+    border: 1px solid color.$black-color;
+
+    &:hover {
+      border-color: color.$black-hover-color;
+    }
+
+    &:active {
+      border-color: color.$black-active-color;
+    }
+  }
+
+  &.border-gray {
+    border: 1px solid color.$gray-color;
+
+    &:hover {
+      border-color: color.$gray-hover-color;
+    }
+
+    &:active {
+      border-color: color.$gray-active-color;
+    }
+  }
+
+  &.border-light-gray {
+    border: 1px solid color.$light-gray-color;
+
+    &:hover {
+      border-color: color.$light-gray-hover-color;
+    }
+
+    &:active {
+      border-color: color.$light-gray-active-color;
+    }
+  }
+
+  &.border-red {
+    border: 1px solid color.$red-color;
+
+    &:hover {
+      border-color: color.$red-hover-color;
+    }
+
+    &:active {
+      border-color: color.$red-active-color;
+    }
+  }
+
+  &.border-yellow {
+    border: 1px solid color.$yellow-color;
+
+    &:hover {
+      border-color: color.$yellow-hover-color;
+    }
+
+    &:active {
+      border-color: color.$yellow-active-color;
+    }
+  }
+
+  &.border-green {
+    border: 1px solid color.$green-color;
+
+    &:hover {
+      border-color: color.$green-hover-color;
+    }
+
+    &:active {
+      border-color: color.$green-active-color;
+    }
+  }
+
+  &.border-white {
+    border: 1px solid color.$white-color;
+
+    &:hover {
+      box-shadow: shadow.$basic-shadow;
+    }
+
+    &:active {
+      border-color: color.$light-gray-color;
+    }
+  }
+
+  // Text color
+  &.text-primary {
+    color: color.$primary-color;
+  }
+
+  &.text-black {
+    color: color.$black-color;
+  }
+
+  &.text-gray {
+    color: color.$gray-color;
+  }
+
+  &.text-light-gray {
+    color: color.$light-gray-color;
+  }
+
+  &.text-red {
+    color: color.$red-color;
+  }
+
+  &.text-yellow {
+    color: color.$yellow-color;
+  }
+
+  &.text-green {
+    color: color.$green-color;
+  }
+
+  &.text-white {
+    color: color.$white-color;
+  }
+
+  &.block {
+    width: 100%;
+    display: flex;
+  }
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.text-left {
+    justify-content: flex-start;
+  }
+
+  &.text-center {
+    justify-content: center;
+  }
+
+  &.text-right {
+    justify-content: flex-end;
+  }
+
+  &.border-thin {
+    border-width: 1px;
+  }
+
+  &.border-medium {
+    border-width: 2px;
+  }
+
+  &.border-thick {
+    border-width: 4px;
+  }
+
+  &:disabled {
+    color: color.$light-gray-color;
+    border-color: color.$light-gray-color;
+    pointer-events: none;
+  }
+}
