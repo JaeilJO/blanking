@@ -5,23 +5,33 @@ import {
   MarginRight,
   MarginBottom,
   MarginLeft,
+  PaddingTop,
+  PaddingBottom,
+  PaddingRight,
+  PaddingLeft,
+  backgroundColor,
+  borderColor,
+  textColor,
 } from "@/style/style.type";
-import React, { HTMLAttributes } from "react";
 import { UrlObject } from "url";
 
-export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
+export default interface BaseLinkProps {
+  href: string | UrlObject;
+
   /**
-   * 링크의 테마입니다.
+   * 링크의 배경 색입니다.
    */
-  theme:
-    | "primary"
-    | "black"
-    | "gray"
-    | "light-gray"
-    | "red"
-    | "yellow"
-    | "green"
-    | "white";
+  backgroundColor?: backgroundColor;
+
+  /**
+   * 링크의 테두리 색입니다.
+   */
+  borderColor?: borderColor;
+
+  /**
+   * 링크의 텍스트 색입니다.
+   */
+  textColor?: textColor;
 
   /**
    * 링크의 표시 스타일입니다.
@@ -74,6 +84,26 @@ export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
   marginLeft?: MarginLeft;
 
   /**
+   * 링크의 위쪽 패딩입니다.
+   */
+  paddingTop?: PaddingTop;
+
+  /**
+   * 링크의 아래쪽 패딩입니다.
+   */
+  paddingBottom?: PaddingBottom;
+
+  /**
+   * 링크의 오른쪽 패딩입니다.
+   */
+  paddingRight?: PaddingRight;
+
+  /**
+   * 링크의 왼쪽 패딩입니다.
+   */
+  paddingLeft?: PaddingLeft;
+
+  /**
    * 링크의 비활성화 여부입니다.
    */
   disabled?: boolean;
@@ -81,12 +111,5 @@ export interface LineButtonProps extends HTMLAttributes<HTMLButtonElement> {
   /**
    * 링크의 텍스트 내용입니다.
    */
-  children: string;
-
-  /**
-   * 링크의 링크 주소입니다.
-   */
-  href: string | UrlObject;
+  children: string | React.ReactNode;
 }
-
-export default LineButtonProps;

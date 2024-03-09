@@ -1,53 +1,72 @@
-import classNames from "classnames/bind";
+import BaseLink, { LinkColorTheme } from "../BaseLink";
+import BaseLinkProps from "../BaseLink/index.type";
 
-import style from "./index.module.scss";
-import LineLinkProps from "./index.type";
-import Link from "next/link";
+// 사용자가 지정하면 안되는 부분 지정
+interface LineLinkProps
+  extends Omit<
+    BaseLinkProps,
+    | "backgroundColor"
+    | "borderColor"
+    | "textColor"
+    | "paddingBottom"
+    | "paddingLeft"
+    | "paddingRight"
+    | "paddingTop"
+  > {
+  //현재 버튼이 가지고 있는 고유 타입
+  theme: LinkColorTheme;
+}
 
-const cn = classNames.bind(style);
+function LineLink(props: LineLinkProps) {
+  const {
+    theme = "primary",
+    display = "block",
 
-function LineLink({
-  theme = "primary",
-  display,
-  fontSize = "body-01",
-  fontWeight = "font-light",
-  textAlign,
-  icon,
-  children,
-  borderWidth,
-  marginTop,
-  marginBottom,
-  marginLeft,
-  marginRight,
-  disabled,
-  href,
-}: LineLinkProps) {
+    fontSize = "body-01",
+
+    borderWidth = "border-thin",
+
+    marginBottom,
+    marginLeft,
+    marginRight,
+    marginTop,
+
+    textAlign = "text-center",
+
+    icon,
+
+    disabled,
+
+    children,
+
+    href,
+  } = props;
+
   return (
-    <Link
-      className={cn(
-        "link",
-        theme,
-        "pr-3",
-        "pl-3",
-        "pt-2",
-        "pb-2",
-        display,
-        fontSize,
-        fontWeight,
-        textAlign,
-        borderWidth,
-        marginBottom,
-        marginLeft,
-        marginRight,
-        marginTop,
-
-        { disabled: disabled }
-      )}
+    <BaseLink
+      //기본 패딩
+      paddingBottom="pb-3"
+      paddingTop="pt-3"
+      paddingRight="pr-4"
+      paddingLeft="pl-4"
+      // 사용자가 지정할 수 있는 것 (props로 받아옴)
+      fontSize={fontSize}
+      display={display}
+      textAlign={textAlign}
+      borderColor={`border-${theme}`}
+      marginBottom={marginBottom}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+      marginTop={marginTop}
+      borderWidth={borderWidth}
+      // white인 경우 font color는 검정색이여야 보이니까 지정
+      textColor={theme === "white" ? `text-black` : `text-${theme}`}
+      disabled={disabled}
       href={href}
     >
       {icon}
       {children}
-    </Link>
+    </BaseLink>
   );
 }
 
