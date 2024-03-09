@@ -1,7 +1,9 @@
-@use "@/style/abstracts" as a;
+@use "@/style/color";
+@use "@/style/variables";
+@use "@/style/spacing";
 
 .background {
-  background-color: a.$modal-background-color;
+  background-color: color.$modal-background-color;
 
   z-index: 99999999999;
 
@@ -20,10 +22,10 @@
 
   max-width: 300px;
 
-  background-color: a.$white-color;
-  border-radius: a.$border-radius;
+  background-color: color.$white-color;
+  border-radius: variables.$border-radius;
 
-  padding: a.$spacing-value-3;
+  padding: spacing.$spacing-value-3;
 
   animation: ShowModal 0.5s ease-in-out forwards;
 }
