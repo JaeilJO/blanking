@@ -8,6 +8,7 @@ import Text from "../../Text";
 const meta: Meta<typeof RowForm> = {
   component: RowForm,
   tags: ["autodocs"],
+  title: "Atoms/Form/RowForm",
 };
 
 export default meta;

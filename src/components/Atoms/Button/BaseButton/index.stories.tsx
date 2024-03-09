@@ -4,6 +4,7 @@ import BaseButton from ".";
 
 const meta: Meta<typeof BaseButton> = {
   component: BaseButton,
+  title: "Atoms/Button/BaseButton",
 };
 
 export default meta;
@@ -13,6 +14,6 @@ export const Custom: Story = {
   args: {
     children: "Background",
     backgroundColor: "bg-primary",
-    fontColor: "text-white",
+    textColor: "text-white",
   },
 };

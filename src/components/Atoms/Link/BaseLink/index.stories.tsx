@@ -4,6 +4,7 @@ import BaseLink from ".";
 
 const meta: Meta<typeof BaseLink> = {
   component: BaseLink,
+  title: "Atoms/Link/BaseLink",
 };
 
 export default meta;

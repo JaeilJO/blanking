@@ -6,6 +6,7 @@ import TextLink from ".";
 const meta: Meta<typeof TextLink> = {
   component: TextLink,
   tags: ["autodocs"],
+  title: "Atoms/Link/TextLink",
 };
 
 export default meta;
@@ -46,113 +47,5 @@ export const Theme: Story = {
         White
       </TextLink>
     </div>
-  ),
-};
-export const Display: Story = {
-  render: () => (
-    <>
-      <TextLink display="block" theme="primary" href="/">
-        Primary
-      </TextLink>
-      <TextLink display="inline" theme="gray" href="/">
-        Gray
-      </TextLink>
-    </>
-  ),
-};
-export const FontSize: Story = {
-  render: () => {
-    return (
-      <div>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="tit-01"
-          theme="primary"
-          href="/"
-        >
-          tit-01
-        </TextLink>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="tit-02"
-          theme="primary"
-          href="/"
-        >
-          tit-02
-        </TextLink>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="tit-03"
-          theme="primary"
-          href="/"
-        >
-          tit-03
-        </TextLink>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="sub-01"
-          theme="primary"
-          href="/"
-        >
-          sub-01
-        </TextLink>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="sub-02"
-          theme="primary"
-          href="/"
-        >
-          sub-02
-        </TextLink>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="body-01"
-          theme="primary"
-          href="/"
-        >
-          body-01
-        </TextLink>
-        <TextLink
-          display="inline"
-          marginLeft="ml-3"
-          fontSize="body-02"
-          theme="primary"
-          href="/"
-        >
-          body-02
-        </TextLink>
-      </div>
-    );
-  },
-};
-export const TextAlign: Story = {
-  render: () => (
-    <>
-      <TextLink textAlign="text-left" theme="primary" href="/">
-        Left
-      </TextLink>
-      <TextLink textAlign="text-center" theme="primary" href="/">
-        Center
-      </TextLink>
-      <TextLink textAlign="text-right" theme="primary" href="/">
-        Right
-      </TextLink>
-    </>
-  ),
-};
-
-export const Disabled: Story = {
-  render: () => (
-    <>
-      <TextLink disabled href="/">
-        Disabled
-      </TextLink>
-    </>
   ),
 };

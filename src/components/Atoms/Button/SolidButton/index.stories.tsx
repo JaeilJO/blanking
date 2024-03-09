@@ -2,10 +2,10 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import SolidButton from ".";
 
-//👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof SolidButton> = {
   component: SolidButton,
   tags: ["autodocs"],
+  title: "Atoms/Button/SolidButton",
 };
 
 export default meta;

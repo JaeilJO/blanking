@@ -7,6 +7,7 @@ import { FaRegEyeSlash } from "react-icons/fa6";
 const meta: Meta<typeof PasswordInput> = {
   component: PasswordInput,
   tags: ["autodocs"],
+  title: "Atoms/Input/PasswordInput",
 };
 
 export default meta;

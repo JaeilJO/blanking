@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import SolidLink from ".";
-import { BsGoogle } from "react-icons/bs";
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof SolidLink> = {
   component: SolidLink,
   tags: ["autodocs"],
+  title: "Atoms/Link/SolidLink",
 };
 
 export default meta;

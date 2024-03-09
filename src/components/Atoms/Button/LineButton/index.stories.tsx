@@ -5,6 +5,7 @@ import LineButton from ".";
 const meta: Meta<typeof LineButton> = {
   component: LineButton,
   tags: ["autodocs"],
+  title: "Atoms/Button/LineButton",
 };
 
 export default meta;

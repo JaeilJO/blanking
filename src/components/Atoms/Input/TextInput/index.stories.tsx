@@ -5,6 +5,7 @@ import TextInput from ".";
 const meta: Meta<typeof TextInput> = {
   component: TextInput,
   tags: ["autodocs"],
+  title: "Atoms/Input/TextInput",
 };
 
 export default meta;

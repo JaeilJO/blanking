@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import LineLink from ".";
-import { BsGoogle } from "react-icons/bs";
 
 //👇 This default export determines where your story goes in the story list
 const meta: Meta<typeof LineLink> = {
   component: LineLink,
   tags: ["autodocs"],
+  title: "Atoms/Link/LineLink",
 };
 
 export default meta;
