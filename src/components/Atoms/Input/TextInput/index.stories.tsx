@@ -16,90 +16,6 @@ export const Custom: Story = {
   },
 };
 
-export const Type: Story = {
-  render: () => (
-    <>
-      <TextInput placeholder="Email" type="email" marginBottom="mb-3" />
-      <TextInput placeholder="text" type="text" />
-    </>
-  ),
-};
-
-export const Display: Story = {
-  render: () => (
-    <>
-      <TextInput placeholder="inline" display="inline" />
-      <TextInput placeholder="inline" display="inline" />
-
-      <TextInput placeholder="block" display="block" />
-    </>
-  ),
-};
-
-export const Placeholder: Story = {
-  args: {
-    placeholder: "Custom Placeholder",
-  },
-};
-
-export const FontSize: Story = {
-  render: () => (
-    <>
-      <TextInput placeholder="tit-01" fontSize="tit-01" marginBottom="mb-3" />
-      <TextInput placeholder="tit-02" fontSize="tit-02" marginBottom="mb-3" />
-      <TextInput placeholder="tit-03" fontSize="tit-03" marginBottom="mb-3" />
-      <TextInput placeholder="sub-01" fontSize="sub-01" marginBottom="mb-3" />
-      <TextInput placeholder="sub-02" fontSize="sub-02" marginBottom="mb-3" />
-      <TextInput placeholder="body-01" fontSize="body-01" marginBottom="mb-3" />
-      <TextInput placeholder="body-02" fontSize="body-02" marginBottom="mb-3" />
-    </>
-  ),
-};
-
-export const FontWeight: Story = {
-  render: () => (
-    <>
-      <TextInput
-        placeholder="bold"
-        fontWeight="font-bold"
-        marginBottom="mb-3"
-      />
-      <TextInput
-        placeholder="regular"
-        fontWeight="font-regular"
-        marginBottom="mb-3"
-      />
-      <TextInput
-        placeholder="light"
-        fontWeight="font-light"
-        marginBottom="mb-3"
-      />
-    </>
-  ),
-};
-
-export const BorderWidth: Story = {
-  render: () => (
-    <>
-      <TextInput
-        placeholder="thin"
-        borderWidth="border-thin"
-        marginBottom="mb-3"
-      />
-      <TextInput
-        placeholder="medium"
-        borderWidth="border-medium"
-        marginBottom="mb-3"
-      />
-      <TextInput
-        placeholder="thick"
-        borderWidth="border-thick"
-        marginBottom="mb-3"
-      />
-    </>
-  ),
-};
-
 export const Theme: Story = {
   render: () => (
     <>
@@ -128,12 +44,5 @@ export const Theme: Story = {
         delay: 100,
       });
     }
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    placeholder: "Disabled",
-    disabled: true,
   },
 };

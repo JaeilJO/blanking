@@ -30,43 +30,43 @@
 
   &.primary {
     &:focus-within {
-      border-color: color.$primary-active-color;
+      border-color: color.$primary-hover-color;
     }
   }
 
   &.gray {
     &:focus-within {
-      border-color: color.$gray-active-color;
+      border-color: color.$gray-hover-color;
     }
   }
 
   &.light-gray {
     &:focus-within {
-      border-color: color.$light-gray-active-color;
+      border-color: color.$light-gray-hover-color;
     }
   }
 
   &.red {
     &:focus-within {
-      border-color: color.$red-active-color;
+      border-color: color.$red-hover-color;
     }
   }
 
   &.green {
     &:focus-within {
-      border-color: color.$green-active-color;
+      border-color: color.$green-hover-color;
     }
   }
 
   &.yellow {
     &:focus-within {
-      border-color: color.$yellow-active-color;
+      border-color: color.$yellow-hover-color;
     }
   }
 
   &.black {
     &:focus-within {
-      border-color: color.$black-active-color;
+      border-color: color.$black-hover-color;
     }
   }
 
@@ -130,7 +130,7 @@
   justify-content: center;
   aspect-ratio: 1/1;
 
-  color: color.$black-color;
+  color: color.$light-gray-color;
 
   transition: color 0.25s ease-in-out;
 
