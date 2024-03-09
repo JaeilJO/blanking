@@ -6,8 +6,8 @@ import style from "./index.module.scss";
 import classNames from "classnames/bind";
 import { useState } from "react";
 import PasswordInputProps from "@/components/Atoms/Input/PasswordInput/index.type";
+import { BsEye, BsEyeSlash } from "react-icons/bs";
 
-interface InputWithLabelPasswordInputProps extends PasswordInputProps {}
 const cn = classNames.bind(style);
 
 function InputWithLabelPasswordInput({
@@ -15,17 +15,20 @@ function InputWithLabelPasswordInput({
   placeholder = "placeholder",
   name,
   required,
+  disabled,
+
   marginBottom,
   marginRight,
   marginLeft,
   marginTop,
+
   paddingBottom,
   paddingTop,
   paddingLeft,
   paddingRight,
-  disabled,
+
   ...props
-}: InputWithLabelPasswordInputProps) {
+}: PasswordInputProps) {
   const [isFocus, setIsFocus] = useState(false);
 
   const onFocus = () => {
@@ -33,17 +36,18 @@ function InputWithLabelPasswordInput({
   };
   const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.value) {
-      console.log(e.target.value);
       setIsFocus(true);
     } else {
       setIsFocus(false);
     }
   };
+
   return (
     <div className={style["wrapper"]}>
       <label className={cn("label", { focus: isFocus, required: required })}>
         {placeholder}
       </label>
+
       <Input.Password
         theme="primary"
         name={name}
@@ -52,6 +56,8 @@ function InputWithLabelPasswordInput({
         onFocus={onFocus}
         onBlur={onBlur}
         required={required}
+        showIcon={<BsEye />}
+        hideIcon={<BsEyeSlash />}
         {...props}
       />
     </div>

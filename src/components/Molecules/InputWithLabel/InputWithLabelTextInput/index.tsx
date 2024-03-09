@@ -6,23 +6,30 @@ import style from "./index.module.scss";
 import classNames from "classnames/bind";
 import { useState } from "react";
 
-interface InputWithLabelTextInputProps extends TextInputProps {}
 const cn = classNames.bind(style);
+
+interface InputWithLabelTextInputProps extends TextInputProps {
+  isError?: boolean;
+  isLoading?: boolean;
+}
 
 function InputWithLabelTextInput({
   type = "text",
   placeholder = "placeholder",
   name,
   required,
+  disabled,
+
   marginBottom,
   marginRight,
   marginLeft,
   marginTop,
+
   paddingBottom,
   paddingTop,
   paddingLeft,
   paddingRight,
-  disabled,
+
   ...props
 }: InputWithLabelTextInputProps) {
   const [isFocus, setIsFocus] = useState(false);
@@ -30,22 +37,25 @@ function InputWithLabelTextInput({
   const onFocus = () => {
     setIsFocus(true);
   };
+
   const onBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.value) {
-      console.log(e.target.value);
       setIsFocus(true);
     } else {
       setIsFocus(false);
     }
   };
+
   return (
     <div className={style["wrapper"]}>
       <label className={cn("label", { focus: isFocus })}>{placeholder}</label>
       <Input.Text
-        theme="primary"
+        type={type}
+        theme={"primary"}
         name={name}
         fontSize="body-01"
         borderWidth="border-medium"
+        required={required}
         onFocus={onFocus}
         onBlur={onBlur}
         {...props}

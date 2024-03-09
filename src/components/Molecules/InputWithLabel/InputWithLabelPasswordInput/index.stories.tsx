@@ -10,5 +10,5 @@ export default meta;
 type Story = StoryObj<typeof InputWithLabelPasswordInput>;
 
 export const Primary: Story = {
-  args: {},
+  render: () => <InputWithLabelPasswordInput />,
 };

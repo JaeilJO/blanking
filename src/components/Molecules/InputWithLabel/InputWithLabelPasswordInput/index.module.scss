@@ -1,7 +1,8 @@
 @use "@/style/fontSize";
 @use "@/style/spacing";
 @use "@/style/color";
-label {
+
+.label {
   position: absolute;
   @include fontSize.font-size("body-01");
   font-weight: 500; //regular
