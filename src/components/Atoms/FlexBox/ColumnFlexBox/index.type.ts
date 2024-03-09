@@ -6,6 +6,8 @@ import {
   MarginBottom,
   MarginTop,
   Gap,
+  MarginRight,
+  MarginLeft,
 } from "@/style/style.type";
 
 /**
@@ -85,12 +87,12 @@ export default interface ColumnFlexBoxProps {
   /**
    * ColumnFlexBox의 margin-bottom 속성입니다.
    */
-  marginLeft?: PaddingLeft;
+  marginLeft?: MarginLeft;
 
   /**
    * ColumnFlexBox의 margin-right 속성입니다.
    */
-  marginRight?: PaddingRight;
+  marginRight?: MarginRight;
 
   /**
    * ColumnFlexBox의 margin-bottom 속성입니다.

@@ -2,7 +2,7 @@ import ColumnFlexBox from "./ColumnFlexBox";
 import RowFlexBox from "./RowFlexBox";
 
 const FlexBox = {
-  Coloumn: ColumnFlexBox,
+  Column: ColumnFlexBox,
   Row: RowFlexBox,
 };
 
