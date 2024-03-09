@@ -1,0 +1,36 @@
+@use "@/style/color";
+
+//Global ClassName
+@mixin bg-color {
+  .bg-primary {
+    background-color: color.$primary-color;
+  }
+
+  .bg-black {
+    background-color: color.$black-color;
+  }
+
+  .bg-gray {
+    background-color: color.$gray-color;
+  }
+
+  .bg-light-gray {
+    background-color: color.$light-gray-color;
+  }
+
+  .bg-red {
+    background-color: color.$red-color;
+  }
+
+  .bg-yellow {
+    background-color: color.$yellow-color;
+  }
+
+  .bg-green {
+    background-color: color.$green-color;
+  }
+
+  .bg-white {
+    background-color: color.$white-color;
+  }
+}

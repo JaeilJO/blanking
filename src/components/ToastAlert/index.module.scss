@@ -1,4 +1,6 @@
-@use "@/style/abstracts" as a;
+@use "@/style/fontSize";
+@use "@/style/color";
+
 .toast_alert {
   position: absolute;
 
@@ -21,28 +23,28 @@
 
   transform: translateX(-50%);
 
-  @include a.typhography("body-01-b");
-  color: a.$white-color;
+  @include fontSize.font-size("body-01");
+  color: color.$white-color;
 
   cursor: pointer;
   animation-name: none;
 
   &.success {
     animation: show 0.5s ease-in-out forwards;
-    background-color: a.$green-color;
+    background-color: color.$green-color;
   }
   &.error {
     animation: show 0.5s ease-in-out forwards;
-    background-color: a.$red-color;
+    background-color: color.$red-color;
   }
   &.loading {
     animation: show 0.5s ease-in-out forwards;
-    background-color: a.$yellow-color;
+    background-color: color.$yellow-color;
   }
 }
 
 .icon {
-  @include a.typhography("body-01");
+  @include fontSize.font-size("body-01");
   display: flex;
   align-items: center;
   justify-content: center;

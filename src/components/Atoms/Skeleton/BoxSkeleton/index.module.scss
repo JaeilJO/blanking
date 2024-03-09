@@ -1,6 +1,6 @@
 @use "../Common/common";
-@use "@/style/abstracts" as a;
+@use "@/style/variables";
 .skeleton {
-  border-radius: a.$border-radius;
+  border-radius: variables.$border-radius;
   @include common.backgroundAnimation;
 }

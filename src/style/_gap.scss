@@ -2,27 +2,35 @@
 
 @mixin gap-classes() {
   .gap-0 {
+    display: flex;
     gap: spacing.$spacing-value-0;
   }
   .gap-1 {
+    display: flex;
     gap: spacing.$spacing-value-1;
   }
   .gap-2 {
+    display: flex;
     gap: spacing.$spacing-value-2;
   }
   .gap-3 {
+    display: flex;
     gap: spacing.$spacing-value-3;
   }
   .gap-4 {
+    display: flex;
     gap: spacing.$spacing-value-4;
   }
   .gap-5 {
+    display: flex;
     gap: spacing.$spacing-value-5;
   }
   .gap-6 {
+    display: flex;
     gap: spacing.$spacing-value-6;
   }
   .gap-7 {
+    display: flex;
     gap: spacing.$spacing-value-7;
   }
 }

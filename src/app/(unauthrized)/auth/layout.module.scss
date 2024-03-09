@@ -1,4 +1,5 @@
-@use "@/style/abstracts" as a;
+@use "@/style/mediaQuery";
+@use "@/style/variables";
 
 .unauthorized-wrapper {
   max-width: 100dvw;
@@ -7,14 +8,14 @@
 
   display: flex;
 
-  @include a.media-query("small") {
+  @include mediaQuery.media-query("small") {
     padding: 0;
   }
-  @include a.media-query("middle") {
+  @include mediaQuery.media-query("middle") {
     padding: 0 20px;
   }
 
-  @include a.media-query("large") {
+  @include mediaQuery.media-query("large") {
     padding: 0 100px;
   }
 }
@@ -23,10 +24,10 @@
   position: relative;
   flex-grow: 3;
 
-  @include a.media-query("small") {
+  @include mediaQuery.media-query("small") {
     display: none;
   }
-  @include a.media-query("middle") {
+  @include mediaQuery.media-query("middle") {
     display: block;
   }
 }
@@ -36,7 +37,7 @@
   flex-grow: 1;
 
   // small인 경우 Auth Page의 크기가 꽉차도록 설정된 것
-  @include a.media-query("small") {
+  @include mediaQuery.media-query("small") {
     min-width: 100%;
     max-width: 100%;
     min-height: 100dvh;
@@ -45,9 +46,9 @@
 
   //middle 이후 Auth Page의 크기가 400px로 고정
   //max-wdith를 추가해서 안쪽 컨텐츠가 400px보다 커지지 않도록 설정
-  @include a.media-query("middle") {
-    min-width: a.$auth-page-wrapper-width;
-    max-width: a.$auth-page-wrapper-width;
+  @include mediaQuery.media-query("middle") {
+    min-width: variables.$auth-page-wrapper-width;
+    max-width: variables.$auth-page-wrapper-width;
     min-height: 100dvh;
     max-width: 100dvh;
   }

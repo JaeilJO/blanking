@@ -1,4 +1,6 @@
-@use "@/style/abstracts" as a;
+@use "@/style/mediaQuery";
+@use "@/style/fontSize";
+@use "@/style/color";
 
 .background {
   width: 100dvw;
@@ -16,24 +18,24 @@
 }
 
 .title {
-  @include a.media-query("small") {
-    @include a.typhography("tit-03");
+  @include mediaQuery.media-query("small") {
+    @include fontSize.font-size("tit-03");
   }
-  @include a.media-query("middle") {
-    @include a.typhography("tit-02");
+  @include mediaQuery.media-query("middle") {
+    @include fontSize.font-size("tit-02");
   }
 }
 
 .button {
-  @include a.typhography("body-01");
-  background-color: a.$primary-color;
+  @include fontSize.font-size("body-01");
+  background-color: color.$primary-color;
   padding: 1em 1.5em;
   border-radius: 4px;
-  color: a.$white-color;
+  color: color.$white-color;
 
   transition: background-color 0.25s ease-in-out;
 
   &:hover {
-    background-color: a.$primary-hover-color;
+    background-color: color.$primary-hover-color;
   }
 }

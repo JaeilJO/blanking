@@ -1,0 +1,17 @@
+$break-points: (
+  "small": 320px,
+  "middle": 768px,
+  "large": 1600px,
+);
+
+@mixin media-query($name) {
+  @if (not map-has-key($break-points, $name)) {
+    @error 'breakpoint값을 확인해주세요';
+  }
+
+  $value: map-get($break-points, $name);
+
+  @media (min-width: $value) {
+    @content;
+  }
+}

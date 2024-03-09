@@ -1,4 +1,5 @@
-@use "@/style/abstracts" as a;
+@use "@/style/mediaQuery";
+@use "@/style/shadow";
 .auth-wrapper {
   display: flex;
   flex-direction: column;
@@ -14,14 +15,14 @@
     display: none;
   }
 
-  @include a.media-query("small") {
+  @include mediaQuery.media-query("small") {
     width: 100%;
     height: 100dvh;
 
     padding: 24px;
   }
 
-  @include a.media-query("middle") {
+  @include mediaQuery.media-query("middle") {
     position: relative;
     top: 50%;
     left: 50%;
@@ -31,12 +32,12 @@
 
     border-radius: 4px;
 
-    box-shadow: a.$basic-shadow;
+    box-shadow: shadow.$basic-shadow;
 
     max-height: 900px;
   }
 
-  @include a.media-query("large") {
+  @include mediaQuery.media-query("large") {
     position: relative;
     top: 50%;
     left: 50%;

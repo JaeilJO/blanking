@@ -98,3 +98,33 @@ export type Gap =
   | "gap-5"
   | "gap-6"
   | "gap-7";
+
+export type backgroundColor =
+  | "bg-primary"
+  | "bg-black"
+  | "bg-gray"
+  | "bg-light-gray"
+  | "bg-red"
+  | "bg-yellow"
+  | "bg-green"
+  | "bg-white";
+
+export type borderColor =
+  | "border-primary"
+  | "border-black"
+  | "border-gray"
+  | "border-light-gray"
+  | "border-red"
+  | "border-yellow"
+  | "border-green"
+  | "border-white";
+
+export type textColor =
+  | "text-primary"
+  | "text-black"
+  | "text-gray"
+  | "text-light-gray"
+  | "text-red"
+  | "text-yellow"
+  | "text-green"
+  | "text-white";

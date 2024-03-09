@@ -21,9 +21,9 @@ async function Layout({ children }: { children: React.ReactNode }) {
 
   return (
     <div className={style["unauthorized-wrapper"]}>
-      <div className={style["auth-slide-wrapper"]}>
+      {/* <div className={style["auth-slide-wrapper"]}>
         <AuthSlideTemplate />
-      </div>
+      </div> */}
       <div className={style["auth-page-wrapper"]}>{children}</div>
     </div>
   );

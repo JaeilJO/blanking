@@ -1,7 +1,7 @@
-import AuthSignInTemplate from "@/components/Templates/Auth/SignIn/index";
+"use client";
 
 function Page() {
-  return <AuthSignInTemplate />;
+  return <></>;
 }
 
 export default Page;

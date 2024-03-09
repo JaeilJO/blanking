@@ -4,12 +4,18 @@
 @use "@/style/fontSize";
 @use "@/style/fontWeight";
 @use "@/style/gap";
+@use "@/style/backgroundColor";
+@use "@/style/borderColor";
+@use "@/style/textColor";
 
 @include margin.margin-classes();
 @include padding.padding-classes();
 @include fontSize.font-size-classes();
 @include fontWeight.font-weight-classes();
 @include gap.gap-classes();
+@include backgroundColor.bg-color();
+@include borderColor.border-color();
+@include textColor.text-color();
 
 *,
 *::before,
