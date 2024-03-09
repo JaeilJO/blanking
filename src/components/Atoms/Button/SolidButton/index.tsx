@@ -5,10 +5,9 @@ import { BaseButtonProps } from "../BaseButton/index.type";
 interface SolidButtonProps
   extends Omit<
     BaseButtonProps,
-    | "fontWeight"
     | "backgroundColor"
     | "borderColor"
-    | "fontColor"
+    | "textColor"
     | "paddingBottom"
     | "paddingLeft"
     | "paddingRight"
@@ -25,6 +24,8 @@ function SolidButton(props: SolidButtonProps) {
     display = "block",
 
     fontSize = "body-01",
+
+    fontWeight = "font-light",
 
     marginBottom,
     marginRight,
@@ -52,13 +53,14 @@ function SolidButton(props: SolidButtonProps) {
       fontSize={fontSize}
       display={display}
       textAlign={textAlign}
+      fontWeight={fontWeight}
       backgroundColor={`bg-${theme}`}
       marginBottom={marginBottom}
       marginLeft={marginLeft}
       marginRight={marginRight}
       marginTop={marginTop}
       // white인 경우 빼고 모두 흰색
-      fontColor={theme === "white" ? `text-black` : `text-white`}
+      textColor={theme === "white" ? `text-black` : `text-white`}
       disabled={disabled}
       {...otherProps}
     >

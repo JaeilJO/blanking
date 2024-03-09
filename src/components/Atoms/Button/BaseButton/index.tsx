@@ -22,7 +22,7 @@ function BaseButton(props: BaseButtonProps) {
     fontSize = "body-01",
     fontWeight = "font-light",
     textAlign = "text-center",
-    fontColor = "text-white",
+    textColor = "text-white",
 
     icon,
 
@@ -52,7 +52,7 @@ function BaseButton(props: BaseButtonProps) {
 
     backgroundColor,
     borderColor,
-    fontColor,
+    textColor,
 
     display,
 

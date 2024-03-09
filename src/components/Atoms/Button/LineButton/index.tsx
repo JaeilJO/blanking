@@ -7,7 +7,7 @@ interface LineButtonProps
     BaseButtonProps,
     | "backgroundColor"
     | "borderColor"
-    | "fontColor"
+    | "textColor"
     | "paddingBottom"
     | "paddingLeft"
     | "paddingRight"
@@ -44,7 +44,6 @@ function LineButton(props: LineButtonProps) {
 
   return (
     <BaseButton
-      backgroundColor="bg-white"
       //기본 패딩
 
       paddingBottom="pb-3"
@@ -62,7 +61,7 @@ function LineButton(props: LineButtonProps) {
       marginTop={marginTop}
       borderWidth={borderWidth}
       // white인 경우 font color는 검정색이여야 보이니까 지정
-      fontColor={theme === "white" ? `text-black` : `text-${theme}`}
+      textColor={theme === "white" ? `text-black` : `text-${theme}`}
       disabled={disabled}
       {...otherProps}
     >

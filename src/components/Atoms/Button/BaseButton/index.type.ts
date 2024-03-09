@@ -9,6 +9,9 @@ import {
   PaddingBottom,
   PaddingRight,
   PaddingLeft,
+  backgroundColor,
+  borderColor,
+  textColor,
 } from "@/style/style.type";
 import { HTMLAttributes } from "react";
 
@@ -16,38 +19,17 @@ export interface BaseButtonProps extends HTMLAttributes<HTMLButtonElement> {
   /**
    * 버튼의 배경 색입니다.
    */
-  backgroundColor?:
-    | "bg-primary"
-    | "bg-black"
-    | "bg-gray"
-    | "bg-light-gray"
-    | "bg-red"
-    | "bg-yellow"
-    | "bg-green"
-    | "bg-white";
+  backgroundColor?: backgroundColor;
 
   /**
    * 버튼의 테두리 색입니다.
    */
-  borderColor?:
-    | "border-primary"
-    | "border-black"
-    | "border-gray"
-    | "border-light-gray"
-    | "border-red"
-    | "border-yellow"
-    | "border-green"
-    | "border-white";
+  borderColor?: borderColor;
 
-  fontColor?:
-    | "text-primary"
-    | "text-black"
-    | "text-gray"
-    | "text-light-gray"
-    | "text-red"
-    | "text-yellow"
-    | "text-green"
-    | "text-white";
+  /**
+   * 버튼의 텍스트 색입니다.
+   */
+  textColor?: textColor;
 
   /**
    * 버튼의 표시 스타일입니다.

@@ -117,6 +117,7 @@
 
     &:hover {
       border-color: color.$primary-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
@@ -129,6 +130,7 @@
 
     &:hover {
       border-color: color.$black-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
@@ -141,6 +143,7 @@
 
     &:hover {
       border-color: color.$gray-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
@@ -153,6 +156,7 @@
 
     &:hover {
       border-color: color.$light-gray-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
@@ -165,6 +169,7 @@
 
     &:hover {
       border-color: color.$red-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
@@ -177,6 +182,7 @@
 
     &:hover {
       border-color: color.$yellow-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
@@ -189,6 +195,7 @@
 
     &:hover {
       border-color: color.$green-hover-color;
+      box-shadow: shadow.$basic-shadow;
     }
 
     &:active {
