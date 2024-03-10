@@ -22,11 +22,9 @@
 
   overflow-y: scroll;
 
-  @include mediaQuery.media-query("small") {
-    padding: spacing.$spacing-value-4 spacing.$spacing-value-2;
-  }
+  padding: spacing.$spacing-value-6 spacing.$spacing-value-4;
 
-  @include mediaQuery.media-query("large") {
-    padding: spacing.$spacing-value-6 spacing.$spacing-value-4;
+  @include mediaQuery.media-query("small") {
+    box-shadow: none;
   }
 }
