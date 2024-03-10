@@ -1,0 +1,29 @@
+@use "@/style/shadow";
+@use "@/style/fontSize";
+.editor-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.editor {
+  position: relative;
+
+  width: 80%;
+  min-width: 300px;
+  height: 80%;
+
+  padding: 20px;
+
+  border-radius: 4px;
+
+  box-shadow: shadow.$basic-shadow;
+
+  z-index: 99;
+
+  background-color: white;
+
+  @include fontSize.font-size("body-01");
+}

@@ -4,18 +4,19 @@ import { useContext, useEffect } from "react";
 import style from "./index.module.scss";
 import { CarouselContext } from "..";
 
-function Section({
+function CarouselSection({
   sectionId,
   content,
 }: {
   sectionId: string;
   content: React.ReactNode;
 }) {
-  const { currentSection } = useContext(CarouselContext);
+  const value = useContext(CarouselContext);
+  const { currentSection } = value!;
 
   if (currentSection === sectionId) {
     return <section className={style["section"]}>{content}</section>;
   }
 }
 
-export default Section;
+export default CarouselSection;
