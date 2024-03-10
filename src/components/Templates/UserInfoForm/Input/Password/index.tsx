@@ -1,7 +1,7 @@
 import InputWithLabel from "@/components/Molecules/InputWithLabel";
 import { useContext } from "react";
-import { AuthFormContext } from "../..";
 import PasswordInputProps from "@/components/Atoms/Input/PasswordInput/index.type";
+import { UserInfoFormContext } from "../..";
 
 interface AuthPasswordInputProps extends PasswordInputProps {
   // 3개는 반드시 존재해야한다.
@@ -17,7 +17,7 @@ function AuthFormPasswordInput({
   required,
   ...props
 }: AuthPasswordInputProps) {
-  const value = useContext(AuthFormContext);
+  const value = useContext(UserInfoFormContext);
   const loadingStatus = value?.loading;
 
   value.formData.current[name] = "";
