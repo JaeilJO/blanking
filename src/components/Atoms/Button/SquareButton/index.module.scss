@@ -1,0 +1,16 @@
+@use "@/style/color";
+@use "@/style/shadow";
+@use "@/style/variables";
+.button {
+  border: 1px solid color.$light-gray-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: variables.$border-radius;
+  transition: border-color 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: shadow.$basic-shadow;
+  }
+}
