@@ -14,6 +14,8 @@ import { BsGoogle } from "react-icons/bs";
 function Page() {
   const { isLoading, onSubmit } = useSignIn();
 
+  const googleColor = "#E55C28";
+
   return (
     <AuthWrapper>
       <HeadingWithDescription
@@ -21,8 +23,9 @@ function Page() {
         description="다시 찾아와 주셔서 감사합니다"
         alignText="left"
         gap="gap-3"
-        titleSize="tit-02"
-        descriptionFontWeight="font-light"
+        titleSize="tit-03"
+        titleFontWeight="font-bold"
+        descriptionFontWeight="font-regular"
       />
 
       {/* Form */}
@@ -30,6 +33,7 @@ function Page() {
         <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
           <UserInfoForm.Input.Text
             name="email"
+            type="email"
             placeholder="E-mail"
             required
             disabled={isLoading}
@@ -44,23 +48,31 @@ function Page() {
         </UserInfoForm.Form>
       </UserInfoForm>
 
-      <Link.Text href={"/"} fontSize="body-01" fontWeight="font-regular">
+      <Link.Text
+        href={"/auth/checkemail"}
+        fontSize="body-01"
+        fontWeight="font-bold"
+      >
         비밀번호를 잊어버리셨나요?
       </Link.Text>
 
       {/* Social */}
       <FlexBox.Row alignItems="center" justifyContent="space-between">
-        <Text.Body fontSize="body-01" color="gray" fontWeight="font-light">
+        <Text.Body fontSize="body-01" color="gray" fontWeight="font-regular">
           Continue with Social
         </Text.Body>
-        <Button.Line display="inline" theme="light-gray">
+        <Button.Square color={googleColor}>
           <BsGoogle />
-        </Button.Line>
+        </Button.Square>
       </FlexBox.Row>
 
-      <Button.Text fontSize="body-01" fontWeight="font-regular">
-        이미 아이디가 있으신가요?
-      </Button.Text>
+      <Link.Text
+        href={"/auth/signup"}
+        fontSize="body-01"
+        fontWeight="font-bold"
+      >
+        계정이 없으신가요?
+      </Link.Text>
     </AuthWrapper>
   );
 }

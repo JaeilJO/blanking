@@ -8,8 +8,10 @@ import AuthLayoutWrapper from "@/components/Atoms/Wrappers/AuthLayoutWrapper";
 import AuthSlideWrapper from "@/components/Atoms/Wrappers/AuthSlideWrapper";
 import Carousel from "@/components/Templates/Carousel";
 import SectionContainer from "@/components/Templates/Carousel/SectionContainer";
-import Section from "@/components/Templates/Carousel/Section";
+
 import LogoSection from "@/components/Templates/Carousel/SectionContents/LogoSection";
+import CarouselSection from "@/components/Templates/Carousel/CarouselSection";
+import ExperienceSection from "@/components/Templates/Carousel/SectionContents/ExperienceSection";
 
 async function Layout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(NextAuthOption);
@@ -24,9 +26,13 @@ async function Layout({ children }: { children: React.ReactNode }) {
     <AuthLayoutWrapper>
       {/* Carousel */}
       <AuthSlideWrapper>
-        <Carousel startSectionId="logo">
+        <Carousel startSectionId="logo" sectionIds={["logo", "expirence"]}>
           <SectionContainer>
-            <Section sectionId="logo" content={<LogoSection />} />
+            <CarouselSection sectionId="logo" content={<LogoSection />} />
+            <CarouselSection
+              sectionId="expirence"
+              content={<ExperienceSection />}
+            />
           </SectionContainer>
         </Carousel>
       </AuthSlideWrapper>
