@@ -9,7 +9,13 @@ function UserInfoFormSubmitButton({
   icon?: ReactNode;
 }) {
   return (
-    <Button.Solid type="submit" theme="primary" fontSize="sub-02" icon={icon}>
+    <Button.Solid
+      type="submit"
+      fontWeight="font-bold"
+      theme="primary"
+      fontSize="sub-02"
+      icon={icon}
+    >
       {children}
     </Button.Solid>
   );
