@@ -1,107 +1,107 @@
-@use "@/style/abstracts" as a;
+// @use "@/style/abstracts" as a;
 
-@mixin toast-color(
-  $background-color,
-  $hover-color,
-  $active-color,
-  $text-color
-) {
-  background-color: $background-color;
-  &:hover {
-    background-color: $hover-color;
-  }
-  &:active {
-    background-color: $active-color;
-  }
-  color: $text-color;
-}
+// @mixin toast-color(
+//   $background-color,
+//   $hover-color,
+//   $active-color,
+//   $text-color
+// ) {
+//   background-color: $background-color;
+//   &:hover {
+//     background-color: $hover-color;
+//   }
+//   &:active {
+//     background-color: $active-color;
+//   }
+//   color: $text-color;
+// }
 
-.toast {
-  position: fixed;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
+// .toast {
+//   position: fixed;
+//   top: -60px;
+//   left: 50%;
+//   transform: translateX(-50%);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 
-  width: 80%;
-  max-width: 1200px;
+//   width: 80%;
+//   max-width: 1200px;
 
-  padding: 0.5em;
+//   padding: 0.5em;
 
-  border-radius: a.$border-radius;
+//   border-radius: a.$border-radius;
 
-  z-index: 999999;
+//   z-index: 999999;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  transition: background-color 0.25s ease-in-out;
+//   transition: background-color 0.25s ease-in-out;
 
-  &.success {
-    @include toast-color(
-      a.$green-color,
-      a.$green-hover-color,
-      a.$green-active-color,
-      a.$white-color
-    );
-  }
-  &.error {
-    @include toast-color(
-      a.$red-color,
-      a.$red-hover-color,
-      a.$red-active-color,
-      a.$white-color
-    );
-  }
-  &.loading {
-    @include toast-color(
-      a.$yellow-color,
-      a.$yellow-hover-color,
-      a.$yellow-active-color,
-      a.$text-color
-    );
-  }
-  &.visible {
-    animation: Down 0.5s ease-in-out forwards;
-  }
+//   &.success {
+//     @include toast-color(
+//       a.$green-color,
+//       a.$green-hover-color,
+//       a.$green-active-color,
+//       a.$white-color
+//     );
+//   }
+//   &.error {
+//     @include toast-color(
+//       a.$red-color,
+//       a.$red-hover-color,
+//       a.$red-active-color,
+//       a.$white-color
+//     );
+//   }
+//   &.loading {
+//     @include toast-color(
+//       a.$yellow-color,
+//       a.$yellow-hover-color,
+//       a.$yellow-active-color,
+//       a.$text-color
+//     );
+//   }
+//   &.visible {
+//     animation: Down 0.5s ease-in-out forwards;
+//   }
 
-  &.hide {
-    animation: Up 0.5s ease-in-out forwards;
-  }
+//   &.hide {
+//     animation: Up 0.5s ease-in-out forwards;
+//   }
 
-  font-weight: 500;
-  @include a.typhography("body-01");
-}
+//   font-weight: 500;
+//   @include a.typhography("body-01");
+// }
 
-// Key Frame
-@keyframes Up {
-  0% {
-    opacity: 1;
-    top: 20px;
-  }
+// // Key Frame
+// @keyframes Up {
+//   0% {
+//     opacity: 1;
+//     top: 20px;
+//   }
 
-  50% {
-    top: 30px;
-  }
+//   50% {
+//     top: 30px;
+//   }
 
-  100% {
-    opacity: 0;
-    top: -60px;
-  }
-}
+//   100% {
+//     opacity: 0;
+//     top: -60px;
+//   }
+// }
 
-@keyframes Down {
-  0% {
-    top: -60px;
-  }
+// @keyframes Down {
+//   0% {
+//     top: -60px;
+//   }
 
-  50% {
-    top: 30px;
-  }
+//   50% {
+//     top: 30px;
+//   }
 
-  100% {
-    top: 20px;
-  }
-}
+//   100% {
+//     top: 20px;
+//   }
+// }

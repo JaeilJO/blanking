@@ -41,7 +41,7 @@ export const NextAuthOption: NextAuthOptions = {
         }
 
         if (user) {
-          const checking_password = bcrypt.compare(
+          const checking_password = await bcrypt.compare(
             password,
             user.password as string
           );

@@ -1,0 +1,28 @@
+@use "@/style/mediaQuery";
+@use "@/style/spacing";
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: spacing.$spacing-value-6;
+
+  max-width: 1600px;
+  min-width: 330px;
+
+  height: 100dvh;
+
+  margin: auto;
+
+  @include mediaQuery.media-query("small") {
+    justify-content: center;
+  }
+
+  @include mediaQuery.media-query("middle") {
+    padding: 0 spacing.$spacing-value-4;
+  }
+
+  @include mediaQuery.media-query("large") {
+    padding: 0;
+  }
+}

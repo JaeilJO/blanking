@@ -41,7 +41,7 @@ export default interface RowFlexBoxProps {
   /**
    * RowFlexBox의 align-items 속성입니다.
    */
-  alignItem?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
+  alignItems?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
 
   /**
    * RowFlexBox의 배경색입니다.

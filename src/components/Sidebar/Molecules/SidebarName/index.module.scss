@@ -1,25 +1,25 @@
-@use "@/style/abstracts" as a;
-.wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+// @use "@/style/abstracts" as a;
+// .wrapper {
+//   display: flex;
+//   align-items: center;
+//   gap: 12px;
 
-  width: a.$sidebar-width;
+//   width: a.$sidebar-width;
 
-  overflow: hidden;
-}
+//   overflow: hidden;
+// }
 
-.name {
-  transition: color 0.25s ease-in-out;
+// .name {
+//   transition: color 0.25s ease-in-out;
 
-  &:hover {
-    color: a.$gray-color;
-  }
+//   &:hover {
+//     color: a.$gray-color;
+//   }
 
-  @include a.typhography("body-01");
-}
+//   @include a.typhography("body-01");
+// }
 
-.email {
-  color: a.$gray-color;
-  @include a.typhography("body-02");
-}
+// .email {
+//   color: a.$gray-color;
+//   @include a.typhography("body-02");
+// }

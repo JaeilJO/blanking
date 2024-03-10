@@ -1,5 +1,3 @@
-@use "@/style/abstracts" as a;
-
 .wrapper {
   position: absolute;
   display: flex;
@@ -8,15 +6,15 @@
 
   max-height: 100dvh;
   min-height: 100dvh;
-  width: a.$sidebar-width;
+  // width: a.$sidebar-width;
 
-  background-color: a.$white-color;
+  // background-color: a.$white-color;
 
   z-index: 999;
 
-  padding: a.$sidebar-padding-vertical a.$sidebar-padding-side;
+  // padding: a.$sidebar-padding-vertical a.$sidebar-padding-side;
 
-  border-right: 1px solid a.$light-gray-color;
+  // border-right: 1px solid a.$light-gray-color;
 
   transition: width 0.25s ease-in-out;
 

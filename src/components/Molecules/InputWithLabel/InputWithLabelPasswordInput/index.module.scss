@@ -15,14 +15,11 @@
 
   color: color.$light-gray-color;
   pointer-events: none;
+
   &.focus {
     background-color: white;
     font-weight: 500;
     top: -5px;
-    color: color.$primary-color;
-  }
-
-  &.required {
     color: color.$primary-color;
   }
 }

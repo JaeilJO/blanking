@@ -51,7 +51,7 @@ function InputWithLabelTextInput({
       <label className={cn("label", { focus: isFocus })}>{placeholder}</label>
       <Input.Text
         type={type}
-        theme={"primary"}
+        theme="primary"
         name={name}
         fontSize="body-01"
         borderWidth="border-medium"

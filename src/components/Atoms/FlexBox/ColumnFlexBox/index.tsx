@@ -9,7 +9,7 @@ function ColumnFlexBox({
   display = "flex",
   flexWrap = "wrap",
   justifyContent = "flex-start",
-  alignItem = "stretch",
+  alignItems = "stretch",
   backgroundColor,
   borderRadius = false,
   paddingTop,
@@ -26,7 +26,7 @@ function ColumnFlexBox({
     display,
     flexWrap,
     justifyContent,
-    alignItem,
+    alignItems,
   };
 
   const flexColumnClassName = cn(

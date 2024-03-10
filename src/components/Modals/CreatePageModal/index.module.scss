@@ -1,72 +1,72 @@
-@use "@/style/abstracts" as a;
+// @use "@/style/abstracts" as a;
 
-.modal_wrapper {
-  background-color: a.$white-color;
-  width: 320px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  border-radius: 8px;
-  @include a.typhography("body-01");
-}
+// .modal_wrapper {
+//   background-color: a.$white-color;
+//   width: 320px;
+//   padding: 24px;
+//   display: flex;
+//   flex-direction: column;
+//   text-align: center;
+//   border-radius: 8px;
+//   @include a.typhography("body-01");
+// }
 
-.title {
-  @include a.typhography("tit-03");
-  margin-bottom: 12px;
-}
+// .title {
+//   @include a.typhography("tit-03");
+//   margin-bottom: 12px;
+// }
 
-.group_name {
-  @include a.typhography("body-02-b");
-  margin-bottom: 16px;
-}
+// .group_name {
+//   @include a.typhography("body-02-b");
+//   margin-bottom: 16px;
+// }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 16px;
+// }
 
-.input_field {
-  @include a.typhography("body-01");
-  text-align: center;
-  &::placeholder {
-    @include a.typhography("body-01-b");
-    color: a.$text-color;
-  }
-}
+// .input_field {
+//   @include a.typhography("body-01");
+//   text-align: center;
+//   &::placeholder {
+//     @include a.typhography("body-01-b");
+//     color: a.$text-color;
+//   }
+// }
 
-.warning {
-  @include a.typhography("body-02");
-  b {
-    color: a.$primary-color;
-  }
-}
+// .warning {
+//   @include a.typhography("body-02");
+//   b {
+//     color: a.$primary-color;
+//   }
+// }
 
-.button_common_style {
-  @include a.typhography("body-01");
-  height: 50px;
-  border-radius: 4px;
-  color: a.$white-color;
-  cursor: pointer;
-}
+// .button_common_style {
+//   @include a.typhography("body-01");
+//   height: 50px;
+//   border-radius: 4px;
+//   color: a.$white-color;
+//   cursor: pointer;
+// }
 
-.submit_button {
-  background-color: a.$primary-color;
-  transition: background-color 0.25s ease-in-out;
-  margin-bottom: 8px;
-  &:hover {
-    background-color: a.$primary-hover-color;
-  }
-}
+// .submit_button {
+//   background-color: a.$primary-color;
+//   transition: background-color 0.25s ease-in-out;
+//   margin-bottom: 8px;
+//   &:hover {
+//     background-color: a.$primary-hover-color;
+//   }
+// }
 
-.cancel_button {
-  background-color: a.$light-gray-color;
-  transition: border 0.25s, color 0.3s ease-in-out;
-  border: 1px solid a.$white-color;
+// .cancel_button {
+//   background-color: a.$light-gray-color;
+//   transition: border 0.25s, color 0.3s ease-in-out;
+//   border: 1px solid a.$white-color;
 
-  &:hover {
-    border-color: a.$text-color;
-    color: a.$text-color;
-  }
-}
+//   &:hover {
+//     border-color: a.$text-color;
+//     color: a.$text-color;
+//   }
+// }

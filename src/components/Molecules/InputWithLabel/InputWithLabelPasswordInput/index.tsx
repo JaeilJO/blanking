@@ -44,9 +44,7 @@ function InputWithLabelPasswordInput({
 
   return (
     <div className={style["wrapper"]}>
-      <label className={cn("label", { focus: isFocus, required: required })}>
-        {placeholder}
-      </label>
+      <label className={cn("label", { focus: isFocus })}>{placeholder}</label>
 
       <Input.Password
         theme="primary"

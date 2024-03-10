@@ -1,12 +1,13 @@
-@use "@/style/abstracts" as a;
-.title {
-  @include a.typhography("tit-01");
+// @use "@/style/abstracts" as a;
+// .title {
+//   @include a.typhography("tit-01");
 
-  @include a.media-query("small") {
-    text-align: center;
-  }
+//   @include a.media-query("small") {
+//     text-align: center;
+//   }
 
-  @include a.media-query("middle") {
-    text-align: left;
-  }
-}
+//   @include a.media-query("middle") {
+//     text-align: left;
+//   }
+// }
+// //

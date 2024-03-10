@@ -43,7 +43,7 @@ export default interface ColumnFlexBoxProps {
   /**
    * ColumnFlexBox의 align-items 속성입니다.
    */
-  alignItem?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
+  alignItems?: "stretch" | "flex-start" | "flex-end" | "center" | "baseline";
 
   /**
    * ColumnFlexBox의 배경색입니다.

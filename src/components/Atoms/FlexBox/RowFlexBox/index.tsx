@@ -9,7 +9,7 @@ function RowFlexBox({
   display = "flex",
   flexWrap = "nowrap",
   justifyContent = "flex-start",
-  alignItem = "stretch",
+  alignItems = "stretch",
   backgroundColor,
   borderRadius = false,
   paddingTop,
@@ -26,7 +26,7 @@ function RowFlexBox({
     display,
     flexWrap,
     justifyContent,
-    alignItem,
+    alignItems,
   };
 
   const flexRowClassName = cn(

@@ -1,28 +1,28 @@
-@use "@/style/abstracts" as a;
+// @use "@/style/abstracts" as a;
 
-.label {
-  display: block;
-  @include a.typhography("body-01");
-  color: a.$default-color;
+// .label {
+//   display: block;
+//   @include a.typhography("body-01");
+//   color: a.$default-color;
 
-  &.left {
-    text-align: left;
-  }
+//   &.left {
+//     text-align: left;
+//   }
 
-  &.center {
-    text-align: center;
-  }
+//   &.center {
+//     text-align: center;
+//   }
 
-  &.right {
-    text-align: right;
-  }
+//   &.right {
+//     text-align: right;
+//   }
 
-  &.disabled {
-    color: a.$light-gray-color;
+//   &.disabled {
+//     color: a.$light-gray-color;
 
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-}
+//     -webkit-user-select: none;
+//     -moz-user-select: none;
+//     -ms-user-select: none;
+//     user-select: none;
+//   }
+// }

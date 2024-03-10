@@ -1,22 +1,22 @@
-@use "@/style/abstracts" as a;
+// @use "@/style/abstracts" as a;
 
-.avatar {
-  width: a.$avatar-width;
-  height: a.$avatar-height;
+// .avatar {
+//   width: a.$avatar-width;
+//   height: a.$avatar-height;
 
-  background-color: a.$primary-color;
+//   background-color: a.$primary-color;
 
-  color: a.$white-color;
+//   color: a.$white-color;
 
-  border-radius: 50%;
+//   border-radius: 50%;
 
-  cursor: pointer;
+//   cursor: pointer;
 
-  transition: background-color 0.25s ease-in-out;
+//   transition: background-color 0.25s ease-in-out;
 
-  &:hover {
-    background-color: a.$primary-hover-color;
-  }
+//   &:hover {
+//     background-color: a.$primary-hover-color;
+//   }
 
-  @include a.typhography("sub-02");
-}
+//   @include a.typhography("sub-02");
+// }

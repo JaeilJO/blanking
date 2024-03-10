@@ -1,53 +1,53 @@
-@use "@/style/abstracts" as a;
+// @use "@/style/abstracts" as a;
 
-.button {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+// .button {
+//   display: flex;
+//   align-items: center;
+//   gap: 8px;
 
-  width: a.$sidebar-width - (a.$sidebar-padding-side * 2);
+//   width: a.$sidebar-width - (a.$sidebar-padding-side * 2);
 
-  padding: 8px 4px;
+//   padding: 8px 4px;
 
-  text-align: left;
+//   text-align: left;
 
-  border-radius: a.$border-radius;
+//   border-radius: a.$border-radius;
 
-  cursor: pointer;
-  transition: background-color 0.25s ease-in-out;
+//   cursor: pointer;
+//   transition: background-color 0.25s ease-in-out;
 
-  overflow: hidden;
+//   overflow: hidden;
 
-  color: a.$text-color;
+//   color: a.$text-color;
 
-  &:hover {
-    background-color: a.$primary-hover-color;
-    color: a.$white-color;
-  }
+//   &:hover {
+//     background-color: a.$primary-hover-color;
+//     color: a.$white-color;
+//   }
 
-  &.body-01 {
-    @include a.typhography("body-01");
-  }
-  &.body-02 {
-    @include a.typhography("body-02");
-  }
-}
+//   &.body-01 {
+//     @include a.typhography("body-01");
+//   }
+//   &.body-02 {
+//     @include a.typhography("body-02");
+//   }
+// }
 
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+// .icon {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
 
-  &.body-01 {
-    @include a.typhography("body-01");
-  }
-  &.body-02 {
-    @include a.typhography("body-02");
-  }
-}
+//   &.body-01 {
+//     @include a.typhography("body-01");
+//   }
+//   &.body-02 {
+//     @include a.typhography("body-02");
+//   }
+// }
 
-.title {
-  max-width: 100%;
-  text-overflow: ellipsis;
-  overflow: hidden;
-}
+// .title {
+//   max-width: 100%;
+//   text-overflow: ellipsis;
+//   overflow: hidden;
+// }

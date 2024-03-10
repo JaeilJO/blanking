@@ -1,4 +1,6 @@
-@use "@/style/abstracts" as a;
+@use "@/style/color";
+@use "@/style/fontSize";
+
 .button {
   position: fixed;
   top: 20px;
@@ -6,7 +8,7 @@
 
   z-index: 9999;
 
-  color: a.$text-color;
+  color: color.$text-color;
 
   cursor: pointer;
 
@@ -17,8 +19,8 @@
   }
 
   &:hover {
-    color: a.$gray-color;
+    color: color.$gray-color;
   }
 
-  @include a.typhography("sub-02");
+  @include fontSize.font-size("sub-02");
 }

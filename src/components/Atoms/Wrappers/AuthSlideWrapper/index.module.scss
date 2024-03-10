@@ -1,0 +1,20 @@
+@use "@/style/mediaQuery";
+.wrapper {
+  max-width: 1100px;
+  min-width: 330px;
+  width: 100%;
+
+  max-height: 700px;
+  min-height: 700px;
+
+  font-size: 400px;
+  overflow: hidden;
+
+  @include mediaQuery.media-query("small") {
+    display: none;
+  }
+
+  @include mediaQuery.media-query("middle") {
+    display: block;
+  }
+}
