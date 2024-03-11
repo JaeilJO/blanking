@@ -23,8 +23,9 @@ function Page() {
         description="환영합니다"
         alignText="left"
         gap="gap-3"
-        titleSize="tit-03"
+        titleSize="tit-02"
         titleFontWeight="font-bold"
+        descriptionSize="body-02"
         descriptionFontWeight="font-regular"
       />
 

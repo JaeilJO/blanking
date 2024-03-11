@@ -19,8 +19,9 @@ function Page() {
         description="이메일 확인 후 비밀번호 변경을 진행합니다."
         alignText="left"
         gap="gap-3"
-        titleSize="tit-03"
+        titleSize="tit-02"
         titleFontWeight="font-bold"
+        descriptionSize="body-02"
         descriptionFontWeight="font-regular"
       />
 

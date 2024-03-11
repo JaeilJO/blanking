@@ -16,27 +16,36 @@ function Page({ params }: { params: { subkey: string } }) {
     <AuthWrapper>
       <HeadingWithDescription
         title="Change Password"
-        description="비밀번호는 영문 대문자,소문자 하나 그리고 숫자를 조합시켜주세요"
+        description=""
         alignText="left"
         gap="gap-3"
         titleSize="tit-03"
         titleFontWeight="font-bold"
+        descriptionSize="body-02"
         descriptionFontWeight="font-regular"
       />
 
-      {/* Form */}
-      <UserInfoForm>
-        <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
-          <UserInfoForm.Input.Password
-            name="password"
-            type="password"
-            placeholder="Password"
-            required
-            disabled={isLoading}
-          />
-          <UserInfoForm.SubmitButton>Change Password</UserInfoForm.SubmitButton>
-        </UserInfoForm.Form>
-      </UserInfoForm>
+      <FlexBox.Column gap="gap-3">
+        {/* Form */}
+        <UserInfoForm>
+          <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
+            <UserInfoForm.Input.Password
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              disabled={isLoading}
+            />
+            <UserInfoForm.SubmitButton>
+              Change Password
+            </UserInfoForm.SubmitButton>
+          </UserInfoForm.Form>
+        </UserInfoForm>
+
+        <Text.Body fontSize="body-02" color="primary" textAlign="text-center">
+          영문 대문자,소문자 그리고 숫자를 조합시켜주세요
+        </Text.Body>
+      </FlexBox.Column>
 
       <Link.Text
         href={"/auth/signin"}
