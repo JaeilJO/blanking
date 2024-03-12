@@ -53,6 +53,7 @@ function InputWithLabelPasswordInput({
         borderWidth="border-medium"
         onFocus={onFocus}
         onBlur={onBlur}
+        fontWeight="font-regular"
         required={required}
         showIcon={<BsEye />}
         hideIcon={<BsEyeSlash />}

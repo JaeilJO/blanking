@@ -55,6 +55,7 @@ function InputWithLabelTextInput({
         name={name}
         fontSize="body-01"
         borderWidth="border-medium"
+        fontWeight="font-regular"
         required={required}
         onFocus={onFocus}
         onBlur={onBlur}
