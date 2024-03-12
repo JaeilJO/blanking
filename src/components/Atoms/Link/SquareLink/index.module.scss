@@ -1,0 +1,21 @@
+@use "@/style/color";
+@use "@/style/shadow";
+@use "@/style/variables";
+.link {
+  border: 1px solid color.$light-gray-color;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  border-radius: variables.$border-radius;
+
+  transition: border-color 0.2s ease-in-out;
+
+  aspect-ratio: 1/1;
+
+  &:hover {
+    box-shadow: shadow.$basic-shadow;
+  }
+}

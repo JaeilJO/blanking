@@ -18,7 +18,7 @@ interface SolidButtonProps
   theme: LinkColorTheme;
 }
 
-function SolidButton(props: SolidButtonProps) {
+function SolidLink(props: SolidButtonProps) {
   const {
     theme = "primary",
     display = "block",
@@ -69,4 +69,4 @@ function SolidButton(props: SolidButtonProps) {
   );
 }
 
-export default SolidButton;
+export default SolidLink;
