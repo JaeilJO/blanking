@@ -20,8 +20,6 @@
   flex-direction: column;
   justify-content: space-between;
 
-  overflow-y: scroll;
-
   padding: spacing.$spacing-value-6 spacing.$spacing-value-4;
 
   @include mediaQuery.media-query("small") {
