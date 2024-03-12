@@ -1,65 +1,35 @@
 "use client";
 
-import { ReactNode, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import style from "./index.module.scss";
-import {
-  FontSize,
-  MarginBottom,
-  MarginLeft,
-  MarginRight,
-  MarginTop,
-  PaddingBottom,
-  PaddingLeft,
-  PaddingRight,
-  PaddingTop,
-} from "@/style/style.type";
+
 import classNames from "classnames/bind";
+import SquareButtonProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-interface SquareButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  children: ReactNode | string;
-  color: string;
-
-  fontSize?: FontSize;
-
-  marginLeft?: MarginLeft;
-  marginRight?: MarginRight;
-  marginTop?: MarginTop;
-  marginBottom?: MarginBottom;
-
-  paddingLeft?: PaddingLeft;
-  paddingRight?: PaddingRight;
-  paddingTop?: PaddingTop;
-  paddingBottom?: PaddingBottom;
-}
-
-function SquareButton({
-  children,
-
-  // 이 색상은 기본 검정 색상입니다.
-  color = "#333333",
-
-  fontSize = "body-01",
-
-  paddingBottom = "pb-3",
-  paddingLeft = "pl-3",
-  paddingRight = "pr-3",
-  paddingTop = "pt-3",
-
-  marginLeft,
-  marginRight,
-  marginTop,
-  marginBottom,
-}: SquareButtonProps) {
+function SquareButton(props: SquareButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const {
+    children,
+
+    // 이 색상은 기본 검정 색상입니다.
+    color = "#333333",
+
+    fontSize = "body-01",
+
+    size = 30,
+    marginLeft,
+    marginRight,
+    marginTop,
+    marginBottom,
+  } = props;
+
   const buttonClassName = cn(
     "button",
     fontSize,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
+
     marginLeft,
     marginRight,
     marginTop,
@@ -97,6 +67,8 @@ function SquareButton({
       ref={buttonRef}
       style={{
         color,
+        width: `${size}px`,
+        height: `${size}px`,
       }}
       className={buttonClassName}
     >
