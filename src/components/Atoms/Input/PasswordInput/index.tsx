@@ -66,11 +66,14 @@ function PasswordInput({
         paddingBottom,
         theme,
         fontSize,
+
         { disabeld: disabled }
       )}
     >
       <input
-        className={cn("input", fontSize, theme, fontWeight)}
+        className={cn("input", fontSize, theme, fontWeight, {
+          hide: !showPassword,
+        })}
         type={showPassword ? "text" : "password"}
         name={name}
         placeholder={placeholder}
