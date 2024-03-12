@@ -1,43 +1,22 @@
-"use client";
-
 import FlexBox from "@/components/Atoms/FlexBox";
 import Link from "@/components/Atoms/Link";
 
 import AuthWrapper from "@/components/Atoms/Wrappers/AuthWrapper";
-import HeadingWithDescription from "@/components/Molecules/HeadingWithDescription";
-import useCheckEmail from "@/components/Templates/Auth/CheckEmail/useCheckEmail.hook";
 
-import UserInfoForm from "@/components/Templates/UserInfoForm";
+import AuthPageHeader from "@/components/Organisms/AuthPageHeader";
+
+import UserCheckEmailForm from "@/components/Templates/UserCheckEmailForm";
 
 function Page() {
-  const { isLoading, onSubmit } = useCheckEmail();
-
   return (
     <AuthWrapper>
-      <HeadingWithDescription
+      <AuthPageHeader
         title="Check Email"
         description="이메일 확인 후 비밀번호 변경을 진행합니다."
-        alignText="left"
-        gap="gap-3"
-        titleSize="tit-02"
-        titleFontWeight="font-bold"
-        descriptionSize="body-02"
-        descriptionFontWeight="font-regular"
       />
 
       {/* Form */}
-      <UserInfoForm>
-        <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
-          <UserInfoForm.Input.Text
-            name="email"
-            type="email"
-            placeholder="E-mail"
-            required
-            disabled={isLoading}
-          />
-          <UserInfoForm.SubmitButton>Check Email</UserInfoForm.SubmitButton>
-        </UserInfoForm.Form>
-      </UserInfoForm>
+      <UserCheckEmailForm />
 
       <FlexBox.Column gap="gap-3">
         <Link.Text

@@ -2,7 +2,6 @@
 import { NextAuthOption } from "@/lib/nextAuth/auth";
 import { getServerSession } from "next-auth";
 
-import dynamic from "next/dynamic";
 import {
   HydrationBoundary,
   QueryClient,
@@ -10,13 +9,10 @@ import {
 } from "@tanstack/react-query";
 import getGroups from "@/services/getGroups";
 
-// Components
-const ReactQueryProvider = dynamic(
-  () => import("@/components/ReactQueryProvider"),
-  { ssr: false }
-);
-import SidebarTemplate from "@/components/Sidebar/Templates/SidebarTemplate";
 import UserPageWrapper from "@/components/UserPage/Atoms/UserPageWrapper";
+
+import ReactQueryProvider from "@/components/ReactQueryProvider";
+import Sidebar from "@/components/Templates/Sidebar";
 
 async function Layout({
   children,
@@ -37,16 +33,14 @@ async function Layout({
   changePageNameModal: React.ReactNode;
   logoutModal: React.ReactNode;
 }) {
+  const queryClient = new QueryClient();
   const session = await getServerSession(NextAuthOption);
   const subkey = session?.user.subkey || "";
-  const queryClient = new QueryClient();
 
-  if (subkey) {
-    await queryClient.prefetchQuery({
-      queryKey: ["groups"],
-      queryFn: () => getGroups(subkey),
-    });
-  }
+  await queryClient.prefetchQuery({
+    queryKey: ["groups"],
+    queryFn: () => getGroups(subkey),
+  });
 
   const dehydratedState = dehydrate(queryClient);
 
@@ -63,11 +57,11 @@ async function Layout({
 
       {/* Sidebar */}
       <HydrationBoundary state={dehydratedState}>
-        <SidebarTemplate subkey={subkey} />
-      </HydrationBoundary>
+        <Sidebar subkey={subkey} />
 
-      {/* UserPage */}
-      <UserPageWrapper>{children}</UserPageWrapper>
+        {/* UserPage */}
+        <UserPageWrapper>{children}</UserPageWrapper>
+      </HydrationBoundary>
     </ReactQueryProvider>
   );
 }

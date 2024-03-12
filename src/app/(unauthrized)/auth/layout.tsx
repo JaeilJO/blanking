@@ -6,12 +6,12 @@ import { NextAuthOption } from "@/lib/nextAuth/auth";
 // Components
 import AuthLayoutWrapper from "@/components/Atoms/Wrappers/AuthLayoutWrapper";
 import AuthSlideWrapper from "@/components/Atoms/Wrappers/AuthSlideWrapper";
-import Carousel from "@/components/Templates/Carousel";
-import SectionContainer from "@/components/Templates/Carousel/SectionContainer";
+import Carousel from "@/components/Organisms/Carousel";
+import SectionContainer from "@/components/Organisms/Carousel/SectionContainer";
 
-import LogoSection from "@/components/Templates/Carousel/SectionContents/LogoSection";
-import CarouselSection from "@/components/Templates/Carousel/CarouselSection";
-import ExperienceSection from "@/components/Templates/Carousel/SectionContents/ExperienceSection";
+import LogoSection from "@/components/Organisms/Carousel/SectionContents/LogoSection";
+import CarouselSection from "@/components/Organisms/Carousel/CarouselSection";
+import ExperienceSection from "@/components/Organisms/Carousel/SectionContents/ExperienceSection";
 
 async function Layout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(NextAuthOption);
