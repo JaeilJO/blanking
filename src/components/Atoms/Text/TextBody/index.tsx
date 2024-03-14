@@ -14,7 +14,10 @@ function TextBody({
   marginBottom,
   marginLeft,
   marginRight,
+  wrap,
   color,
+  overflow,
+  ...props
 }: TextBodyProps) {
   return (
     <p
@@ -28,8 +31,10 @@ function TextBody({
         marginBottom,
         marginLeft,
         marginRight,
-        display
+        display,
+        { wrap: wrap, "no-wrap": !wrap, overflow: overflow }
       )}
+      style={{ ...props.style }}
     >
       {children}
     </p>

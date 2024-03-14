@@ -64,4 +64,14 @@ export default interface TextBodyProps
    * 표시 유형입니다.
    */
   display?: "block" | "inline";
+
+  /**
+   * 텍스트 래핑 여부입니다.
+   */
+  wrap?: boolean;
+
+  /**
+   * 텍스트 오버플로우 여부입니다.
+   */
+  overflow?: boolean;
 }

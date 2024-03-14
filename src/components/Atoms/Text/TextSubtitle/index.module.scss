@@ -2,6 +2,7 @@
 
 .paragraph {
   // Text alignment
+
   &.text-left {
     text-align: left;
   }
@@ -15,7 +16,6 @@
   // Display options
   &.block {
     display: block;
-    width: 100%;
   }
   &.inline {
     display: inline;
