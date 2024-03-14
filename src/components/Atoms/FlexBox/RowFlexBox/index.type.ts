@@ -20,7 +20,7 @@ export default interface RowFlexBoxProps {
   /**
    * RowFlexBox의 display 속성입니다.
    */
-  display?: "flex" | "inline-flex";
+  display?: "block" | "inline";
 
   /**
    * RowFlexBox의 flex-wrap 속성입니다.

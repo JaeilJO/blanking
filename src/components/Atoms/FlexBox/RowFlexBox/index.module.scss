@@ -5,6 +5,14 @@
     border-radius: 4px;
   }
 
+  &.block {
+    display: flex;
+    width: 100%;
+  }
+
+  &.inline {
+    display: inline-flex;
+  }
   &.gap-0 {
     gap: spacing.$spacing-value-0;
   }

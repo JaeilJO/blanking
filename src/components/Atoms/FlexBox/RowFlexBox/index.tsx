@@ -6,7 +6,7 @@ const cn = classNames.bind(style);
 
 function RowFlexBox({
   children,
-  display = "flex",
+  display = "block",
   flexWrap = "nowrap",
   justifyContent = "flex-start",
   alignItems = "stretch",
@@ -23,7 +23,6 @@ function RowFlexBox({
   gap,
 }: RowFlexBoxProps) {
   const flexRowStyle = {
-    display,
     flexWrap,
     justifyContent,
     alignItems,
@@ -35,12 +34,15 @@ function RowFlexBox({
     paddingBottom,
     paddingLeft,
     paddingRight,
+
     backgroundColor,
+
     marginBottom,
     marginLeft,
     marginRight,
     marginTop,
     gap,
+    display,
     {
       "border-radius": borderRadius,
     }
