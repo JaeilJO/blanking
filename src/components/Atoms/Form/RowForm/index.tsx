@@ -52,4 +52,5 @@ const RowForm = forwardRef(
   }
 );
 
+RowForm.displayName = "RowForm";
 export default RowForm;

@@ -49,5 +49,5 @@ const ColumnForm = forwardRef(
     );
   }
 );
-
+ColumnForm.displayName = "ColumnForm";
 export default ColumnForm;
