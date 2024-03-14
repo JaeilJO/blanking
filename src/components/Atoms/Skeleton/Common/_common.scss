@@ -2,6 +2,7 @@
 @mixin backgroundAnimation {
   animation: backgroundAnimation 1s infinite alternate ease-in-out;
 }
+
 @keyframes backgroundAnimation {
   0% {
     background-color: color.$background-color;
