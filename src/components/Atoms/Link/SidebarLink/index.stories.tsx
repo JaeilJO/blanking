@@ -14,7 +14,6 @@ type Story = StoryObj<typeof SidebarItem>;
 export const Primary: Story = {
   args: {
     href: "/",
-    title: "Homesadasdasdasdasds",
     openIcon: <BsEye />,
     closeIcon: <BsEyeSlash />,
   },
