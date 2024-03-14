@@ -3,7 +3,7 @@ import Text from "@/components/Atoms/Text";
 import SidebarLinkWrapper from "@/components/Atoms/Wrappers/SidebarLinkWrapper";
 import SidebarLinkOption from "@/components/Molecules/SidebarLinkOption";
 import Link from "next/link";
-import { LuFolder, LuFolderOpen, LuTrash } from "react-icons/lu";
+import { LuFolder, LuFolderOpen, LuTrash, LuPencilLine } from "react-icons/lu";
 
 interface SidebarGroupLinkProps {
   groupname: string;
@@ -24,7 +24,7 @@ function SidebarGroupLink({
   };
   return (
     <SidebarLinkWrapper level={1}>
-      <Link href={groupLinkHref()}>
+      <Link href={groupLinkHref()} style={{ width: "100%" }}>
         <FlexBox.Row
           display="block"
           alignItems="center"
@@ -53,13 +53,20 @@ function SidebarGroupLink({
       </Link>
 
       {/* Options */}
-      <FlexBox.Row display="inline">
+      <FlexBox.Row display="inline" gap="gap-1">
         <SidebarLinkOption
           href={{
             pathname: `/user/deletegroup`,
             query: { groupname },
           }}
           icon={<LuTrash />}
+        />
+        <SidebarLinkOption
+          href={{
+            pathname: `/user/changegroupname`,
+            query: { groupname },
+          }}
+          icon={<LuPencilLine />}
         />
       </FlexBox.Row>
     </SidebarLinkWrapper>
