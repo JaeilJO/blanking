@@ -1,7 +1,6 @@
-// @use "@/style/abstracts" as a;
-
-// .editor {
-//   width: 100dvw;
-//   @include a.typhography("body-01");
-//   max-width: 100%;
-// }
+@use "@/style/fontSize";
+.editor {
+  width: 100%;
+  height: 100%;
+  @include fontSize.font-size("body-01");
+}
