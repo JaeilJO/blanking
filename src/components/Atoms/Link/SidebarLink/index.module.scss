@@ -3,12 +3,12 @@
 @use "@/style/spacing";
 @use "@/style/variables";
 .link {
+  position: relative;
   display: flex;
   background-color: color.$white-color;
-  color: color.$text-color;
+  justify-content: space-between;
   @include fontSize.font-size("body-01");
-  align-items: center;
-  gap: spacing.$spacing-value-2;
+
   border-radius: variables.$border-radius;
 
   border: 1px solid transparent;
@@ -42,6 +42,15 @@
   }
 }
 
+.contents {
+  height: 100%;
+  display: flex;
+
+  color: color.$text-color;
+  align-items: center;
+  gap: spacing.$spacing-value-2;
+}
+
 .title {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -51,4 +60,8 @@
 .icon {
   position: relative;
   top: 1px;
+}
+
+.options {
+  display: flex;
 }

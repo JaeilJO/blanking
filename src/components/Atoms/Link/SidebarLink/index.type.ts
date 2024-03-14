@@ -23,7 +23,8 @@ export default interface SidebarItemProps {
 
   isOpen?: boolean;
 
-  title?: string;
+  groupname?: string;
+  pagename?: string;
 
   titleSize?: FontSize;
   iconSize?: FontSize;
