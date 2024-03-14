@@ -22,7 +22,7 @@ export default interface ColumnFlexBoxProps {
   /**
    * ColumnFlexBox의 display 속성입니다.
    */
-  display?: "flex" | "inline-flex";
+  display?: "block" | "inline";
 
   /**
    * ColumnFlexBox의 flex-wrap 속성입니다.
@@ -108,4 +108,6 @@ export default interface ColumnFlexBoxProps {
    * ColumnFlexBox의 자식 요소 사이의 간격입니다.
    */
   gap?: Gap;
+
+  style?: React.CSSProperties;
 }

@@ -7,11 +7,14 @@
 
   &.block {
     display: flex;
-    width: 100%;
   }
 
   &.inline {
     display: inline-flex;
+  }
+
+  &.border-radius {
+    border-radius: 4px;
   }
   &.gap-0 {
     gap: spacing.$spacing-value-0;

@@ -106,4 +106,6 @@ export default interface RowFlexBoxProps {
    * RowFlexBox의 자식 요소 사이의 간격입니다.
    */
   gap?: Gap;
+
+  style?: React.CSSProperties;
 }

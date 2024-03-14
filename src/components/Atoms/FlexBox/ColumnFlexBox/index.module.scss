@@ -1,7 +1,19 @@
 @use "@/style/color";
 @use "@/style/spacing";
 .flex-column {
-  flex-direction: column;
+  position: relative;
+
+  &.block {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &.inline {
+    display: inline-flex;
+    flex-direction: column;
+  }
+
   &.border-radius {
     border-radius: 4px;
   }
@@ -61,4 +73,6 @@
   &.yellow {
     background-color: color.$yellow-color;
   }
+
+  justify-content: space-around;
 }
