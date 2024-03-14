@@ -1,7 +1,7 @@
-import DeletePageModal from '@/components/Modals/DeletePageModal';
+import DeletePageModal from "@/components/Templates/Modals/DeletePageModal";
 
 function Page() {
-    return <DeletePageModal />;
+  return <DeletePageModal />;
 }
 
 export default Page;

@@ -13,6 +13,7 @@ import UserPageWrapper from "@/components/UserPage/Atoms/UserPageWrapper";
 
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 import Sidebar from "@/components/Templates/Sidebar";
+import MainWrapper from "@/components/Atoms/Wrappers/MainWrapper";
 
 async function Layout({
   children,
@@ -58,10 +59,9 @@ async function Layout({
       {/* Sidebar */}
       <HydrationBoundary state={dehydratedState}>
         <Sidebar subkey={subkey} />
-
-        {/* UserPage */}
-        <UserPageWrapper>{children}</UserPageWrapper>
       </HydrationBoundary>
+      {/* UserPage */}
+      <MainWrapper>{children}</MainWrapper>
     </ReactQueryProvider>
   );
 }

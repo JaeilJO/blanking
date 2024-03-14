@@ -23,11 +23,12 @@ function UserInfoForm({
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
+
     const $formElement = ref.current as HTMLFormElement;
 
     const datas = formData.current;
 
-    onSubmit(datas);
+    await onSubmit(datas);
 
     $formElement.reset();
   };

@@ -2,6 +2,7 @@
 @use "@/style/spacing";
 .wrapper {
   position: fixed;
+
   left: 0;
 
   background-color: color.$white-color;
@@ -23,7 +24,11 @@
   transition: left 0.25s ease-in-out;
 
   overflow-y: scroll;
+
   scrollbar-width: none;
+  overflow-x: none;
+
+  z-index: 999999;
 
   &.close {
     left: -300px;

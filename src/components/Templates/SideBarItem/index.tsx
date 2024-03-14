@@ -2,10 +2,11 @@
 
 import FlexBox from "@/components/Atoms/FlexBox";
 import Link from "@/components/Atoms/Link";
-import SidebarGroupLink from "@/components/Molecules/SidebarGroupLink";
-import SidebarPageLink from "@/components/Molecules/SidebarPageLink";
+
 import { Group } from "@/utils/modelTypes";
 import { LuFilePlus } from "react-icons/lu";
+import SidebarGroupLink from "../SidebarGroupLink";
+import SidebarPageLink from "../SidebarPageLink";
 
 interface SidebarItemProps {
   item: Group;
@@ -22,35 +23,25 @@ function SidebarItem({
 }: SidebarItemProps) {
   const { groupname, pages } = item;
 
-  const groupHref = () => {
-    if (currentGroupName === groupname) {
-      return `/user/${username}`;
-    }
-    return `/user/${username}/${groupname}`;
-  };
-
-  const pageHref = (pagename: string) => {
-    if (currentPageName === pagename) {
-      return `/user/${username}/${groupname}`;
-    }
-    return `/user/${username}/${groupname}/${pagename}`;
-  };
-
   return (
     <FlexBox.Column gap="gap-1">
       <SidebarGroupLink
-        href={groupHref()}
-        title={groupname}
+        groupname={groupname}
         isOpen={groupname === currentGroupName}
+        username={username}
       />
 
       {currentGroupName === groupname &&
         pages.map((page) => (
           <SidebarPageLink
             key={page.id}
-            title={page.pagename}
-            href={pageHref(page.pagename)}
-            isOpen={page.pagename === currentPageName}
+            username={username}
+            groupname={groupname}
+            pagename={page.pagename}
+            isOpen={
+              groupname === currentGroupName &&
+              currentPageName === page.pagename
+            }
           />
         ))}
       {groupname === currentGroupName && (

@@ -1,11 +1,7 @@
-import CreateGroupModal from '@/components/Modals/CreateGroupModal';
+import CreateGroupModal from "@/components/Templates/Modals/CreateGroupModal";
 
 function Page() {
-    return (
-        <>
-            <CreateGroupModal />
-        </>
-    );
+  return <CreateGroupModal />;
 }
 
 export default Page;
