@@ -1,0 +1,9 @@
+@use "@/style/spacing";
+.wrapper {
+  width: 100%;
+  max-height: 100dvh;
+  min-height: 100dvh;
+
+  padding-left: spacing.$spacing-value-4;
+  padding-top: spacing.$spacing-value-7;
+}
