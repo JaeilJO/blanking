@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "@/components/Atoms/Link";
+import Skeleton from "@/components/Atoms/Skeleton";
 import Text from "@/components/Atoms/Text";
 import SidebarWrapper from "@/components/Atoms/Wrappers/SidebarWrapper";
 import SidebarUserInfo from "@/components/Molecules/SidebarUserInfo";
@@ -9,9 +10,9 @@ import SidebarItem from "@/components/Templates/SideBarItem";
 import getGroups from "@/services/getGroups";
 import { Group } from "@/utils/modelTypes";
 
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
-import { useParams } from "next/navigation";
+import { redirect, useParams } from "next/navigation";
 
 import { LuFolderPlus } from "react-icons/lu";
 
@@ -33,7 +34,11 @@ function Sidebar({ subkey }: { subkey: string }) {
   if (isLoading) {
     return (
       <SidebarWrapper>
-        <Text.Body>로딩 중...</Text.Body>
+        <Skeleton.BoxSkeleton width="100%" height="50px" />
+        <Skeleton.BoxSkeleton width="100%" height="30px" />
+        <Skeleton.BoxSkeleton width="100%" height="30px" />
+        <Skeleton.BoxSkeleton width="100%" height="30px" />
+        <Skeleton.BoxSkeleton width="100%" height="50px" />
       </SidebarWrapper>
     );
   }
@@ -44,6 +49,10 @@ function Sidebar({ subkey }: { subkey: string }) {
         <Text.Body>그룹이 없습니다.</Text.Body>
       </SidebarWrapper>
     );
+  }
+
+  if (isError) {
+    return redirect("/404");
   }
 
   const groups = data.data;
