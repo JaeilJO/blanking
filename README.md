@@ -45,39 +45,43 @@
 -   Margin Note 어플리케이션 결제 후 사용했지만, 빈칸을 만드는 방법이 직관적이 않아서 불편
 -   따라서 이를 해결하고자 제작
 
+## 사용패턴
+### 컴파운드 컴포넌트 패턴
+``` typescript
+   <UserInfoForm>
+      <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
+        <UserInfoForm.Input.Text
+          name="email"
+          type="email"
+          placeholder="E-mail"
+          required
+        />
+        <UserInfoForm.Input.Password
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <UserInfoForm.SubmitButton>Sign In</UserInfoForm.SubmitButton>
+      </UserInfoForm.Form>
+    </UserInfoForm>
+```
+Form 구조를 컴파운드 컴포넌트 패턴으로 만들었습니다.
+```userInfoForm```이라는 컴포넌트가 Provider역할을 해서 input에 있는 value를 가져와 줍니다.
+```Form```에서는 onSubmit함수를 받습니다. ```userInfoForm```컴포넌트에서 가져온 data를 onSubmit함수에 넘겨주는 역할을 합니다.
+해당 컴포넌트를 사용해서 해당 프로젝트의 모든 Form들을 제작했습니다. 디자인적으로 신경쓰는 부분이 적어져서 로직에 더욱 더 힘을 쓸 수 있었습니다.
+
 ## Component 구조
 ```
 📦 components
 ├─ Atoms
-│  └─ Representative component name
-│     ├─ Common
-│     │  ├─ _common.scss
-│     │  └─ common.type.ts
-│     ├─ Atom Component 
-│     │  ├─ index.tsx
-│     │  ├─ index.module.scss
-│     │  ├─ index.stories.tsx
-│     │  └─ index.type.ts
-│     └─ index.ts
+|
 ├─ Molecules
-│  └─ Layout or Page Name
-│     └─ Molecule Component
-│        ├─ index.tsx
-│        ├─ index.module.scss
-│        ├─ index.stories.tsx
-│        └─ index.type.ts
+│
 ├─ Organisms
-│  └─ Layout or Page Name
-│     └─ Organism Component
-│        ├─ index.tsx
-│        └─ index.stories.tsx
+│ 
 └─ Template
-   └─ Layout or Page Name
-      └─ Template Component
-         ├─ index.tsx
-         └─ customHook.hook.ts
+  
 ```
-
 - Atoms
   - 재사용이 많은 UI Component를 모아 두었습니다
     
@@ -88,8 +92,8 @@
   - Atoms와 Molecules를 이용해서 만든 UI Component를 모아두었습니다
     
 - Template
-  - 주요 로직을 담당하는 Component 입니다
-  - 해당 Component는 UI Component가 아니기 때문에 로직과 UI 배치만을 해야합니다
+  - 페이지에 보여지기 직전의 컴포넌트를 모아주는 작업을 합니다.
+  - 비즈니스 로직은 보통 여기를 통해서 작업합니다.
  
 
 ## 주요 기능
