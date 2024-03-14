@@ -1,0 +1,103 @@
+@use "@/style/color";
+@use "@/style/shadow";
+.link {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display: inline-block;
+
+  &.primary {
+    background-color: color.$primary-color;
+
+    &:hover {
+      background-color: color.$primary-hover-color;
+    }
+
+    &:active {
+      background-color: color.$primary-active-color;
+    }
+  }
+
+  &.black {
+    background-color: color.$black-color;
+
+    &:hover {
+      background-color: color.$black-hover-color;
+    }
+
+    &:active {
+      background-color: color.$black-active-color;
+    }
+  }
+
+  &.gray {
+    background-color: color.$gray-color;
+
+    &:hover {
+      background-color: color.$gray-hover-color;
+    }
+
+    &:active {
+      background-color: color.$gray-active-color;
+    }
+  }
+
+  &.light-gray {
+    background-color: color.$light-gray-color;
+
+    &:hover {
+      background-color: color.$light-gray-hover-color;
+    }
+
+    &:active {
+      background-color: color.$light-gray-active-color;
+    }
+  }
+
+  &.red {
+    background-color: color.$red-color;
+
+    &:hover {
+      background-color: color.$red-hover-color;
+    }
+
+    &:active {
+      background-color: color.$red-active-color;
+    }
+  }
+
+  &.yellow {
+    background-color: color.$yellow-color;
+
+    &:hover {
+      background-color: color.$yellow-hover-color;
+    }
+
+    &:active {
+      background-color: color.$yellow-active-color;
+    }
+  }
+
+  &.green {
+    background-color: color.$green-color;
+
+    &:hover {
+      background-color: color.$green-hover-color;
+    }
+
+    &:active {
+      background-color: color.$green-active-color;
+    }
+  }
+
+  &.white {
+    background-color: color.$white-color;
+
+    &:hover {
+      box-shadow: shadow.$basic-shadow;
+    }
+
+    &:active {
+      background-color: color.$light-gray-color;
+    }
+  }
+}
