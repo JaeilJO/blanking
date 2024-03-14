@@ -17,7 +17,7 @@ function TextBody({
   wrap,
   color,
   overflow,
-  ...props
+  style,
 }: TextBodyProps) {
   return (
     <p
@@ -34,7 +34,7 @@ function TextBody({
         display,
         { wrap: wrap, "no-wrap": !wrap, overflow: overflow }
       )}
-      style={{ ...props.style }}
+      style={style}
     >
       {children}
     </p>

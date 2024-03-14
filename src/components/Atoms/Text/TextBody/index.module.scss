@@ -1,18 +1,17 @@
 @use "@/style/color";
 
 .paragraph {
-  .wrap {
+  &.wrap {
     white-space: wrap;
   }
 
-  .no-wrap {
+  &.no-wrap {
     white-space: nowrap;
   }
 
-  .overflow {
+  &.overflow {
     overflow: hidden;
     text-overflow: ellipsis;
-    background-color: red;
   }
 
   // Text alignment

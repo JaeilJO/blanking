@@ -14,8 +14,10 @@ function TextSubtitle({
   marginBottom,
   marginLeft,
   marginRight,
+  wrap,
+  overflow,
   color,
-  ...props
+  style,
 }: TextSubtitleProps) {
   return (
     <h2
@@ -29,9 +31,10 @@ function TextSubtitle({
         marginBottom,
         marginLeft,
         marginRight,
-        display
+        display,
+        { wrap: wrap, "no-wrap": !wrap, overflow: overflow }
       )}
-      {...props}
+      style={style}
     >
       {children}
     </h2>

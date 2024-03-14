@@ -74,4 +74,6 @@ export default interface TextBodyProps
    * 텍스트 오버플로우 여부입니다.
    */
   overflow?: boolean;
+
+  style?: React.CSSProperties;
 }

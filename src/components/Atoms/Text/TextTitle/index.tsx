@@ -15,8 +15,10 @@ function TextTitle({
   marginBottom,
   marginLeft,
   marginRight,
+  wrap,
+  overflow,
   color,
-  ...props
+  style,
 }: TextTitleProps) {
   return (
     <h1
@@ -32,7 +34,7 @@ function TextTitle({
         marginRight,
         display
       )}
-      {...props}
+      style={style}
     >
       {children}
     </h1>

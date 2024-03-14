@@ -64,4 +64,20 @@ export default interface TextTitleProps
    * 타이틀의 표시 방식입니다.
    */
   display?: "block" | "inline";
+
+  /**
+   * 텍스트 래핑 여부입니다.
+   */
+  wrap?: boolean;
+
+  /**
+   * 텍스트 오버플로우 여부입니다.
+   */
+  overflow?: boolean;
+
+  /**
+   * 지정한 스타일외에 원하는 추가 스타일이 있다면 사용
+   * 위의 스타일과 겹칠 경우 추가 스타일이 우선시 됩니다.
+   */
+  style?: React.CSSProperties;
 }

@@ -1,8 +1,19 @@
 @use "@/style/color";
 
 .paragraph {
-  // Text alignment
+  &.wrap {
+    white-space: wrap;
+  }
 
+  &.no-wrap {
+    white-space: nowrap;
+  }
+
+  &.overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  // Text alignment
   &.text-left {
     text-align: left;
   }

@@ -1,6 +1,18 @@
 @use "@/style/color";
 
 .paragraph {
+  &.wrap {
+    white-space: wrap;
+  }
+
+  &.no-wrap {
+    white-space: nowrap;
+  }
+
+  &.overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   // Text alignment
   &.text-left {
     text-align: left;
@@ -15,7 +27,6 @@
   // Display options
   &.block {
     display: block;
-    width: 100%;
   }
   &.inline {
     display: inline;
