@@ -37,6 +37,7 @@ function CreatePageModal() {
           <UserInfoForm.Input.NoLabel
             name="pagename"
             placeholder="페이지 이름을 입력해주세요"
+            theme="gray"
             required
           />
           <Text.Body fontSize="body-02" textAlign="text-center" color="black">
