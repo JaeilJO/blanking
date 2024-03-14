@@ -9,8 +9,6 @@ import {
 } from "@tanstack/react-query";
 import getGroups from "@/services/getGroups";
 
-import UserPageWrapper from "@/components/UserPage/Atoms/UserPageWrapper";
-
 import ReactQueryProvider from "@/components/ReactQueryProvider";
 import Sidebar from "@/components/Templates/Sidebar";
 import MainWrapper from "@/components/Atoms/Wrappers/MainWrapper";
@@ -23,7 +21,6 @@ async function Layout({
   deletePageModal,
   changeGroupNameModal,
   changePageNameModal,
-  logoutModal,
 }: {
   children: React.ReactNode;
   createGroupModal: React.ReactNode;
@@ -32,7 +29,6 @@ async function Layout({
   deletePageModal: React.ReactNode;
   changeGroupNameModal: React.ReactNode;
   changePageNameModal: React.ReactNode;
-  logoutModal: React.ReactNode;
 }) {
   const queryClient = new QueryClient();
   const session = await getServerSession(NextAuthOption);
@@ -54,7 +50,6 @@ async function Layout({
       {deleteGroupModal}
       {createPageModal}
       {deletePageModal}
-      {logoutModal}
 
       {/* Sidebar */}
       <HydrationBoundary state={dehydratedState}>
