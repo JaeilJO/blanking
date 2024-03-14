@@ -1,8 +1,8 @@
 @use "@/style/color";
 @use "@/style/variables";
 .button {
-  width: 24px;
-  height: 5px;
+  width: variables.$indicator-button-width;
+  height: variables.$indicator-button-height;
 
   border-radius: variables.$border-radius;
 
@@ -11,17 +11,20 @@
   transition: transform 0.2s, width 0.2s ease-in-out;
 
   cursor: pointer;
+
   &:hover {
     transform: scaleX(1.2);
     background-color: color.$primary-color;
-    height: 5px;
+    height: variables.$indicator-button-height;
   }
 
   &.is-current {
     transform: scaleX(1.2);
     background-color: color.$primary-color;
+
     &:hover {
       transform: scaleX(1);
+
       background-color: color.$primary-color;
     }
   }

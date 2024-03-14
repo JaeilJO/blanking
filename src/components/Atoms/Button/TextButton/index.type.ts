@@ -76,4 +76,6 @@ export default interface SolidButtonProps
   children: string | React.ReactNode;
 
   type?: "button" | "submit" | "reset";
+
+  textOverflow?: boolean;
 }

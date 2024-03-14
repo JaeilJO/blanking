@@ -113,3 +113,13 @@ export interface BaseButtonProps extends HTMLAttributes<HTMLButtonElement> {
 
   type?: "button" | "submit" | "reset";
 }
+
+export type buttonColorTheme =
+  | "primary"
+  | "black"
+  | "gray"
+  | "light-gray"
+  | "red"
+  | "yellow"
+  | "green"
+  | "white";

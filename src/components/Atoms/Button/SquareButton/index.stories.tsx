@@ -21,12 +21,15 @@ type Story = StoryObj<typeof SquareButton>;
 
 export const Primary: Story = {
   args: {
-    children: <BsGoogle />,
+    children: "hello",
+    size: 60,
   },
 };
 
-export const String: Story = {
+export const Icon: Story = {
   args: {
-    children: "hey",
+    children: <BsGoogle />,
+    color: "#4285F4",
+    size: 40,
   },
 };

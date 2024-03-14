@@ -1,5 +1,5 @@
-import { BaseButtonProps } from "../BaseButton/index.type";
-import BaseButton, { buttonColorTheme } from "../BaseButton";
+import { BaseButtonProps, buttonColorTheme } from "../BaseButton/index.type";
+import BaseButton from "../BaseButton";
 
 // 사용자가 지정하면 안되는 부분 지정
 interface LineButtonProps
@@ -18,55 +18,40 @@ interface LineButtonProps
 }
 
 function LineButton(props: LineButtonProps) {
-  const {
-    theme = "primary",
-    display = "block",
-
-    fontSize = "body-01",
-
-    borderWidth = "border-thin",
-
-    marginBottom,
-    marginLeft,
-    marginRight,
-    marginTop,
-
-    textAlign = "text-center",
-
-    icon,
-
-    disabled,
-
-    children,
-
-    ...otherProps
-  } = props;
+  const { theme = "primary", icon, ...otherProps } = props;
 
   return (
     <BaseButton
-      //기본 패딩
-
+      // 기본 패딩값
       paddingBottom="pb-3"
       paddingTop="pt-3"
       paddingRight="pr-4"
       paddingLeft="pl-4"
-      // 사용자가 지정할 수 있는 것 (props로 받아옴)
-      fontSize={fontSize}
-      display={display}
-      textAlign={textAlign}
+      // Base Button값을 따라갑니다.
+      display={otherProps.display}
+      fontSize={otherProps.fontSize}
+      textAlign={otherProps.textAlign}
+      borderWidth={otherProps.borderWidth}
+      marginBottom={otherProps.marginBottom}
+      marginLeft={otherProps.marginLeft}
+      marginRight={otherProps.marginRight}
+      marginTop={otherProps.marginTop}
+      disabled={otherProps.disabled}
+      style={otherProps.style}
+      /**
+       * theme 관련
+       * white와 light-gray 인 경우 font color는 검정색이여야 보이니까 지정
+       */
       borderColor={`border-${theme}`}
-      marginBottom={marginBottom}
-      marginLeft={marginLeft}
-      marginRight={marginRight}
-      marginTop={marginTop}
-      borderWidth={borderWidth}
-      // white인 경우 font color는 검정색이여야 보이니까 지정
-      textColor={theme === "white" ? `text-black` : `text-${theme}`}
-      disabled={disabled}
+      textColor={
+        theme === "white" || theme === "light-gray"
+          ? `text-black`
+          : `text-${theme}`
+      }
       {...otherProps}
     >
       {icon}
-      {children}
+      {otherProps.children}
     </BaseButton>
   );
 }

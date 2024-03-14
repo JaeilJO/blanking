@@ -1,15 +1,21 @@
+// Utils
 import classNames from "classnames/bind";
+
+// Style
 import style from "./index.module.scss";
+import IndicatorButtonProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-interface IndicatorButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  isCurrent: boolean;
-}
+function IndicatorButton(props: IndicatorButtonProps) {
+  const { isCurrent, ...otherProps } = props;
 
-function IndicatorButton({ isCurrent, ...props }: IndicatorButtonProps) {
   return (
-    <button className={cn("button", { "is-current": isCurrent })} {...props} />
+    <button
+      style={otherProps.style}
+      className={cn("button", { "is-current": isCurrent })}
+      {...otherProps}
+    />
   );
 }
 

@@ -20,14 +20,30 @@ export const Custom: Story = {
 export const Theme: Story = {
   render: () => (
     <div>
-      <SolidButton theme="primary">Primary</SolidButton>
-      <SolidButton theme="gray">Gray</SolidButton>
-      <SolidButton theme="black">Black</SolidButton>
-      <SolidButton theme="light-gray">Light Gray</SolidButton>
-      <SolidButton theme="red">Red</SolidButton>
-      <SolidButton theme="yellow">Yellow</SolidButton>
-      <SolidButton theme="green">Green</SolidButton>
-      <SolidButton theme="white">White</SolidButton>
+      <SolidButton marginBottom="mb-3" theme="primary">
+        Primary
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="gray">
+        Gray
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="black">
+        Black
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="light-gray">
+        Light Gray
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="red">
+        Red
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="yellow">
+        Yellow
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="green">
+        Green
+      </SolidButton>
+      <SolidButton marginBottom="mb-3" theme="white">
+        White
+      </SolidButton>
     </div>
   ),
 };

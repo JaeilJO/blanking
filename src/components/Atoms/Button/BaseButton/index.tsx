@@ -1,22 +1,17 @@
+// Utils
 import classNames from "classnames/bind";
+
+// Styles
 import style from "./index.module.scss";
+
+// Type
 import { BaseButtonProps } from "./index.type";
 
 const cn = classNames.bind(style);
 
-export type buttonColorTheme =
-  | "primary"
-  | "black"
-  | "gray"
-  | "light-gray"
-  | "red"
-  | "yellow"
-  | "green"
-  | "white";
-
 function BaseButton(props: BaseButtonProps) {
+  // Props
   const {
-    backgroundColor,
     display = "block",
 
     fontSize = "body-01",
@@ -27,6 +22,8 @@ function BaseButton(props: BaseButtonProps) {
     icon,
 
     type = "button",
+
+    backgroundColor,
 
     borderWidth,
     borderColor,
@@ -41,24 +38,24 @@ function BaseButton(props: BaseButtonProps) {
     paddingRight,
     paddingTop,
 
-    disabled,
-
     children,
+
     ...otherProps
   } = props;
 
   const buttonClass = cn(
     "button",
 
-    backgroundColor,
-    borderColor,
-    textColor,
-
     display,
 
     fontSize,
     fontWeight,
     textAlign,
+
+    backgroundColor,
+
+    borderColor,
+    textColor,
 
     borderWidth,
 
@@ -76,8 +73,9 @@ function BaseButton(props: BaseButtonProps) {
   return (
     <button
       type={type}
-      disabled={disabled}
+      disabled={otherProps.disabled}
       className={buttonClass}
+      style={otherProps.style}
       {...otherProps}
     >
       {icon}

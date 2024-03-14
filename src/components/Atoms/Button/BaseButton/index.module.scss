@@ -8,6 +8,7 @@
 
   border-radius: variables.$border-radius;
 
+  // Icon과 Text 사이의 간격
   gap: spacing.$spacing-value-1;
 
   cursor: pointer;
@@ -15,87 +16,30 @@
   transition: color 0.2s, border 0.2s, background-color 0.2s,
     box-shadow 0.2s ease-in-out;
 
-  &.bg-primary {
-    background-color: color.$primary-color;
-
-    &:hover {
-      background-color: color.$primary-hover-color;
-    }
-
-    &:active {
-      background-color: color.$primary-active-color;
-    }
+  &.block {
+    display: flex;
+    width: 100%;
   }
 
-  &.bg-black {
-    background-color: color.$black-color;
-
-    &:hover {
-      background-color: color.$black-hover-color;
-    }
-
-    &:active {
-      background-color: color.$black-active-color;
-    }
+  &.inline {
+    display: inline-flex;
   }
 
-  &.bg-gray {
-    background-color: color.$gray-color;
+  /** 
+  * Background Color
+    - white color는 특별하게 처리하기 때문에 따로 분리해놨습니다.
+  */
+  @each $color-name, $color-values in color.$color-configs {
+    &.bg-#{$color-name} {
+      background-color: map-get($color-values, base);
 
-    &:hover {
-      background-color: color.$gray-hover-color;
-    }
+      &:hover {
+        background-color: map-get($color-values, hover);
+      }
 
-    &:active {
-      background-color: color.$gray-active-color;
-    }
-  }
-
-  &.bg-light-gray {
-    background-color: color.$light-gray-color;
-
-    &:hover {
-      background-color: color.$light-gray-hover-color;
-    }
-
-    &:active {
-      background-color: color.$light-gray-active-color;
-    }
-  }
-
-  &.bg-red {
-    background-color: color.$red-color;
-
-    &:hover {
-      background-color: color.$red-hover-color;
-    }
-
-    &:active {
-      background-color: color.$red-active-color;
-    }
-  }
-
-  &.bg-yellow {
-    background-color: color.$yellow-color;
-
-    &:hover {
-      background-color: color.$yellow-hover-color;
-    }
-
-    &:active {
-      background-color: color.$yellow-active-color;
-    }
-  }
-
-  &.bg-green {
-    background-color: color.$green-color;
-
-    &:hover {
-      background-color: color.$green-hover-color;
-    }
-
-    &:active {
-      background-color: color.$green-active-color;
+      &:active {
+        background-color: color.$primary-active-color;
+      }
     }
   }
 
@@ -111,95 +55,22 @@
     }
   }
 
-  //Border
-  &.border-primary {
-    border: 1px solid color.$primary-color;
+  /** 
+  * Border Color
+    - white color는 특별하게 처리하기 때문에 따로 분리해놨습니다.
+  */
+  @each $color-name, $color-values in color.$color-configs {
+    &.border-#{$color-name} {
+      border: 1px solid map-get($color-values, base);
 
-    &:hover {
-      border-color: color.$primary-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
+      &:hover {
+        border-color: map-get($color-values, hover);
+        box-shadow: shadow.$basic-shadow;
+      }
 
-    &:active {
-      border-color: color.$primary-active-color;
-    }
-  }
-
-  &.border-black {
-    border: 1px solid color.$black-color;
-
-    &:hover {
-      border-color: color.$black-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
-
-    &:active {
-      border-color: color.$black-active-color;
-    }
-  }
-
-  &.border-gray {
-    border: 1px solid color.$gray-color;
-
-    &:hover {
-      border-color: color.$gray-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
-
-    &:active {
-      border-color: color.$gray-active-color;
-    }
-  }
-
-  &.border-light-gray {
-    border: 1px solid color.$light-gray-color;
-
-    &:hover {
-      border-color: color.$light-gray-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
-
-    &:active {
-      border-color: color.$light-gray-active-color;
-    }
-  }
-
-  &.border-red {
-    border: 1px solid color.$red-color;
-
-    &:hover {
-      border-color: color.$red-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
-
-    &:active {
-      border-color: color.$red-active-color;
-    }
-  }
-
-  &.border-yellow {
-    border: 1px solid color.$yellow-color;
-
-    &:hover {
-      border-color: color.$yellow-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
-
-    &:active {
-      border-color: color.$yellow-active-color;
-    }
-  }
-
-  &.border-green {
-    border: 1px solid color.$green-color;
-
-    &:hover {
-      border-color: color.$green-hover-color;
-      box-shadow: shadow.$basic-shadow;
-    }
-
-    &:active {
-      border-color: color.$green-active-color;
+      &:active {
+        border-color: color.$primary-active-color;
+      }
     }
   }
 
@@ -248,15 +119,7 @@
     color: color.$white-color;
   }
 
-  &.block {
-    width: 100%;
-    display: flex;
-  }
-
-  &.inline {
-    display: inline-flex;
-  }
-
+  // Text align
   &.text-left {
     justify-content: flex-start;
   }
@@ -269,6 +132,7 @@
     justify-content: flex-end;
   }
 
+  // border 너비
   &.border-thin {
     border-width: 1px;
   }

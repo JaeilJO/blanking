@@ -5,40 +5,56 @@ import TextButtonProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-function TextButton({
-  theme = "primary",
-  display = "block",
-  children,
-  fontSize,
-  fontWeight,
-  textAlign = "text-center",
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
-  disabled,
-  type = "button",
-  ...props
-}: TextButtonProps) {
+function TextButton(props: TextButtonProps) {
+  //Props
+  const {
+    display = "block",
+
+    fontSize = "body-01",
+    fontWeight = "font-light",
+    textAlign = "text-center",
+
+    theme = "primary",
+
+    type = "button",
+
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+
+    textOverflow = false,
+
+    ...otherProps
+  } = props;
+
+  const buttonClass = cn(
+    "button",
+
+    display,
+
+    fontSize,
+    fontWeight,
+    textAlign,
+
+    theme,
+
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+
+    { "text-overflow": textOverflow }
+  );
+
   return (
     <button
+      disabled={otherProps.disabled}
       type={type}
-      disabled={disabled}
-      className={cn(
-        "button",
-        theme,
-        display,
-        fontSize,
-        fontWeight,
-        textAlign,
-        marginBottom,
-        marginLeft,
-        marginRight,
-        marginTop
-      )}
-      {...props}
+      className={buttonClass}
+      {...otherProps}
     >
-      {children}
+      {otherProps.children}
     </button>
   );
 }
