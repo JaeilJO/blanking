@@ -60,7 +60,11 @@ function SolidButton(props: SolidButtonProps) {
       marginRight={marginRight}
       marginTop={marginTop}
       // white인 경우 빼고 모두 흰색
-      textColor={theme === "white" ? `text-black` : `text-white`}
+      textColor={
+        theme === "white" || theme === "light-gray"
+          ? `text-black`
+          : `text-white`
+      }
       disabled={disabled}
       {...otherProps}
     >
