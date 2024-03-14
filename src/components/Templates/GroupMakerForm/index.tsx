@@ -4,7 +4,7 @@ import UserInfoForm from "@/components/Organisms/UserInfoForm";
 import useCreateGroup from "@/hooks/useCreateGroup";
 
 function GroupMakerForm({ subkey }: { subkey: string }) {
-  const { mutate } = useCreateGroup({ subkey });
+  const { mutate } = useCreateGroup({ subkey, isModal: false });
 
   return (
     <UserInfoForm>

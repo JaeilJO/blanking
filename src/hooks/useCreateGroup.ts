@@ -10,7 +10,7 @@ export default function useCreateGroup({
 }: {
   subkey: string;
   isModal: boolean;
-  router: AppRouterInstance;
+  router?: AppRouterInstance;
 }) {
   const queryClient = useQueryClient();
 
@@ -23,7 +23,7 @@ export default function useCreateGroup({
       queryClient.invalidateQueries({ queryKey: ["groups"] });
 
       if (isModal) {
-        router.back();
+        router?.back();
       }
     },
 

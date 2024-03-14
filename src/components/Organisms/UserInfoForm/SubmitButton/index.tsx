@@ -1,5 +1,6 @@
 import Button from "@/components/Atoms/Button";
-import { buttonColorTheme } from "@/components/Atoms/Button/BaseButton";
+import { buttonColorTheme } from "@/components/Atoms/Button/BaseButton/index.type";
+
 import { ReactNode } from "react";
 
 function UserInfoFormSubmitButton({
