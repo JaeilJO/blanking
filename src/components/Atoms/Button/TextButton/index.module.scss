@@ -1,0 +1,63 @@
+@use "@/style/color";
+@use "@/style/spacing";
+@use "@/style/shadow";
+
+.button {
+  border-radius: 4px;
+
+  gap: spacing.$spacing-value-1;
+
+  cursor: pointer;
+
+  transition: background-color 0.2s, box-shadow 0.2s ease-in-out;
+
+  &.block {
+    display: block;
+    width: 100%;
+  }
+
+  &.inline {
+    display: inline;
+  }
+
+  /** 
+  * Text Color
+    - style/_color.scss에서 정의한 text-color-configs를 사용합니다.
+  */
+  @each $color-name, $color-values in color.$text-color-configs {
+    &.#{$color-name} {
+      color: map-get($color-values, base);
+
+      &:hover {
+        color: map-get($color-values, hover);
+      }
+
+      &:active {
+        color: map-get($color-values, active);
+      }
+    }
+  }
+
+  &.text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &.text-left {
+    text-align: left;
+  }
+
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-right {
+    text-align: right;
+  }
+
+  &:disabled {
+    color: color.$light-gray-color;
+    pointer-events: none;
+  }
+}

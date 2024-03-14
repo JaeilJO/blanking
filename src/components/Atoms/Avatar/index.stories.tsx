@@ -5,14 +5,24 @@ import Avatar from ".";
 const meta: Meta<typeof Avatar> = {
   component: Avatar,
   tags: ["autodocs"],
-  argTypes: {},
+  title: "Atoms/Avatar/Avatar",
 };
 
 export default meta;
 type Story = StoryObj<typeof Avatar>;
 
-export const Primary: Story = {
+export const Custom: Story = {
   args: {
-    name: "John Doe",
+    name: "Custom",
   },
+};
+
+export const Primary: Story = {
+  render: () => (
+    <div>
+      <Avatar name="Samll" size={"small"} />
+      <Avatar name="Medium" size={"medium"} />
+      <Avatar name="Large" size={"large"} />
+    </div>
+  ),
 };

@@ -1,0 +1,67 @@
+@use "@/style/color";
+@use "@/style/fontSize";
+@use "@/style/spacing";
+@use "@/style/variables";
+.link {
+  position: relative;
+  display: flex;
+  background-color: color.$white-color;
+  justify-content: space-between;
+  @include fontSize.font-size("body-01");
+
+  border-radius: variables.$border-radius;
+
+  border: 1px solid transparent;
+
+  transition: border 0.2s ease-in-out;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    border: 1px solid color.$light-gray-color;
+  }
+
+  &.is-open {
+    border: 1px solid color.$white-color;
+    color: color.$primary-color;
+
+    &:hover {
+      border: 1px solid color.$light-gray-color;
+    }
+  }
+
+  &.left {
+    justify-content: flex-start;
+  }
+  &.right {
+    justify-content: flex-end;
+  }
+  &.center {
+    justify-content: center;
+  }
+}
+
+.contents {
+  height: 100%;
+  display: flex;
+
+  color: color.$text-color;
+  align-items: center;
+  gap: spacing.$spacing-value-2;
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon {
+  position: relative;
+  top: 1px;
+}
+
+.options {
+  display: flex;
+}

@@ -1,0 +1,23 @@
+@use "@/style/spacing";
+@use "@/style/color";
+
+@use "@/style/variables";
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: spacing.$spacing-value-2 spacing.$spacing-value-1;
+  border: 1px solid transparent;
+  border-radius: variables.$border-radius;
+
+  transition: border 0.2s ease-in-out;
+
+  &:hover {
+    border: 1px solid color.$light-gray-color;
+  }
+
+  &.level2 {
+    padding-left: spacing.$spacing-value-5;
+  }
+}

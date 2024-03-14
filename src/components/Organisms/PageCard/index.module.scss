@@ -1,0 +1,36 @@
+@use "@/style/spacing";
+
+@use "@/style/variables";
+
+@use "@/style/shadow";
+
+@use "@/style/color";
+
+.div {
+  position: relative;
+  top: 0;
+  padding: spacing.$spacing-value-4;
+  border-radius: variables.$border-radius;
+  box-shadow: shadow.$basic-shadow;
+
+  max-width: 300px;
+  width: 100%;
+
+  max-height: 150px;
+  min-height: 150px;
+  height: 150px;
+
+  background-color: color.$white-color;
+
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+
+  transition: top 0.2s ease-in-out;
+
+  overflow: hidden;
+  &:hover {
+    top: -5px;
+  }
+}

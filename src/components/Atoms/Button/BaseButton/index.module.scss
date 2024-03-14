@@ -1,0 +1,155 @@
+@use "@/style/variables";
+@use "@/style/color";
+@use "@/style/spacing";
+@use "@/style/shadow";
+
+.button {
+  display: flex;
+
+  border-radius: variables.$border-radius;
+
+  // Icon과 Text 사이의 간격
+  gap: spacing.$spacing-value-1;
+
+  cursor: pointer;
+
+  transition: color 0.2s, border 0.2s, background-color 0.2s,
+    box-shadow 0.2s ease-in-out;
+
+  &.block {
+    display: flex;
+    width: 100%;
+  }
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  /** 
+  * Background Color
+    - white color는 특별하게 처리하기 때문에 따로 분리해놨습니다.
+  */
+  @each $color-name, $color-values in color.$color-configs {
+    &.bg-#{$color-name} {
+      background-color: map-get($color-values, base);
+
+      &:hover {
+        background-color: map-get($color-values, hover);
+      }
+
+      &:active {
+        background-color: color.$primary-active-color;
+      }
+    }
+  }
+
+  &.bg-white {
+    background-color: color.$white-color;
+
+    &:hover {
+      box-shadow: shadow.$basic-shadow;
+    }
+
+    &:active {
+      background-color: color.$light-gray-color;
+    }
+  }
+
+  /** 
+  * Border Color
+    - white color는 특별하게 처리하기 때문에 따로 분리해놨습니다.
+  */
+  @each $color-name, $color-values in color.$color-configs {
+    &.border-#{$color-name} {
+      border: 1px solid map-get($color-values, base);
+
+      &:hover {
+        border-color: map-get($color-values, hover);
+        box-shadow: shadow.$basic-shadow;
+      }
+
+      &:active {
+        border-color: color.$primary-active-color;
+      }
+    }
+  }
+
+  &.border-white {
+    border: 1px solid color.$white-color;
+
+    &:hover {
+      box-shadow: shadow.$basic-shadow;
+    }
+
+    &:active {
+      border-color: color.$light-gray-color;
+    }
+  }
+
+  // Text color
+  &.text-primary {
+    color: color.$primary-color;
+  }
+
+  &.text-black {
+    color: color.$black-color;
+  }
+
+  &.text-gray {
+    color: color.$gray-color;
+  }
+
+  &.text-light-gray {
+    color: color.$light-gray-color;
+  }
+
+  &.text-red {
+    color: color.$red-color;
+  }
+
+  &.text-yellow {
+    color: color.$yellow-color;
+  }
+
+  &.text-green {
+    color: color.$green-color;
+  }
+
+  &.text-white {
+    color: color.$white-color;
+  }
+
+  // Text align
+  &.text-left {
+    justify-content: flex-start;
+  }
+
+  &.text-center {
+    justify-content: center;
+  }
+
+  &.text-right {
+    justify-content: flex-end;
+  }
+
+  // border 너비
+  &.border-thin {
+    border-width: 1px;
+  }
+
+  &.border-medium {
+    border-width: 2px;
+  }
+
+  &.border-thick {
+    border-width: 4px;
+  }
+
+  &:disabled {
+    color: color.$light-gray-color;
+    border-color: color.$light-gray-color;
+    background-color: color.$white-color;
+
+    pointer-events: none;
+  }
+}

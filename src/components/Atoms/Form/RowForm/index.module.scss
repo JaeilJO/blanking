@@ -1,12 +1,10 @@
-@use "@/style/abstracts" as a;
-
 .form {
-  display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 
-  @for $i from 0 through 7 {
-    &.gap-#{$i} {
-      @include a.spacing-gap($i);
-    }
+  &.block {
+    display: flex;
+  }
+  &.inlnine {
+    display: inline-flex;
   }
 }

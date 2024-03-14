@@ -1,4 +1,21 @@
-@use "@/style/abstracts" as a;
+@use "@/style/color";
+@use "@/style/margin";
+@use "@/style/padding";
+@use "@/style/fontSize";
+@use "@/style/fontWeight";
+@use "@/style/gap";
+@use "@/style/backgroundColor";
+@use "@/style/borderColor";
+@use "@/style/textColor";
+
+@include margin.margin-classes();
+@include padding.padding-classes();
+@include fontSize.font-size-classes();
+@include fontWeight.font-weight-classes();
+@include gap.gap-classes();
+@include backgroundColor.bg-color();
+@include borderColor.border-color();
+@include textColor.text-color();
 
 *,
 *::before,
@@ -16,11 +33,11 @@ input {
 }
 
 body {
-  background-color: a.$background-color;
+  background-color: color.$background-color;
   margin: 0;
   padding: 0;
   border: 0;
-  color: a.$text-color;
+  color: color.$text-color;
 }
 
 input {

@@ -1,0 +1,127 @@
+@use "./palette";
+
+// Special Colors
+$white-color: #fff;
+$background-color: #fbfbfb;
+$text-color: palette.base(palette.$black-palette);
+$shadow-basic-color: #efefef;
+$modal-background-color: rgba(143, 143, 143, 0.5);
+
+// Primary Color
+$primary-color: palette.base(palette.$primary-palette);
+$primary-hover-color: palette.light(palette.$primary-palette);
+$primary-active-color: palette.dark(palette.$primary-palette);
+
+// Gray Color
+$gray-color: palette.base(palette.$gray-palette);
+$gray-hover-color: palette.light(palette.$gray-palette);
+$gray-active-color: palette.dark(palette.$gray-palette);
+
+// Light Gray Color
+// light gray는 hover했을때 light값으로 하면 white와 거의 비슷해져서 dark로 설정
+$light-gray-color: palette.base(palette.$light-gray-palette);
+$light-gray-hover-color: palette.dark(palette.$light-gray-palette);
+$light-gray-active-color: palette.darker(palette.$light-gray-palette);
+
+// Red Color
+$red-color: palette.base(palette.$red-palette);
+$red-hover-color: palette.light(palette.$red-palette);
+$red-active-color: palette.dark(palette.$red-palette);
+
+// Yellow Color
+$yellow-color: palette.base(palette.$yellow-palette);
+$yellow-hover-color: palette.light(palette.$yellow-palette);
+$yellow-active-color: palette.dark(palette.$yellow-palette);
+
+// Green Color
+$green-color: palette.base(palette.$green-palette);
+$green-hover-color: palette.light(palette.$green-palette);
+$green-active-color: palette.dark(palette.$green-palette);
+
+// black Color
+$black-color: palette.base(palette.$black-palette);
+$black-hover-color: palette.light(palette.$black-palette);
+$black-active-color: palette.dark(palette.$black-palette);
+
+// Base Button에서 Border와 Background에 관한 설정
+$color-configs: (
+  primary: (
+    base: $primary-color,
+    hover: $primary-hover-color,
+    active: $primary-active-color,
+  ),
+  black: (
+    base: $black-color,
+    hover: $black-hover-color,
+    active: $black-active-color,
+  ),
+  gray: (
+    base: $gray-color,
+    hover: $gray-hover-color,
+    active: $gray-active-color,
+  ),
+  light-gray: (
+    base: $light-gray-color,
+    hover: $light-gray-hover-color,
+    active: $light-gray-active-color,
+  ),
+  red: (
+    base: $red-color,
+    hover: $red-hover-color,
+    active: $red-active-color,
+  ),
+  yellow: (
+    base: $yellow-color,
+    hover: $yellow-hover-color,
+    active: $yellow-active-color,
+  ),
+  green: (
+    base: $green-color,
+    hover: $green-hover-color,
+    active: $green-active-color,
+  ),
+);
+
+// Text Color에 관한 설정
+$text-color-configs: (
+  primary: (
+    base: $primary-color,
+    hover: $primary-hover-color,
+    active: $primary-active-color,
+  ),
+  black: (
+    base: $black-color,
+    hover: $black-hover-color,
+    active: $black-active-color,
+  ),
+  gray: (
+    base: $gray-color,
+    hover: $gray-hover-color,
+    active: $gray-active-color,
+  ),
+  light-gray: (
+    base: $light-gray-color,
+    hover: $light-gray-hover-color,
+    active: $light-gray-active-color,
+  ),
+  red: (
+    base: $red-color,
+    hover: $red-hover-color,
+    active: $red-active-color,
+  ),
+  yellow: (
+    base: $yellow-color,
+    hover: $yellow-hover-color,
+    active: $yellow-active-color,
+  ),
+  green: (
+    base: $green-color,
+    hover: $green-hover-color,
+    active: $green-active-color,
+  ),
+  white: (
+    base: $white-color,
+    hover: $light-gray-color,
+    active: $light-gray-active-color,
+  ),
+);

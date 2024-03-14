@@ -1,19 +1,61 @@
-@use "../Common/common";
-@use "@/style/abstracts" as a;
+@use "@/style/color";
 
-.body {
-  &.body-01 {
-    @include a.typhography("body-01");
+.paragraph {
+  &.wrap {
+    white-space: wrap;
   }
 
-  &.body-02 {
-    @include a.typhography("body-02");
+  &.no-wrap {
+    white-space: nowrap;
   }
-  @include common.text-weight;
-  @include common.text-align;
-  @include common.text-theme;
-  @include common.text-inline;
-  @include common.text-block;
-  @include common.text-no-drag;
-  @include common.white-space;
+
+  &.overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Text alignment
+  &.text-left {
+    text-align: left;
+  }
+  &.text-center {
+    text-align: center;
+  }
+  &.text-right {
+    text-align: right;
+  }
+
+  // Display options
+  &.block {
+    display: block;
+  }
+  &.inline {
+    display: inline;
+  }
+
+  // Text colors
+  &.primary {
+    color: color.$primary-color;
+  }
+  &.gray {
+    color: color.$gray-color;
+  }
+  &.light-gray {
+    color: color.$light-gray-color;
+  }
+  &.red {
+    color: color.$red-color;
+  }
+  &.green {
+    color: color.$green-color;
+  }
+  &.yellow {
+    color: color.$yellow-color;
+  }
+  &.black {
+    color: color.$black-color;
+  }
+  &.white {
+    color: color.$white-color;
+  }
 }

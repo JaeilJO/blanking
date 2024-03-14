@@ -1,0 +1,33 @@
+@use "@/style/fontSize";
+@use "@/style/spacing";
+@use "@/style/color";
+
+.label {
+  position: absolute;
+  @include fontSize.font-size("body-01");
+  font-weight: 500; //regular
+
+  background-color: color.$white-color;
+
+  padding: 0 2px; // Input의 border와 만나지 않게 간격을 둔 것
+
+  //placeholder와 비슷한 위치를 맞추기 위해 세부조정들어감
+  left: spacing.$spacing-value-4 + 1px;
+  top: spacing.$spacing-value-3 + 4px;
+
+  transition: top 0.25s ease-in-out;
+
+  color: color.$light-gray-color;
+  pointer-events: none;
+
+  &.focus {
+    background-color: white;
+    font-weight: 700;
+    top: -5px;
+    color: color.$primary-color;
+  }
+}
+
+.wrapper {
+  position: relative;
+}

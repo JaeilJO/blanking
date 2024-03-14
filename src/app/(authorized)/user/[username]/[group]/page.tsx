@@ -9,7 +9,9 @@ import { getServerSession } from "next-auth";
 import { NextAuthOption } from "@/lib/nextAuth/auth";
 
 // Components
-import GroupPageTemplate from "@/components/GroupPage/Templates/GroupPage";
+
+import GroupPage from "@/components/Templates/GroupPage";
+import PageGrid from "@/components/Templates/PageTable";
 
 async function Page({ params }: { params: { group: string } }) {
   const current_group_name = decodeURIComponent(params.group as string);
@@ -18,15 +20,17 @@ async function Page({ params }: { params: { group: string } }) {
   const subkey = session?.user.subkey as string;
 
   const queryClient = new QueryClient();
+
   await queryClient.prefetchQuery({
     queryKey: ["pages", { groupname: current_group_name }],
     queryFn: () => getPages({ groupname: current_group_name, subkey }),
   });
+
   const dehydratedState = dehydrate(queryClient);
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <GroupPageTemplate groupname={current_group_name} username={username} />
+      <GroupPage current_group_name={current_group_name} subkey={subkey} />
     </HydrationBoundary>
   );
 }

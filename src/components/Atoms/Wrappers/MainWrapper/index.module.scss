@@ -1,0 +1,42 @@
+@use "@/style/spacing";
+@use "@/style/fontSize";
+@use "@/style/color";
+
+.main {
+  position: relative;
+
+  width: 100dvw;
+  max-height: 100dvh;
+  height: 100dvh;
+
+  padding-left: 300px;
+
+  &.close {
+    padding-left: 0px;
+  }
+}
+
+.button {
+  position: absolute;
+
+  left: 300px;
+
+  top: 50%;
+  transform: translateY(-50%);
+  transition: left 0.3s, color 0.3s ease-in-out;
+
+  @include fontSize.font-size("sub-01");
+
+  cursor: pointer;
+
+  color: color.$light-gray-color;
+
+  &.close {
+    left: 0px;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  &:hover {
+    color: color.$gray-color;
+  }
+}

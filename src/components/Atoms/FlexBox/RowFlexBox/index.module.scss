@@ -1,0 +1,74 @@
+@use "@/style/color";
+@use "@/style/spacing";
+.flex-row {
+  &.border-radius {
+    border-radius: 4px;
+  }
+
+  &.block {
+    display: flex;
+  }
+
+  &.inline {
+    display: inline-flex;
+  }
+
+  &.border-radius {
+    border-radius: 4px;
+  }
+  &.gap-0 {
+    gap: spacing.$spacing-value-0;
+  }
+  &.gap-1 {
+    gap: spacing.$spacing-value-1;
+  }
+  &.gap-2 {
+    gap: spacing.$spacing-value-2;
+  }
+  &.gap-3 {
+    gap: spacing.$spacing-value-3;
+  }
+  &.gap-4 {
+    gap: spacing.$spacing-value-4;
+  }
+  &.gap-5 {
+    gap: spacing.$spacing-value-5;
+  }
+  &.gap-6 {
+    gap: spacing.$spacing-value-6;
+  }
+  &.gap-7 {
+    gap: spacing.$spacing-value-7;
+  }
+
+  &.black {
+    background-color: color.$black-color;
+  }
+  &.primary {
+    background-color: color.$primary-color;
+  }
+
+  &.gray {
+    background-color: color.$gray-color;
+  }
+
+  &.white {
+    background-color: color.$white-color;
+  }
+
+  &.light-gray {
+    background-color: color.$light-gray-color;
+  }
+
+  &.green {
+    background-color: color.$green-color;
+  }
+
+  &.red {
+    background-color: color.$red-color;
+  }
+
+  &.yellow {
+    background-color: color.$yellow-color;
+  }
+}

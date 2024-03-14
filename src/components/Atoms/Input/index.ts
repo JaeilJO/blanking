@@ -1,9 +1,9 @@
-import LineInput from "./LineInput";
-import UnderLineInput from "./UnderLineInput";
+import PasswordInput from "./PasswordInput";
+import TextInput from "./TextInput";
 
 const Input = {
-  LineInput: LineInput,
-  UnderLineInput: UnderLineInput,
+  Text: TextInput,
+  Password: PasswordInput,
 };
 
 export default Input;

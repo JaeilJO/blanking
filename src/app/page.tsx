@@ -1,7 +1,7 @@
-import WelcomePage from '@/components/WelcomePage';
+import { redirect } from "next/navigation";
 
 function Page() {
-    return <WelcomePage />;
+  redirect("/auth/signin");
 }
 
 export default Page;

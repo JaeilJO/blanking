@@ -1,33 +1,44 @@
-// Style
-import style from "./index.module.scss";
 import classNames from "classnames/bind";
-import { TextBodyProps } from "./index.type";
+import style from "./index.module.scss";
+import TextBodyProps from "./index.type";
 
 const cn = classNames.bind(style);
 
-function TextSubTitle({
+function TextBody({
   children,
-  weight = "regular",
-  textAlign = "left",
-  block = true,
-  level = "01",
-  theme = "default",
-  noDrag = false,
-  whiteSpace,
+  display = "block",
+  textAlign = "text-left",
+  fontSize = "body-01",
+  fontWeight,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  wrap,
+  color,
+  overflow,
   style,
 }: TextBodyProps) {
-  // ClassName 설정
-  const className = cn("body", `body-${level}`, weight, textAlign, theme, {
-    "no-drag": noDrag,
-    block: block,
-    "white-space": whiteSpace,
-  });
-
   return (
-    <div style={style} className={className}>
+    <p
+      className={cn(
+        "paragraph",
+        fontSize,
+        textAlign,
+        fontWeight,
+        color,
+        marginTop,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        display,
+        { wrap: wrap, "no-wrap": !wrap, overflow: overflow }
+      )}
+      style={style}
+    >
       {children}
-    </div>
+    </p>
   );
 }
 
-export default TextSubTitle;
+export default TextBody;

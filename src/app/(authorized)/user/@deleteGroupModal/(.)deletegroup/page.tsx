@@ -1,7 +1,7 @@
-import DeleteGroupModal from '@/components/Modals/DeleteGroupModal';
+import DeleteGroupModal from "@/components/Templates/Modals/DeleteGroupModal";
 
 function Page() {
-    return <DeleteGroupModal />;
+  return <DeleteGroupModal />;
 }
 
 export default Page;

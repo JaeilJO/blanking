@@ -1,0 +1,10 @@
+.form {
+  flex-direction: column;
+
+  &.block {
+    display: flex;
+  }
+  &.inlnine {
+    display: inline-flex;
+  }
+}

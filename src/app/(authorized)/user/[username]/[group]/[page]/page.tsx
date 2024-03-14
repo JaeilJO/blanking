@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 // Style
 
 // Components
-import EditorPageTemplate from "@/components/EditorPage/Templates/EditorPageTemplate";
+import UserEditorPage from "@/components/Templates/UserEditorPage";
 
 interface PageProps {
   params: {
@@ -45,7 +45,7 @@ async function Page({ params }: PageProps) {
 
   return (
     <HydrationBoundary state={dehydratedState}>
-      <EditorPageTemplate
+      <UserEditorPage
         subkey={subkey}
         pagename={pagename}
         groupname={groupname}

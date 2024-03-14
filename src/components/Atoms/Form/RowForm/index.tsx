@@ -1,23 +1,56 @@
-import SpacingTypes from "@/style/designSystem/spacing/spacing.type";
 import style from "./index.module.scss";
 import classNames from "classnames/bind";
-
-interface RowFormProps extends React.HTMLAttributes<HTMLFormElement> {
-  /**
-   * px단위로 간격을 설정합니다.
-   */
-  gap: SpacingTypes;
-}
+import RowFormProps from "./index.type";
+import { ForwardedRef, forwardRef } from "react";
 
 const cn = classNames.bind(style);
 
-function RowForm({ children, gap, ...props }: RowFormProps) {
-  const formClass = cn("form", `gap-${gap}`);
-  return (
-    <form className={formClass} {...props}>
-      {children}
-    </form>
-  );
-}
+const RowForm = forwardRef(
+  (
+    {
+      children,
+      gap = "gap-0",
+      display = "block",
+      justifyContent = "flex-start",
+      alignItems,
+      marginBottom,
+      marginTop,
+      marginLeft,
+      marginRight,
+      paddingBottom,
+      paddingTop,
+      paddingLeft,
+      paddingRight,
 
+      ...props
+    }: RowFormProps,
+    ref: ForwardedRef<HTMLFormElement>
+  ) => {
+    const formClass = cn(
+      "form",
+      gap,
+      display,
+      marginBottom,
+      marginTop,
+      marginLeft,
+      marginRight,
+      paddingBottom,
+      paddingTop,
+      paddingLeft,
+      paddingRight
+    );
+    return (
+      <form
+        ref={ref}
+        className={formClass}
+        style={{ justifyContent, alignItems }}
+        {...props}
+      >
+        {children}
+      </form>
+    );
+  }
+);
+
+RowForm.displayName = "RowForm";
 export default RowForm;

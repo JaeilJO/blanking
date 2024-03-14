@@ -1,0 +1,28 @@
+@use "@/style/shadow";
+@use "@/style/variables";
+@use "@/style/mediaQuery";
+@use "@/style/spacing";
+
+.wrapper {
+  background-color: white;
+
+  max-width: 400px;
+  min-width: 370px;
+  width: 100%;
+
+  max-height: 700px;
+  height: 100%;
+
+  box-shadow: shadow.$basic-shadow;
+  border-radius: variables.$border-radius;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: spacing.$spacing-value-6 spacing.$spacing-value-4;
+
+  @include mediaQuery.media-query("small") {
+    box-shadow: none;
+  }
+}

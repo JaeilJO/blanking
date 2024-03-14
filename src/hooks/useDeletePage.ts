@@ -23,9 +23,8 @@ export default function useDeletePage({
   const { mutate } = useMutation({
     mutationFn: () => deletePage({ subkey, pagename, groupname }),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["navigation"] });
+      queryClient.invalidateQueries({ queryKey: ["groups"] });
       queryClient.invalidateQueries({ queryKey: ["pages"] });
-      queryClient.invalidateQueries({ queryKey: ["page"] });
       success("페이지 삭제에 성공하였습니다.");
       router.back();
     },

@@ -1,0 +1,40 @@
+// Palette 생성하기
+@function palette($base) {
+  @return (
+    "lighter": adjust-color($base, $lightness: 24%),
+    "light": adjust-color($base, $lightness: 12%),
+    "base": $base,
+    "dark": adjust-color($base, $lightness: -12%),
+    "darker": adjust-color($base, $lightness: -24%)
+  );
+}
+
+// palette 사용하기
+@function lighter($palette) {
+  @return map-get($palette, "lighter");
+}
+
+@function light($palette) {
+  @return map-get($palette, "light");
+}
+
+@function base($palette) {
+  @return map-get($palette, "base");
+}
+
+@function dark($palette) {
+  @return map-get($palette, "dark");
+}
+
+@function darker($palette) {
+  @return map-get($palette, "darker");
+}
+
+// Palette 종류
+$primary-palette: palette(hsl(216, 54%, 38%));
+$red-palette: palette(#f7471c);
+$gray-palette: palette(#616161);
+$light-gray-palette: palette(#e2e2e2);
+$yellow-palette: palette(#febc22);
+$green-palette: palette(#47d78a);
+$black-palette: palette(#333333);

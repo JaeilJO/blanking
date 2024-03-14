@@ -1,62 +1,58 @@
-"use client";
+import { BaseButtonProps, buttonColorTheme } from "../BaseButton/index.type";
+import BaseButton from "../BaseButton";
 
-import classNames from "classnames/bind";
-import style from "./index.module.scss";
-import Link from "next/link";
-import ButtonCommonTypes from "../Common/common.type";
+// 사용자가 지정하면 안되는 부분 지정
+interface LineButtonProps
+  extends Omit<
+    BaseButtonProps,
+    | "backgroundColor"
+    | "borderColor"
+    | "textColor"
+    | "paddingBottom"
+    | "paddingLeft"
+    | "paddingRight"
+    | "paddingTop"
+  > {
+  //현재 버튼이 가지고 있는 고유 타입
+  theme: buttonColorTheme;
+}
 
-const cn = classNames.bind(style);
-
-function LineButton({
-  children,
-  block = true,
-  square,
-  squareSize,
-  theme = "default",
-  type = "button",
-  href,
-  ...props
-}: ButtonCommonTypes) {
-  const buttonClassName = cn("line-button", theme, square, {
-    block,
-    disabled: props.disabled,
-  });
-
-  // 정사각형 크기를 위한 인라인 스타일
-  const squareStyle =
-    square && squareSize
-      ? { width: `${squareSize}px`, height: `${squareSize}px` }
-      : {};
-
-  // 정사각형을 만들고 싶은데 squareSize가 설정되지 않은 경우 에러를 발생시킨다.
-  if (square && !squareSize) {
-    throw Error("정사각형 버튼을 위해 squareSize가 필요합니다.");
-  }
-
-  if (type === "link" && !href) {
-    throw Error("Link 타입의 버튼은 href가 필요합니다.");
-  }
-
-  // Link 타입인 경우
-  if (type === "link" && href) {
-    return (
-      <Link legacyBehavior href={href}>
-        <a style={squareStyle} className={buttonClassName}>
-          {children}
-        </a>
-      </Link>
-    );
-  }
+function LineButton(props: LineButtonProps) {
+  const { theme = "primary", icon, ...otherProps } = props;
 
   return (
-    <button
-      type={type as "button" | "submit" | "reset"}
-      style={squareStyle}
-      className={buttonClassName}
-      {...props}
+    <BaseButton
+      // 기본 패딩값
+      paddingBottom="pb-3"
+      paddingTop="pt-3"
+      paddingRight="pr-4"
+      paddingLeft="pl-4"
+      // Base Button값을 따라갑니다.
+      display={otherProps.display}
+      fontSize={otherProps.fontSize}
+      textAlign={otherProps.textAlign}
+      borderWidth={otherProps.borderWidth}
+      marginBottom={otherProps.marginBottom}
+      marginLeft={otherProps.marginLeft}
+      marginRight={otherProps.marginRight}
+      marginTop={otherProps.marginTop}
+      disabled={otherProps.disabled}
+      style={otherProps.style}
+      /**
+       * theme 관련
+       * white와 light-gray 인 경우 font color는 검정색이여야 보이니까 지정
+       */
+      borderColor={`border-${theme}`}
+      textColor={
+        theme === "white" || theme === "light-gray"
+          ? `text-black`
+          : `text-${theme}`
+      }
+      {...otherProps}
     >
-      {children}
-    </button>
+      {icon}
+      {otherProps.children}
+    </BaseButton>
   );
 }
 

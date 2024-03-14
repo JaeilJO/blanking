@@ -1,59 +1,20 @@
-@use "@/style/abstracts" as a;
-
-@mixin avatar-basic($size) {
-  width: $size;
-  height: $size;
-  min-width: $size;
-  min-height: $size;
-  font-weight: 500;
-
-  // 글자에 따라서 위에 닿는 경우가 있어서 padding-top을 줌
-  padding-top: 0.1em;
-}
+@use "@/style/fontSize";
+@use "@/style/color";
 
 .avatar {
-  display: flex;
+  display: flex-inline;
   justify-content: center;
   align-items: center;
+
   border-radius: 100%;
 
-  background-color: a.$primary-color;
+  background-color: color.$primary-color;
 
-  color: a.$white-color;
+  color: color.$white-color;
 
-  &.title-01 {
-    @include a.typhography("tit-01");
-    @include avatar-basic(6.4rem);
-  }
-  &.title-02 {
-    @include a.typhography("tit-02");
-    @include avatar-basic(4.8rem);
-  }
-  &.title-03 {
-    @include a.typhography("tit-03");
+  font-weight: 500;
 
-    @include avatar-basic(3.6rem);
-  }
-  &.subTitle-01 {
-    @include a.typhography("sub-01");
-
-    @include avatar-basic(2.4rem);
-  }
-  &.subTitle-02 {
-    @include a.typhography("sub-02");
-
-    @include avatar-basic(2.1rem);
-  }
-  &.body-01 {
-    @include a.typhography("body-01");
-
-    @include avatar-basic(1.6rem);
-  }
-  &.body-02 {
-    @include a.typhography("body-02");
-
-    @include avatar-basic(1.4rem);
-  }
+  cursor: pointer;
 
   user-select: none;
   -webkit-user-drag: none;
@@ -61,4 +22,37 @@
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
+
+  transition: background-color 0.25s ease-in-out;
+
+  &.small {
+    @include fontSize.font-size("body-01");
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &.medium {
+    @include fontSize.font-size("sub-01");
+    width: 5rem;
+    height: 5rem;
+  }
+
+  &.large {
+    @include fontSize.font-size("tit-03");
+    width: 7rem;
+    height: 7rem;
+  }
+
+  &:hover {
+    background-color: color.$primary-hover-color;
+  }
+
+  &:active {
+    background-color: color.$primary-active-color;
+  }
+
+  &:disabled {
+    background-color: color.$light-gray-color;
+    pointer-events: none;
+  }
 }

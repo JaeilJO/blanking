@@ -1,34 +1,41 @@
-// Style
 import classNames from "classnames/bind";
+
 import style from "./index.module.scss";
-import { TextTitleProps } from "./index.type";
+import TextTitleProps from "./index.type";
 
 const cn = classNames.bind(style);
 
 function TextTitle({
   children,
-  weight = "regular",
-  textAlign = "left",
-  block = true,
-  level = "01",
-  theme = "default",
-  noDrag = false,
+  display = "block",
+  textAlign = "text-left",
+  fontSize = "tit-01",
+  fontWeight,
+  marginTop,
+  marginBottom,
+  marginLeft,
+  marginRight,
+  wrap,
+  overflow,
+  color,
   style,
-  whiteSpace = false,
 }: TextTitleProps) {
-  // ClassName 설정
-
-  const textTitleClassName = cn(
-    "title",
-    `title-${level}`,
-    textAlign,
-    weight,
-    theme,
-    { "no-drag": noDrag, block: block, "white-space": whiteSpace }
-  );
-
   return (
-    <h1 style={style} className={textTitleClassName}>
+    <h1
+      className={cn(
+        "paragraph",
+        fontSize,
+        textAlign,
+        fontWeight,
+        color,
+        marginTop,
+        marginBottom,
+        marginLeft,
+        marginRight,
+        display
+      )}
+      style={style}
+    >
       {children}
     </h1>
   );

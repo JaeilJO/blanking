@@ -2,33 +2,39 @@ import { changePageName } from "@/services/changePageName";
 import { useAlertStore } from "@/zustand/alertStore";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 interface useChangePageNameParams {
   subkey: string;
   pagename: string;
   groupname: string;
-  new_pagename: string;
+  router: AppRouterInstance;
 }
 
 export default function useChangePageName({
   subkey,
   pagename,
   groupname,
-  new_pagename,
+  router,
 }: useChangePageNameParams) {
   const queryClient = useQueryClient();
   const { error, success } = useAlertStore((state) => state);
 
   const { mutate } = useMutation({
-    mutationFn: () =>
-      changePageName({ subkey, pagename, groupname, new_pagename }),
+    mutationFn: (data: { [key: string]: string }) =>
+      changePageName({
+        subkey,
+        pagename,
+        groupname,
+        new_pagename: data.new_pagename,
+      }),
     onSuccess: (res) => {
       const message = res.data;
       success(message);
-      queryClient.invalidateQueries({ queryKey: ["navigation"] });
+      queryClient.invalidateQueries({ queryKey: ["groups"] });
       queryClient.invalidateQueries({ queryKey: ["pages"] });
       queryClient.invalidateQueries({ queryKey: ["page", pagename] });
-      queryClient.invalidateQueries({ queryKey: ["page"] });
+      router.back();
     },
 
     onError: (e: AxiosError) => {

@@ -3,12 +3,15 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { NextAuthOption } from "@/lib/nextAuth/auth";
 
-// Style
-import style from "./layout.module.scss";
-
 // Components
+import AuthLayoutWrapper from "@/components/Atoms/Wrappers/AuthLayoutWrapper";
+import AuthSlideWrapper from "@/components/Atoms/Wrappers/AuthSlideWrapper";
+import Carousel from "@/components/Organisms/Carousel";
+import SectionContainer from "@/components/Organisms/Carousel/SectionContainer";
 
-import AuthSlideTemplate from "@/components/AuthSlide/Templates/AuthSlideTemplate";
+import LogoSection from "@/components/Organisms/Carousel/SectionContents/LogoSection";
+import CarouselSection from "@/components/Organisms/Carousel/CarouselSection";
+import ExperienceSection from "@/components/Organisms/Carousel/SectionContents/ExperienceSection";
 
 async function Layout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(NextAuthOption);
@@ -20,12 +23,22 @@ async function Layout({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className={style["unauthorized-wrapper"]}>
-      <div className={style["auth-slide-wrapper"]}>
-        <AuthSlideTemplate />
-      </div>
-      <div className={style["auth-page-wrapper"]}>{children}</div>
-    </div>
+    <AuthLayoutWrapper>
+      {/* Carousel */}
+      <AuthSlideWrapper>
+        <Carousel startSectionId="logo" sectionIds={["logo", "expirence"]}>
+          <SectionContainer>
+            <CarouselSection sectionId="logo" content={<LogoSection />} />
+            <CarouselSection
+              sectionId="expirence"
+              content={<ExperienceSection />}
+            />
+          </SectionContainer>
+        </Carousel>
+      </AuthSlideWrapper>
+
+      {children}
+    </AuthLayoutWrapper>
   );
 }
 

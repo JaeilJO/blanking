@@ -1,16 +1,13 @@
-import FillButton from "./FillButton";
 import LineButton from "./LineButton";
-
-import TextBodyButton from "./TextBodyButton";
-import TextSubTitleButton from "./TextSubTitleButton";
-import TextTitleButton from "./TextTitleButton";
+import SolidButton from "./SolidButton";
+import SquareButton from "./SquareButton";
+import TextButton from "./TextButton";
 
 const Button = {
-  FillButton: FillButton,
-  LineButton: LineButton,
-  TextBodyButton: TextBodyButton,
-  TextSubButton: TextSubTitleButton,
-  TextTitleButton: TextTitleButton,
+  Line: LineButton,
+  Solid: SolidButton,
+  Text: TextButton,
+  Square: SquareButton,
 };
 
 export default Button;

@@ -1,7 +1,5 @@
-import AuthComponentSkeleton from "@/components/Molecules/AuthComponent/AuthComponentSkeleton";
-
 function Loading() {
-  return <AuthComponentSkeleton />;
+  return <></>;
 }
 
 export default Loading;

@@ -1,0 +1,36 @@
+@use "@/style/color";
+
+//Global ClassName
+@mixin border-color {
+  .border-primary {
+    background-color: color.$primary-color;
+  }
+
+  .border-black {
+    background-color: color.$black-color;
+  }
+
+  .border-gray {
+    background-color: color.$gray-color;
+  }
+
+  .border-light-gray {
+    background-color: color.$light-gray-color;
+  }
+
+  .border-red {
+    background-color: color.$red-color;
+  }
+
+  .border-yellow {
+    background-color: color.$yellow-color;
+  }
+
+  .border-green {
+    background-color: color.$green-color;
+  }
+
+  .border-white {
+    background-color: color.$white-color;
+  }
+}

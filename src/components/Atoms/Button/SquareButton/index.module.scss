@@ -1,0 +1,27 @@
+@use "@/style/color";
+@use "@/style/shadow";
+@use "@/style/variables";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid color.$light-gray-color;
+  border-radius: variables.$border-radius;
+
+  cursor: pointer;
+
+  transition: border-color 0.2s ease-in-out;
+
+  aspect-ratio: 1/1;
+
+  &:hover {
+    box-shadow: shadow.$basic-shadow;
+  }
+
+  &:disabled {
+    pointer-events: none;
+    border: 1px solid color.$light-gray-color;
+  }
+}

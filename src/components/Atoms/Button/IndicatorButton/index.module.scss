@@ -1,0 +1,31 @@
+@use "@/style/color";
+@use "@/style/variables";
+.button {
+  width: variables.$indicator-button-width;
+  height: variables.$indicator-button-height;
+
+  border-radius: variables.$border-radius;
+
+  background-color: color.$light-gray-color;
+
+  transition: transform 0.2s, width 0.2s ease-in-out;
+
+  cursor: pointer;
+
+  &:hover {
+    transform: scaleX(1.2);
+    background-color: color.$primary-color;
+    height: variables.$indicator-button-height;
+  }
+
+  &.is-current {
+    transform: scaleX(1.2);
+    background-color: color.$primary-color;
+
+    &:hover {
+      transform: scaleX(1);
+
+      background-color: color.$primary-color;
+    }
+  }
+}

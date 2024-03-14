@@ -1,0 +1,23 @@
+@use "@/style/fontSize";
+@use "@/style/color";
+
+.spiner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include fontSize.font-size("tit-01");
+
+  color: color.$primary-color;
+
+  animation: spiner 2s infinite ease-in-out;
+}
+
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

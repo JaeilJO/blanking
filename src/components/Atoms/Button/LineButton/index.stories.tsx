@@ -5,94 +5,57 @@ import LineButton from ".";
 const meta: Meta<typeof LineButton> = {
   component: LineButton,
   tags: ["autodocs"],
-  argTypes: {
-    children: {
-      control: {
-        type: "text",
-      },
-    },
-  },
+  title: "Atoms/Button/LineButton",
 };
 
 export default meta;
 type Story = StoryObj<typeof LineButton>;
 
-export const Primary: Story = {
+export const Custom: Story = {
   args: {
-    block: true,
-    theme: "primary",
-    children: "Hello",
+    children: "Line Button",
   },
 };
 
-export const Default: Story = {
-  args: {
-    block: true,
-    theme: "default",
-    children: "Hello",
-  },
-};
-
-export const Gray: Story = {
-  args: {
-    block: true,
-    theme: "gray",
-    children: "Hello",
-  },
-};
-
-export const Warn: Story = {
-  args: {
-    block: true,
-    theme: "warn",
-    children: "Hello",
-  },
-};
-
-export const Transparent: Story = {
-  args: {
-    block: true,
-    theme: "transparent",
-    children: "Hello",
-  },
-};
-
-export const Square: Story = {
-  args: {
-    block: true,
-    theme: "transparent",
-    children: "Hello",
-    square: true,
-    squareSize: 60,
-  },
-};
-
-export const Link: Story = {
-  args: {
-    block: true,
-    theme: "transparent",
-    children: "Hello",
-    type: "link",
-    href: "/",
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    block: true,
-    theme: "default",
-    children: "Hello",
-
-    disabled: true,
-  },
-};
-
-export const Inline: Story = {
-  args: {
-    block: false,
-    theme: "default",
-    children: "Hello",
-
-    disabled: true,
-  },
+export const Theme: Story = {
+  render: () => (
+    <div>
+      <LineButton
+        theme="primary"
+        marginBottom="mb-3"
+        borderWidth="border-medium"
+      >
+        Primary
+      </LineButton>
+      <LineButton theme="gray" marginBottom="mb-3" borderWidth="border-medium">
+        Gray
+      </LineButton>
+      <LineButton theme="black" marginBottom="mb-3" borderWidth="border-medium">
+        Black
+      </LineButton>
+      <LineButton
+        theme="light-gray"
+        marginBottom="mb-3"
+        borderWidth="border-medium"
+      >
+        Light Gray
+      </LineButton>
+      <LineButton theme="red" marginBottom="mb-3" borderWidth="border-medium">
+        Red
+      </LineButton>
+      <LineButton
+        theme="yellow"
+        marginBottom="mb-3"
+        borderWidth="border-medium"
+      >
+        Yellow
+      </LineButton>
+      <LineButton theme="green" marginBottom="mb-3" borderWidth="border-medium">
+        Green
+      </LineButton>
+      <LineButton theme="white" marginBottom="mb-3" borderWidth="border-medium">
+        White
+      </LineButton>
+    </div>
+  ),
 };
