@@ -23,6 +23,7 @@ export default function useDeleteGroup({
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["groups"] });
+      queryClient.invalidateQueries({ queryKey: ["pages"] });
       success("그룹 삭제에 성공하였습니다.");
       router.back();
     },

@@ -1,7 +1,7 @@
-import ChangeGroupNameModal from '@/components/Modals/ChangeGroupNameModal';
+import ChangeGroupNameModal from "@/components/Templates/Modals/ChangeGroupNameModal";
 
 function Page() {
-    return <ChangeGroupNameModal />;
+  return <ChangeGroupNameModal />;
 }
 
 export default Page;

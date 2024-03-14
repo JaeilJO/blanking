@@ -11,6 +11,7 @@ import { NextAuthOption } from "@/lib/nextAuth/auth";
 // Components
 
 import GroupPage from "@/components/Templates/GroupPage";
+import PageGrid from "@/components/Templates/PageTable";
 
 async function Page({ params }: { params: { group: string } }) {
   const current_group_name = decodeURIComponent(params.group as string);
