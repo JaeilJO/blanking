@@ -6,10 +6,10 @@ const lightGrayColor = "#e2e2e2";
  * 버튼에 마우스 이벤트를 추가하는 훅입니다.
  * "해당 훅은 SquareButton에서만 사용됩니다"
  */
-export default function uselinkEventListeners({ color }: { color: string }) {
+export default function useLinkEventListeners({ color }: { color: string }) {
   const linkRef = useRef<HTMLAnchorElement>(null);
 
-  function setuplinkEventListenrs() {
+  function setupLinkEventListenrs() {
     const $link = linkRef.current;
 
     if (!$link) return;
@@ -36,7 +36,7 @@ export default function uselinkEventListeners({ color }: { color: string }) {
     };
   }
 
-  useEffect(setuplinkEventListenrs, [color]);
+  useEffect(setupLinkEventListenrs, [color]);
 
   return { linkRef };
 }
