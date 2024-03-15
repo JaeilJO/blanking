@@ -15,6 +15,7 @@ function CircleLink({
   marginLeft,
   theme,
   style,
+  disabled,
 }: CircleLinkProps) {
   return (
     <Link
@@ -22,13 +23,14 @@ function CircleLink({
       href={href}
       className={cn(
         "link",
-        theme,
+        `bg-${theme}`,
         marginBottom,
         marginRight,
         marginTop,
-        marginLeft
+        marginLeft,
+        { disabled: disabled }
       )}
-    ></Link>
+    />
   );
 }
 
