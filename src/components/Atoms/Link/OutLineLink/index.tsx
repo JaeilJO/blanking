@@ -1,4 +1,7 @@
+// Utils
 import BaseLink, { LinkColorTheme } from "../BaseLink";
+
+// Types
 import BaseLinkProps from "../BaseLink/index.type";
 
 // 사용자가 지정하면 안되는 부분 지정

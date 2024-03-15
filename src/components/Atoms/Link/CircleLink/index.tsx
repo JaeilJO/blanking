@@ -1,7 +1,11 @@
-import classNames from "classnames/bind";
-import style from "./index.module.scss";
+// Utils
 import Link from "next/link";
+import classNames from "classnames/bind";
 
+// Styles
+import style from "./index.module.scss";
+
+// Types
 import { CircleLinkProps } from "./index.type";
 
 const cn = classNames.bind(style);

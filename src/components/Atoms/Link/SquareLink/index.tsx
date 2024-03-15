@@ -1,13 +1,15 @@
 "use client";
 
+// Utils
+import classNames from "classnames/bind";
+import Link from "next/link";
+import uselinkEventListeners from "./index.hook";
+
+// Style
 import style from "./index.module.scss";
 
-import classNames from "classnames/bind";
-
-import Link from "next/link";
+// Types
 import SquareLinkProps from "./index.type";
-
-import uselinkEventListeners from "./index.hook";
 
 const cn = classNames.bind(style);
 

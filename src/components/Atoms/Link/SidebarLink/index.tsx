@@ -1,14 +1,20 @@
 "use client";
 
+// Utils
 import classNames from "classnames/bind";
 import Link from "next/link";
 
+// Style
 import style from "./index.module.scss";
+
+// Type
 import SidebarLinkProps from "./index.type";
-import FlexBox from "../../FlexBox";
-import SquareLink from "../SquareLink";
+
+// Icon
 import { LuTrash } from "react-icons/lu";
-import { UrlObject } from "url";
+
+// Components
+import SquareLink from "../SquareLink";
 
 const cn = classNames.bind(style);
 

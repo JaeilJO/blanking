@@ -1,7 +1,12 @@
+// Utils
 import Link from "next/link";
-import BaseLinkProps from "./index.type";
-import style from "./index.module.scss";
 import classNames from "classnames/bind";
+
+// Styles
+import style from "./index.module.scss";
+
+// Types
+import BaseLinkProps from "./index.type";
 
 const cn = classNames.bind(style);
 
