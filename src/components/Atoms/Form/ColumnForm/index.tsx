@@ -1,53 +1,18 @@
-import style from "./index.module.scss";
-import classNames from "classnames/bind";
-import ColoumFormProps from "./index.type";
 import { LegacyRef, forwardRef } from "react";
 
-const cn = classNames.bind(style);
+import FlexBox from "../../FlexBox";
+import { ColumnFlexBoxProps } from "../../FlexBox/ColumnFlexBox";
 
-const ColumnForm = forwardRef(
-  (
-    {
-      children,
-      gap = "gap-0",
-      display = "block",
-      alignItems,
-      justifyContent = "flex-start",
-      marginBottom,
-      marginTop,
-      marginLeft,
-      marginRight,
-      paddingBottom,
-      paddingTop,
-      paddingLeft,
-      paddingRight,
-      ...props
-    }: ColoumFormProps,
-    ref
-  ) => {
-    const formClass = cn(
-      "form",
-      gap,
-      marginBottom,
-      marginTop,
-      marginLeft,
-      marginRight,
-      paddingBottom,
-      paddingTop,
-      paddingLeft,
-      paddingRight
-    );
-    return (
-      <form
-        ref={ref as LegacyRef<HTMLFormElement>}
-        className={formClass}
-        style={{ justifyContent, alignItems }}
-        {...props}
-      >
-        {children}
-      </form>
-    );
-  }
-);
+export type ColumnFormProps = ColumnFlexBoxProps &
+  React.FormHTMLAttributes<HTMLFormElement>;
+
+const ColumnForm = forwardRef((props: ColumnFormProps, ref) => {
+  return (
+    <form ref={ref as LegacyRef<HTMLFormElement>} {...props}>
+      <FlexBox.Column {...props}>{props.children}</FlexBox.Column>
+    </form>
+  );
+});
+
 ColumnForm.displayName = "ColumnForm";
 export default ColumnForm;

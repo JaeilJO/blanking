@@ -1,9 +1,10 @@
 "use client";
 
 import Form from "@/components/Atoms/Form";
-import ColumnFormProps from "@/components/Atoms/Form/ColumnForm/index.type";
+
 import { FormEvent, useContext, useRef } from "react";
 import { UserInfoFormContext } from "..";
+import { ColumnFormProps } from "@/components/Atoms/Form/ColumnForm";
 
 interface UserInfoFormProps extends ColumnFormProps {
   children: React.ReactNode;
@@ -20,7 +21,7 @@ function UserInfoForm({
   const value = useContext(UserInfoFormContext);
   const formData = value?.formData;
 
-  const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
