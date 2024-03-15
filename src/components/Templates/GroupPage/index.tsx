@@ -33,7 +33,7 @@ function GroupPage({
       <AuthorizedPageWrapper>
         <FlexBox.Column gap="gap-5">
           <Skeleton.TextSkeleton width={400} fontSize="title-01" />
-          <FlexBox.Row gap="gap-5" flexWrap="wrap">
+          <FlexBox.Row gap="gap-5" flexWrap="flex-wrap">
             <Skeleton.BoxSkeleton width="300px" height="150px" />
             <Skeleton.BoxSkeleton width="300px" height="150px" />
             <Skeleton.BoxSkeleton width="300px" height="150px" />

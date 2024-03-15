@@ -26,9 +26,8 @@ function SidebarGroupLink({
     <SidebarLinkWrapper level={1}>
       <Link href={groupLinkHref()} style={{ width: "100%" }}>
         <FlexBox.Row
-          display="block"
-          alignItems="center"
-          justifyContent="flex-start"
+          alignItems="align-items-center"
+          justifyContent="justify-flex-start"
           gap="gap-2"
         >
           <Text.Subtitle
@@ -53,7 +52,7 @@ function SidebarGroupLink({
       </Link>
 
       {/* Options */}
-      <FlexBox.Row display="inline" gap="gap-1">
+      <FlexBox.Row gap="gap-1">
         <SidebarLinkOption
           href={{
             pathname: `/user/deletegroup`,

@@ -27,7 +27,7 @@ function SidebarPageLink({
   return (
     <SidebarLinkWrapper level={2}>
       <Link href={pageLinkHref()} style={{ width: "100%" }}>
-        <FlexBox.Row display="inline" alignItems="center" gap="gap-2">
+        <FlexBox.Row alignItems="align-items-center" gap="gap-2">
           <Text.Subtitle fontSize="sub-02" color={isOpen ? "primary" : "black"}>
             {isOpen ? <LuFileCheck2 /> : <LuFile />}
           </Text.Subtitle>
@@ -45,7 +45,7 @@ function SidebarPageLink({
       </Link>
 
       {/* Options */}
-      <FlexBox.Row display="inline" gap="gap-1">
+      <FlexBox.Row gap="gap-1">
         <SidebarLinkOption
           href={{
             pathname: `/user/deletepage`,

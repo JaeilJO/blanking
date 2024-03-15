@@ -6,12 +6,11 @@ import Text from "@/components/Atoms/Text";
 function SidebarUserInfo({ name, email }: { name: string; email: string }) {
   return (
     <FlexBox.Row
-      alignItems="center"
-      justifyContent="space-between"
-      display="block"
+      alignItems="align-items-center"
+      justifyContent="justify-space-between"
     >
       <Avatar name={name} size={"medium"} />
-      <FlexBox.Column alignItems="flex-end">
+      <FlexBox.Column alignItems="align-items-end">
         <Text.Subtitle color="black" fontWeight="font-regular" display="inline">
           {name}
         </Text.Subtitle>

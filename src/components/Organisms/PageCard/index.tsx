@@ -30,7 +30,10 @@ function PageCard({ pagename, groupname }: PageCardProps) {
       >
         <LuFileEdit />
       </Text.Title>
-      <FlexBox.Column justifyContent="space-between" alignItems="flex-end">
+      <FlexBox.Column
+        justifyContent="justify-space-between"
+        alignItems="align-items-end"
+      >
         {/* Delete Button */}
         <PageCardOptionLink
           href={{

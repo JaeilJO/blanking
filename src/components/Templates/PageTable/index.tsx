@@ -5,7 +5,7 @@ import FlexBox from "@/components/Atoms/FlexBox";
 
 function PageTable({ pages, groupname }: { pages: Page[]; groupname: string }) {
   return (
-    <FlexBox.Row gap="gap-4" flexWrap="wrap">
+    <FlexBox.Row gap="gap-4" flexWrap="flex-wrap">
       {pages?.map((page) => (
         <PageCard
           key={page.id}

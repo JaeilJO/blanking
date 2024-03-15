@@ -32,7 +32,10 @@ function Page() {
       </FlexBox.Column>
 
       {/* Social 로그인 버튼 */}
-      <FlexBox.Row alignItems="center" justifyContent="space-between">
+      <FlexBox.Row
+        alignItems="align-items-center"
+        justifyContent="justify-space-between"
+      >
         <Text.Body fontSize="body-01" color="gray" fontWeight="font-regular">
           Continue with Social
         </Text.Body>
