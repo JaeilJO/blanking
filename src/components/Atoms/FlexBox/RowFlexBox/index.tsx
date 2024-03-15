@@ -10,7 +10,9 @@ function RowFlexBox({
   display = "block",
 
   flexWrap = "nowrap",
+
   justifyContent = "flex-start",
+
   alignItems = "stretch",
 
   backgroundColor,
