@@ -38,22 +38,29 @@ function TextInput({
     <div
       className={cn(
         "input-wrapper",
-        "pr-4",
-        "pl-4",
-        "pt-3",
-        "pb-3",
+        "pr-2",
+        "pl-2",
+        "pt-2",
+        "pb-2",
+
         display,
+
         borderWidth,
+
         marginRight,
         marginLeft,
         marginTop,
         marginBottom,
+
         paddingRight,
         paddingLeft,
         paddingTop,
         paddingBottom,
+
         theme,
+
         fontSize,
+
         { disabeld: disabled }
       )}
     >
