@@ -1,4 +1,4 @@
-import LineLink from "./LineLink";
+import OutLineLink from "./OutLineLink";
 import SidebarLink from "./SidebarLink";
 import SquareLink from "./SquareLink";
 import SolidLink from "./SolidLink";
@@ -6,7 +6,7 @@ import TextLink from "./TextLink";
 import CircleLink from "./CircleLink";
 
 const Link = {
-  Line: LineLink,
+  Line: OutLineLink,
   Solid: SolidLink,
   Text: TextLink,
   Square: SquareLink,
