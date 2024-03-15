@@ -19,15 +19,17 @@ interface FilledButtonProps
 }
 
 function FilledButton(props: FilledButtonProps) {
-  const { theme = "primary", icon, ...otherProps } = props;
+  const { theme = "primary", ...otherProps } = props;
 
   return (
     <BaseButton
-      // 기본 패딩값
-      paddingBottom="pb-3"
-      paddingTop="pt-3"
-      paddingRight="pr-4"
-      paddingLeft="pl-4"
+      /**
+       * 1:3 비율을 유지 하기 위해 padding을 지정 했습니다.
+       */
+      paddingBottom="pb-2"
+      paddingTop="pt-2"
+      paddingRight="pr-5"
+      paddingLeft="pl-5"
       // Base Button값을 따라갑니다.
       display={otherProps.display}
       fontSize={otherProps.fontSize}
@@ -47,9 +49,10 @@ function FilledButton(props: FilledButtonProps) {
           ? `text-black`
           : `text-white`
       }
+      style={otherProps.style}
       {...otherProps}
     >
-      {icon}
+      {otherProps.icon}
       {otherProps.children}
     </BaseButton>
   );

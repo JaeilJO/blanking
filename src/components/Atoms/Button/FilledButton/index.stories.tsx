@@ -47,3 +47,10 @@ export const Theme: Story = {
     </div>
   ),
 };
+export const Disabled: Story = {
+  render: () => (
+    <FilledButton marginBottom="mb-3" theme="primary" disabled>
+      Primary
+    </FilledButton>
+  ),
+};
