@@ -2,7 +2,7 @@ import { BaseButtonProps, buttonColorTheme } from "../BaseButton/index.type";
 import BaseButton from "../BaseButton";
 
 // 사용자가 지정하면 안되는 부분 지정
-interface LineButtonProps
+interface OutLineButtonProps
   extends Omit<
     BaseButtonProps,
     | "backgroundColor"
@@ -17,7 +17,7 @@ interface LineButtonProps
   theme: buttonColorTheme;
 }
 
-function LineButton(props: LineButtonProps) {
+function OutLineButton(props: OutLineButtonProps) {
   const { theme = "primary", icon, ...otherProps } = props;
 
   return (
@@ -56,4 +56,4 @@ function LineButton(props: LineButtonProps) {
   );
 }
 
-export default LineButton;
+export default OutLineButton;

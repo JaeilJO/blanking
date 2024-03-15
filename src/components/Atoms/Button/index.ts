@@ -1,10 +1,10 @@
-import LineButton from "./LineButton";
+import OutLineButton from "./OutLineButton";
 import FilledButton from "./FilledButton";
 import SquareButton from "./SquareButton";
 import TextButton from "./TextButton";
 
 const Button = {
-  Line: LineButton,
+  OutLine: OutLineButton,
   Filled: FilledButton,
   Text: TextButton,
   Square: SquareButton,
