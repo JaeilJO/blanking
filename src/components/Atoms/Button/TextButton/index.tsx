@@ -52,6 +52,7 @@ function TextButton(props: TextButtonProps) {
       disabled={otherProps.disabled}
       type={type}
       className={buttonClass}
+      style={otherProps.style}
       {...otherProps}
     >
       {otherProps.children}

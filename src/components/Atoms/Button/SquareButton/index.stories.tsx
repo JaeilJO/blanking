@@ -19,7 +19,7 @@ const meta: Meta<typeof SquareButton> = {
 export default meta;
 type Story = StoryObj<typeof SquareButton>;
 
-export const Primary: Story = {
+export const Custom: Story = {
   args: {
     children: "hello",
     size: 60,
@@ -31,5 +31,14 @@ export const Icon: Story = {
     children: <BsGoogle />,
     color: "#4285F4",
     size: 40,
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: <BsGoogle />,
+    color: "#4285F4",
+    size: 40,
+    disabled: true,
   },
 };

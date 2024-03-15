@@ -51,4 +51,9 @@ export default interface SquareButtonProps
    * 버튼의 아래쪽 여백입니다.
    */
   marginBottom?: MarginBottom;
+
+  /**
+   * 버튼의 비활성화 상태입니다.
+   */
+  disabled?: boolean;
 }
