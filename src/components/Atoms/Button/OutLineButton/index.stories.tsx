@@ -13,7 +13,7 @@ type Story = StoryObj<typeof OutLineButton>;
 
 export const Custom: Story = {
   args: {
-    children: "Line Button",
+    children: "Outline Button",
   },
 };
 
@@ -77,5 +77,12 @@ export const Theme: Story = {
         White
       </OutLineButton>
     </div>
+  ),
+};
+export const Disabled: Story = {
+  render: () => (
+    <OutLineButton marginBottom="mb-3" theme="primary" disabled>
+      Primary
+    </OutLineButton>
   ),
 };
