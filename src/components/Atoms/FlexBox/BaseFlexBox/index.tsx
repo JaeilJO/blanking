@@ -19,16 +19,38 @@ function BaseFlexBox(props: BaseFlexBoxProps) {
     alignItems,
 
     backgroundColor,
+
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+
     ...otherProps
   } = props;
 
   const flexClassName = cn(
     "flex-box",
-    backgroundColor,
     flexDirection,
     gap,
     justfyContent,
-    alignItems
+    alignItems,
+
+    backgroundColor,
+
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft
   );
 
   return (

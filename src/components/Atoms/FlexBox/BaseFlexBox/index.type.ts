@@ -1,4 +1,15 @@
-import { Gap, backgroundColor } from "@/style/style.type";
+import {
+  Gap,
+  MarginBottom,
+  MarginLeft,
+  MarginRight,
+  MarginTop,
+  PaddingBottom,
+  PaddingLeft,
+  PaddingRight,
+  PaddingTop,
+  backgroundColor,
+} from "@/style/style.type";
 
 export default interface BaseFlexBoxProps
   extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,4 +32,14 @@ export default interface BaseFlexBoxProps
     | "align-items-end"
     | "align-items-stretch"
     | "align-items-baseline";
+
+  marginTop?: MarginTop;
+  marginRight?: MarginRight;
+  marginBottom?: MarginBottom;
+  marginLeft?: MarginLeft;
+
+  paddingTop?: PaddingTop;
+  paddingRight?: PaddingRight;
+  paddingBottom?: PaddingBottom;
+  paddingLeft?: PaddingLeft;
 }
