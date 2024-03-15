@@ -21,7 +21,7 @@
   }
 
   &:disabled {
+    opacity: 0.12;
     pointer-events: none;
-    border: 1px solid color.$light-gray-color;
   }
 }

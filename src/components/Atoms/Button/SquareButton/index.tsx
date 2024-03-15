@@ -30,6 +30,8 @@ function SquareButton(props: SquareButtonProps) {
     marginTop,
     marginBottom,
 
+    disabled,
+
     ...otherProps
   } = props;
 
@@ -57,6 +59,7 @@ function SquareButton(props: SquareButtonProps) {
         ...otherProps.style,
       }}
       className={buttonClassName}
+      disabled={disabled}
       {...otherProps}
     >
       {otherProps.children}
