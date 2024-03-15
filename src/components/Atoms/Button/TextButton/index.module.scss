@@ -57,7 +57,7 @@
   }
 
   &:disabled {
-    color: color.$light-gray-color;
+    opacity: 0.12;
     pointer-events: none;
   }
 }
