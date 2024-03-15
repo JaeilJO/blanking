@@ -11,8 +11,9 @@ function ColumnFlexBox(props: ColumnFlexBoxProps) {
       backgroundColor={props.backgroundColor}
       // FlexBox 스타일
       gap={props.gap}
-      justfyContent={props.justfyContent}
+      justifyContent={props.justifyContent}
       alignItems={props.alignItems}
+      flexWrap={props.flexWrap}
       // Margin, Padding
       marginTop={props.marginTop}
       marginRight={props.marginRight}
