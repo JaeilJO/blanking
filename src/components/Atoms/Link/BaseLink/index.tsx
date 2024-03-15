@@ -17,28 +17,37 @@ export type LinkColorTheme =
 
 function BaseLink(props: BaseLinkProps) {
   const {
-    // Class Name에 지장이 안가는 값들
     href,
+
+    display,
+
+    fontSize = "body-01",
+    fontWeight = "font-light",
+    textAlign = "text-center",
+    textColor = "text-white",
+
     icon,
-    children,
 
     backgroundColor,
-    borderColor,
-    textColor,
-    display,
+
     borderWidth,
-    fontSize,
-    fontWeight,
-    textAlign,
+    borderColor,
+
     marginTop,
     marginRight,
     marginBottom,
     marginLeft,
+
     paddingTop,
     paddingBottom,
     paddingRight,
     paddingLeft,
+
+    children,
+
     disabled,
+
+    style,
   } = props;
 
   const linkClassName = cn(
@@ -63,7 +72,7 @@ function BaseLink(props: BaseLinkProps) {
   );
 
   return (
-    <Link href={href} className={linkClassName}>
+    <Link href={href} className={linkClassName} style={style}>
       {icon}
       {children}
     </Link>
