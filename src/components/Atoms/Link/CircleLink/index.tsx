@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import style from "./index.module.scss";
 import Link from "next/link";
 
-import { CircleLinkProps } from "../SolidLink/index.type";
+import { CircleLinkProps } from "./index.type";
 
 const cn = classNames.bind(style);
 

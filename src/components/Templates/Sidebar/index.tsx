@@ -69,7 +69,7 @@ function Sidebar({ subkey }: { subkey: string }) {
           currentPageName={currentPageName}
         />
       ))}
-      <Link.Solid
+      <Link.Filled
         theme="gray"
         icon={<LuFolderPlus />}
         href={"/user/creategroup"}
@@ -77,7 +77,7 @@ function Sidebar({ subkey }: { subkey: string }) {
         fontSize="body-02"
       >
         그룹 추가하기
-      </Link.Solid>
+      </Link.Filled>
     </SidebarWrapper>
   );
 }
