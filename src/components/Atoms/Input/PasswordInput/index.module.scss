@@ -1,6 +1,13 @@
 @use "@/style/fontSize";
 @use "@/style/color";
 @use "@/style/shadow";
+
+// place holder를 위해서 font를 불러옴
+@font-face {
+  font-family: "nanum";
+  src: url("/src/app/font/NanumSquareR.ttf");
+}
+
 .input-wrapper {
   border-radius: 4px;
   border-color: color.$light-gray-color;
@@ -125,6 +132,10 @@
 
   &.hide {
     font-family: "Courier New", Courier, monospace;
+  }
+
+  &::placeholder {
+    font-family: "nanum";
   }
 }
 
