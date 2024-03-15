@@ -13,7 +13,7 @@ function UserInfoFormSubmitButton({
   theme?: buttonColorTheme;
 }) {
   return (
-    <Button.Solid
+    <Button.Filled
       type="submit"
       fontWeight="font-bold"
       theme={theme}
@@ -21,7 +21,7 @@ function UserInfoFormSubmitButton({
       icon={icon}
     >
       {children}
-    </Button.Solid>
+    </Button.Filled>
   );
 }
 

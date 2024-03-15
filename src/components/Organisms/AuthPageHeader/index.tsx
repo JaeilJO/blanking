@@ -12,6 +12,7 @@ function AuthPageHeader({ title, description }: AuthPageHeader) {
       description={description}
       alignText="left"
       titleSize="tit-03"
+      gap="gap-3"
       titleFontWeight="font-bold"
       descriptionSize="body-02"
       descriptionFontWeight="font-regular"

@@ -11,7 +11,7 @@ import { HTMLAttributes } from "react";
 /**
  * 솔리드 버튼 컴포넌트의 속성을 나타냅니다.
  */
-export default interface SolidButtonProps
+export default interface FilledButtonProps
   extends HTMLAttributes<HTMLButtonElement> {
   /**
    * 버튼의 테마입니다.

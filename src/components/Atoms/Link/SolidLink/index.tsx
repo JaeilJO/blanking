@@ -2,7 +2,7 @@ import BaseLink, { LinkColorTheme } from "../BaseLink";
 import BaseLinkProps from "../BaseLink/index.type";
 
 // 사용자가 지정하면 안되는 부분 지정
-interface SolidButtonProps
+interface FilledButtonProps
   extends Omit<
     BaseLinkProps,
     | "backgroundColor"
@@ -18,7 +18,7 @@ interface SolidButtonProps
   theme: LinkColorTheme;
 }
 
-function SolidLink(props: SolidButtonProps) {
+function SolidLink(props: FilledButtonProps) {
   const {
     theme = "primary",
     display = "block",

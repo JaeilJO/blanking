@@ -2,7 +2,7 @@ import BaseButton from "../BaseButton";
 import { BaseButtonProps, buttonColorTheme } from "../BaseButton/index.type";
 
 // 사용자가 지정하면 안되는 부분 지정
-interface SolidButtonProps
+interface FilledButtonProps
   extends Omit<
     BaseButtonProps,
     | "backgroundColor"
@@ -18,7 +18,7 @@ interface SolidButtonProps
   theme: buttonColorTheme;
 }
 
-function SolidButton(props: SolidButtonProps) {
+function FilledButton(props: FilledButtonProps) {
   const { theme = "primary", icon, ...otherProps } = props;
 
   return (
@@ -55,4 +55,4 @@ function SolidButton(props: SolidButtonProps) {
   );
 }
 
-export default SolidButton;
+export default FilledButton;

@@ -36,9 +36,9 @@ function DeletePageModal() {
         </Text.Body>
       </FlexBox.Column>
 
-      <Button.Solid type="button" theme="red" onClick={submitHandler}>
+      <Button.Filled type="button" theme="red" onClick={submitHandler}>
         삭제하기
-      </Button.Solid>
+      </Button.Filled>
     </ModalFrame>
   );
 }
