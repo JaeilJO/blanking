@@ -14,12 +14,12 @@ type Story = StoryObj<typeof RowFlexBox>;
 
 export const Custom: Story = {
   args: {
-    backgroundColor: "yellow",
+    backgroundColor: "bg-yellow",
     children: (
       <>
-        <div>Hell</div>
-        <div>Hell</div>
-        <div>Hell</div>
+        <Button.OutLine theme="primary">Hello</Button.OutLine>
+        <Button.OutLine theme="primary">Hello</Button.OutLine>
+        <Button.OutLine theme="primary">Hello</Button.OutLine>
       </>
     ),
   },

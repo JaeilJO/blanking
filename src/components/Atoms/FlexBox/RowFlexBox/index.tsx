@@ -1,68 +1,29 @@
-import classNames from "classnames/bind";
-import style from "./index.module.scss";
-import RowFlexBoxProps from "./index.type";
+import BaseFlexBox from "../BaseFlexBox";
+import BaseFlexBoxProps from "../BaseFlexBox/index.type";
 
-const cn = classNames.bind(style);
+type RowFlexBoxProps = Omit<BaseFlexBoxProps, "flexDirection">;
 
-function RowFlexBox({
-  children,
-
-  display = "block",
-
-  flexWrap = "nowrap",
-  justifyContent = "flex-start",
-  alignItems = "stretch",
-
-  backgroundColor,
-
-  borderRadius = false,
-
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-
-  marginBottom,
-  marginLeft,
-  marginRight,
-  marginTop,
-
-  gap,
-  style,
-}: RowFlexBoxProps) {
-  const flexRowStyle = {
-    flexWrap,
-    justifyContent,
-    alignItems,
-    style,
-  };
-
-  const flexRowClassName = cn(
-    "flex-row",
-    paddingTop,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-
-    backgroundColor,
-
-    marginBottom,
-    marginLeft,
-    marginRight,
-    marginTop,
-
-    gap,
-
-    display,
-    {
-      "border-radius": borderRadius,
-    }
-  );
-
+function RowFlexBox(props: RowFlexBoxProps) {
   return (
-    <div style={flexRowStyle} className={flexRowClassName}>
-      {children}
-    </div>
+    <BaseFlexBox // Direction 고정
+      flexDirection="flex-row"
+      backgroundColor={props.backgroundColor}
+      // FlexBox 스타일
+      gap={props.gap}
+      justfyContent={props.justfyContent}
+      alignItems={props.alignItems}
+      // Margin, Padding
+      marginTop={props.marginTop}
+      marginRight={props.marginRight}
+      marginBottom={props.marginBottom}
+      marginLeft={props.marginLeft}
+      paddingTop={props.paddingTop}
+      paddingRight={props.paddingRight}
+      paddingBottom={props.paddingBottom}
+      paddingLeft={props.paddingLeft}
+    >
+      {props.children}
+    </BaseFlexBox>
   );
 }
 

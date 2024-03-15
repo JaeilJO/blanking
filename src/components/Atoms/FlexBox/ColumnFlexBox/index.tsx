@@ -1,69 +1,30 @@
-import classNames from "classnames/bind";
-import style from "./index.module.scss";
-import ColumnFlexBoxProps from "./index.type";
+import BaseFlexBox from "../BaseFlexBox";
+import BaseFlexBoxProps from "../BaseFlexBox/index.type";
 
-const cn = classNames.bind(style);
+type ColumnFlexBoxProps = Omit<BaseFlexBoxProps, "flexDirection">;
 
-function ColumnFlexBox({
-  children,
-
-  display = "block",
-
-  flexWrap,
-  justifyContent,
-  alignItems,
-
-  backgroundColor,
-
-  borderRadius = false,
-
-  paddingTop,
-  paddingBottom,
-  paddingLeft,
-  paddingRight,
-
-  marginBottom,
-  marginLeft,
-  marginRight,
-  marginTop,
-
-  gap,
-  style,
-}: ColumnFlexBoxProps) {
-  const flexColumnStyle = {
-    flexWrap,
-    justifyContent,
-    alignItems,
-    style,
-  };
-
-  const flexColumnClassName = cn(
-    "flex-column",
-
-    paddingTop,
-    paddingBottom,
-    paddingLeft,
-    paddingRight,
-
-    backgroundColor,
-
-    marginBottom,
-    marginLeft,
-    marginRight,
-    marginTop,
-
-    gap,
-
-    display,
-    {
-      "border-radius": borderRadius,
-    }
-  );
-
+function ColumnFlexBox(props: ColumnFlexBoxProps) {
   return (
-    <div style={flexColumnStyle} className={flexColumnClassName}>
-      {children}
-    </div>
+    <BaseFlexBox
+      // Direction 고정
+      flexDirection="flex-column"
+      backgroundColor={props.backgroundColor}
+      // FlexBox 스타일
+      gap={props.gap}
+      justfyContent={props.justfyContent}
+      alignItems={props.alignItems}
+      // Margin, Padding
+      marginTop={props.marginTop}
+      marginRight={props.marginRight}
+      marginBottom={props.marginBottom}
+      marginLeft={props.marginLeft}
+      paddingTop={props.paddingTop}
+      paddingRight={props.paddingRight}
+      paddingBottom={props.paddingBottom}
+      paddingLeft={props.paddingLeft}
+    >
+      {props.children}
+    </BaseFlexBox>
   );
 }
 
