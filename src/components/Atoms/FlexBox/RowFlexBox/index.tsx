@@ -1,7 +1,7 @@
 import BaseFlexBox from "../BaseFlexBox";
 import BaseFlexBoxProps from "../BaseFlexBox/index.type";
 
-type RowFlexBoxProps = Omit<BaseFlexBoxProps, "flexDirection">;
+export type RowFlexBoxProps = Omit<BaseFlexBoxProps, "flexDirection">;
 
 function RowFlexBox(props: RowFlexBoxProps) {
   return (
@@ -22,6 +22,7 @@ function RowFlexBox(props: RowFlexBoxProps) {
       paddingRight={props.paddingRight}
       paddingBottom={props.paddingBottom}
       paddingLeft={props.paddingLeft}
+      {...props}
     >
       {props.children}
     </BaseFlexBox>
