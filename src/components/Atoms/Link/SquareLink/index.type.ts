@@ -24,4 +24,6 @@ export default interface SquareLinkProps
   marginBottom?: MarginBottom;
 
   href: string | UrlObject;
+
+  disabled?: boolean;
 }

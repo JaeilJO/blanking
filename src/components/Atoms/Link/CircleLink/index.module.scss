@@ -5,91 +5,24 @@
   border-radius: 50%;
   display: inline-block;
 
-  &.primary {
-    background-color: color.$primary-color;
+  /** 
+  * Background Color
+    - white color는 특별하게 처리하기 때문에 따로 분리해놨습니다.
+  */
+  @each $color-name, $color-values in color.$color-configs {
+    &.bg-#{$color-name} {
+      background-color: map-get($color-values, base);
 
-    &:hover {
-      background-color: color.$primary-hover-color;
-    }
+      &:hover {
+        background-color: map-get($color-values, hover);
+      }
 
-    &:active {
-      background-color: color.$primary-active-color;
-    }
-  }
-
-  &.black {
-    background-color: color.$black-color;
-
-    &:hover {
-      background-color: color.$black-hover-color;
-    }
-
-    &:active {
-      background-color: color.$black-active-color;
+      &:active {
+        background-color: color.$primary-active-color;
+      }
     }
   }
-
-  &.gray {
-    background-color: color.$gray-color;
-
-    &:hover {
-      background-color: color.$gray-hover-color;
-    }
-
-    &:active {
-      background-color: color.$gray-active-color;
-    }
-  }
-
-  &.light-gray {
-    background-color: color.$light-gray-color;
-
-    &:hover {
-      background-color: color.$light-gray-hover-color;
-    }
-
-    &:active {
-      background-color: color.$light-gray-active-color;
-    }
-  }
-
-  &.red {
-    background-color: color.$red-color;
-
-    &:hover {
-      background-color: color.$red-hover-color;
-    }
-
-    &:active {
-      background-color: color.$red-active-color;
-    }
-  }
-
-  &.yellow {
-    background-color: color.$yellow-color;
-
-    &:hover {
-      background-color: color.$yellow-hover-color;
-    }
-
-    &:active {
-      background-color: color.$yellow-active-color;
-    }
-  }
-
-  &.green {
-    background-color: color.$green-color;
-
-    &:hover {
-      background-color: color.$green-hover-color;
-    }
-
-    &:active {
-      background-color: color.$green-active-color;
-    }
-  }
-
-  &.white {
+  &.bg-white {
     background-color: color.$white-color;
 
     &:hover {
@@ -99,5 +32,10 @@
     &:active {
       background-color: color.$light-gray-color;
     }
+  }
+
+  &.disabled {
+    opacity: 0.12;
+    pointer-events: none;
   }
 }

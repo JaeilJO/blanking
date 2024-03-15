@@ -112,4 +112,6 @@ export default interface BaseLinkProps {
    * 링크의 텍스트 내용입니다.
    */
   children: string | React.ReactNode;
+
+  style?: React.CSSProperties;
 }

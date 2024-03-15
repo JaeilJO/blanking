@@ -40,4 +40,6 @@ export interface CircleLinkProps {
   marginLeft?: MarginLeft;
 
   style?: React.CSSProperties;
+
+  disabled?: boolean;
 }

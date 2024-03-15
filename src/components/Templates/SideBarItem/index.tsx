@@ -45,7 +45,7 @@ function SidebarItem({
           />
         ))}
       {groupname === currentGroupName && (
-        <Link.Solid
+        <Link.Filled
           theme="light-gray"
           href={{
             pathname: "/user/createpage",
@@ -54,7 +54,7 @@ function SidebarItem({
           icon={<LuFilePlus />}
         >
           페이지추가
-        </Link.Solid>
+        </Link.Filled>
       )}
     </FlexBox.Column>
   );
