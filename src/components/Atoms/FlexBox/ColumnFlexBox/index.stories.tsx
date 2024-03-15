@@ -16,9 +16,9 @@ export const Custom: Story = {
     backgroundColor: "primary",
     children: (
       <>
-        <Button.Line theme="primary">Hello</Button.Line>
-        <Button.Line theme="primary">Hello</Button.Line>
-        <Button.Line theme="primary">Hello</Button.Line>
+        <Button.OutLine theme="primary">Hello</Button.OutLine>
+        <Button.OutLine theme="primary">Hello</Button.OutLine>
+        <Button.OutLine theme="primary">Hello</Button.OutLine>
       </>
     ),
   },

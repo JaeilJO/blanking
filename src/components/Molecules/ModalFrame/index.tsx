@@ -22,9 +22,9 @@ function ModalFrame({
         {title}
       </Text.Title>
       {children}
-      <Button.Line onClick={cancleHandler} theme={"light-gray"}>
+      <Button.OutLine onClick={cancleHandler} theme={"light-gray"}>
         Cancel
-      </Button.Line>
+      </Button.OutLine>
     </ModalWrapper>
   );
 }
