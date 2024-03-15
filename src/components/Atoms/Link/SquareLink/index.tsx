@@ -3,7 +3,7 @@
 // Utils
 import classNames from "classnames/bind";
 import Link from "next/link";
-import uselinkEventListeners from "./index.hook";
+import useLinkEventListeners from "./index.hook";
 
 // Style
 import style from "./index.module.scss";
@@ -51,7 +51,7 @@ function SquareLink(props: SquareLinkProps) {
     { disabled: disabled }
   );
 
-  const { linkRef } = uselinkEventListeners({ color });
+  const { linkRef } = useLinkEventListeners({ color });
 
   return (
     <Link
