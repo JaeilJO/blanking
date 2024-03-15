@@ -19,7 +19,9 @@ export default interface BaseFlexBoxProps
 
   gap?: Gap;
 
-  justfyContent?:
+  flexWrap?: "flex-wrap" | "flex-nowrap";
+
+  justifyContent?:
     | "justify-flex-start"
     | "justify-flex-end"
     | "justify-center"

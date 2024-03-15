@@ -15,8 +15,9 @@ function BaseFlexBox(props: BaseFlexBoxProps) {
     //flex관련 스타일
     flexDirection,
     gap,
-    justfyContent,
+    justifyContent,
     alignItems,
+    flexWrap,
 
     backgroundColor,
 
@@ -37,8 +38,9 @@ function BaseFlexBox(props: BaseFlexBoxProps) {
     "flex-box",
     flexDirection,
     gap,
-    justfyContent,
+    justifyContent,
     alignItems,
+    flexWrap,
 
     backgroundColor,
 

@@ -10,6 +10,15 @@
     flex-direction: column;
   }
 
+  // Flex Wrap
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
   // Justify Content
   &.justify-flex-start {
     justify-content: flex-start;
