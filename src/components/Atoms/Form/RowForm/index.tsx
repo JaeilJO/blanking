@@ -1,52 +1,15 @@
-import style from "./index.module.scss";
-import classNames from "classnames/bind";
-import RowFormProps from "./index.type";
 import { ForwardedRef, forwardRef } from "react";
+import FlexBox from "../../FlexBox";
+import { RowFlexBoxProps } from "../../FlexBox/RowFlexBox";
 
-const cn = classNames.bind(style);
+export type RowFormProps = RowFlexBoxProps &
+  React.FormHTMLAttributes<HTMLFormElement>;
 
 const RowForm = forwardRef(
-  (
-    {
-      children,
-      gap = "gap-0",
-      display = "block",
-      justifyContent = "flex-start",
-      alignItems,
-      marginBottom,
-      marginTop,
-      marginLeft,
-      marginRight,
-      paddingBottom,
-      paddingTop,
-      paddingLeft,
-      paddingRight,
-
-      ...props
-    }: RowFormProps,
-    ref: ForwardedRef<HTMLFormElement>
-  ) => {
-    const formClass = cn(
-      "form",
-      gap,
-      display,
-      marginBottom,
-      marginTop,
-      marginLeft,
-      marginRight,
-      paddingBottom,
-      paddingTop,
-      paddingLeft,
-      paddingRight
-    );
+  (props: RowFormProps, ref: ForwardedRef<HTMLFormElement>) => {
     return (
-      <form
-        ref={ref}
-        className={formClass}
-        style={{ justifyContent, alignItems }}
-        {...props}
-      >
-        {children}
+      <form ref={ref} {...props}>
+        <FlexBox.Row {...props}>{props.children}</FlexBox.Row>
       </form>
     );
   }
