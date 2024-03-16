@@ -3,34 +3,34 @@
 //Global ClassName
 @mixin border-color {
   .border-primary {
-    background-color: color.$primary-color;
+    border: 1px solid color.$primary-color;
   }
 
   .border-black {
-    background-color: color.$black-color;
+    border: 1px solid color.$black-color;
   }
 
   .border-gray {
-    background-color: color.$gray-color;
+    border: 1px solid color.$gray-color;
   }
 
   .border-light-gray {
-    background-color: color.$light-gray-color;
+    border: 1px solid color.$light-gray-color;
   }
 
   .border-red {
-    background-color: color.$red-color;
+    border: 1px solid color.$red-color;
   }
 
   .border-yellow {
-    background-color: color.$yellow-color;
+    border: 1px solid color.$yellow-color;
   }
 
   .border-green {
-    background-color: color.$green-color;
+    border: 1px solid color.$green-color;
   }
 
   .border-white {
-    background-color: color.$white-color;
+    border: 1px solid color.$white-color;
   }
 }

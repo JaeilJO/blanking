@@ -1,0 +1,15 @@
+@use "@/style/fontSize";
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include fontSize.font-size("sub-02");
+
+  cursor: pointer;
+
+  &:disabled {
+    pointer-events: none;
+  }
+}

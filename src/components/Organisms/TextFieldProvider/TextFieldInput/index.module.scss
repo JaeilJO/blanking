@@ -1,0 +1,45 @@
+@use "@/style/fontSize";
+
+// place holder를 위해서 font를 불러옴
+@font-face {
+  font-family: "nanum";
+  src: url("/src/app/font/NanumSquareR.ttf");
+}
+
+.input {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  @include fontSize.font-size("body-01");
+
+  &.text-left {
+    text-align: left;
+  }
+
+  &.text-center {
+    text-align: center;
+  }
+
+  &.text-right {
+    text-align: right;
+  }
+
+  // password가 가려진 상태에서는 기본 폰트로는 보이지 않기 때문에 지정
+  &.hide {
+    font-family: "Courier New", Courier, monospace;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  /**
+    - label이 false인 경우 input의 자체 placeholder를 사용하기 때문에 설정
+    - type이 passsword인 경우 placeholder가 .hide때문에 기본 폰트로 지정되지 않아서 해결하기 위해 설정
+  */
+  &::placeholder {
+    font-family: "nanum";
+  }
+}
