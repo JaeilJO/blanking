@@ -1,7 +1,8 @@
 import Button from "@/components/Atoms/Button";
 import { buttonColorTheme } from "@/components/Atoms/Button/BaseButton/index.type";
 
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
+import { UserInfoFormContext } from "..";
 
 function UserInfoFormSubmitButton({
   children,
@@ -12,6 +13,8 @@ function UserInfoFormSubmitButton({
   icon?: ReactNode;
   theme?: buttonColorTheme;
 }) {
+  const value = useContext(UserInfoFormContext);
+  const { loading } = value!;
   return (
     <Button.Filled
       type="submit"
@@ -19,6 +22,7 @@ function UserInfoFormSubmitButton({
       theme={theme}
       fontSize="sub-02"
       icon={icon}
+      disabled={loading}
     >
       {children}
     </Button.Filled>

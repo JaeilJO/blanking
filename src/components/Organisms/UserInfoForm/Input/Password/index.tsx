@@ -1,38 +1,23 @@
-import InputWithLabel from "@/components/Molecules/InputWithLabel";
 import { useContext } from "react";
-import PasswordInputProps from "@/components/Atoms/Input/PasswordInput/index.type";
+
 import { UserInfoFormContext } from "../..";
+import TextField from "@/components/Atoms/TextField";
 
-interface AuthPasswordInputProps extends PasswordInputProps {
-  // 3개는 반드시 존재해야한다.
-  name: string;
-  required: true;
-  placeholder: string;
-}
-
-function AuthFormPasswordInput({
-  type,
-  placeholder,
-  name,
-  required,
-  ...props
-}: AuthPasswordInputProps) {
+function AuthFormPasswordInput() {
   const value = useContext(UserInfoFormContext);
-  const loadingStatus = value?.loading;
+  const { loading } = value!;
 
-  value.formData.current[name] = "";
+  value.formData.current["password"] = "";
 
   return (
-    <InputWithLabel.Password
-      type="password"
-      placeholder={placeholder}
-      name={name}
-      required={required}
-      disabled={loadingStatus}
+    <TextField.Password
+      theme={"primary"}
+      textAlign={"left"}
+      disabled={loading}
+      label={true}
       onChange={(e) => {
-        value.formData.current[name] = e.target.value;
+        value.formData.current["password"] = e.target.value;
       }}
-      {...props}
     />
   );
 }

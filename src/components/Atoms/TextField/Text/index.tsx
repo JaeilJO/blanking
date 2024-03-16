@@ -1,7 +1,8 @@
 import TextFieldProvider from "@/components/Organisms/TextFieldProvider";
 import { TextFieldProps } from "@/components/Organisms/TextFieldProvider/index.type";
 
-interface TextFieldTextProps extends Omit<TextFieldProps, "type"> {
+export interface TextFieldTextProps
+  extends Omit<TextFieldProps, "type" | "children"> {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   type: "text" | "email";
 }

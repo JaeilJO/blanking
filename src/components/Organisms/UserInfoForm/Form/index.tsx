@@ -19,12 +19,13 @@ function UserInfoForm({
 }: UserInfoFormProps) {
   const ref = useRef<HTMLFormElement>(null);
   const value = useContext(UserInfoFormContext);
-  const formData = value?.formData;
+  const { formData, loading, setLoading } = value!;
 
   const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
+    setLoading(true);
     const $formElement = ref.current as HTMLFormElement;
 
     const datas = formData.current;
@@ -32,6 +33,7 @@ function UserInfoForm({
     await onSubmit(datas);
 
     $formElement.reset();
+    setLoading(false);
   };
 
   return (

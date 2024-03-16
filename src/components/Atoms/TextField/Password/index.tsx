@@ -2,7 +2,7 @@ import TextFieldProvider from "@/components/Organisms/TextFieldProvider";
 import { TextFieldProps } from "@/components/Organisms/TextFieldProvider/index.type";
 
 interface TextFieldPasswordProps
-  extends Omit<TextFieldProps, "type" | "name" | "placeholder"> {
+  extends Omit<TextFieldProps, "type" | "name" | "placeholder" | "children"> {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 

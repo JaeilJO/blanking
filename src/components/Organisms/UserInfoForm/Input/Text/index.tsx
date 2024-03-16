@@ -1,38 +1,31 @@
-import TextInputProps from "@/components/Atoms/Input/TextInput/index.type";
-import InputWithLabel from "@/components/Molecules/InputWithLabel";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserInfoFormContext } from "../..";
+import TextField from "@/components/Atoms/TextField";
+import { TextFieldTextProps } from "@/components/Atoms/TextField/Text";
 
-interface UserInfoFormProps extends TextInputProps {
-  // 3개는 반드시 존재해야한다.
+interface UserInfoFormProps extends TextFieldTextProps {
   name: string;
-  required: true;
   placeholder: string;
 }
 
-function UserInfoForm({
-  type,
-  placeholder,
-  name,
-  required,
-  ...props
-}: UserInfoFormProps) {
+function UserInfoForm({ type, placeholder, name }: UserInfoFormProps) {
   const value = useContext(UserInfoFormContext);
-  const loadingStatus = value?.loading;
+  const { loading } = value!;
 
   value.formData.current[name] = "";
 
   return (
-    <InputWithLabel.Text
-      type={type}
+    <TextField.Text
       placeholder={placeholder}
+      theme={"primary"}
+      type={type}
       name={name}
-      required={required}
-      disabled={loadingStatus}
+      textAlign={"left"}
+      disabled={loading}
+      label={true}
       onChange={(e) => {
         value.formData.current[name] = e.target.value;
       }}
-      {...props}
     />
   );
 }
