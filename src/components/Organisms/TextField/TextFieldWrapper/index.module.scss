@@ -1,0 +1,28 @@
+@use "@/style/variables";
+@use "@/style/spacing";
+@use "@/style/color";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  padding: spacing.$spacing-value-2;
+
+  border-radius: variables.$border-radius;
+
+  background-color: color.$white-color;
+
+  color: color.$black-color;
+
+  transition: border 0.1s ease-out;
+
+  &.focus {
+    outline: none;
+  }
+
+  &.disabled {
+    opacity: 0.14;
+  }
+}

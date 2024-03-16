@@ -1,0 +1,31 @@
+@use "@/style/spacing";
+@use "@/style/fontSize";
+@use "@/style/color";
+
+.basic {
+  position: absolute;
+  top: 50%;
+  left: spacing.$spacing-value-2;
+  transform: translateY(-50%);
+
+  @include fontSize.font-size("body-01");
+
+  background-color: color.$white-color;
+
+  padding: 0 spacing.$spacing-value-1;
+
+  z-index: 99;
+
+  transition: left 0.2s, top 0.2s ease-in-out;
+
+  &.focus {
+    top: 0px;
+    left: spacing.$spacing-value-3;
+
+    @include fontSize.font-size("body-02");
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+}
