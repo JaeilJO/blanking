@@ -2,10 +2,11 @@
 
 import { UserInfoFormContext } from "../..";
 import { useContext } from "react";
-import TextInputProps from "@/components/Atoms/Input/TextInput/index.type";
-import TextField from "@/components/Atoms/TextField";
 
-interface NoLabelProps extends TextInputProps {
+import TextField from "@/components/Atoms/TextField";
+import { TextFieldTextProps } from "@/components/Atoms/TextField/Text";
+
+interface NoLabelProps extends TextFieldTextProps {
   name: string;
   required: true;
   placeholder: string;
