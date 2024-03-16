@@ -64,6 +64,7 @@ function TextFieldInput(props: TextFieldInputProps) {
       disabled={disabled}
       placeholder={inputPlaceHolder}
       name={name}
+      required
       {...props}
     />
   );

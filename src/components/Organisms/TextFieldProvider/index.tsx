@@ -35,7 +35,7 @@ export const TextFieldContext = createContext<TextFiedlContextType | undefined>(
   - label이 있을 경우 placeholder에 text-align가 적용되지 않음
   - label이 없는 경우 사용을 권장
  */
-function TextField({
+function TextFieldProvider({
   placeholder,
   theme,
   type,
@@ -72,8 +72,8 @@ function TextField({
   );
 }
 
-TextField.Input = TextFieldInput;
-TextField.Label = TextFieldLabel;
-TextField.PasswordButton = TextFieldPasswordButton;
+TextFieldProvider.Input = TextFieldInput;
+TextFieldProvider.Label = TextFieldLabel;
+TextFieldProvider.PasswordButton = TextFieldPasswordButton;
 
-export default TextField;
+export default TextFieldProvider;
