@@ -31,6 +31,7 @@ function PageCard({ pagename, groupname }: PageCardProps) {
         <LuFileEdit />
       </Text.Title>
       <FlexBox.Column
+        style={{ height: "100%" }}
         justifyContent="justify-space-between"
         alignItems="align-items-end"
       >
