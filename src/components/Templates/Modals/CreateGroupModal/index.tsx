@@ -30,6 +30,7 @@ function CreateGroupModal() {
       <UserInfoForm>
         <UserInfoForm.Form onSubmit={handleSubmit} gap="gap-1">
           <UserInfoForm.Input.NoLabel
+            type="text"
             name="groupname"
             placeholder="추가할 그룹을 입력해주세요"
             theme="gray"

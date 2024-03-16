@@ -39,6 +39,7 @@ function ChangeGroupNameModal() {
       <UserInfoForm>
         <UserInfoForm.Form gap="gap-3" onSubmit={onSubmit}>
           <UserInfoForm.Input.NoLabel
+            type="text"
             theme="gray"
             name="new_groupname"
             placeholder="새로운 그룹이름을 입력해주세요"

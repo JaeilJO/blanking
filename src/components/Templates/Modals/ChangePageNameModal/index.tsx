@@ -42,6 +42,8 @@ function ChangePageNameModal() {
       <UserInfoForm>
         <UserInfoForm.Form onSubmit={onSubmit} gap="gap-2">
           <UserInfoForm.Input.NoLabel
+            theme="gray"
+            type="text"
             name={"new_pagename"}
             placeholder="변경할 이름을 입력해주세요"
             required

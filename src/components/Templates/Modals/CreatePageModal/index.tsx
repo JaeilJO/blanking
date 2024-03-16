@@ -35,6 +35,7 @@ function CreatePageModal() {
       <UserInfoForm>
         <UserInfoForm.Form onSubmit={submitHandler} gap="gap-1">
           <UserInfoForm.Input.NoLabel
+            type="text"
             name="pagename"
             placeholder="페이지 이름을 입력해주세요"
             theme="gray"

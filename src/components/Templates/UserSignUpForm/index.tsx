@@ -9,7 +9,6 @@ function UserSignUpForm() {
     <UserInfoForm>
       <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
         <UserInfoForm.Input.Text name="name" placeholder="Name" type="text" />
-
         <UserInfoForm.Input.Text
           type="email"
           name="email"
