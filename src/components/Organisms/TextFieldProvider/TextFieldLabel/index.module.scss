@@ -18,14 +18,11 @@
 
   transition: left 0.2s, top 0.2s ease-in-out;
 
+  pointer-events: none;
   &.focus {
     top: 0px;
     left: spacing.$spacing-value-3;
 
     @include fontSize.font-size("body-02");
-  }
-
-  &.disabled {
-    pointer-events: none;
   }
 }
