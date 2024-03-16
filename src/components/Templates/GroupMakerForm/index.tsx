@@ -10,10 +10,11 @@ function GroupMakerForm({ subkey }: { subkey: string }) {
     <UserInfoForm>
       <UserInfoForm.Form gap="gap-4" onSubmit={(data: any) => mutate(data)}>
         <UserInfoForm.Input.NoLabel
+          theme="black"
           name="groupname"
           required
           placeholder="Group Name"
-          theme="black"
+          type="text"
         />
         <UserInfoForm.SubmitButton theme="black">
           그룹 생성

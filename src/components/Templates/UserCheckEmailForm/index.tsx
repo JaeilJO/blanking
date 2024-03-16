@@ -14,7 +14,6 @@ const UserCheckEmailForm: React.FC = () => {
           name="email"
           type="email"
           placeholder="E-mail"
-          required
         />
         <UserInfoForm.SubmitButton>Check Email</UserInfoForm.SubmitButton>
       </UserInfoForm.Form>

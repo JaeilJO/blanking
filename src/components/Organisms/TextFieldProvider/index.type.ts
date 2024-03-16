@@ -2,7 +2,15 @@ import { Dispatch, SetStateAction } from "react";
 
 export interface TextFieldProps {
   placeholder: string;
-  theme: "primary" | "black" | "gray" | "yellow" | "green" | "red" | "white";
+  theme:
+    | "primary"
+    | "black"
+    | "gray"
+    | "yellow"
+    | "green"
+    | "red"
+    | "white"
+    | "light-gray";
   type: "text" | "email" | "password";
   name: string;
   textAlign: "left" | "center" | "right";

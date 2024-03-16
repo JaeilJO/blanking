@@ -8,20 +8,15 @@ function UserSignUpForm() {
   return (
     <UserInfoForm>
       <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
-        <UserInfoForm.Input.Text name="name" placeholder="Name" required />
+        <UserInfoForm.Input.Text name="name" placeholder="Name" type="text" />
 
         <UserInfoForm.Input.Text
           type="email"
           name="email"
           placeholder="E-mail"
-          required
         />
 
-        <UserInfoForm.Input.Password
-          name="password"
-          placeholder="Password"
-          required
-        />
+        <UserInfoForm.Input.Password />
 
         <UserInfoForm.SubmitButton>Sign Up</UserInfoForm.SubmitButton>
       </UserInfoForm.Form>

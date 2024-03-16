@@ -4,16 +4,18 @@ import { UserInfoFormContext } from "../..";
 import { useContext } from "react";
 
 import TextField from "@/components/Atoms/TextField";
-import { TextFieldTextProps } from "@/components/Atoms/TextField/Text";
 
-interface NoLabelProps extends TextFieldTextProps {
+import { buttonColorTheme } from "@/components/Atoms/Button/BaseButton/index.type";
+
+interface NoLabelProps {
   name: string;
   required: true;
   placeholder: string;
   type: "text" | "email";
+  theme: buttonColorTheme;
 }
 
-function NoLabel({ placeholder, name, type }: NoLabelProps) {
+function NoLabel({ placeholder, name, type, theme }: NoLabelProps) {
   const value = useContext(UserInfoFormContext);
   const { loading } = value!;
 
@@ -21,7 +23,7 @@ function NoLabel({ placeholder, name, type }: NoLabelProps) {
   return (
     <TextField.Text
       placeholder={placeholder}
-      theme={"primary"}
+      theme={theme}
       type={type}
       name={name}
       textAlign={"center"}

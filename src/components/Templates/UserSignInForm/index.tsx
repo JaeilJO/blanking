@@ -14,13 +14,8 @@ function UserSignInForm() {
           name="email"
           type="email"
           placeholder="E-mail"
-          required
         />
-        <UserInfoForm.Input.Password
-          name="password"
-          placeholder="Password"
-          required
-        />
+        <UserInfoForm.Input.Password />
         <UserInfoForm.SubmitButton>Sign In</UserInfoForm.SubmitButton>
       </UserInfoForm.Form>
     </UserInfoForm>

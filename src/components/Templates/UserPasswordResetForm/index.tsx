@@ -7,12 +7,7 @@ function UserPasswordResetForm({ subkey }: { subkey: string }) {
   return (
     <UserInfoForm>
       <UserInfoForm.Form onSubmit={onSubmit} gap="gap-4">
-        <UserInfoForm.Input.Password
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-        />
+        <UserInfoForm.Input.Password />
         <UserInfoForm.SubmitButton>Change Password</UserInfoForm.SubmitButton>
       </UserInfoForm.Form>
     </UserInfoForm>

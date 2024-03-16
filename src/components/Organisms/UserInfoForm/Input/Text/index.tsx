@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { UserInfoFormContext } from "../..";
 import TextField from "@/components/Atoms/TextField";
-import { TextFieldTextProps } from "@/components/Atoms/TextField/Text";
 
-interface UserInfoFormProps extends TextFieldTextProps {
+interface UserInfoFormProps {
+  type: "text" | "email";
   name: string;
   placeholder: string;
 }
