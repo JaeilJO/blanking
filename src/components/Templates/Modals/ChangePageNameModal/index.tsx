@@ -46,7 +46,6 @@ function ChangePageNameModal() {
             type="text"
             name={"new_pagename"}
             placeholder="변경할 이름을 입력해주세요"
-            required
           />
           <UserInfoForm.SubmitButton>이름 변경하기</UserInfoForm.SubmitButton>
         </UserInfoForm.Form>

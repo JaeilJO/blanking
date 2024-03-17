@@ -39,7 +39,6 @@ function CreatePageModal() {
             name="pagename"
             placeholder="페이지 이름을 입력해주세요"
             theme="gray"
-            required
           />
           <Text.Body fontSize="body-02" textAlign="text-center" color="black">
             특수문자 제외 <b>영어 대 소문자 혹은 한글</b>만 사용 가능합니다

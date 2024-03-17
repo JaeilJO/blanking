@@ -43,7 +43,6 @@ function ChangeGroupNameModal() {
             theme="gray"
             name="new_groupname"
             placeholder="새로운 그룹이름을 입력해주세요"
-            required
           />
           <UserInfoForm.SubmitButton theme="black">
             변경하기
