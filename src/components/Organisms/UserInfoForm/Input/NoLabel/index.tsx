@@ -9,7 +9,6 @@ import { buttonColorTheme } from "@/components/Atoms/Button/BaseButton/index.typ
 
 interface NoLabelProps {
   name: string;
-  required: true;
   placeholder: string;
   type: "text" | "email";
   theme: buttonColorTheme;
@@ -17,9 +16,12 @@ interface NoLabelProps {
 
 function NoLabel({ placeholder, name, type, theme }: NoLabelProps) {
   const value = useContext(UserInfoFormContext);
-  const { loading } = value!;
+  const { loading, formData } = value!;
 
-  value.formData.current[name] = "";
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    formData.current[name] = e.target.value;
+  };
+
   return (
     <TextField.Text
       placeholder={placeholder}
@@ -29,9 +31,7 @@ function NoLabel({ placeholder, name, type, theme }: NoLabelProps) {
       textAlign={"center"}
       disabled={loading}
       label={false}
-      onChange={(e) => {
-        value.formData.current[name] = e.target.value;
-      }}
+      onChange={onChange}
     />
   );
 }
