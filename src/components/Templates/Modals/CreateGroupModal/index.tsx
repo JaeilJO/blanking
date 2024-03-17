@@ -23,7 +23,7 @@ function CreateGroupModal() {
     mutate(data);
   };
   return (
-    <ModalFrame title="Delete Group">
+    <ModalFrame title="Create Group">
       <Text.Body textAlign="text-center" fontSize="body-02" wrap={true}>
         특수문자를 제외한 <b>영어 대 소문자 혹은 한글</b>만 가능합니다
       </Text.Body>
@@ -34,7 +34,6 @@ function CreateGroupModal() {
             name="groupname"
             placeholder="추가할 그룹을 입력해주세요"
             theme="gray"
-            required
           />
           <UserInfoForm.SubmitButton theme="gray">
             그룹 추가하기
