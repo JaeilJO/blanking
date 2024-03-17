@@ -19,7 +19,7 @@ function UserInfoForm({
 }: UserInfoFormProps) {
   const ref = useRef<HTMLFormElement>(null);
   const value = useContext(UserInfoFormContext);
-  const { formData, loading, setLoading } = value!;
+  const { formData, setLoading } = value!;
 
   const onSubmitHandler = async (e: FormEvent) => {
     e.preventDefault();
