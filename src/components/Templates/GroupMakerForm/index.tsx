@@ -12,7 +12,6 @@ function GroupMakerForm({ subkey }: { subkey: string }) {
         <UserInfoForm.Input.NoLabel
           theme="gray"
           name="groupname"
-          required
           placeholder="Group Name"
           type="text"
         />
