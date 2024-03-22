@@ -17,7 +17,7 @@ export const Custom: Story = {
   },
 };
 
-export const Primary: Story = {
+export const Size: Story = {
   render: () => (
     <div>
       <Avatar name="Samll" size={"small"} />

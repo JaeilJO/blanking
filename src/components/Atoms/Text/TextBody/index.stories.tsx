@@ -5,6 +5,7 @@ import TextBody from ".";
 const meta: Meta<typeof TextBody> = {
   component: TextBody,
   tags: ["autodocs"],
+  title: "Atoms/Text/TextBody",
 };
 
 export default meta;
@@ -95,18 +96,5 @@ export const Color: Story = {
         White
       </TextBody>
     </div>
-  ),
-};
-
-export const Display: Story = {
-  render: () => (
-    <>
-      <TextBody display="inline" fontSize="body-01">
-        Inline
-      </TextBody>
-      <TextBody display="block" fontSize="body-01">
-        Block
-      </TextBody>
-    </>
   ),
 };
