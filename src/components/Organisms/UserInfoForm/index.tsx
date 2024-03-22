@@ -25,7 +25,20 @@ export const UserInfoFormContext = createContext<UserInfoFormContextType>({
   loading: false,
   setLoading: () => {},
 });
+/**
+ * User 정보를 전달하는 Form을 만들기위한 Component
 
+ * name
+  - input의 name은 db에 저장되는 이름으로 사용
+
+ * loading Status
+  - loading을 감지하고 loadingd인 경우 disabled를 true로 변경
+
+ * Form
+  - Form에 들어가는 onSubmit함수는 onSubmitHandler의 콜백함수로 전달
+  - onSumbmit함수는 Form의 data를 아무과정없이 받아와서 사용 가능
+  
+ */
 function UserInfoForm({ children }: { children: React.ReactNode }) {
   const formData = useRef({});
   const [loading, setLoading] = useState(false);
