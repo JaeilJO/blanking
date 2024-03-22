@@ -5,6 +5,7 @@ import TextSubtitle from ".";
 const meta: Meta<typeof TextSubtitle> = {
   component: TextSubtitle,
   tags: ["autodocs"],
+  title: "Atoms/Text/TextSubtitle",
 };
 
 export default meta;
@@ -99,18 +100,5 @@ export const Color: Story = {
         White
       </TextSubtitle>
     </div>
-  ),
-};
-
-export const Display: Story = {
-  render: () => (
-    <>
-      <TextSubtitle display="inline" fontSize="sub-01">
-        Inline
-      </TextSubtitle>
-      <TextSubtitle display="block" fontSize="sub-01">
-        Block
-      </TextSubtitle>
-    </>
   ),
 };

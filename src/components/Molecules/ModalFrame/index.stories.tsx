@@ -4,6 +4,7 @@ import ModalFrame from ".";
 
 const meta: Meta<typeof ModalFrame> = {
   component: ModalFrame,
+  tags: ["autodocs"],
   title: "Molecules/ModalFrame",
 };
 

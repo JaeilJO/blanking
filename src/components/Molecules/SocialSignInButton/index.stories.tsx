@@ -1,20 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import SidebarLinkOption from ".";
+import SocialSignInButton from ".";
 import { BsGoogle } from "react-icons/bs";
 
-const meta: Meta<typeof SidebarLinkOption> = {
-  component: SidebarLinkOption,
+const meta: Meta<typeof SocialSignInButton> = {
+  component: SocialSignInButton,
   tags: ["autodocs"],
-  title: "Molecules/SidebarLinkOption",
+  title: "Molecules/SocialSignInButton",
 };
 
 export default meta;
-type Story = StoryObj<typeof SidebarLinkOption>;
+type Story = StoryObj<typeof SocialSignInButton>;
 
 export const Primary: Story = {
   args: {
-    href: "/",
     icon: <BsGoogle />,
   },
 };
