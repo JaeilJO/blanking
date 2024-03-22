@@ -4,14 +4,13 @@ import Text from "@/components/Atoms/Text";
 import ModalFrame from "@/components/Molecules/ModalFrame";
 import UserInfoForm from "@/components/Organisms/UserInfoForm";
 import useCreateGroup from "@/hooks/useCreateGroup";
+
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 function CreateGroupModal() {
   const router = useRouter();
   const session = useSession();
-
-  //Group Name
 
   // User Subkey
   const subkey = session?.data?.user.subkey as string;

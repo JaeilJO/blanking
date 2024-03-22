@@ -1,62 +1,36 @@
 @use "@/style/fontSize";
 @use "@/style/color";
 
-.toast_alert {
-  position: absolute;
-
-  left: 50%;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  gap: 5px;
-
-  width: 60%;
-  height: 50px;
-
-  z-index: 999999;
-
-  border-radius: 8px;
-
-  text-align: left;
-
-  transform: translateX(-50%);
-
-  @include fontSize.font-size("body-01");
-  color: color.$white-color;
-
-  cursor: pointer;
-  animation-name: none;
-
-  &.success {
-    animation: show 0.5s ease-in-out forwards;
-    background-color: color.$green-color;
+.wrapper {
+  position: fixed;
+  top: -30px;
+  width: 100%;
+  z-index: 99999999;
+  &.slideUp {
+    animation: slideUp 0.5s ease-in-out forwards;
   }
-  &.error {
-    animation: show 0.5s ease-in-out forwards;
-    background-color: color.$red-color;
-  }
-  &.loading {
-    animation: show 0.5s ease-in-out forwards;
-    background-color: color.$yellow-color;
+
+  &.slideDown {
+    animation: slideDown 0.5s ease-in-out forwards;
   }
 }
 
-.icon {
-  @include fontSize.font-size("body-01");
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@keyframes show {
-  0% {
+@keyframes slideUp {
+  from {
+    top: 10px;
+    opacity: 1;
+  }
+  to {
+    top: -30px;
     opacity: 0;
-    top: -5%;
   }
+}
 
-  100% {
-    top: 3%;
+@keyframes slideDown {
+  from {
+    top: -30px;
+  }
+  to {
+    top: 10px;
   }
 }

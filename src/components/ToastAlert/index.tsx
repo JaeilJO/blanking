@@ -2,20 +2,41 @@
 
 // Utils
 import classNames from "classnames/bind";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAlertStore } from "@/zustand/alertStore";
 
 // Style
 import style from "./index.module.scss";
 
 // Icons
-import { BsCheckCircle } from "react-icons/bs";
-import { BsDashCircle } from "react-icons/bs";
+
+import Button from "../Atoms/Button";
 
 const cn = classNames.bind(style);
 
 function ToastAlert() {
   const { status, message, reset } = useAlertStore((state) => state);
+  const [animationClass, setAnimationClass] = useState("");
+  const theme = () => {
+    switch (status) {
+      case "success":
+        return "green";
+      case "error":
+        return "red";
+      case "loading":
+        return "yellow";
+      default:
+        return "gray";
+    }
+  };
+
+  useEffect(() => {
+    if (status === "none") {
+      setAnimationClass(style.slideUp);
+    } else {
+      setAnimationClass(style.slideDown);
+    }
+  }, [status]);
 
   useEffect(() => {
     // 초반에 컴포넌트 마운트 시, useEffect내의 SetTimeout이 실행되지 않도록 if문을 추가
@@ -28,24 +49,8 @@ function ToastAlert() {
   }, [status, reset]);
 
   return (
-    <div
-      className={cn({
-        toast_alert: true,
-        success: status === "success",
-        error: status === "error",
-        loading: status === "loading",
-      })}
-    >
-      <span className={style.icon}>
-        {status === "success" ? (
-          <BsCheckCircle />
-        ) : status === "error" ? (
-          <BsDashCircle />
-        ) : (
-          <></>
-        )}
-      </span>
-      <span>{message}</span>
+    <div className={cn(style["wrapper"], animationClass)}>
+      <Button.Filled theme={theme()}>{message}</Button.Filled>
     </div>
   );
 }

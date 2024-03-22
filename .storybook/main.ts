@@ -23,7 +23,7 @@ const config: StorybookConfig = {
         "@/style": path.resolve(__dirname, "../src/style"),
         "@/components": path.resolve(__dirname, "../src/components"),
         "@/": path.resolve(__dirname, "../src"),
-        // "next/navigation": require.resolve("./__mock__/next/navigation.js"),
+        "next/navigation": require.resolve("./__mock__/next/navigation.js"),
       };
     }
 

@@ -1,5 +1,7 @@
+import AuthorizedLoading from "@/components/AuthorizedLoading";
+
 function Loading() {
-  return <></>;
+  return <AuthorizedLoading />;
 }
 
 export default Loading;
